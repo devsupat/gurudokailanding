@@ -65,16 +65,134 @@
           <!-- Decorative glow -->
           <div class="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-2xl transform rotate-3 scale-95 -z-10"></div>
           
-          <!-- Image Wrapper with high quality shadow and slight tilt -->
-          <div class="bg-white p-2 rounded-2xl shadow-premium-lg border border-gray-100 transform hover:rotate-0 transition-transform duration-500 lg:rotate-1">
-            <img 
-              src="/dashboard-screenshot.png" 
-              alt="GuruDokAI Application Dashboard Screenshot" 
-              class="w-full h-auto rounded-xl object-cover" 
-              loading="eager"
-              width="1000"
-              height="650"
-            />
+           <!-- Image Wrapper with high quality shadow and slight tilt -->
+          <div class="w-full bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-premium-lg flex flex-col h-[520px] transform hover:rotate-0 transition-transform duration-500 lg:rotate-1 text-[11px] sm:text-xs text-slate-700 select-none">
+            <!-- Header Bar -->
+            <div class="h-10 border-b border-slate-200 bg-white flex items-center justify-between px-3 shrink-0">
+              <div class="flex items-center gap-2">
+                <!-- Logo -->
+                <div class="w-5 h-5 rounded bg-brand-primary flex items-center justify-center text-white font-bold text-[10px]">GD</div>
+                <span class="font-extrabold text-slate-800">GuruDok<span class="text-brand-primary">AI</span></span>
+              </div>
+              <!-- Search -->
+              <div class="relative w-28 sm:w-44">
+                <input type="text" placeholder="Cari RPP..." disabled class="w-full h-6 pl-6 pr-2 bg-slate-100 border border-slate-200 rounded text-[10px] focus:outline-none" />
+                <svg class="w-2.5 h-2.5 text-slate-400 absolute left-2 top-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              </div>
+              <!-- User profile -->
+              <div class="flex items-center gap-1.5">
+                <div class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-[9px] border border-slate-300">BS</div>
+                <span class="font-bold text-slate-600 text-[10px] hidden sm:inline">Budi Santoso</span>
+              </div>
+            </div>
+
+            <!-- Body -->
+            <div class="flex flex-1 min-h-0 overflow-hidden">
+              <!-- Sidebar -->
+              <div class="w-28 bg-slate-100 border-r border-slate-200 p-1.5 flex flex-col gap-3 shrink-0 hidden sm:flex">
+                <button class="bg-brand-primary text-white rounded py-1 px-1.5 font-bold text-center text-[9px] shadow-sm">
+                  + Buat RPP Baru
+                </button>
+                <div class="space-y-1">
+                  <div class="text-[8px] font-bold uppercase text-slate-400 tracking-wider px-1">Menu</div>
+                  <div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded bg-white border border-slate-200 font-bold text-slate-800">
+                    <svg class="w-3 h-3 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Generate RPP
+                  </div>
+                  <div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded font-semibold text-slate-500">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    Bank Modul
+                  </div>
+                </div>
+                <div class="space-y-1">
+                  <div class="text-[8px] font-bold uppercase text-slate-400 tracking-wider px-1">Daftar Dokumen</div>
+                  <div class="p-1 bg-brand-primary/10 border-l-2 border-brand-primary rounded text-[8px] font-bold text-slate-800">
+                    <div>RPP B. Indo Kelas 4</div>
+                    <div class="text-slate-400 font-normal">15 Okt 2023</div>
+                  </div>
+                  <div class="p-1 rounded text-[8px] font-semibold text-slate-500">
+                    <div>Modul Ajar IPA Kelas 5</div>
+                    <div class="text-slate-400 font-normal">12 Okt 2023</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Main Workspace -->
+              <div class="flex-1 bg-slate-200/40 p-2.5 flex flex-col gap-2 min-w-0">
+                <!-- Editor Header -->
+                <div class="flex items-center justify-between gap-2 shrink-0 bg-white p-1.5 rounded-lg border border-slate-200">
+                  <div class="font-extrabold text-slate-800 text-[9px] sm:text-[10px] truncate">Generate RPP</div>
+                  <div class="flex items-center gap-1 shrink-0">
+                    <button class="bg-brand-primary text-white font-bold px-2 py-0.5 rounded text-[8px] shadow-sm">Simpan</button>
+                    <button class="bg-slate-100 border border-slate-200 text-slate-600 font-bold px-1.5 py-0.5 rounded text-[8px] flex items-center gap-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                      PDF
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Editor Document Paper -->
+                <div class="flex-1 bg-white border border-slate-200 rounded-lg p-3 overflow-y-auto shadow-sm max-w-full font-sans text-[8px] sm:text-[9px] leading-relaxed text-slate-800 space-y-3">
+                  <!-- Document Title -->
+                  <div class="text-center border-b border-slate-200 pb-2 space-y-0.5">
+                    <h2 class="text-[10px] sm:text-xs font-bold text-slate-900 leading-tight">RPP Kurikulum Merdeka - Bahasa Indonesia Kelas 4 SD</h2>
+                    <p class="text-[7px] sm:text-[8px] text-slate-500 font-medium">Satuan Pendidikan: SD Negeri 01 Menteng · Tahun Pelajaran: 2023/2024 · Kelas: 4 / Semester: 1</p>
+                  </div>
+
+                  <!-- Section 1 -->
+                  <div class="space-y-1">
+                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">1. IDENTIFIKASI</div>
+                    <div class="pl-1.5 space-y-0.5">
+                      <div><span class="font-bold text-brand-primary">A. Identifikasi Murid</span>: Memetakan kebutuhan murid berdasarkan tingkat pemahaman bacaan, minat baca, serta gaya belajar (visual dan auditori).</div>
+                      <div><span class="font-bold text-brand-primary">B. Identifikasi Karakteristik Materi</span>: Mengidentifikasi tingkat kesulitan gagasan pokok/pendukung cerita dan relevansi konteks narasi lokal.</div>
+                      <div><span class="font-bold text-brand-primary">C. Dimensi Profil Lulusan</span>: Mandiri (bertanggung jawab atas tugasnya) dan Bernalar Kritis (menganalisis struktur informasi cerita).</div>
+                    </div>
+                  </div>
+
+                  <!-- Section 2 -->
+                  <div class="space-y-1">
+                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">2. DESAIN PEMBELAJARAN</div>
+                    <div class="pl-1.5 space-y-0.5">
+                      <div><span class="font-bold text-brand-primary">A. Tujuan Pembelajaran</span>: Murid mampu membedakan gagasan pokok dengan gagasan pendukung secara kritis dari teks narasi pendek.</div>
+                      <div><span class="font-bold text-brand-primary">B. Kerangka Pembelajaran</span>:</div>
+                      <div class="pl-2 space-y-0.5 text-slate-700">
+                        <div><span class="font-semibold">1) Praktik Pedagogik</span>: Pembelajaran kooperatif jigsaw dengan diferensiasi proses kelompok.</div>
+                        <div><span class="font-semibold">2) Pemanfaatan Digital</span>: Akses teks ajar interaktif dan lembar kerja melalui perangkat digital sekolah.</div>
+                        <div><span class="font-semibold">3) Kemitraan Pembelajaran</span>: Diskusi antar teman sejawat dalam bertukar gagasan pokok.</div>
+                        <div><span class="font-semibold">4) Lingkungan Pembelajaran</span>: Pengelompokan bangku fleksibel dan area membaca yang kondusif.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Section 3 -->
+                  <div class="space-y-1">
+                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">3. PENGALAMAN BELAJAR</div>
+                    <div class="pl-1.5 space-y-0.5">
+                      <div><span class="font-bold text-brand-primary">A. Pertemuan ke-1 (Langkah-Langkah Pembelajaran)</span>:</div>
+                      <div class="pl-2 space-y-0.5 text-slate-700">
+                        <div>• <span class="font-semibold">Pendahuluan (15 menit)</span>: Apersepsi dengan tanya jawab cerita lokal pendek dan penyampaian tujuan materi.</div>
+                        <div>• <span class="font-semibold">Inti (70 menit)</span>: Diskusi kelompok asal dan ahli untuk menemukan gagasan pokok. Presentasi kelompok dan penguatan guru.</div>
+                        <div>• <span class="font-semibold">Penutup (10 menit)</span>: Murid menyusun jurnal refleksi singkat dan guru menyampaikan tindak lanjut.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Section 4 -->
+                  <div class="space-y-1">
+                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">4. ASESMEN DAN TINDAK LANJUT</div>
+                    <div class="pl-1.5 space-y-0.5">
+                      <div>• <span class="font-bold text-brand-primary">Asesmen</span>: Formatif proses melingkupi rubrik keaktifan diskusi kelompok dan analisis gagasan cerita.</div>
+                      <div>• <span class="font-bold text-brand-primary">Tindak Lanjut</span>: Pengayaan sinopsis cerita (mahir) & pendampingan membaca terbimbing (remedial).</div>
+                    </div>
+                  </div>
+
+                  <!-- Watermark Footer -->
+                  <div class="text-right text-[7px] text-slate-300 font-semibold pt-1 border-t border-slate-100">
+                    Generated by GuruDokAI
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Extra floating card badge -->
