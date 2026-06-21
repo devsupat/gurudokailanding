@@ -17,19 +17,19 @@ Bangun landing page statis untuk produk **GuruDokAI** — aplikasi AI untuk guru
 ## TASK 1 — Setup Project
 
 ```
-[ ] 1.1 Init Astro project
+[x] 1.1 Init Astro project
         npm create astro@latest gurudokai-landing
         Pilih: Empty template, TypeScript: No, Install deps: Yes
 
-[ ] 1.2 Install dependencies
+[x] 1.2 Install dependencies
         npm install @astrojs/tailwind tailwindcss
         npx astro add tailwind
 
-[ ] 1.3 Init git & connect ke repo GitHub yang sudah konek ke Cloudflare Pages
+[x] 1.3 Init git & connect ke repo GitHub yang sudah konek ke Cloudflare Pages
         git init
         git remote add origin <repo-url>
 
-[ ] 1.4 Buat struktur folder sesuai ARCHITECTURE.md
+[x] 1.4 Buat struktur folder sesuai ARCHITECTURE.md
         src/components/
         src/layouts/
         src/pages/
@@ -41,7 +41,7 @@ Bangun landing page statis untuk produk **GuruDokAI** — aplikasi AI untuk guru
 ## TASK 2 — BaseLayout & SEO Head
 
 ```
-[ ] 2.1 Buat src/layouts/BaseLayout.astro
+[x] 2.1 Buat src/layouts/BaseLayout.astro
         - Semua meta tag dari ARCHITECTURE.md section 4
         - Schema JSON-LD: SoftwareApplication + FAQPage
         - Open Graph lengkap
@@ -49,11 +49,11 @@ Bangun landing page statis untuk produk **GuruDokAI** — aplikasi AI untuk guru
         - Preload font Plus Jakarta Sans dari Google Fonts
         - Cloudflare Web Analytics snippet
 
-[ ] 2.2 Buat public/robots.txt (isi dari ARCHITECTURE.md section 7)
+[x] 2.2 Buat public/robots.txt (isi dari ARCHITECTURE.md section 7)
 
-[ ] 2.3 Buat public/sitemap.xml (isi dari ARCHITECTURE.md section 8)
+[x] 2.3 Buat public/sitemap.xml (isi dari ARCHITECTURE.md section 8)
 
-[ ] 2.4 Siapkan placeholder public/og-image.png (1200x630px)
+[x] 2.4 Siapkan placeholder public/og-image.png (1200x630px)
 ```
 
 ---
@@ -61,7 +61,7 @@ Bangun landing page statis untuk produk **GuruDokAI** — aplikasi AI untuk guru
 ## TASK 3 — Komponen Hero
 
 ```
-[ ] 3.1 Buat src/components/Hero.astro
+[x] 3.1 Buat src/components/Hero.astro
 
 KONTEN:
 - Badge: "AI Asisten Guru Indonesia #1"
@@ -83,7 +83,7 @@ STYLE:
 ## TASK 4 — Komponen Pain Point
 
 ```
-[ ] 4.1 Buat src/components/PainPoint.astro
+[x] 4.1 Buat src/components/PainPoint.astro
 
 KONTEN:
 - H2: "Masih Begini Kondisi Guru Indonesia Setiap Hari?"
@@ -107,7 +107,7 @@ STYLE:
 ## TASK 5 — Komponen Demo/Before-After
 
 ```
-[ ] 5.1 Buat src/components/Demo.astro
+[x] 5.1 Buat src/components/Demo.astro
 
 KONTEN:
 - H2: "Lihat Sendiri Bedanya"
@@ -130,7 +130,7 @@ STYLE:
 ## TASK 6 — Komponen Fitur
 
 ```
-[ ] 6.1 Buat src/components/Features.astro
+[x] 6.1 Buat src/components/Features.astro
 
 ID section: id="fitur"
 
@@ -157,7 +157,7 @@ STYLE:
 ## TASK 7 — Komponen Harga
 
 ```
-[ ] 7.1 Buat src/components/Pricing.astro
+[x] 7.1 Buat src/components/Pricing.astro
 
 ID section: id="harga"
 
@@ -205,7 +205,7 @@ STYLE:
 ## TASK 8 — Komponen Testimoni
 
 ```
-[ ] 8.1 Buat src/components/Testimonials.astro
+[x] 8.1 Buat src/components/Testimonials.astro
 
 KONTEN:
 - H2: "Kata Guru yang Sudah Merasakan Manfaatnya"
@@ -237,7 +237,7 @@ STYLE:
 ## TASK 9 — Komponen FAQ
 
 ```
-[ ] 9.1 Buat src/components/FAQ.astro
+[x] 9.1 Buat src/components/FAQ.astro
 
 ID section: id="faq"
 
@@ -273,7 +273,7 @@ IMPLEMENTASI:
 ## TASK 10 — CTA Final & Footer
 
 ```
-[ ] 10.1 Buat src/components/CTAFinal.astro
+[x] 10.1 Buat src/components/CTAFinal.astro
 
 KONTEN:
 - H2: "Mulai Hemat Waktu Hari Ini"
@@ -282,7 +282,7 @@ KONTEN:
 - Subtext: "Mulai dari Rp 19.000 · Tidak perlu kartu kredit · Akses langsung"
 - Background: hijau solid
 
-[ ] 10.2 Buat src/components/Footer.astro
+[x] 10.2 Buat src/components/Footer.astro
 
 KONTEN:
 - Logo / nama GuruDokAI
@@ -301,21 +301,21 @@ STYLE:
 ## TASK 11 — Compose & Final Polish
 
 ```
-[ ] 11.1 Edit src/pages/index.astro
+[x] 11.1 Edit src/pages/index.astro
         Import dan susun semua komponen sesuai urutan BRD section 6:
         Hero → PainPoint → Demo → Features → Pricing → Testimonials → FAQ → CTAFinal → Footer
 
-[ ] 11.2 Smooth scroll
+[x] 11.2 Smooth scroll
         Tambahkan scroll-behavior: smooth di CSS global
 
-[ ] 11.3 Sticky navbar (opsional)
+[x] 11.3 Sticky navbar (opsional)
         Logo GuruDokAI kiri + CTA button kanan "Mulai Sekarang"
         Muncul setelah scroll 100px
 
-[ ] 11.4 Mobile test
+[x] 11.4 Mobile test
         Cek semua breakpoint: 375px, 390px, 414px, 768px, 1280px
 
-[ ] 11.5 Replace semua placeholder text/image
+[x] 11.5 Replace semua placeholder text/image
         Pastikan tidak ada "Lorem ipsum" tersisa
 ```
 
@@ -324,7 +324,7 @@ STYLE:
 ## TASK 12 — Deploy & Verify
 
 ```
-[ ] 12.1 Build test lokal
+[x] 12.1 Build test lokal
         npm run build
         npm run preview
         Pastikan tidak ada error
@@ -339,7 +339,7 @@ STYLE:
         Cek semua CTA link → lynk.id/oghiezr/zxjox857nz71
         Cek mobile view
 
-[ ] 12.4 Lighthouse audit
+[x] 12.4 Lighthouse audit
         Target: Performance > 90, SEO = 100, Accessibility > 90
         Fix issue jika ada
 
