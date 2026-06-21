@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = "GuruDokAI – RPP & Modul Ajar Otomatis dengan AI | Kurikulum Merdeka",
-  description = "Buat RPP, Modul Ajar, Bank Soal HOTS otomatis dalam 2 menit. AI Asisten Guru Indonesia sesuai Kurikulum Merdeka. Mulai Rp 19.000/bulan.",
-  keywords = "RPP otomatis, AI guru Indonesia, Kurikulum Merdeka, bank soal HOTS, modul ajar AI, aplikasi administrasi guru, RPP Kurikulum Merdeka otomatis, aplikasi administrasi guru"
+  title = "GuruDokAI Ultimate – Aplikasi RPP Otomatis & AI Guru Indonesia",
+  description = "Platform AI Lengkap untuk Guru Indonesia. Bukan sekadar pembuat Modul Ajar, melainkan satu aplikasi desktop untuk membantu hampir seluruh pekerjaan administrasi guru (RPP, Modul Ajar, Bank Soal HOTS, ATP, Prota, Prosem, dll).",
+  keywords = "aplikasi rpp otomatis, AI guru indonesia, GuruDokAI Ultimate, pembuat modul ajar otomatis, rpp kurikulum merdeka, bank soal hots, kktp otomatis, jurnal pembelajaran guru, prota prosem otomatis, scribd downloader, asisten guru AI"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokailanding.pages.dev');
@@ -36,16 +36,16 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content="GuruDokAI – RPP & Modul Ajar Otomatis dengan AI" />
-    <meta property="og:description" content="Selesaikan RPP & administrasi guru dalam 2 menit. Sesuai Kurikulum Merdeka. Mulai Rp 19.000/bulan." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content="id_ID" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content="GuruDokAI – RPP & Modul Ajar Otomatis dengan AI" />
-    <meta property="twitter:description" content="Selesaikan RPP & administrasi guru dalam 2 menit. Sesuai Kurikulum Merdeka. Mulai Rp 19.000/bulan." />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImageURL} />
 
     <!-- Google Fonts Preload -->
