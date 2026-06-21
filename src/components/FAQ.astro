@@ -1,0 +1,111 @@
+---
+const faqs = [
+  {
+    question: "Apakah GuruDokAI sesuai Kurikulum Merdeka?",
+    answer: "Ya, GuruDokAI mendukung penuh Kurikulum Merdeka termasuk format RPP dan Modul Ajar terbaru yang disesuaikan dengan Permendikdasmen No.13/2025 tentang prinsip Deep Learning."
+  },
+  {
+    question: "Bisa dipakai di HP Android atau iOS?",
+    answer: "Bisa sekali. GuruDokAI dirancang agar mobile-friendly. Anda bisa membuka dan menggunakannya langsung lewat browser HP Android, iPhone, tablet, maupun laptop/komputer tanpa perlu menginstal aplikasi tambahan."
+  },
+  {
+    question: "Apakah paket Lifetime benar-benar aktif selamanya?",
+    answer: "Ya, benar. Dengan membeli paket Lifetime seharga Rp 199.000, Anda hanya perlu membayar sekali di awal dan bisa mengakses GuruDokAI selamanya. Ini sudah mencakup seluruh pembaruan fitur di masa depan tanpa ada tagihan bulanan/tahunan."
+  },
+  {
+    question: "Berapa lama proses pembuatan RPP atau dokumennya?",
+    answer: "Proses generate biasanya memakan waktu sekitar 30 hingga 60 detik saja. Anda hanya perlu memilih mata pelajaran, kelas, dan memasukkan topik pembahasan utama, lalu sistem AI kami yang akan menuliskan isinya lengkap."
+  },
+  {
+    question: "Apakah hasil yang dibuat AI bisa diedit kembali?",
+    answer: "Sangat bisa. Setelah file RPP, Modul Ajar, atau bank soal selesai digenerate oleh AI, Anda bisa mengedit teksnya secara langsung di editor web kami sebelum mengekspornya ke format PDF yang rapi dan siap cetak."
+  },
+  {
+    question: "Metode pembayaran apa saja yang tersedia?",
+    answer: "Kami menerima pembayaran instan via QRIS (mendukung GoPay, Dana, ShopeePay, OVO, LinkAja) serta Transfer Bank Virtual Account (seperti Mandiri, BCA, BNI, BRI) dan kartu debit/kredit melalui platform pembayaran Lynk.id."
+  },
+  {
+    question: "Jika mengalami kendala, ke mana saya bisa bertanya?",
+    answer: "Tim bantuan GuruDokAI siap mendampingi Anda. Anda bisa langsung menghubungi CS kami melalui tombol chat WhatsApp yang tersedia di bagian bawah halaman ini."
+  }
+];
+---
+<section id="faq" class="py-20 bg-white scroll-mt-16">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Heading -->
+    <div class="text-center mb-16 space-y-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+        Pertanyaan yang Sering Diajukan (<span class="text-brand-primary">FAQ</span>)
+      </h2>
+      <p class="text-lg text-gray-600 font-medium">
+        Temukan jawaban cepat untuk pertanyaan umum mengenai layanan dan fitur GuruDokAI.
+      </p>
+    </div>
+
+    <!-- Accordion Wrapper -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300">
+          <button 
+            type="button"
+            class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left bg-white hover:bg-brand-light/20 transition-colors focus:outline-none"
+            aria-expanded="false"
+            data-index={index}
+          >
+            <span class="text-base sm:text-lg font-bold text-gray-900 pr-4">{faq.question}</span>
+            <span class="faq-icon-wrapper shrink-0 text-gray-400 group-hover:text-brand-primary transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus transition-transform duration-300"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </span>
+          </button>
+          
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white">
+            <div class="px-6 pb-6 pt-2 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
+              {faq.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const triggers = document.querySelectorAll('.faq-trigger');
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      const content = trigger.nextElementSibling as HTMLElement;
+      const icon = trigger.querySelector('.lucide-plus');
+      const item = trigger.closest('.faq-item');
+
+      // Close all other accordions
+      document.querySelectorAll('.faq-trigger').forEach(otherTrigger => {
+        if (otherTrigger !== trigger) {
+          otherTrigger.setAttribute('aria-expanded', 'false');
+          const otherContent = otherTrigger.nextElementSibling as HTMLElement;
+          if (otherContent) otherContent.style.maxHeight = '0px';
+          const otherIcon = otherTrigger.querySelector('.lucide-plus');
+          if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+          const otherItem = otherTrigger.closest('.faq-item');
+          if (otherItem) otherItem.classList.remove('border-brand-primary', 'bg-brand-light/10');
+        }
+      });
+
+      if (isExpanded) {
+        trigger.setAttribute('aria-expanded', 'false');
+        if (content) content.style.maxHeight = '0px';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        if (item) item.classList.remove('border-brand-primary', 'bg-brand-light/10');
+      } else {
+        trigger.setAttribute('aria-expanded', 'true');
+        if (content) content.style.maxHeight = content.scrollHeight + 'px';
+        // Rotate the plus sign to look like a cross or indicate close
+        if (icon) icon.style.transform = 'rotate(45deg)';
+        if (item) item.classList.add('border-brand-primary', 'bg-brand-light/10');
+      }
+    });
+  });
+</script>

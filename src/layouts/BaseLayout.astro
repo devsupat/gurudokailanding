@@ -1,0 +1,175 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+
+const {
+  title = "GuruDokAI – RPP & Modul Ajar Otomatis dengan AI | Kurikulum Merdeka",
+  description = "Buat RPP, Modul Ajar, Bank Soal HOTS otomatis dalam 2 menit. AI Asisten Guru Indonesia sesuai Kurikulum Merdeka. Mulai Rp 19.000/bulan.",
+  keywords = "RPP otomatis, AI guru Indonesia, Kurikulum Merdeka, bank soal HOTS, modul ajar AI, aplikasi administrasi guru, RPP Kurikulum Merdeka otomatis, aplikasi administrasi guru"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokai.com');
+const ogImageURL = new URL('/og-image.png', canonicalURL);
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content="GuruDokAI – RPP & Modul Ajar Otomatis dengan AI" />
+    <meta property="og:description" content="Selesaikan RPP & administrasi guru dalam 2 menit. Sesuai Kurikulum Merdeka. Mulai Rp 19.000/bulan." />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="id_ID" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content="GuruDokAI – RPP & Modul Ajar Otomatis dengan AI" />
+    <meta property="twitter:description" content="Selesaikan RPP & administrasi guru dalam 2 menit. Sesuai Kurikulum Merdeka. Mulai Rp 19.000/bulan." />
+    <meta property="twitter:image" content={ogImageURL} />
+
+    <!-- Google Fonts Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema: SoftwareApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "GuruDokAI",
+        "description": "Aplikasi AI asisten guru Indonesia untuk membuat RPP, Modul Ajar, Bank Soal HOTS, ATP otomatis sesuai Kurikulum Merdeka",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Android, iOS, Windows, macOS, Web",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Paket Bulanan",
+            "price": "19000",
+            "priceCurrency": "IDR",
+            "url": "https://lynk.id/oghiezr/zxjox857nz71"
+          },
+          {
+            "@type": "Offer",
+            "name": "Paket 3 Bulan",
+            "price": "39900",
+            "priceCurrency": "IDR",
+            "url": "https://lynk.id/oghiezr/zxjox857nz71"
+          },
+          {
+            "@type": "Offer",
+            "name": "Paket Tahunan",
+            "price": "99000",
+            "priceCurrency": "IDR",
+            "url": "https://lynk.id/oghiezr/zxjox857nz71",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "tahun"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Paket Lifetime",
+            "price": "199000",
+            "priceCurrency": "IDR",
+            "url": "https://lynk.id/oghiezr/zxjox857nz71"
+          }
+        ]
+      }
+    </script>
+
+    <!-- Schema: FAQPage -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Apakah GuruDokAI sesuai Kurikulum Merdeka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ya, GuruDokAI mendukung penuh Kurikulum Merdeka termasuk format terbaru sesuai Permendikdasmen No.13/2025 tentang Deep Learning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bisa dipakai di HP Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bisa. GuruDokAI berjalan di browser HP maupun laptop. Tidak perlu install aplikasi tambahan apa pun."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah paket Lifetime benar-benar selamanya?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ya. Bayar sekali Rp 199.000, Anda bisa mengakses GuruDokAI selamanya termasuk semua update fitur ke depannya tanpa biaya tambahan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Berapa lama proses generate RPP?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rata-rata 30–60 detik. Anda hanya perlu memilih mata pelajaran, kelas, dan topik — sisanya AI yang kerjakan secara otomatis."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah hasilnya bisa diedit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bisa. Semua hasil bisa diedit sesuai kebutuhan sekolah Anda dan bisa langsung diexport ke PDF untuk diprint."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Metode pembayaran apa saja yang tersedia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tersedia QRIS (GoPay, Dana, ShopeePay, OVO, LinkAja), Transfer Bank ke semua bank utama Indonesia, dan kartu kredit/debit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kalau ada pertanyaan, bisa hubungi siapa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Anda bisa langsung menghubungi tim bantuan kami via WhatsApp melalui link di bagian bawah halaman ini."
+            }
+          }
+        ]
+      }
+    </script>
+    
+    <!-- Cloudflare Web Analytics Snippet -->
+    <!-- Note: Token can be injected via Cloudflare Dashboard or manual deployment scripts -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f5d082be05e94b29b63ef28258bbf9d0"}'></script>
+  </head>
+  <body class="antialiased text-gray-800 bg-white">
+    <slot />
+  </body>
+</html>
