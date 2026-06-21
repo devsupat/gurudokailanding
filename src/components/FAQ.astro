@@ -25,8 +25,8 @@ const faqs = [
     answer: "Kami menerima pembayaran instan via QRIS (mendukung GoPay, Dana, ShopeePay, OVO, LinkAja) serta Transfer Bank Virtual Account (seperti Mandiri, BCA, BNI, BRI) dan kartu debit/kredit melalui platform pembayaran Lynk.id."
   },
   {
-    question: "Jika mengalami kendala, ke mana saya bisa bertanya?",
-    answer: "Tim bantuan GuruDokAI siap mendampingi Anda. Anda bisa langsung menghubungi CS kami melalui tombol chat WhatsApp yang tersedia di bagian bawah halaman ini."
+    question: "Kalau ada pertanyaan, bisa hubungi siapa?",
+    answer: "Tim bantuan GuruDokAI siap mendampingi Anda. Anda bisa langsung menghubungi CS kami melalui <a href=\"https://wa.me/6285189536359?text=Halo%20GuruDokAI,%20saya%20butuh%20bantuan\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">WhatsApp di sini</a>."
   }
 ];
 ---
@@ -60,9 +60,7 @@ const faqs = [
           </button>
           
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white">
-            <div class="px-6 pb-6 pt-2 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-              {faq.answer}
-            </div>
+            <div class="px-6 pb-6 pt-2 text-sm sm:text-base text-gray-600 leading-relaxed font-medium" set:html={faq.answer} />
           </div>
         </div>
       ))}
