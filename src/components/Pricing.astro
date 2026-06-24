@@ -49,12 +49,14 @@
           </ul>
         </div>
         <div class="mt-8">
-          <a 
-            href="https://lynk.id/oghiezr/zxjox857nz71" 
-            class="block w-full text-center py-3 text-sm font-bold text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white rounded-full transition-all duration-200"
+          <button 
+            data-package="Paket Bulanan" 
+            data-price="Rp 19.000" 
+            data-lynk="https://lynk.id/oghiezr/zxjox857nz71"
+            class="checkout-trigger-btn block w-full text-center py-3 text-sm font-bold text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white rounded-full cursor-pointer transition-all duration-200"
           >
             Mulai Sekarang
-          </a>
+          </button>
         </div>
       </div>
 
@@ -88,12 +90,14 @@
           </ul>
         </div>
         <div class="mt-8">
-          <a 
-            href="https://lynk.id/oghiezr/zxjox857nz71" 
-            class="block w-full text-center py-3 text-sm font-bold text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white rounded-full transition-all duration-200"
+          <button 
+            data-package="Paket 3 Bulan" 
+            data-price="Rp 39.900" 
+            data-lynk="https://lynk.id/oghiezr/zxjox857nz71"
+            class="checkout-trigger-btn block w-full text-center py-3 text-sm font-bold text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white rounded-full cursor-pointer transition-all duration-200"
           >
             Pilih Paket Ini
-          </a>
+          </button>
         </div>
       </div>
 
@@ -138,12 +142,14 @@
           </ul>
         </div>
         <div class="mt-8">
-          <a 
-            href="https://lynk.id/oghiezr/zxjox857nz71" 
-            class="block w-full text-center py-3.5 text-sm font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-md shadow-brand-primary/20 hover:scale-[1.02] transition-all"
+          <button 
+            data-package="Paket Tahunan" 
+            data-price="Rp 99.000" 
+            data-lynk="https://lynk.id/oghiezr/zxjox857nz71"
+            class="checkout-trigger-btn block w-full text-center py-3.5 text-sm font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full cursor-pointer shadow-md shadow-brand-primary/20 hover:scale-[1.02] transition-all"
           >
             Pilih Paket Ini
-          </a>
+          </button>
         </div>
       </div>
 
@@ -184,12 +190,14 @@
           </ul>
         </div>
         <div class="mt-8">
-          <a 
-            href="https://lynk.id/oghiezr/zxjox857nz71" 
-            class="block w-full text-center py-3 text-sm font-bold text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white rounded-full transition-all duration-200"
+          <button 
+            data-package="Paket Lifetime" 
+            data-price="Rp 199.000" 
+            data-lynk="https://lynk.id/oghiezr/zxjox857nz71"
+            class="checkout-trigger-btn block w-full text-center py-3 text-sm font-bold text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white rounded-full cursor-pointer transition-all duration-200"
           >
             Pilih Paket Ini
-          </a>
+          </button>
         </div>
       </div>
 
@@ -265,3 +273,212 @@
 
   </div>
 </section>
+
+<!-- Checkout Options Modal -->
+<div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-slate-900/60 backdrop-blur-sm p-4 transition-all duration-300 opacity-0">
+  <div id="modal-container" class="bg-white w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border border-slate-100 flex flex-col relative transform scale-95 opacity-0 transition-all duration-300">
+    
+    <!-- Close button -->
+    <button id="close-modal-btn" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer" aria-label="Tutup">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+    </button>
+
+    <!-- Modal Content -->
+    <div class="p-6 sm:p-8 space-y-6">
+      <!-- Title & Header -->
+      <div class="space-y-2">
+        <span class="inline-flex px-3 py-1 rounded-full bg-brand-light text-brand-primary text-xs font-bold w-fit">
+          💳 Metode Pembayaran
+        </span>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-gray-900">
+          Pilih Cara Pembayaran
+        </h3>
+        <p class="text-sm text-gray-500 font-medium">
+          Silakan pilih metode yang paling nyaman untuk mengaktifkan lisensi Anda.
+        </p>
+      </div>
+
+      <!-- Selected Package Info Card -->
+      <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div class="space-y-0.5">
+          <div id="modal-package-name" class="font-bold text-gray-900 text-base sm:text-lg">-</div>
+          <div class="text-xs text-gray-400 font-semibold flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop"><rect width="18" height="12" x="3" y="4" rx="2" ry="2"/><line x1="2" x2="22" y1="20" y2="20"/><line x1="12" x2="12" y1="16" y2="20"/></svg>
+            Lisensi untuk 1 Laptop / PC
+          </div>
+        </div>
+        <div class="text-right">
+          <div id="modal-package-price" class="text-xl sm:text-2xl font-extrabold text-brand-primary">-</div>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="space-y-4 pt-2">
+        
+        <!-- Option A: WhatsApp (RECOMMENDED/HIGHLIGHTED) -->
+        <div class="bg-emerald-50/40 hover:bg-emerald-50/80 border-2 border-emerald-500 rounded-2xl p-5 transition-all relative overflow-hidden flex flex-col justify-between group shadow-sm">
+          <!-- Recommended Badge -->
+          <div class="absolute top-0 right-0">
+            <span class="bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+              Hemat &amp; Bebas Admin
+            </span>
+          </div>
+
+          <div class="space-y-2 mb-4">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              </div>
+              <h4 class="font-extrabold text-gray-900 text-sm sm:text-base">
+                Transfer Manual via WhatsApp (Rekomendasi)
+              </h4>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed pl-10">
+              Bayar pas sesuai harga di atas (<strong>Bebas biaya admin platform</strong>). Transfer langsung ke Rekening Bank Resmi kami atau E-Wallet. Aktivasi manual dibimbing admin.
+            </p>
+          </div>
+          
+          <div class="pl-10">
+            <a 
+              id="modal-wa-btn"
+              href="#" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl shadow-md shadow-emerald-500/10 transition-all hover:scale-[1.01] cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+              Hubungi WhatsApp &amp; Bayar Tanpa Admin
+            </a>
+          </div>
+        </div>
+
+        <!-- Option B: Lynk.id -->
+        <div class="bg-white hover:bg-slate-50/50 border border-slate-200 rounded-2xl p-5 transition-all flex flex-col justify-between shadow-sm">
+          <div class="space-y-2 mb-4">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h4 class="font-extrabold text-gray-900 text-sm sm:text-base">
+                Pembayaran Instan via Website (Lynk.id)
+              </h4>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-500 font-medium leading-relaxed pl-10">
+              Aktivasi instan otomatis 24 jam via QRIS, Virtual Account, atau E-Wallet. 
+              <span class="text-rose-500 font-semibold block mt-1">
+                ⚠️ Dikenakan biaya admin platform tambahan sekitar Rp 2.000 - Rp 3.000 di halaman checkout.
+              </span>
+            </p>
+          </div>
+          
+          <div class="pl-10">
+            <a 
+              id="modal-lynk-btn"
+              href="#" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center justify-center w-full px-5 py-2.5 text-sm font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all cursor-pointer"
+            >
+              Lanjutkan Pembayaran Instan (+ Admin Fee)
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Footer / Notice -->
+      <div class="text-center pt-2">
+        <p class="text-[10px] sm:text-xs text-gray-400 font-medium flex items-center justify-center gap-1.5">
+          🔒 Pembayaran 100% Aman & Terpercaya · CS WhatsApp Aktif 08.00 - 21.00 WIB
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // DOM Elements
+  const triggerBtns = document.querySelectorAll('.checkout-trigger-btn');
+  const modal = document.getElementById('checkout-modal');
+  const modalContainer = document.getElementById('modal-container');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+  
+  const modalPackageName = document.getElementById('modal-package-name');
+  const modalPackagePrice = document.getElementById('modal-package-price');
+  const modalWaBtn = document.getElementById('modal-wa-btn');
+  const modalLynkBtn = document.getElementById('modal-lynk-btn');
+
+  const waNumber = '6285189536359';
+
+  function openModal(packageName, packagePrice, lynkUrl) {
+    if (!modal || !modalContainer || !modalPackageName || !modalPackagePrice || !modalWaBtn || !modalLynkBtn) return;
+    
+    // Update texts
+    modalPackageName.textContent = packageName;
+    modalPackagePrice.textContent = packagePrice;
+
+    // Generate dynamic WhatsApp Message
+    const textMsg = `Halo Admin GuruDokAI, saya ingin membeli ${packageName} seharga ${packagePrice} tanpa biaya admin via transfer langsung. Mohon infokan rekening pembayarannya.`;
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(textMsg)}`;
+    
+    modalWaBtn.setAttribute('href', waUrl);
+    modalLynkBtn.setAttribute('href', lynkUrl);
+
+    // Show modal with animation
+    modal.classList.remove('hidden');
+    // Force reflow
+    void modal.offsetWidth;
+    modal.classList.add('opacity-100');
+    modalContainer.classList.add('scale-100', 'opacity-100');
+    modalContainer.classList.remove('scale-95', 'opacity-0');
+    
+    // Disable body scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal || !modalContainer) return;
+    
+    modal.classList.remove('opacity-100');
+    modalContainer.classList.remove('scale-100', 'opacity-100');
+    modalContainer.classList.add('scale-95', 'opacity-0');
+    
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  // Setup event listeners
+  triggerBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = e.currentTarget;
+      const packageName = target.getAttribute('data-package') || 'Paket Langganan';
+      const packagePrice = target.getAttribute('data-price') || '';
+      const lynkUrl = target.getAttribute('data-lynk') || 'https://lynk.id/oghiezr/zxjox857nz71';
+      openModal(packageName, packagePrice, lynkUrl);
+    });
+  });
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      // Close only if clicked directly on the backdrop, not on the modal content container
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+  
+  // Close on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>
