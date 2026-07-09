@@ -339,16 +339,14 @@
           </div>
           
           <div class="pl-10">
-            <a 
+            <button 
               id="modal-wa-btn"
-              href="#" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              type="button"
               class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl shadow-md shadow-emerald-500/10 transition-all hover:scale-[1.01] cursor-pointer"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
-              Hubungi WhatsApp &amp; Bayar Tanpa Admin
-            </a>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code mr-2"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+              Bayar via QRIS &amp; Hubungi Admin
+            </button>
           </div>
         </div>
 
@@ -397,60 +395,163 @@
   </div>
 </div>
 
+<!-- QRIS Payment Modal -->
+<div id="qris-modal" class="fixed inset-0 z-[60] flex items-center justify-center hidden bg-slate-900/70 backdrop-blur-sm p-4 transition-all duration-300 opacity-0">
+  <div id="qris-modal-container" class="bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border border-slate-100 flex flex-col relative transform scale-95 opacity-0 transition-all duration-300">
+    
+    <!-- Close button -->
+    <button id="close-qris-modal-btn" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer z-10" aria-label="Tutup">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+    </button>
+
+    <!-- Modal Content -->
+    <div class="p-6 sm:p-8 space-y-5">
+
+      <!-- Header -->
+      <div class="text-center space-y-1 pr-8">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold w-fit mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+          Pembayaran Manual GuruDokAI
+        </span>
+        <h3 class="text-xl font-extrabold text-gray-900">Scan QRIS untuk Membayar</h3>
+      </div>
+
+      <!-- Package Info -->
+      <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div id="qris-package-name" class="font-bold text-gray-900 text-sm sm:text-base">-</div>
+          <div class="text-xs text-gray-500 font-medium mt-0.5">Lisensi untuk 1 Laptop / PC</div>
+        </div>
+        <div id="qris-package-price" class="text-xl sm:text-2xl font-extrabold text-emerald-600">-</div>
+      </div>
+
+      <!-- Description -->
+      <p class="text-xs sm:text-sm text-gray-500 font-medium text-center leading-relaxed">
+        Silakan scan QRIS di bawah ini menggunakan aplikasi yang mendukung QRIS (DANA, ShopeePay, GoPay, OVO, Mobile Banking, dan lainnya) sesuai nominal paket yang dipilih.
+      </p>
+
+      <!-- QRIS Image -->
+      <div class="flex justify-center">
+        <div class="relative rounded-2xl overflow-hidden border-2 border-emerald-200 shadow-md p-3 bg-white inline-block">
+          <img
+            src="/qris-gurudokai.jpeg"
+            alt="QRIS GuruDokAI"
+            class="w-72 h-72 sm:w-80 sm:h-80 object-contain block"
+          />
+        </div>
+      </div>
+
+      <!-- Confirm Button -->
+      <button
+        id="qris-confirm-btn"
+        type="button"
+        class="w-full flex items-center justify-center gap-2 py-3.5 px-6 text-sm font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-2xl shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.01] cursor-pointer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+        Saya Sudah Bayar
+      </button>
+
+      <!-- Trust note -->
+      <p class="text-center text-[10px] sm:text-xs text-gray-400 font-medium">
+        🔒 Setelah bayar, admin akan memverifikasi &amp; mengaktifkan lisensi Anda via WhatsApp
+      </p>
+
+    </div>
+  </div>
+</div>
+
 <script>
-  // DOM Elements
-  const triggerBtns = document.querySelectorAll('.checkout-trigger-btn');
-  const modal = document.getElementById('checkout-modal');
-  const modalContainer = document.getElementById('modal-container');
-  const closeModalBtn = document.getElementById('close-modal-btn');
-  
-  const modalPackageName = document.getElementById('modal-package-name');
+  // ─── DOM Elements ───────────────────────────────────────────────────────────
+  const triggerBtns       = document.querySelectorAll('.checkout-trigger-btn');
+  const modal             = document.getElementById('checkout-modal');
+  const modalContainer    = document.getElementById('modal-container');
+  const closeModalBtn     = document.getElementById('close-modal-btn');
+  const modalPackageName  = document.getElementById('modal-package-name');
   const modalPackagePrice = document.getElementById('modal-package-price');
-  const modalWaBtn = document.getElementById('modal-wa-btn');
-  const modalLynkBtn = document.getElementById('modal-lynk-btn');
+  const modalWaBtn        = document.getElementById('modal-wa-btn');
+  const modalLynkBtn      = document.getElementById('modal-lynk-btn');
+
+  // QRIS Modal elements
+  const qrisModal         = document.getElementById('qris-modal');
+  const qrisModalContainer= document.getElementById('qris-modal-container');
+  const closeQrisModalBtn = document.getElementById('close-qris-modal-btn');
+  const qrisPackageName   = document.getElementById('qris-package-name');
+  const qrisPackagePrice  = document.getElementById('qris-package-price');
+  const qrisConfirmBtn    = document.getElementById('qris-confirm-btn');
 
   const waNumber = '6285189536359';
 
+  // State: keep track of current package selection for QRIS modal
+  let currentPackage = { name: '', price: '' };
+
+  // ─── Checkout Modal ─────────────────────────────────────────────────────────
   function openModal(packageName, packagePrice, lynkUrl) {
     if (!modal || !modalContainer || !modalPackageName || !modalPackagePrice || !modalWaBtn || !modalLynkBtn) return;
-    
-    // Update texts
+
     modalPackageName.textContent = packageName;
     modalPackagePrice.textContent = packagePrice;
 
-    // Generate dynamic WhatsApp Message
-    const textMsg = `Halo Admin GuruDokAI, saya ingin membeli ${packageName} seharga ${packagePrice} tanpa biaya admin via transfer langsung. Mohon infokan rekening pembayarannya.`;
-    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(textMsg)}`;
-    
-    modalWaBtn.setAttribute('href', waUrl);
+    // Store for QRIS flow
+    currentPackage = { name: packageName, price: packagePrice };
+
+    // Lynk URL for instant payment
     modalLynkBtn.setAttribute('href', lynkUrl);
 
     // Show modal with animation
     modal.classList.remove('hidden');
-    // Force reflow
     void modal.offsetWidth;
     modal.classList.add('opacity-100');
     modalContainer.classList.add('scale-100', 'opacity-100');
     modalContainer.classList.remove('scale-95', 'opacity-0');
-    
-    // Disable body scroll
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
     if (!modal || !modalContainer) return;
-    
     modal.classList.remove('opacity-100');
     modalContainer.classList.remove('scale-100', 'opacity-100');
     modalContainer.classList.add('scale-95', 'opacity-0');
-    
     setTimeout(() => {
       modal.classList.add('hidden');
       document.body.style.overflow = '';
     }, 300);
   }
 
-  // Setup event listeners
+  // ─── QRIS Modal ──────────────────────────────────────────────────────────────
+  function openQrisModal() {
+    if (!qrisModal || !qrisModalContainer) return;
+
+    // Populate package info
+    if (qrisPackageName) qrisPackageName.textContent = currentPackage.name;
+    if (qrisPackagePrice) qrisPackagePrice.textContent = currentPackage.price;
+
+    // Show QRIS modal
+    qrisModal.classList.remove('hidden');
+    void qrisModal.offsetWidth;
+    qrisModal.classList.add('opacity-100');
+    qrisModalContainer.classList.add('scale-100', 'opacity-100');
+    qrisModalContainer.classList.remove('scale-95', 'opacity-0');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeQrisModal() {
+    if (!qrisModal || !qrisModalContainer) return;
+    qrisModal.classList.remove('opacity-100');
+    qrisModalContainer.classList.remove('scale-100', 'opacity-100');
+    qrisModalContainer.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      qrisModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  function buildWaUrl(packageName, price) {
+    const msg =
+`Halo Admin GuruDokAI.\n\nSaya sudah melakukan pembayaran.\n\nPaket: ${packageName}\nNominal: ${price}\n\nMohon dilakukan verifikasi pembayaran dan aktivasi lisensi.\n\nTerima kasih.`;
+    return `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+  }
+
+  // ─── Event Listeners ─────────────────────────────────────────────────────────
   triggerBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -462,23 +563,40 @@
     });
   });
 
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
-  }
-
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      // Close only if clicked directly on the backdrop, not on the modal content container
-      if (e.target === modal) {
-        closeModal();
-      }
+  // WA button → close checkout modal → open QRIS modal
+  if (modalWaBtn) {
+    modalWaBtn.addEventListener('click', () => {
+      closeModal();
+      // Small delay so checkout modal finishes closing before QRIS opens
+      setTimeout(openQrisModal, 320);
     });
   }
-  
-  // Close on Escape key press
+
+  // "Saya Sudah Bayar" → open WhatsApp
+  if (qrisConfirmBtn) {
+    qrisConfirmBtn.addEventListener('click', () => {
+      const waUrl = buildWaUrl(currentPackage.name, currentPackage.price);
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    });
+  }
+
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  if (closeQrisModalBtn) closeQrisModalBtn.addEventListener('click', closeQrisModal);
+
+  if (modal) {
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  }
+  if (qrisModal) {
+    qrisModal.addEventListener('click', (e) => { if (e.target === qrisModal) closeQrisModal(); });
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      if (qrisModal && !qrisModal.classList.contains('hidden')) {
+        closeQrisModal();
+      } else if (modal && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
     }
   });
 </script>
