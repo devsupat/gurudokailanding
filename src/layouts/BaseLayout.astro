@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {
-  title = "GuruDokAI - Aplikasi Administrasi Guru & AI untuk Guru (Modul Ajar & RPP)",
+  title = "GuruDokAI – Aplikasi Administrasi Guru Berbasis AI | Modul Ajar, ATP, KKTP, RPP",
   description = "GuruDokAI adalah aplikasi administrasi guru otomatis dan AI untuk guru Indonesia. Hasilkan Modul Ajar, RPP, ATP, KKTP Kurikulum Merdeka, dan Bank Soal HOTS dalam 2 menit.",
   keywords = "aplikasi administrasi guru, AI untuk guru, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, aplikasi RPP, administrasi guru otomatis, rpp kurikulum merdeka, pembuat modul ajar otomatis, kktp otomatis, GuruDokAI"
 } = Astro.props;
@@ -62,6 +62,10 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
         "description": "Aplikasi AI asisten guru Indonesia untuk membuat RPP, Modul Ajar, Bank Soal HOTS, ATP otomatis sesuai Kurikulum Merdeka",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Android, iOS, Windows, macOS, Web",
+        "author": {
+          "@type": "Organization",
+          "name": "GuruDokAI"
+        },
         "offers": [
           {
             "@type": "Offer",
