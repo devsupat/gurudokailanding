@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = "GuruDokAI Ultimate – Aplikasi RPP Otomatis & AI Guru Indonesia",
-  description = "Platform AI Lengkap untuk Guru Indonesia. Bukan sekadar pembuat Modul Ajar, melainkan satu aplikasi desktop untuk membantu hampir seluruh pekerjaan administrasi guru (RPP, Modul Ajar, Bank Soal HOTS, ATP, Prota, Prosem, dll).",
-  keywords = "aplikasi rpp otomatis, AI guru indonesia, GuruDokAI Ultimate, pembuat modul ajar otomatis, rpp kurikulum merdeka, bank soal hots, kktp otomatis, jurnal pembelajaran guru, prota prosem otomatis, scribd downloader, asisten guru AI"
+  title = "GuruDokAI - Aplikasi Administrasi Guru & AI untuk Guru (Modul Ajar & RPP)",
+  description = "GuruDokAI adalah aplikasi administrasi guru otomatis dan AI untuk guru Indonesia. Hasilkan Modul Ajar, RPP, ATP, KKTP Kurikulum Merdeka, dan Bank Soal HOTS dalam 2 menit.",
+  keywords = "aplikasi administrasi guru, AI untuk guru, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, aplikasi RPP, administrasi guru otomatis, rpp kurikulum merdeka, pembuat modul ajar otomatis, kktp otomatis, GuruDokAI"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokailanding.pages.dev');
@@ -108,10 +108,18 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
         "mainEntity": [
           {
             "@type": "Question",
+            "name": "Apakah GuruDokAI merupakan aplikasi administrasi guru otomatis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ya, GuruDokAI adalah aplikasi administrasi guru otomatis berbasis teknologi AI untuk guru Indonesia. Platform ini berfungsi sebagai generator modul ajar, aplikasi RPP, generator ATP, serta generator KKTP Kurikulum Merdeka secara otomatis dan cepat."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Apakah GuruDokAI sesuai Kurikulum Merdeka?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Ya, GuruDokAI mendukung penuh Kurikulum Merdeka termasuk format terbaru sesuai Permendikdasmen No.13/2025 tentang Deep Learning."
+              "text": "Ya, GuruDokAI mendukung penuh Kurikulum Merdeka termasuk format RPP dan Modul Ajar terbaru yang disesuaikan dengan Permendikdasmen No.13/2025 tentang prinsip Deep Learning."
             }
           },
           {
