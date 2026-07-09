@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = "GuruDokAI – Aplikasi Administrasi Guru Berbasis AI | Modul Ajar, ATP, KKTP, RPP",
-  description = "GuruDokAI adalah aplikasi administrasi guru otomatis dan AI untuk guru Indonesia. Hasilkan Modul Ajar, RPP, ATP, KKTP Kurikulum Merdeka, dan Bank Soal HOTS dalam 2 menit.",
-  keywords = "aplikasi administrasi guru, AI untuk guru, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, aplikasi RPP, administrasi guru otomatis, rpp kurikulum merdeka, pembuat modul ajar otomatis, kktp otomatis, GuruDokAI"
+  title = "GuruDokAI - Sistem Administrasi Pembelajaran Guru Berbasis AI | RPP, Modul Ajar & LKPD",
+  description = "GuruDokAI adalah sistem administrasi pembelajaran guru berbasis AI. Buat dokumen pembelajaran seperti RPP, Modul Ajar, LKPD, Asesmen, dan Jurnal sesuai Kurikulum Merdeka secara otomatis.",
+  keywords = "sistem administrasi pembelajaran guru, aplikasi administrasi guru, AI untuk guru, RPP Kurikulum Merdeka, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, RPP Cinta Kemenag, RPM Kemendikdasmen, LKPD Interaktif, GuruDokAI"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokailanding.pages.dev');
@@ -112,18 +112,42 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Apakah GuruDokAI merupakan aplikasi administrasi guru otomatis?",
+            "name": "Apakah GuruDokAI sesuai Kurikulum Merdeka?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Ya, GuruDokAI adalah aplikasi administrasi guru otomatis berbasis teknologi AI untuk guru Indonesia. Platform ini berfungsi sebagai generator modul ajar, aplikasi RPP, generator ATP, serta generator KKTP Kurikulum Merdeka secara otomatis dan cepat."
+              "text": "Ya, GuruDokAI mendukung penuh Kurikulum Merdeka termasuk format RPP/RPM (Rencana Pembelajaran Mendalam) terbaru yang disesuaikan dengan Permendikdasmen No.13/2025 tentang prinsip Deep Learning."
             }
           },
           {
             "@type": "Question",
-            "name": "Apakah GuruDokAI sesuai Kurikulum Merdeka?",
+            "name": "Berapa biaya berlangganan GuruDokAI?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Ya, GuruDokAI mendukung penuh Kurikulum Merdeka termasuk format RPP dan Modul Ajar terbaru yang disesuaikan dengan Permendikdasmen No.13/2025 tentang prinsip Deep Learning."
+              "text": "Kami menawarkan paket berlangganan yang sangat hemat untuk guru Indonesia. Paket Bulanan mulai dari Rp 19.000, paket 3 Bulan seharga Rp 39.900, paket Tahunan seharga Rp 99.000 (hanya Rp 8.250/bulan), dan paket Lifetime seharga Rp 199.000 untuk akses selamanya tanpa tagihan bulanan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah bisa membuat RPP, Modul Ajar, dan LKPD sekaligus?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ya! GuruDokAI menyediakan generator lengkap yang saling terintegrasi dalam satu platform, meliputi RPM Kemendikdasmen (Deep Learning), RPP Cinta Kemenag, Asesmen Lengkap, Jurnal Harian, Analisis CP, dan LKPD Interaktif."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Berapa lama waktu untuk membuat satu dokumen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Proses pembuatan dokumen administrasi seperti RPP, Modul Ajar, atau LKPD hanya membutuhkan waktu sekitar 60 hingga 90 detik. Anda tinggal menentukan mata pelajaran, kelas, dan topik, lalu AI asisten kami yang akan menyusunnya secara otomatis."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah data sekolah dan dokumen saya aman?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sangat aman. Seluruh data sekolah, data murid, dan dokumen administrasi yang Anda generate terenkripsi secara aman, bersifat privat, dan tidak akan dibagikan kepada pihak ketiga manapun."
             }
           },
           {
@@ -131,47 +155,7 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
             "name": "Apakah GuruDokAI memiliki aplikasi Android dan Windows?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Ya, GuruDokAI memiliki aplikasi resmi untuk Android (SiAjar) di Google Play Store, serta aplikasi desktop untuk Windows 10 & 11. Anda juga bisa membukanya langsung lewat browser HP Android, iOS/iPhone, tablet, maupun komputer."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Jenjang sekolah apa saja yang didukung oleh GuruDokAI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "GuruDokAI mendukung pembuatan administrasi lengkap untuk jenjang SD (Sekolah Dasar), MI (Madrasah Ibtidaiyah), SMP (Sekolah Menengah Pertama), MTs (Madrasah Tsanawiyah), SMA (Sekolah Menengah Atas), MA (Madrasah Aliyah), dan SMK (Sekolah Menengah Kejuruan)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah paket Lifetime benar-benar selamanya?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ya. Bayar sekali Rp 199.000, Anda bisa mengakses GuruDokAI selamanya termasuk semua update fitur ke depannya tanpa biaya tambahan."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Berapa lama proses generate RPP?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Rata-rata 30–60 detik. Anda hanya perlu memilih mata pelajaran, kelas, dan topik — sisanya AI yang kerjakan secara otomatis."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah hasilnya bisa diedit?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bisa. Semua hasil bisa diedit sesuai kebutuhan sekolah Anda dan bisa langsung diexport ke PDF untuk diprint."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Metode pembayaran apa saja yang tersedia?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tersedia QRIS (GoPay, Dana, ShopeePay, OVO, LinkAja), Transfer Bank ke semua bank utama Indonesia, dan kartu kredit/debit."
+              "text": "Ya, betul sekali. GuruDokAI memiliki aplikasi resmi untuk Android (SiAjar) di Google Play Store, serta aplikasi desktop khusus Windows 10 & 11. Anda juga tetap bisa mengaksesnya secara langsung melalui web browser di HP Android, iPhone, tablet, atau komputer tanpa perlu instalasi tambahan."
             }
           },
           {
@@ -179,7 +163,7 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
             "name": "Kalau ada pertanyaan, bisa hubungi siapa?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Anda bisa langsung menghubungi tim bantuan kami via WhatsApp melalui link di bagian bawah halaman ini."
+              "text": "Tim bantuan GuruDokAI siap mendampingi Anda kapan saja. Anda bisa langsung menghubungi CS kami melalui WhatsApp di nomor +6285189536359 untuk bantuan teknis maupun aktivasi."
             }
           }
         ]

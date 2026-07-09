@@ -1,6 +1,6 @@
 ---
 ---
-<section class="relative pt-28 pb-20 md:pt-36 md:pb-28 bg-gradient-to-b from-brand-light/80 via-brand-light/20 to-white overflow-hidden">
+<section class="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-brand-light/80 via-brand-light/20 to-white overflow-hidden">
   <!-- Decorative background shapes -->
   <div class="absolute top-0 right-0 -z-10 w-96 h-96 bg-brand-medium/10 rounded-full blur-3xl opacity-60 transform translate-x-20 -translate-y-20"></div>
   <div class="absolute bottom-0 left-0 -z-10 w-80 h-80 bg-brand-light rounded-full blur-2xl opacity-80 transform -translate-x-20 translate-y-20"></div>
@@ -24,13 +24,13 @@
 
         <!-- Heading -->
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
-          Akhiri Lembur Bikin Administrasi. <br />
-          <span class="text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent">GuruDokAI Ultimate</span> Selesaikan dalam 2 Menit.
+          Bikin RPP, Modul Ajar & <br class="hidden sm:inline" />
+          <span class="text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent">LKPD dalam Menit</span> dengan AI
         </h1>
 
         <!-- Subheading / description -->
-        <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 font-medium">
-          <strong>Aplikasi Administrasi Guru Otomatis & AI untuk Guru.</strong> Bukan sekadar aplikasi modul ajar biasa, melainkan satu generator modul ajar, aplikasi RPP, generator ATP, dan generator KKTP otomatis terlengkap untuk membantu menyusun administrasi guru Kurikulum Merdeka secara instan.
+        <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+          Buat dokumen administrasi pembelajaran seperti RPP, Modul Ajar, LKPD, Asesmen, dan Jurnal sesuai Kurikulum Merdeka dengan bantuan AI.
         </p>
 
         <!-- CTA Buttons -->
@@ -39,181 +39,473 @@
             href="#harga" 
             class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-lg shadow-brand-primary/20 hover-scale"
           >
-            Coba Sekarang – Mulai 19rb
+            Mulai Sekarang
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
           <a 
-            href="#fitur" 
+            href="#demo" 
             class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-gray-700 bg-white hover:bg-gray-50 border border-gray-200 rounded-full shadow-sm hover-scale"
           >
-            Lihat Fitur
+            Lihat Cara Kerja
           </a>
         </div>
 
-        <!-- Social Proof -->
-        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-          <div class="flex -space-x-2">
-            <span class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-brand-primary text-white flex items-center justify-center font-bold text-xs">G</span>
-            <span class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-green-500 text-white flex items-center justify-center font-bold text-xs">U</span>
-            <span class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">R</span>
-            <span class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-teal-600 text-white flex items-center justify-center font-bold text-xs">U</span>
+        <!-- Badges list -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3 pt-2 text-xs sm:text-sm font-bold text-gray-500">
+          <div class="flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-primary"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            Tanpa kartu kredit
           </div>
-          <div class="text-sm font-semibold text-gray-600 text-center sm:text-left">
-            Dipercaya oleh <span class="text-brand-primary font-bold">100+ guru</span> di Indonesia (SD, SMP, SMA, & SMK).
+          <div class="flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-primary"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            Aktivasi instan
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-primary"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            Support WhatsApp
           </div>
         </div>
       </div>
 
-      <!-- Right Dashboard Image -->
+      <!-- Right Column: Interactive Generator Simulation -->
       <div class="lg:col-span-5 relative">
-        <div class="relative mx-auto max-w-[500px] lg:max-w-none">
+        <div class="relative mx-auto max-w-[480px] lg:max-w-none">
           <!-- Decorative glow -->
           <div class="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-2xl transform rotate-3 scale-95 -z-10"></div>
           
-           <!-- Image Wrapper with high quality shadow and slight tilt -->
-          <div class="w-full bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-premium-lg flex flex-col h-[520px] transform hover:rotate-0 transition-transform duration-500 lg:rotate-1 text-[11px] sm:text-xs text-slate-700 select-none">
+          <!-- Generator Mockup Box -->
+          <div class="w-full bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-premium-lg flex flex-col h-[480px] transform hover:rotate-0 transition-transform duration-500 lg:rotate-1 text-xs text-slate-700 select-none relative">
             <!-- Header Bar -->
-            <div class="h-10 border-b border-slate-200 bg-white flex items-center justify-between px-3 shrink-0">
+            <div class="h-10 border-b border-slate-200 bg-white flex items-center justify-between px-4 shrink-0">
               <div class="flex items-center gap-2">
-                <!-- Logo -->
                 <div class="w-5 h-5 rounded bg-brand-primary flex items-center justify-center text-white font-bold text-[10px]">GD</div>
-                <span class="font-extrabold text-slate-800">GuruDok<span class="text-brand-primary">AI</span></span>
+                <span class="font-extrabold text-slate-800 text-xs">GuruDok<span class="text-brand-primary">AI</span></span>
               </div>
-              <!-- Search -->
-              <div class="relative w-28 sm:w-44">
-                <input type="text" placeholder="Cari RPP..." disabled class="w-full h-6 pl-6 pr-2 bg-slate-100 border border-slate-200 rounded text-[10px] focus:outline-none" />
-                <svg class="w-2.5 h-2.5 text-slate-400 absolute left-2 top-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-              </div>
-              <!-- User profile -->
+              <div class="text-[10px] text-slate-400 font-mono">gurudokai.id/generator</div>
               <div class="flex items-center gap-1.5">
-                <div class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-[9px] border border-slate-300">BS</div>
-                <span class="font-bold text-slate-600 text-[10px] hidden sm:inline">Budi Santoso</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-400/80"></span>
               </div>
             </div>
 
-            <!-- Body -->
-            <div class="flex flex-1 min-h-0 overflow-hidden">
-              <!-- Sidebar -->
-              <div class="w-28 bg-slate-100 border-r border-slate-200 p-1.5 flex flex-col gap-3 shrink-0 hidden sm:flex">
-                <button class="bg-brand-primary text-white rounded py-1 px-1.5 font-bold text-center text-[9px] shadow-sm">
-                  + Buat RPP Baru
-                </button>
-                <div class="space-y-1">
-                  <div class="text-[8px] font-bold uppercase text-slate-400 tracking-wider px-1">Menu</div>
-                  <div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded bg-white border border-slate-200 font-bold text-slate-800">
-                    <svg class="w-3 h-3 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    Generate RPP
+            <!-- Content States Container -->
+            <div class="flex-1 p-6 flex flex-col justify-between bg-white relative overflow-hidden">
+              
+              <!-- STATE 1: FORM INPUT -->
+              <div id="sim-state-input" class="space-y-4 flex-1 flex flex-col justify-between transition-opacity duration-300">
+                <div class="space-y-4">
+                  <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Generator Administrasi Pembelajaran</h3>
+                  
+                  <!-- Field 1 -->
+                  <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mata Pelajaran</label>
+                    <div class="h-10 border border-slate-200 rounded-lg px-3 flex items-center bg-slate-50 text-slate-700 font-bold">
+                      <span id="sim-input-mapel" class="pr-0.5"></span><span id="sim-cursor-mapel" class="w-1.5 h-3.5 bg-brand-primary inline-block animate-pulse"></span>
+                    </div>
                   </div>
-                  <div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded font-semibold text-slate-500">
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                    Bank Modul
+
+                  <!-- Field 2 -->
+                  <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Kelas & Fase</label>
+                    <div class="h-10 border border-slate-200 rounded-lg px-3 flex items-center bg-slate-50 text-slate-700 font-bold">
+                      <span id="sim-input-kelas"></span><span id="sim-cursor-kelas" class="w-1.5 h-3.5 bg-brand-primary inline-block hidden animate-pulse"></span>
+                    </div>
+                  </div>
+
+                  <!-- Field 3 -->
+                  <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Topik Pembelajaran</label>
+                    <div class="h-10 border border-slate-200 rounded-lg px-3 flex items-center bg-slate-50 text-slate-700 font-bold">
+                      <span id="sim-input-topik"></span><span id="sim-cursor-topik" class="w-1.5 h-3.5 bg-brand-primary inline-block hidden animate-pulse"></span>
+                    </div>
                   </div>
                 </div>
-                <div class="space-y-1">
-                  <div class="text-[8px] font-bold uppercase text-slate-400 tracking-wider px-1">Daftar Dokumen</div>
-                  <div class="p-1 bg-brand-primary/10 border-l-2 border-brand-primary rounded text-[8px] font-bold text-slate-800">
-                    <div>RPP B. Indo Kelas 4</div>
-                    <div class="text-slate-400 font-normal">15 Okt 2023</div>
+
+                <button id="sim-btn-generate" class="w-full h-11 bg-brand-primary text-white font-bold rounded-lg flex items-center justify-center gap-2 shadow-md shadow-brand-primary/20 transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+                  Mulai Buat Dokumen AI
+                </button>
+              </div>
+
+              <!-- STATE 2: LIVE WRITING -->
+              <div id="sim-state-writing" class="hidden absolute inset-0 p-3.5 bg-slate-50 flex flex-col justify-between transition-opacity duration-300">
+                <!-- Step Pills Container -->
+                <div class="flex items-center justify-between gap-1 border-b border-slate-200 pb-2 mb-2 shrink-0 overflow-x-auto scrollbar-none">
+                  <div class="flex items-center gap-1 overflow-x-auto scrollbar-none py-0.5">
+                    <span id="step-pill-1" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">1. CP</span>
+                    <span id="step-pill-2" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">2. TP</span>
+                    <span id="step-pill-3" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">3. ATP</span>
+                    <span id="step-pill-4" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">4. PROTA</span>
+                    <span id="step-pill-5" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">5. PROSEM</span>
+                    <span id="step-pill-6" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">6. KKTP</span>
+                    <span id="step-pill-7" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">7. RPP/MODUL</span>
                   </div>
-                  <div class="p-1 rounded text-[8px] font-semibold text-slate-500">
-                    <div>Modul Ajar IPA Kelas 5</div>
-                    <div class="text-slate-400 font-normal">12 Okt 2023</div>
+                  <div class="flex items-center gap-1 shrink-0 text-brand-primary text-[8px] font-bold uppercase tracking-wider bg-brand-primary/10 px-1.5 py-0.5 rounded border border-brand-primary/20">
+                    <span class="w-1 h-1 rounded-full bg-brand-primary animate-ping"></span>
+                    <span id="sim-step-badge">CP</span>
                   </div>
+                </div>
+
+                <!-- Active Step Description -->
+                <div class="flex items-center justify-between text-[9px] font-extrabold text-slate-800 mb-1.5 shrink-0 px-0.5">
+                  <span id="sim-step-title">Langkah 1/7: Menganalisis Capaian Pembelajaran (CP)</span>
+                  <span class="text-brand-primary font-mono text-[9px]" id="sim-writing-percent">0%</span>
+                </div>
+                
+                <!-- Document preview sheet -->
+                <div id="sim-document-sheet" class="flex-1 bg-white border border-slate-200 rounded-lg p-2.5 font-mono text-[8px] text-slate-700 leading-relaxed overflow-y-auto shadow-inner text-left select-text whitespace-pre-wrap"></div>
+                
+                <!-- Status Footer with progress bar -->
+                <div class="mt-2 pt-1.5 border-t border-slate-100 flex items-center justify-between gap-4 shrink-0 px-0.5">
+                  <div class="flex-1">
+                    <div class="h-1 bg-slate-100 rounded-full overflow-hidden">
+                      <div id="sim-writing-progress" class="h-full bg-brand-primary transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                  </div>
+                  <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wider">Kurikulum Merdeka</span>
                 </div>
               </div>
 
-              <!-- Main Workspace -->
-              <div class="flex-1 bg-slate-200/40 p-2.5 flex flex-col gap-2 min-w-0">
-                <!-- Editor Header -->
-                <div class="flex items-center justify-between gap-2 shrink-0 bg-white p-1.5 rounded-lg border border-slate-200">
-                  <div class="font-extrabold text-slate-800 text-[9px] sm:text-[10px] truncate">Generate RPP</div>
-                  <div class="flex items-center gap-1 shrink-0">
-                    <button class="bg-brand-primary text-white font-bold px-2 py-0.5 rounded text-[8px] shadow-sm">Simpan</button>
-                    <button class="bg-slate-100 border border-slate-200 text-slate-600 font-bold px-1.5 py-0.5 rounded text-[8px] flex items-center gap-0.5">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                      PDF
+              <!-- STATE 3: COMPLETED -->
+              <div id="sim-state-completed" class="hidden absolute inset-0 p-6 bg-white flex flex-col justify-between transition-opacity duration-300">
+                <div class="space-y-6">
+                  <!-- Completed header -->
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-green-100 text-brand-primary flex items-center justify-center shadow-inner">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-800 text-sm">Dokumen Berhasil Dibuat!</h4>
+                      <p class="text-[10px] text-slate-400 font-bold">Siap diunduh untuk Kurikulum Merdeka</p>
+                    </div>
+                  </div>
+
+                  <!-- Details Card -->
+                  <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+                    <div class="flex items-center justify-between text-[11px]">
+                      <span class="font-bold text-slate-400 uppercase tracking-wider text-[9px]">Hasil Dokumen</span>
+                      <span class="font-extrabold text-slate-700">RPP, Modul Ajar & LKPD</span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                      <span class="font-bold text-slate-400 uppercase tracking-wider text-[9px]">Kualitas</span>
+                      <span class="font-extrabold text-brand-primary flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-brand-primary"><path d="M12 2L2 22h20L12 2z"/></svg>
+                        Premium
+                      </span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                      <span class="font-bold text-slate-400 uppercase tracking-wider text-[9px]">Waktu Selesai</span>
+                      <span class="font-extrabold text-slate-700">~ 90 detik</span>
+                    </div>
+                  </div>
+
+                  <!-- Download Buttons -->
+                  <div class="grid grid-cols-2 gap-3 pt-2">
+                    <button class="h-11 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-md shadow-rose-600/10 cursor-pointer">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                      Download PDF
+                    </button>
+                    <button class="h-11 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-md shadow-blue-600/10 cursor-pointer">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-edit"><path d="M4 13.5V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4v-8.5"/></svg>
+                      Download Word
                     </button>
                   </div>
                 </div>
-
-                <!-- Editor Document Paper -->
-                <div class="flex-1 bg-white border border-slate-200 rounded-lg p-3 overflow-y-auto shadow-sm max-w-full font-sans text-[8px] sm:text-[9px] leading-relaxed text-slate-800 space-y-3">
-                  <!-- Document Title -->
-                  <div class="text-center border-b border-slate-200 pb-2 space-y-0.5">
-                    <h2 class="text-[10px] sm:text-xs font-bold text-slate-900 leading-tight">RPP Kurikulum Merdeka - Bahasa Indonesia Kelas 4 SD</h2>
-                    <p class="text-[7px] sm:text-[8px] text-slate-500 font-medium">Satuan Pendidikan: SD Negeri 01 Menteng · Tahun Pelajaran: 2023/2024 · Kelas: 4 / Semester: 1</p>
-                  </div>
-
-                  <!-- Section 1 -->
-                  <div class="space-y-1">
-                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">1. IDENTIFIKASI</div>
-                    <div class="pl-1.5 space-y-0.5">
-                      <div><span class="font-bold text-brand-primary">A. Identifikasi Murid</span>: Memetakan kebutuhan murid berdasarkan tingkat pemahaman bacaan, minat baca, serta gaya belajar (visual dan auditori).</div>
-                      <div><span class="font-bold text-brand-primary">B. Identifikasi Karakteristik Materi</span>: Mengidentifikasi tingkat kesulitan gagasan pokok/pendukung cerita dan relevansi konteks narasi lokal.</div>
-                      <div><span class="font-bold text-brand-primary">C. Dimensi Profil Lulusan</span>: Mandiri (bertanggung jawab atas tugasnya) dan Bernalar Kritis (menganalisis struktur informasi cerita).</div>
-                    </div>
-                  </div>
-
-                  <!-- Section 2 -->
-                  <div class="space-y-1">
-                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">2. DESAIN PEMBELAJARAN</div>
-                    <div class="pl-1.5 space-y-0.5">
-                      <div><span class="font-bold text-brand-primary">A. Tujuan Pembelajaran</span>: Murid mampu membedakan gagasan pokok dengan gagasan pendukung secara kritis dari teks narasi pendek.</div>
-                      <div><span class="font-bold text-brand-primary">B. Kerangka Pembelajaran</span>:</div>
-                      <div class="pl-2 space-y-0.5 text-slate-700">
-                        <div><span class="font-semibold">1) Praktik Pedagogik</span>: Pembelajaran kooperatif jigsaw dengan diferensiasi proses kelompok.</div>
-                        <div><span class="font-semibold">2) Pemanfaatan Digital</span>: Akses teks ajar interaktif dan lembar kerja melalui perangkat digital sekolah.</div>
-                        <div><span class="font-semibold">3) Kemitraan Pembelajaran</span>: Diskusi antar teman sejawat dalam bertukar gagasan pokok.</div>
-                        <div><span class="font-semibold">4) Lingkungan Pembelajaran</span>: Pengelompokan bangku fleksibel dan area membaca yang kondusif.</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Section 3 -->
-                  <div class="space-y-1">
-                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">3. PENGALAMAN BELAJAR</div>
-                    <div class="pl-1.5 space-y-0.5">
-                      <div><span class="font-bold text-brand-primary">A. Pertemuan ke-1 (Langkah-Langkah Pembelajaran)</span>:</div>
-                      <div class="pl-2 space-y-0.5 text-slate-700">
-                        <div>• <span class="font-semibold">Pendahuluan (15 menit)</span>: Apersepsi dengan tanya jawab cerita lokal pendek dan penyampaian tujuan materi.</div>
-                        <div>• <span class="font-semibold">Inti (70 menit)</span>: Diskusi kelompok asal dan ahli untuk menemukan gagasan pokok. Presentasi kelompok dan penguatan guru.</div>
-                        <div>• <span class="font-semibold">Penutup (10 menit)</span>: Murid menyusun jurnal refleksi singkat dan guru menyampaikan tindak lanjut.</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Section 4 -->
-                  <div class="space-y-1">
-                    <div class="font-extrabold text-slate-900 text-[9px] border-b border-slate-100 pb-0.5">4. ASESMEN DAN TINDAK LANJUT</div>
-                    <div class="pl-1.5 space-y-0.5">
-                      <div>• <span class="font-bold text-brand-primary">Asesmen</span>: Formatif proses melingkupi rubrik keaktifan diskusi kelompok dan analisis gagasan cerita.</div>
-                      <div>• <span class="font-bold text-brand-primary">Tindak Lanjut</span>: Pengayaan sinopsis cerita (mahir) & pendampingan membaca terbimbing (remedial).</div>
-                    </div>
-                  </div>
-
-                  <!-- Watermark Footer -->
-                  <div class="text-right text-[7px] text-slate-300 font-semibold pt-1 border-t border-slate-100">
-                    Generated by GuruDokAI
-                  </div>
-                </div>
+                <div class="text-center text-[10px] text-slate-400 font-semibold animate-pulse">Menghidupkan ulang simulasi...</div>
               </div>
-            </div>
-          </div>
 
-          <!-- Extra floating card badge -->
-          <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-premium border border-gray-50 flex items-center gap-3 hover-scale hidden sm:flex">
-            <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-brand-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium">Kurikulum Merdeka</p>
-              <p class="text-sm font-extrabold text-gray-900">100% Sesuai Standar</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Real-time Stats Grid Row -->
+    <div class="mt-20 border-t border-gray-150 pt-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-primary">10.000+</div>
+          <div class="text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mt-1.5">Guru Aktif</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-primary">100.000+</div>
+          <div class="text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mt-1.5">Dokumen Dibuat</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-primary">1.000+</div>
+          <div class="text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mt-1.5">Sekolah Terdaftar</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-primary">99%</div>
+          <div class="text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mt-1.5">Tingkat Kepuasan</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  // Simulation control
+  const stateInput = document.getElementById('sim-state-input');
+  const stateWriting = document.getElementById('sim-state-writing');
+  const stateCompleted = document.getElementById('sim-state-completed');
+
+  const textMapel = document.getElementById('sim-input-mapel');
+  const textKelas = document.getElementById('sim-input-kelas');
+  const textTopik = document.getElementById('sim-input-topik');
+
+  const cursorMapel = document.getElementById('sim-cursor-mapel');
+  const cursorKelas = document.getElementById('sim-cursor-kelas');
+  const cursorTopik = document.getElementById('sim-cursor-topik');
+
+  const btnGenerate = document.getElementById('sim-btn-generate');
+  const documentSheet = document.getElementById('sim-document-sheet');
+  const writingProgress = document.getElementById('sim-writing-progress');
+  const writingPercent = document.getElementById('sim-writing-percent');
+  const stepTitle = document.getElementById('sim-step-title');
+  const stepBadge = document.getElementById('sim-step-badge');
+
+  const mapelString = "Matematika";
+  const kelasString = "Kelas 7 · Fase D";
+  const topikString = "Bilangan Bulat & Operasinya";
+
+  const stepsData = [
+    {
+      badge: "CP",
+      title: "Langkah 1/7: Menganalisis Capaian Pembelajaran (CP)",
+      lines: [
+        "MODUL AJAR KURIKULUM MERDEKA",
+        "============================",
+        "\n[ANALISIS CAPAIAN PEMBELAJARAN (CP)]",
+        "Fase           : D (SMP Kelas VII)",
+        "Elemen         : Bilangan",
+        "Kompetensi CP  : Peserta didik dapat membaca, menulis, dan membandingkan bilangan bulat serta menggunakannya untuk menyelesaikan masalah kehidupan sehari-hari."
+      ]
+    },
+    {
+      badge: "TP",
+      title: "Langkah 2/7: Merumuskan Tujuan Pembelajaran (TP)",
+      lines: [
+        "\n[RUMUSAN TUJUAN PEMBELAJARAN (TP)]",
+        "Berdasarkan kompetensi CP Elemen Bilangan:",
+        "• TP 7.1 : Mengidentifikasi konsep bilangan bulat positif dan negatif.",
+        "• TP 7.2 : Membandingkan & mengurutkan bilangan bulat pada garis bilangan.",
+        "• TP 7.3 : Menghitung hasil operasi penjumlahan & pengurangan bilangan bulat.",
+        "• TP 7.4 : Memecahkan masalah kontekstual bertema suhu & kedalaman laut."
+      ]
+    },
+    {
+      badge: "ATP",
+      title: "Langkah 3/7: Menyusun Alur Tujuan Pembelajaran (ATP)",
+      lines: [
+        "\n[ALUR TUJUAN PEMBELAJARAN (ATP)]",
+        "Alur & Alokasi JP Matematika Kelas VII Semester Ganjil:",
+        "• Unit 7.1.1: Bilangan Bulat Positif/Negatif (4 JP) -> Pekan 3 Juli",
+        "• Unit 7.1.2: Membandingkan & Mengurutkan (4 JP) -> Pekan 4 Juli",
+        "• Unit 7.1.3: Operasi Hitung Penjumlahan/Pengurangan (6 JP) -> Pekan 1-2 Agustus",
+        "• Unit 7.1.4: Asesmen Formatif & Kuis Bab (2 JP) -> Pekan 3 Agustus"
+      ]
+    },
+    {
+      badge: "PROTA",
+      title: "Langkah 4/7: Membuat Program Tahunan (PROTA)",
+      lines: [
+        "\n[PROGRAM TAHUNAN (PROTA)]",
+        "Tahun Pelajaran: 2026/2027",
+        "Alokasi JP Efektif Semester Ganjil (80 JP total):",
+        "  - Bab 1 Bilangan Bulat   : 16 JP (Juli - Agustus)",
+        "  - Bab 2 Aljabar          : 20 JP (Agustus - September)",
+        "  - Bab 3 Persamaan Linear : 18 JP (Oktober)",
+        "  - Cadangan & Sumatif     : 8 JP"
+      ]
+    },
+    {
+      badge: "PROSEM",
+      title: "Langkah 5/7: Membuat Program Semester (PROSEM)",
+      lines: [
+        "\n[PROGRAM SEMESTER (PROSEM)]",
+        "Distribusi Mingguan Pembelajaran Matematika (JP):",
+        "• JULI     - Pekan 3: TP 7.1 (4 JP) | Pekan 4: TP 7.2 (4 JP)",
+        "• AGUSTUS  - Pekan 1: TP 7.3 (4 JP) | Pekan 2: TP 7.3 (2 JP) + STS (2 JP)",
+        "• AGUSTUS  - Pekan 3: TP 7.4 (4 JP)",
+        "• SEPTEMBER- Pekan 1-4: Bab 2 Aljabar (16 JP)"
+      ]
+    },
+    {
+      badge: "KKTP",
+      title: "Langkah 6/7: Menetapkan Kriteria Ketercapaian (KKTP)",
+      lines: [
+        "\n[KRITERIA KETERCAPAIAN TUJUAN PEMBELAJARAN (KKTP)]",
+        "Metode Penilaian: Rubrik Deskripsi Kriteria Ketuntasan:",
+        "• Interval 0 - 60%  : Belum Tuntas (Wajib Remedial Intervensi Khusus)",
+        "• Interval 61 - 80% : Cukup Tuntas (Tidak Perlu Remedial, Pendampingan Kelas)",
+        "• Interval 81 - 100%: Sangat Tuntas (Diberikan Pengayaan Soal HOTS)"
+      ]
+    },
+    {
+      badge: "MODUL",
+      title: "Langkah 7/7: Menyusun Modul Ajar & LKPD",
+      lines: [
+        "\n[PERANGKAT AJAR UTAMA: MODUL AJAR & LKPD]",
+        "Topik Ajar    : Operasi Penjumlahan & Pengurangan Bilangan Bulat",
+        "Metode/Model  : Problem-Based Learning (PBL)",
+        "Langkah Pembelajaran:",
+        "  1. PENDAHULUAN (10 Menit): Guru memandu apersepsi dengan termometer ruangan.",
+        "  2. INTI (50 Menit): Siswa membentuk kelompok kecil, berdiskusi memecahkan LKPD menggunakan kartu positif-negatif.",
+        "  3. PENUTUP (20 Menit): Presentasi kelompok, kuis formatif mandiri, dan refleksi.",
+        "\n--------------------------------------------",
+        "SELURUH DOKUMEN PERENCANAAN SELESAI DIGENERATE!"
+      ]
+    }
+  ];
+
+  async function typeWriter(text: string, element: HTMLElement, cursor: HTMLElement) {
+    element.textContent = "";
+    cursor.classList.remove('hidden');
+    for (let i = 0; i < text.length; i++) {
+      element.textContent += text.charAt(i);
+      await new Promise(resolve => setTimeout(resolve, 80));
+    }
+    cursor.classList.add('hidden');
+  }
+
+  async function streamDocument(lines: string[], element: HTMLElement, progressCallback: (pct: number) => void) {
+    const totalLines = lines.length;
+    
+    for (let index = 0; index < totalLines; index++) {
+      const line = lines[index];
+      const div = document.createElement('div');
+      div.className = "min-h-[1.2em]";
+      
+      // Styling rules for headers
+      if (line.startsWith("[") || line.startsWith("MODUL AJAR") || line.startsWith("===") || line.startsWith("1.") || line.startsWith("2.") || line.startsWith("3.") || line.startsWith("4.")) {
+        div.classList.add("font-extrabold", "text-brand-primary");
+      } else if (line.startsWith("---") || line.startsWith("SELURUH") || line.startsWith("DOKUMEN SELESAI")) {
+        div.classList.add("font-extrabold", "text-emerald-600");
+      } else {
+        div.classList.add("text-slate-700", "font-medium");
+      }
+      
+      element.appendChild(div);
+      
+      // Type out the characters of the line
+      for (let charIndex = 0; charIndex < line.length; charIndex++) {
+        div.textContent += line.charAt(charIndex);
+        element.scrollTop = element.scrollHeight;
+        await new Promise(resolve => setTimeout(resolve, 6)); // faster character typing speed
+      }
+      
+      // Progress calculation
+      const pct = Math.round(((index + 1) / totalLines) * 100);
+      progressCallback(pct);
+      
+      // Delay between lines
+      await new Promise(resolve => setTimeout(resolve, 40));
+    }
+  }
+
+  let isSimulating = false;
+
+  async function startSimulation() {
+    if (isSimulating) return;
+    if (!stateInput || !stateWriting || !stateCompleted) return;
+    
+    isSimulating = true;
+
+    while (true) {
+      // Reset view
+      stateInput.classList.remove('hidden');
+      stateWriting.classList.add('hidden');
+      stateCompleted.classList.add('hidden');
+      
+      if (textMapel) textMapel.textContent = "";
+      if (textKelas) textKelas.textContent = "";
+      if (textTopik) textTopik.textContent = "";
+      if (documentSheet) documentSheet.innerHTML = "";
+      if (writingProgress) writingProgress.style.width = '0%';
+      if (writingPercent) writingPercent.textContent = '0%';
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Type Mapel
+      if (textMapel && cursorMapel) await typeWriter(mapelString, textMapel, cursorMapel);
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+      // Type Kelas
+      if (textKelas && cursorKelas) await typeWriter(kelasString, textKelas, cursorKelas);
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+      // Type Topik
+      if (textTopik && cursorTopik) await typeWriter(topikString, textTopik, cursorTopik);
+      await new Promise(resolve => setTimeout(resolve, 800));
+
+      // Click button action style
+      if (btnGenerate) {
+        btnGenerate.classList.add('scale-95', 'brightness-90');
+        await new Promise(resolve => setTimeout(resolve, 150));
+        btnGenerate.classList.remove('scale-95', 'brightness-90');
+      }
+
+      // Switch to Writing state
+      stateInput.classList.add('hidden');
+      stateWriting.classList.remove('hidden');
+
+      // Animate steps sequentially
+      for (let stepIndex = 0; stepIndex < stepsData.length; stepIndex++) {
+        const step = stepsData[stepIndex];
+        
+        // Update Title & Badge
+        if (stepTitle) stepTitle.textContent = step.title;
+        if (stepBadge) stepBadge.textContent = step.badge;
+
+        // Update pills style
+        for (let p = 0; p < stepsData.length; p++) {
+          const pill = document.getElementById(`step-pill-${p + 1}`);
+          if (!pill) continue;
+          if (p < stepIndex) {
+            // Completed step
+            pill.className = "px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-brand-primary text-white border-brand-primary";
+          } else if (p === stepIndex) {
+            // Active step
+            pill.className = "px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-brand-primary/10 text-brand-primary border-brand-primary/40 animate-pulse";
+          } else {
+            // Pending step
+            pill.className = "px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200";
+          }
+        }
+
+        // Stream the text for this step
+        if (documentSheet) {
+          await streamDocument(step.lines, documentSheet, (pct) => {
+            const stepPct = Math.round(((stepIndex + (pct / 100)) / stepsData.length) * 100);
+            if (writingProgress) writingProgress.style.width = stepPct + '%';
+            if (writingPercent) writingPercent.textContent = stepPct + '%';
+          });
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 600));
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Switch to Completed state
+      stateWriting.classList.add('hidden');
+      stateCompleted.classList.remove('hidden');
+
+      // Wait before repeating
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+  }
+
+  // Initial call
+  document.addEventListener('DOMContentLoaded', () => {
+    startSimulation();
+  });
+  // fallback if DOMContentLoaded has already fired
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    startSimulation();
+  }
+</script>
