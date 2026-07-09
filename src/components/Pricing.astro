@@ -432,12 +432,21 @@
 
       <!-- QRIS Image -->
       <div class="flex justify-center">
-        <div class="relative rounded-2xl overflow-hidden border-2 border-emerald-200 shadow-md p-3 bg-white inline-block">
-          <img
-            src="/qris-gurudokai.jpeg"
-            alt="QRIS GuruDokAI"
-            class="w-72 h-72 sm:w-80 sm:h-80 object-contain block"
-          />
+        <div class="rounded-2xl border-2 border-emerald-200 shadow-md p-3 bg-white">
+          <div class="relative w-72 sm:w-80 aspect-[1763/2480]">
+            <!-- Background Flyer -->
+            <img
+              src="/qris-gurudokai.jpeg"
+              alt="QRIS GuruDokAI"
+              class="w-full h-full block object-contain"
+            />
+            <!-- High-resolution crisp overlay QR code -->
+            <img
+              src="/qris-gurudokai-clean.svg"
+              alt="QRIS GuruDokAI QR Code"
+              class="absolute top-[34.839%] left-[25.842%] w-[48.406%] h-[34.366%] object-contain"
+            />
+          </div>
         </div>
       </div>
 
