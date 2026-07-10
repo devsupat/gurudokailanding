@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "Generator TP Kurikulum Merdeka AI | GuruDokAI";
+const description = "Rumuskan Tujuan Pembelajaran (TP) dari Capaian Pembelajaran (CP) secara otomatis menggunakan AI. Generator TP Kurikulum Merdeka presisi dengan analisis kata kerja kompetensi.";
+const keywords = "generator tp, tujuan pembelajaran kurikulum merdeka, merumuskan tp dari cp, pembuat tp otomatis, download tp matematika sd, perangkat pembelajaran ai";
+
+// Custom FAQ for TP Page
+const tpFaqs = [
+  {
+    question: "Bagaimana cara merumuskan Tujuan Pembelajaran (TP) dari Capaian Pembelajaran (CP)?",
+    answer: "Dalam Kurikulum Merdeka, perumusan TP harus memuat 2 aspek penting: <strong>Kompetensi (kemampuan atau keterampilan siswa)</strong> dan <strong>Lingkup Materi (konten atau konsep yang dipelajari)</strong>. GuruDokAI menganalisis kedua unsur ini dari teks CP dan merumuskannya ke dalam kalimat TP yang operasional secara otomatis."
+  },
+  {
+    question: "Apakah kalimat TP hasil AI menggunakan Kata Kerja Operasional (KKO) Taksonomi Bloom?",
+    answer: "Ya, betul sekali. Generator kami menggunakan referensi <strong>KKO Taksonomi Bloom yang direvisi (mengingat, memahami, menerapkan, menganalisis, mengevaluasi, menciptakan)</strong> untuk memastikan kualitas pengukuran sikap dan kognitif siswa."
+  },
+  {
+    question: "Apakah saya bisa memasukkan beberapa elemen CP sekaligus?",
+    answer: "Ya, Anda bisa memasukkan satu atau beberapa elemen CP secara bersamaan. AI akan memetakan dan mengelompokkan hasil rumusan TP berdasarkan elemennya masing-masing agar rapi."
+  },
+  {
+    question: "Apakah GuruDokAI mendukung seluruh jenjang sekolah?",
+    answer: "Tentu. Kami menyediakan dukungan perumusan TP dari Fase A (Kelas 1-2 SD) hingga Fase F (Kelas 11-12 SMA/SMK) lengkap untuk semua mata pelajaran resmi."
+  },
+  {
+    question: "Apakah ada video panduan atau demo cara menggunakan GuruDokAI?",
+    answer: "Tentu saja. Anda bisa menyaksikan <a href=\"https://www.tiktok.com/@scenecrafter/video/7655997727506976008\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Demo Utama</a> dan <a href=\"https://www.tiktok.com/@scenecrafter/video/7659118261556055316\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Eksplorasi Fitur Lengkap</a> kami di TikTok. Untuk panduan lengkap dari awal, Anda bisa menonton <a href=\"https://www.youtube.com/watch?v=cOYjV9c7IZc\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Panduan Setup & Cara Pakai</a> di YouTube, serta <a href=\"https://www.tiktok.com/@scenecrafter/video/7651961072823438608\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Tutorial Aplikasi Android</a>."
+  }
+];
+
+// Custom simulation steps for TP
+const tpSteps = [
+  {
+    badge: "CP",
+    title: "Langkah 1/3: Analisis Teks Capaian Pembelajaran (CP)",
+    lines: [
+      "PERUMUSAN TUJUAN PEMBELAJARAN (TP)",
+      "==================================",
+      "Jenjang / Kelas : SD / I",
+      "Fase            : A",
+      "Elemen          : Pancasila",
+      "\n[TEKS CAPAIAN PEMBELAJARAN (CP)]",
+      "Murid mampu mengenal dan menceritakan simbol dan sila-sila Pancasila dalam lambang negara Garuda Pancasila."
+    ]
+  },
+  {
+    badge: "Kompetensi",
+    title: "Langkah 2/3: Menentukan Kompetensi & Materi",
+    lines: [
+      "\n[ANALISIS UNSUR CP]",
+      "• 1. Kompetensi (KKO):",
+      "  - Mengenal (C1 - Pengetahuan)",
+      "  - Menceritakan (C2 - Pemahaman)",
+      "\n• 2. Lingkup Materi:",
+      "  - Simbol Pancasila",
+      "  - Sila-Sila Pancasila",
+      "  - Lambang Negara Garuda Pancasila"
+    ]
+  },
+  {
+    badge: "TP",
+    title: "Langkah 3/3: Merumuskan Kalimat TP Lengkap",
+    lines: [
+      "\n[HASIL PERUMUSAN TUJUAN PEMBELAJARAN (TP)]",
+      "1. TP A.1: Siswa dapat mengenal simbol-simbol sila Pancasila melalui gambar Garuda Pancasila dengan benar.",
+      "2. TP A.2: Siswa dapat menceritakan hubungan sila Pancasila dengan simbolnya dalam kehidupan sehari-hari.",
+      "\n--------------------------------------------",
+      "DOKUMEN RUMUSAN TP OPERASIONAL SELESAI DIGENERATE!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <Header />
+  <main>
+    <!-- Custom Hero for TP -->
+    <Hero 
+      badge="Generator TP Terakurat #1"
+      titleHtml="Generator TP Kurikulum Merdeka <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis & Terarah</span>"
+      description="Rumuskan Tujuan Pembelajaran (TP) secara tajam dan terukur langsung dari teks Capaian Pembelajaran (CP) menggunakan analisis kecerdasan buatan."
+      mapel="Pendidikan Pancasila"
+      kelas="Kelas 1 SD · Fase A"
+      topik="Elemen: Pancasila (Mengenal simbol dan sila Pancasila)"
+      steps={tpSteps}
+    />
+
+    <!-- Intent Rich Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Bagaimana <span class="text-brand-primary">Generator TP AI</span> Membantu Guru?
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Merumuskan Tujuan Pembelajaran (TP) secara logis dari Capaian Pembelajaran (CP) merupakan tahapan paling awal dan krusial sebelum menyusun silabus (ATP) maupun Modul Ajar. Generator TP GuruDokAI secara instan mengekstrak kompetensi utama serta ruang lingkup materi dari CP untuk menghasilkan rumusan tujuan yang operasional dan terukur.
+          </p>
+        </div>
+
+        <!-- 2 Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Column 1: Informational Text -->
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Kelebihan Menggunakan Analisis AI untuk TP
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              Kerap kali guru mengalami kesulitan membedakan mana yang merupakan 'Kompetensi' (kata kerja tindakan) dan mana yang merupakan 'Lingkup Materi' (konten substansi) dalam kalimat CP resmi yang cenderung panjang dan padat.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              GuruDokAI membedah setiap frasa kalimat CP secara mekanis berdasarkan Taksonomi Bloom yang direvisi, serta menghasilkan rekomendasi Tujuan Pembelajaran (TP) yang berorientasi pada murid dan sangat mudah ditransformasikan ke langkah ajar praktis.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Analisis KKO Bloom: Memakai kata kerja tindakan yang terukur.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Pemisahan Sesuai Elemen: Hasil dikategorikan berdasarkan elemen standar kurikulum.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Terintegrasi Penuh: Hasilkan <a href="/ai-pembuat-rpp" class="text-brand-primary hover:underline">RPP</a>, <a href="/generator-modul-ajar" class="text-brand-primary hover:underline">Modul Ajar</a>, dan <a href="/generator-atp" class="text-brand-primary hover:underline">ATP</a> yang saling selaras secara instan.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Specific Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Presisi Kompetensi</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                AI memisahkan secara tepat antara kata kerja kompetensi dan konsep esensial materi dari CP.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2z"/><line x1="7" x2="7.01" y1="7" y2="7"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Pemberian Kode TP</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Tiap TP yang dihasilkan akan diberi nomor kode pengenal (e.g. TP 1.1) secara urut sesuai fase.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Terbagi Per Elemen</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Memudahkan guru mengelompokkan tujuan pembelajaran berdasarkan klasifikasi elemen kementerian.
+              </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-all"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Sesuai KKO Bloom</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Kalimat TP dirumuskan menggunakan kata kerja tindakan konkrit yang mudah diukur saat evaluasi kelas.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual 3-Steps Guide -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Cara Merumuskan TP dalam 3 Detik
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Tidak perlu lagi menganalisis kalimat CP manual yang membingungkan.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+          <!-- Step 1 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              1
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Tempel Teks CP</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Salin kalimat Capaian Pembelajaran (CP) resmi dari kurikulum pemerintah dan masukkan ke kolom input.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              2
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Analisis Otomatis AI</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              AI mengekstrak kata kerja kompetensi tindakan dan ruang lingkup konten materi secara instan.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              3
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Download Hasil TP</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Dapatkan draf list TP siap salin-tempel ke dalam format silabus atau modul ajar sekolah Anda.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing Component -->
+    <Pricing />
+
+    <!-- Testimonials Component -->
+    <Testimonials />
+
+    <!-- FAQ Component with Custom FAQs -->
+    <FAQ faqs={tpFaqs} />
+
+    <!-- CTA Final -->
+    <CTAFinal 
+      title="Urai Capaian Pembelajaran Menjadi TP Lebih Cepat"
+      description="Gunakan kecerdasan buatan GuruDokAI untuk merumuskan Tujuan Pembelajaran yang operasional dan akurat."
+    />
+  </main>
+  <Footer />
+</BaseLayout>

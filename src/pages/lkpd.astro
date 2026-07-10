@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "AI Pembuat LKPD (Lembar Kerja Murid) Interaktif | GuruDokAI";
+const description = "Hasilkan LKPD (Lembar Kerja Murid) secara otomatis menggunakan AI. Generator LKPD Kurikulum Merdeka siap cetak lengkap dengan aktivitas siswa, soal latihan, dan kunci jawaban.";
+const keywords = "lkpd, lembar kerja murid, generator lkpd ai, lkpd kurikulum merdeka, pembuat lkpd otomatis, modul ajar lkpd, guru madrasah";
+
+const pageUrl = "https://gurudokailanding.pages.dev/lkpd";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Lembar Kerja Murid (LKPD)",
+      "item": pageUrl
+    }
+  ]
+};
+
+// Custom FAQ for LKPD Page
+const lkpdFaqs = [
+  {
+    question: "Apa fungsi utama LKPD (Lembar Kerja Murid)?",
+    answer: "<strong>LKPD (Lembar Kerja Murid)</strong> berfungsi sebagai panduan aktivitas belajar terstruktur bagi murid di kelas untuk membantunya menemukan konsep secara aktif, berlatih mandiri, dan mendokumentasikan hasil pengamatan."
+  },
+  {
+    question: "Bagaimana GuruDokAI merancang LKPD?",
+    answer: "Sistem GuruDokAI memetakan tujuan pembelajaran ke dalam instruksi kerja yang jelas, menyusun soal latihan yang menguji kompetensi bernalar kritis, serta menyertakan <strong>kunci jawaban terpisah</strong> untuk guru."
+  },
+  {
+    question: "Apakah LKPD yang dihasilkan mendukung pembelajaran kolaboratif?",
+    answer: "Ya. AI kami dapat memformulasikan model LKPD untuk diskusi kelompok, eksperimen praktis, maupun penugasan mandiri berprinsip <strong>Pembelajaran Mendalam (Deep Learning)</strong>."
+  },
+  {
+    question: "Apakah GuruDokAI menyediakan LKPD untuk guru madrasah?",
+    answer: "Tentu saja. Kami mendukung pembuatan lembar kerja tematik berbasis nilai keagamaan dan karakter yang sesuai dengan <strong>Kurikulum Berbasis Cinta (KBC)</strong> di bawah naungan Kemenag."
+  }
+];
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": lkpdFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<\/?[^>]+(>|$)/g, "")
+    }
+  }))
+};
+
+const lkpdSteps = [
+  {
+    badge: "Identitas",
+    title: "Langkah 1/4: Identitas & Tujuan Pembelajaran",
+    lines: [
+      "LEMBAR KERJA MURID (LKPD) INTERAKTIF",
+      "==================================",
+      "Mata Pelajaran : IPAS (Sains)",
+      "Kelas / Fase   : V / C",
+      "Topik          : Energi Alternatif & Ramah Lingkungan",
+      "\n[TUJUAN AKTIVITAS]",
+      "Murid dapat merancang alat sederhana pemanfaatan energi angin di lingkungan sekolah."
+    ]
+  },
+  {
+    badge: "Alat-Bahan",
+    title: "Langkah 2/4: Panduan Aktivitas Praktis",
+    lines: [
+      "\n[PANDUAN EKSPERIMEN MANDIRI]",
+      "• Alat & Bahan: Kertas tebal, gunting, jarum pentul, sumpit bambu, kipas angin.",
+      "• Langkah Kerja: Buat baling-baling kertas seperti pola di bawah, sematkan ke sumpit, uji di depan embusan kipas."
+    ]
+  },
+  {
+    badge: "Refleksi",
+    title: "Langkah 3/4: Pertanyaan Analisis & Karakter",
+    lines: [
+      "\n[LEMBAR REFLEKSI MURID]",
+      "1. Mengapa kecepatan berputar baling-baling berbeda saat didekatkan ke kipas angin?",
+      "2. Tuliskan 3 keuntungan menggunakan energi angin dibanding membakar batubara untuk listrik!",
+      "\n[REFLEKSI KARAKTER]",
+      "Bagaimana sikap kita dalam menghemat energi di kelas?"
+    ]
+  },
+  {
+    badge: "Hasil",
+    title: "Langkah 4/4: Kunci Jawaban & Rubrik",
+    lines: [
+      "\n[KUNCI JAWABAN & ASESMEN (KHUSUS GURU)]",
+      "• Jawaban 1: Karena dorongan udara lebih kuat sehingga energi kinetik meningkat.",
+      "• Kriteria Kelulusan: Menggunakan rubrik KKTP Deskriptif.",
+      "\n--------------------------------------------",
+      "LEMBAR DOKUMEN LKPD SELESAI DIGENERATE!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+  <main>
+    <Hero 
+      badge="AI Generator LKPD Interaktif #1"
+      titleHtml="Lembar Kerja Murid (LKPD) Kurikulum Merdeka <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Instan & Siap Cetak dengan AI</span>"
+      description="Hasilkan Lembar Kerja Murid (LKPD) yang menarik, menantang, dan terstruktur sesuai topik pelajaran Anda hanya dalam hitungan detik."
+      mapel="Ilmu Pengetahuan Alam & Sosial"
+      kelas="Kelas 5 SD · Fase C"
+      topik="Eksperimen Kincir Angin Energi Alternatif"
+      steps={lkpdSteps}
+    />
+
+    <!-- Semantic Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Wujudkan Pembelajaran Aktif Berbasis <span class="text-brand-primary">LKPD Murid Terarah</span>
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            <strong>Lembar Kerja Murid (LKPD)</strong> yang baik mampu merangsang daya pikir kritis serta rasa ingin tahu murid. Dengan bantuan asisten AI Guru Indonesia, Anda tidak perlu lagi mendesain soal dan rubrik unjuk kerja dari awal.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Mendukung Pembelajaran Bermakna dan Karakter Murid
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              Melalui generator AI GuruDokAI, LKPD yang dibuat secara sistematis diselaraskan dengan rancangan <strong>RPM (Rencana Pembelajaran Mendalam)</strong>, <strong>RPPM (Rencana Mingguan)</strong>, <strong>Modul Ajar</strong>, alur <strong>ATP</strong>, rumusan <strong>TP</strong>, dan indikator kelulusan <strong>KKTP</strong>.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              Dokumen yang dihasilkan siap diekspor langsung ke Microsoft Word (.docx) sehingga Anda bebas mengatur tata letak, menambahkan logo sekolah, maupun menyesuaikan tingkat kesulitan pertanyaan.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Menghasilkan LKPD yang terintegrasi langsung dengan modul pembelajaran.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Mendukung penyelarasan madrasah Kurikulum Berbasis Cinta (KBC).</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Format draf instan yang dapat dicetak langsung ke kertas fisik.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-pink-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Editor Fleksibel</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Sesuaikan pertanyaan dan aktivitas sesuai kesiapan sarana prasarana sekolah Anda.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-pink-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-check"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Kunci Jawaban</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Setiap LKPD latihan otomatis dilengkapi kunci jawaban lengkap di lampiran paling belakang.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-pink-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Kurikulum Berbasis Cinta (KBC)</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Integrasi nilai kasih sayang dan spiritualitas keagamaan di <a href="/kbc" class="text-brand-primary hover:underline">Modul Ajar KBC</a> madrasah.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-pink-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Lengkap dengan Asesmen</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Cocok disandingkan dengan rancangan <a href="/ai-pembuat-rpm" class="text-brand-primary hover:underline">RPM Kurikulum Merdeka</a> harian.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <Pricing />
+
+    <!-- Testimonials Section -->
+    <Testimonials />
+
+    <!-- FAQ Section -->
+    <FAQ faqs={lkpdFaqs} />
+
+    <!-- CTA Section -->
+    <CTAFinal />
+  </main>
+  <Footer />
+</BaseLayout>

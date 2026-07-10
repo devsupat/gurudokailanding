@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Tentang Pengembang & Visi GuruDokAI | Ahmad Saoghi, S.Pd.";
+const description = "Mengenal Ahmad Saoghi, S.Pd., guru SD pengembang GuruDokAI yang berfokus membantu guru Indonesia menyusun administrasi pembelajaran Kurikulum Merdeka secara otomatis.";
+const keywords = "tentang gurudokai, ahmad saoghi, pengembang gurudokai, visi gurudokai, asisten ai guru, kurikulum merdeka";
+
+const pageUrl = "https://gurudokailanding.pages.dev/tentang";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tentang Kami",
+      "item": pageUrl
+    }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+
+  <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden bg-slate-950 text-white">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#1e293b,transparent)] opacity-60"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/20 text-brand-primary border border-brand-primary/30 mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span>
+            Di Balik GuruDokAI
+          </span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-none mb-6">
+            Misi Membebaskan Guru dari Beban Administrasi
+          </h1>
+          <p class="text-lg sm:text-xl text-slate-300 font-medium leading-relaxed">
+            GuruDokAI lahir dari ruang kelas nyata, dikembangkan langsung oleh seorang praktisi pendidikan untuk membantu ribuan guru di seluruh Indonesia fokus pada proses mengajar dan mendidik.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Developer Profile Card -->
+          <div class="lg:col-span-4 bg-white border border-slate-200/80 rounded-3xl p-8 shadow-sm text-center space-y-6">
+            <div class="relative w-32 h-32 mx-auto rounded-full bg-brand-primary/10 border-4 border-white shadow-md flex items-center justify-center text-brand-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-gray-900">Ahmad Saoghi, S.Pd.</h2>
+              <p class="text-sm text-brand-primary font-bold">Founder & Lead Developer GuruDokAI</p>
+              <p class="text-xs text-slate-500 font-bold">GameDev Team at LazySoft Studios</p>
+              <div class="mt-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+                Guru SDN Sukasari 4
+              </div>
+            </div>
+            <p class="text-sm text-gray-500 font-semibold leading-relaxed">
+              Aktif mengajar sekaligus mengembangkan asisten AI Guru Indonesia untuk menyelaraskan perangkat ajar dengan kurikulum nasional terbaru.
+            </p>
+            <div class="pt-4 border-t border-slate-100 flex justify-center gap-4">
+              <a href="https://wa.me/6285189536359" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#25D366] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </a>
+              <a href="https://play.google.com/store/apps/dev?id=8704276077631485252" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Description and Story -->
+          <div class="lg:col-span-8 space-y-8 text-gray-700 font-semibold leading-relaxed">
+            
+            <div class="space-y-4">
+              <h3 class="text-2xl font-bold text-gray-900">Mengapa Kami Membangun GuruDokAI?</h3>
+              <p>
+                Sebagai seorang guru kelas yang berhadapan langsung dengan urusan administratif setiap hari, saya merasakan sendiri betapa banyaknya waktu yang tersita untuk merancang draf Rencana Pelaksanaan Pembelajaran (RPP), Modul Ajar, Lembar Kerja Murid (LKPD), hingga indikator ketercapaian (KKTP/IKTP) secara manual.
+              </p>
+              <p>
+                Waktu berharga yang seharusnya bisa digunakan untuk merancang interaksi bermakna di kelas, membimbing murid secara personal, atau beristirahat berkumpul bersama keluarga justru sering kali habis di depan laptop hanya untuk menyelesaikan berkas tuntutan administratif formal.
+              </p>
+              <p>
+                Dari keresahan nyata inilah <strong>GuruDokAI</strong> lahir. Saya memadukan pengalaman pedagogi di sekolah dengan teknologi kecerdasan buatan (Artificial Intelligence) untuk melahirkan sebuah asisten virtual pintar yang memahami standar kurikulum pendidikan di Indonesia.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <h3 class="text-2xl font-bold text-gray-900">Visi & Nilai yang Kami Pegang</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                  <div class="w-10 h-10 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold mb-3">1</div>
+                  <h4 class="text-base font-bold text-gray-900 mb-1">Akurasi Pedagogi Tinggi</h4>
+                  <p class="text-sm text-gray-500 font-semibold">
+                    Setiap modul yang dihasilkan diselaraskan dengan istilah kementerian terbaru, seperti <strong>Dimensi Profil Lulusan</strong>, pembelajaran mendalam (<strong>RPM/RPPM</strong>), dan <strong>Kurikulum Berbasis Cinta (KBC)</strong>.
+                  </p>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                  <div class="w-10 h-10 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold mb-3">2</div>
+                  <h4 class="text-base font-bold text-gray-900 mb-1">Keterjangkauan Tanpa Batas</h4>
+                  <p class="text-sm text-gray-500 font-semibold">
+                    Kami berkomitmen menyediakan paket berlangganan yang sangat ramah kantong guru Indonesia demi memastikan setiap guru mendapat akses setara terhadap teknologi AI terbaru.
+                  </p>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                  <div class="w-10 h-10 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold mb-3">3</div>
+                  <h4 class="text-base font-bold text-gray-900 mb-1">Penyederhanaan Praktis</h4>
+                  <p class="text-sm text-gray-500 font-semibold">
+                    Tidak perlu rumus atau prompt rumit. Cukup masukkan mata pelajaran, kelas, dan topik umum, AI kami akan memproses draf administrasi lengkap siap cetak dalam sekejap.
+                  </p>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                  <div class="w-10 h-10 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold mb-3">4</div>
+                  <h4 class="text-base font-bold text-gray-900 mb-1">Dukungan Multi Platform</h4>
+                  <p class="text-sm text-gray-500 font-semibold">
+                    Tersedia secara fleksibel lewat web browser, aplikasi resmi Android (SiAjar) di Play Store, hingga perangkat komputer Windows.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Focus and Commitment -->
+            <div class="p-8 bg-brand-primary/5 border border-brand-primary/20 rounded-3xl space-y-3">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Komitmen Kami</span>
+              <h4 class="text-lg font-bold text-gray-900">Fokus Mengajar dengan Tenang</h4>
+              <p class="text-sm text-gray-600 font-semibold leading-relaxed">
+                Kami percaya, peran guru sejati di dalam kelas sebagai pembimbing emosional dan pembentuk karakter mulia murid tidak akan pernah bisa digantikan oleh mesin kecerdasan buatan. Oleh sebab itu, biarkan bagian administratif yang melelahkan diselesaikan secara instan oleh GuruDokAI, sementara Anda mendedikasikan waktu terbaik Anda sepenuhnya untuk murid-murid tercinta.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

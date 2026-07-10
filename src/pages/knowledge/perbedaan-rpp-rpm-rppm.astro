@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Perbedaan Mendasar RPP, RPM, dan RPPM | GuruDokAI";
+const description = "Bingung membedakan berkas RPP, RPM, dan RPPM? Ketahui perbandingan lengkap durasi, fokus pedagogi, dan contoh komponen administrasinya di sini.";
+const keywords = "perbedaan rpp rpm rppm, rpp kurikulum merdeka, rencana pembelajaran mendalam, rppm mingguan, administrasi guru, gurudokai";
+
+const pageUrl = "https://gurudokailanding.pages.dev/knowledge/perbedaan-rpp-rpm-rppm";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Knowledge Center",
+      "item": "https://gurudokailanding.pages.dev/knowledge"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Perbedaan RPP, RPM, dan RPPM",
+      "item": pageUrl
+    }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Article Header -->
+      <div class="mb-8">
+        <a href="/knowledge" class="inline-flex items-center gap-1 text-sm font-bold text-brand-primary hover:underline mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          <span>Kembali ke Knowledge Center</span>
+        </a>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Administrasi</span>
+          <span class="text-xs text-gray-400 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+          Perbedaan Mendasar RPP, RPM, dan RPPM dalam Perangkat Ajar Kurikulum Merdeka
+        </h1>
+        <p class="text-lg text-gray-500 font-medium italic">
+          Banyak guru masih bingung dengan munculnya istilah baru. Mari kita bahas perbedaan durasi, tujuan utama, dan komponen wajib di antara RPP, RPM, dan RPPM.
+        </p>
+      </div>
+
+      <!-- Article Body Content -->
+      <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
+        <p>
+          Perkembangan Kurikulum Merdeka dan kebijakan Kemendikdasmen di tahun 2025/2026 mendorong adopsi prinsip <strong>Pembelajaran Mendalam (Deep Learning)</strong>. Dalam implementasi praktisnya, guru-guru di Indonesia diperkenalkan pada dokumen administrasi baru seperti <strong>RPM</strong> dan <strong>RPPM</strong>.
+        </p>
+        <p>
+          Namun, apakah berkas RPP lama benar-benar dibuang? Dan bagaimana cara mengaitkannya agar guru tidak mengerjakan administrasi ganda? Simak pemaparannya di bawah ini.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Tabel Perbandingan RPP vs RPM vs RPPM</h2>
+        <div class="overflow-x-auto my-6 border border-slate-200 rounded-2xl shadow-sm bg-white">
+          <table class="min-w-full divide-y divide-slate-200">
+            <thead class="bg-slate-50 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
+              <tr>
+                <th class="px-6 py-4">Aspek</th>
+                <th class="px-6 py-4">RPP Konvensional</th>
+                <th class="px-6 py-4">RPM (Harian/Unit)</th>
+                <th class="px-6 py-4">RPPM (Mingguan)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-sm font-semibold text-gray-600">
+              <tr>
+                <td class="px-6 py-4 font-bold text-gray-950">Fokus Utama</td>
+                <td class="px-6 py-4">Penyelesaian urutan bab kurikulum dan langkah ajar guru.</td>
+                <td class="px-6 py-4 font-bold text-brand-primary">Kedalaman pemahaman murid lewat 3 pilar (Mindful, Meaningful, Joyful Learning).</td>
+                <td class="px-6 py-4">Pemetaan alur mengajar dan alokasi JP per pekan untuk satu unit/bab.</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-bold text-gray-950">Rentang Waktu</td>
+                <td class="px-6 py-4">Biasanya per kali pertemuan (2 JP / 3 JP).</td>
+                <td class="px-6 py-4 font-bold text-brand-primary">Per pertemuan atau per sub-topik esensial.</td>
+                <td class="px-6 py-4">Per pekan (skala 1 minggu penuh atau satu unit bab).</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-bold text-gray-950">Komponen Inti</td>
+                <td class="px-6 py-4">Tujuan, Langkah Kegiatan, Asesmen akhir.</td>
+                <td class="px-6 py-4 font-bold text-brand-primary">Big Ideas, Pertanyaan Pemantik, Pilar DL, Asesmen Diagnostik & Formatif, KKTP.</td>
+                <td class="px-6 py-4">Tabel sebaran aktivitas harian, rencana evaluasi harian, lampiran LKPD pendukung.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. RPP (Rencana Pelaksanaan Pembelajaran)</h2>
+        <p>
+          RPP adalah dokumen lama yang lazim digunakan sejak Kurikulum 2013 hingga awal Kurikulum Merdeka. Sifatnya instruksional dan terfokus pada skenario langkah guru saat berdiri di depan kelas. RPP masih sah digunakan, namun disarankan untuk mulai disempurnakan dengan pilar Pembelajaran Mendalam agar murid lebih aktif berpartisipasi.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. RPM (Rencana Pembelajaran Mendalam)</h2>
+        <p>
+          RPM merupakan penyempurnaan RPP. Di dalam dokumen RPM, guru tidak lagi sekadar mendikte langkah, melainkan menuliskan <strong>Ide Utama (Big Idea)</strong> dan <strong>Pertanyaan Pemantik</strong>. Struktur kegiatannya harus secara eksplisit mencantumkan bagaimana guru mengintegrasikan pilar Pembelajaran Mendalam: <strong>Mindful Learning</strong> (keunikan murid), <strong>Meaningful Learning</strong> (berpikir kritis), dan <strong>Joyful Learning</strong> (pembelajaran menyenangkan).
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. RPPM (Rencana Pelaksanaan Pembelajaran Mendalam Mingguan)</h2>
+        <p>
+          RPPM merupakan pemetaan taktis berskala mingguan. Dalam Kurikulum Merdeka, aktivitas kelas tidak dapat dipisahkan secara kaku per jam pertemuan. Sering kali sebuah eksperimen atau proyek membutuhkan waktu beberapa hari. Di sinilah RPPM membantu guru mengelompokkan jam pelajaran (JP) dalam satu pekan agar pilar <strong>Mindful</strong>, <strong>Meaningful</strong>, dan <strong>Joyful Learning</strong> dapat terdistribusi secara seimbang.
+        </p>
+
+        <!-- CTA Box inside Article -->
+        <div class="my-10 bg-brand-primary/5 border border-brand-primary/20 rounded-3xl p-8 text-center space-y-4 shadow-sm">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Solusi Cepat Guru Indonesia</span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-gray-900 leading-tight">
+            Ingin Membuat RPM & RPPM Secara Praktis?
+          </h3>
+          <p class="text-sm text-gray-500 font-semibold max-w-md mx-auto leading-relaxed">
+            GuruDokAI memfasilitasi pembuatan RPP, RPM, RPPM, hingga modul ajar lengkap siap cetak secara sinkron menggunakan generator AI terintegrasi kami.
+          </p>
+          <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="/ai-pembuat-rpm" 
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-md transition-colors gap-2 w-full sm:w-auto"
+            >
+              <span>Generator RPM</span>
+            </a>
+            <a 
+              href="/rppm" 
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-full shadow-sm transition-colors gap-2 w-full sm:w-auto"
+            >
+              <span>Generator RPPM Mingguan</span>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Referensi Resmi Kebijakan</h2>
+        <p class="text-xs sm:text-sm text-gray-500 font-semibold leading-relaxed border-t border-slate-200 pt-4">
+          Panduan komparatif dan teknis penyusunan administrasi guru ini merujuk pada regulasi resmi Kementerian Pendidikan Dasar dan Menengah RI, Panduan Pembelajaran dan Asesmen (PPA) Kurikulum Merdeka BSKAP, serta Buku Saku Pembelajaran Mendalam (Deep Learning) 2025/2026.
+        </p>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

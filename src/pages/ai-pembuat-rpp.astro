@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "AI Pembuat RPP Otomatis Kurikulum Merdeka Terpopuler | GuruDokAI";
+const description = "Susun RPP Kurikulum Merdeka otomatis hanya dalam 2 menit menggunakan AI Pembuat RPP GuruDokAI. Hasil instan, format resmi Kemendikdasmen & Kemenag, praktis dan siap cetak.";
+const keywords = "ai pembuat rpp, buat rpp otomatis, generator rpp kurikulum merdeka, aplikasi rpp otomatis, rpp ai gratis, cara buat rpp cepat, perangkat ajar ai, rpp deep learning";
+
+// Custom FAQ for RPP Page
+const rppFaqs = [
+  {
+    question: "Apakah RPP yang dihasilkan oleh GuruDokAI sesuai standar resmi?",
+    answer: "Ya, RPP dan modul ajar yang digenerate oleh GuruDokAI sudah disesuaikan dengan regulasi terbaru Kemendikdasmen (termasuk prinsip <strong>Deep Learning / Permendikdasmen No. 13/2025</strong>) serta standar madrasah di bawah naungan Kemenag."
+  },
+  {
+    question: "Apakah saya bisa memilih metode pembelajaran spesifik?",
+    answer: "Tentu saja. Anda bisa menentukan model pembelajaran seperti <strong>Problem-Based Learning (PBL)</strong>, Project-Based Learning (PjBL), Discovery Learning, maupun model kooperatif lainnya agar sesuai dengan kebutuhan kelas Anda."
+  },
+  {
+    question: "Dalam format apa saya bisa mendownload RPP yang sudah jadi?",
+    answer: "Setelah RPP selesai digenerate oleh AI, Anda dapat mengeditnya secara langsung di editor kami, kemudian mendownloadnya dalam format <strong>PDF siap cetak</strong> maupun diexport ke format Microsoft Word (.docx) untuk pengeditan offline lebih lanjut."
+  },
+  {
+    question: "Apakah saya perlu membayar biaya langganan bulanan?",
+    answer: "Kami menawarkan paket bulanan mulai dari Rp 19.000, serta paket <strong>Tahunan seharga Rp 99.000</strong> dan paket <strong>Lifetime seharga Rp 199.000 (Bayar Sekali untuk Akses Selamanya)</strong> yang sangat ramah di kantong guru."
+  },
+  {
+    question: "Apakah AI Pembuat RPP ini mendukung jenjang SD, SMP, SMA, dan SMK?",
+    answer: "Ya, GuruDokAI mendukung penuh jenjang SD, MI, SMP, MTs, SMA, MA, hingga SMK lengkap untuk berbagai mata pelajaran umum maupun keagamaan."
+  },
+  {
+    question: "Apakah ada video panduan atau demo cara menggunakan GuruDokAI?",
+    answer: "Tentu saja. Anda bisa menyaksikan <a href=\"https://www.tiktok.com/@scenecrafter/video/7655997727506976008\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Demo Utama</a> dan <a href=\"https://www.tiktok.com/@scenecrafter/video/7659118261556055316\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Eksplorasi Fitur Lengkap</a> kami di TikTok. Untuk panduan lengkap dari awal, Anda bisa menonton <a href=\"https://www.youtube.com/watch?v=cOYjV9c7IZc\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Panduan Setup & Cara Pakai</a> di YouTube, serta <a href=\"https://www.tiktok.com/@scenecrafter/video/7651961072823438608\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Tutorial Aplikasi Android</a>."
+  }
+];
+
+// Custom simulation steps for RPP
+const rppSteps = [
+  {
+    badge: "CP-TP",
+    title: "Langkah 1/4: Menganalisis Capaian & Tujuan Pembelajaran (TP)",
+    lines: [
+      "RENCANA PELAKSANAAN PEMBELAJARAN (RPP)",
+      "=====================================",
+      "Sekolah        : SD Negeri Nusantara",
+      "Mata Pelajaran : Pendidikan Pancasila",
+      "Kelas / Fase   : IV (Empat) / B",
+      "Topik          : Nilai-Nilai Pancasila dalam Keluarga",
+      "\n[ANALISIS CAPAIAN PEMBELAJARAN]",
+      "Murid mampu memahami dan menerapkan nilai-nilai Pancasila di lingkungan keluarga dan sekolah.",
+      "\n[TUJUAN PEMBELAJARAN (TP)]",
+      "1. Mengidentifikasi contoh sikap yang sesuai dengan sila Pancasila di rumah.",
+      "2. Menerapkan perilaku saling menghormati antaranggota keluarga."
+    ]
+  },
+  {
+    badge: "Langkah Ajar",
+    title: "Langkah 2/4: Menyusun Langkah Pembelajaran (PBL)",
+    lines: [
+      "\n[KEGIATAN PEMBELAJARAN (Model: Problem-Based Learning)]",
+      "• 1. Pendahuluan (15 Menit):",
+      "  - Guru menyapa siswa, berdoa, dan melakukan apersepsi tentang kegiatan sarapan bersama keluarga.",
+      "  - Mengaitkan aktivitas rumah dengan sila kedua Pancasila.",
+      "\n• 2. Kegiatan Inti (45 Menit):",
+      "  - Orientasi Masalah: Guru menampilkan cerita bergambar tentang pembagian tugas rumah yang tidak adil.",
+      "  - Penyelidikan: Siswa berkelompok mendiskusikan solusi berdasarkan nilai keadilan (Sila ke-5).",
+      "  - Diskusi: Setiap kelompok memaparkan pembagian tugas rumah yang adil.",
+      "\n• 3. Penutup (10 Menit):",
+      "  - Refleksi bersama: Apa pentingnya menghargai peran setiap anggota keluarga?",
+      "  - Tindak lanjut dan penugasan sederhana."
+    ]
+  },
+  {
+    badge: "Asesmen",
+    title: "Langkah 3/4: Merancang Asesmen & Instrumen",
+    lines: [
+      "\n[ASESMEN PEMBELAJARAN]",
+      "• 1. Asesmen Formatif (Awal):",
+      "  - Tanya jawab lisan mengenai tugas harian siswa di rumah.",
+      "\n• 2. Asesmen Formatif (Proses):",
+      "  - Rubrik penilaian keaktifan diskusi kelompok dan sikap gotong royong.",
+      "\n• 3. Asesmen Sumatif (Akhir):",
+      "  - Tes tertulis: Pilihan ganda dan esai pendek mengenai contoh penerapan nilai-nilai Pancasila di rumah."
+    ]
+  },
+  {
+    badge: "Hasil RPP",
+    title: "Langkah 4/4: Finalisasi RPP Siap Download",
+    lines: [
+      "\n[LAMPIRAN & DOKUMEN PENDUKUNG]",
+      "• Lembar Kerja Murid (LKPD): Mengisi tabel ceklis aktivitas rumah.",
+      "• Bahan Ajar: Ringkasan materi nilai Pancasila.",
+      "• Kriteria Ketercapaian (KKTP): Deskripsi kriteria ketuntasan 0-100%.",
+      "\n--------------------------------------------",
+      "DOKUMEN RPP PREMIUM SELESAI DIGENERATE OLEH GURUDOKAI!"
+    ]
+  }
+];
+
+const pageUrl = "https://gurudokailanding.pages.dev/ai-pembuat-rpp";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Pembuat RPP",
+      "item": pageUrl
+    }
+  ]
+};
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": rppFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<\/?[^>]+(>|$)/g, "")
+    }
+  }))
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+  <main>
+    <!-- Custom Hero for RPP -->
+    <Hero 
+      badge="AI Pembuat RPP Tercepat #1"
+      titleHtml="Susun RPP Kurikulum Merdeka <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis & Instan</span> dengan AI"
+      description="Solusi praktis guru Indonesia. Hasilkan dokumen RPP (Rencana Pelaksanaan Pembelajaran) lengkap sesuai Permendikdasmen No. 13/2025 hanya dalam 2 menit."
+      mapel="Pendidikan Pancasila"
+      kelas="Kelas 4 SD · Fase B"
+      topik="Penerapan Nilai-Nilai Pancasila dalam Keluarga"
+      steps={rppSteps}
+    />
+
+    <!-- Intent Rich Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Apa itu <span class="text-brand-primary">AI Pembuat RPP</span> GuruDokAI?
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Sebuah teknologi kecerdasan buatan cerdas yang dirancang khusus untuk menganalisis kurikulum nasional Indonesia dan menyusun perencanaan pembelajaran (RPP) yang sistematis, adaptif, dan siap guna dalam hitungan menit.
+          </p>
+        </div>
+
+        <!-- 2 Column Layout: Text Details and Visual Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Column 1: Informational Text -->
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Mengapa Ribuan Guru Menggunakan AI untuk Membuat RPP?
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              Menyusun RPP secara manual membutuhkan analisis Capaian Pembelajaran (CP) dan perumusan Tujuan Pembelajaran (TP) yang memakan waktu berjam-jam. Dengan GuruDokAI, proses ini diotomatisasi tanpa mengurangi esensi kualitas pedagogis.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              AI kami tidak sekadar menghasilkan teks template biasa. GuruDokAI menganalisis korelasi antar materi, merancang strategi pembelajaran aktif yang berpusat pada murid (seperti PBL dan PjBL), serta merumuskan kriteria asesmen yang objektif.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Format Fleksibel: RPP Satu Lembar, RPP Kemenag, dan Modul Lengkap.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Mendukung prinsip Deep Learning sesuai instruksi terbaru 2025.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Terintegrasi Penuh: Hasilkan <a href="/generator-modul-ajar" class="text-brand-primary hover:underline">Modul Ajar</a>, <a href="/ai-pembuat-lkpd" class="text-brand-primary hover:underline">LKPD</a>, dan <a href="/generator-atp" class="text-brand-primary hover:underline">ATP</a> yang saling selaras secara instan.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Specific Features Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Card 1: Kustomisasi Model -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="12" x2="12" y1="18" y2="22"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Model Ajar Kustom</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Pilih model pembelajaran seperti PBL, PjBL, Cooperative Learning, atau Demonstrasi sesuai target kelas Anda.
+              </p>
+            </div>
+
+            <!-- Card 2: Asesmen Komprehensif -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-square"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Asesmen Siap Cetak</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Generate asesmen diagnostik, rubrik penilaian sikap, formatif proses, hingga tes sumatif secara detail.
+              </p>
+            </div>
+
+            <!-- Card 3: Deep Learning Adaptif -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Prinsip Deep Learning</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Langkah pembelajaran dirancang interaktif untuk membangun pemahaman mendalam, bukan sekadar menghafal.
+              </p>
+            </div>
+
+            <!-- Card 4: Kemudahan Edit -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Export Word & PDF</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Simpan dokumen Anda ke file Microsoft Word agar dapat Anda edit ulang kapan saja sesuai kenyamanan sekolah.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual 3-Steps Guide -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Cara Membuat RPP Otomatis dengan AI
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            3 langkah mudah dan singkat tanpa perlu pusing memikirkan kata-kata kerja operasional (KKO).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+          <!-- Step 1 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              1
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Masukkan Detail Kelas</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Pilih tingkat kelas, mata pelajaran, dan tulis topik materi ajar yang ingin Anda buat hari ini.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              2
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Klik Generate</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Biarkan kecerdasan buatan GuruDokAI menyusun draf RPP terperinci, mulai dari CP-TP hingga rubrik asesmen.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              3
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Download Dokumen</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Pratinjau draf Anda di layar, edit bagian yang diperlukan, lalu unduh dalam format Word (.docx) atau PDF.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing Component -->
+    <Pricing />
+
+    <!-- Testimonials Component -->
+    <Testimonials />
+
+    <!-- FAQ Component with Custom FAQs -->
+    <FAQ faqs={rppFaqs} />
+
+    <!-- CTA Final -->
+    <CTAFinal 
+      title="Kurangi Beban Administrasi, Fokus Kembali Mengajar"
+      description="Mulai susun RPP Anda secara otomatis hari ini dan dapatkan kembali waktu berharga Anda bersama keluarga."
+    />
+  </main>
+  <Footer />
+</BaseLayout>

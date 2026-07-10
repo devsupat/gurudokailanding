@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "AI Pembuat RPPM (Rencana Pelaksanaan Pembelajaran Mendalam) | GuruDokAI";
+const description = "Susun RPPM (Rencana Pelaksanaan Pembelajaran Mendalam) secara otomatis menggunakan AI. Solusi hemat waktu untuk merancang pemetaan pembelajaran mingguan berbasis Deep Learning.";
+const keywords = "rppm, rencana pelaksanaan pembelajaran mendalam, generator rppm, rppm kurikulum merdeka, rppm otomatis, guru madrasah, pembelajaran mendalam";
+
+const pageUrl = "https://gurudokailanding.pages.dev/rppm";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Pembuat RPPM",
+      "item": pageUrl
+    }
+  ]
+};
+
+// Custom FAQ for RPPM
+const rppmFaqs = [
+  {
+    question: "Apa perbedaan antara RPM dan RPPM?",
+    answer: "<strong>RPM (Rencana Pembelajaran Mendalam)</strong> digunakan untuk perencanaan harian atau per sub-topik spesifik. Sementara <strong>RPPM (Rencana Pelaksanaan Pembelajaran Mendalam)</strong> merupakan pemetaan terstruktur skala mingguan atau per unit pembelajaran yang mengintegrasikan beberapa sub-topik ke dalam alur Pembelajaran Mendalam (Deep Learning) yang berkesinambungan."
+  },
+  {
+    question: "Bagaimana cara membuat RPPM otomatis dengan GuruDokAI?",
+    answer: "Cukup masuk ke platform GuruDokAI, pilih menu generator RPPM, masukkan mata pelajaran, kelas, dan topik umum untuk satu minggu atau satu bab. AI akan menyusun target mingguan lengkap dengan aktivitas dan asesmennya."
+  },
+  {
+    question: "Apakah RPPM hasil generate GuruDokAI dapat disesuaikan untuk kurikulum madrasah?",
+    answer: "Sangat bisa. Kami mendukung penuh kebutuhan madrasah di bawah naungan Kemenag dengan opsi integrasi <strong>Kurikulum Berbasis Cinta (KBC)</strong> dan Pembelajaran Berbasis Cinta."
+  },
+  {
+    question: "Bisa dalam format apa saja dokumen RPPM diunduh?",
+    answer: "Anda dapat mengekspor dokumen RPPM yang dihasilkan dalam format file Microsoft Word (.docx) yang mudah diedit kembali, maupun format PDF yang siap cetak."
+  }
+];
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": rppmFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<\/?[^>]+(>|$)/g, "")
+    }
+  }))
+};
+
+const rppmSteps = [
+  {
+    badge: "Info Unit",
+    title: "Langkah 1/4: Identifikasi Unit Mingguan",
+    lines: [
+      "RENCANA PELAKSANAAN PEMBELAJARAN MENDALAM (RPPM)",
+      "==================================================",
+      "Jenjang / Kelas : SMP / VIII",
+      "Mata Pelajaran : Matematika",
+      "Fase            : D",
+      "Alokasi Waktu  : 1 Pekan (5 JP)",
+      "\n[TOPIK UTAMA]",
+      "Persamaan Linear Satu Variabel (PLSV) untuk Masalah Ekonomi Sederhana."
+    ]
+  },
+  {
+    badge: "Alur Harian",
+    title: "Langkah 2/4: Pembagian Pembelajaran Harian",
+    lines: [
+      "\n[PEMETAAN AKTIVITAS MINGGUAN]",
+      "• Pertemuan 1 (2 JP) - Mindful:",
+      "  Memetakan cara belajar murid dengan mengamati uang kembalian belanja kantin.",
+      "• Pertemuan 2 (2 JP) - Meaningful:",
+      "  Memecahkan model persamaan linear dan membandingkan harga barang di dunia nyata.",
+      "• Pertemuan 3 (1 JP) - Joyful:",
+      "  Aktivitas evaluasi interaktif berbentuk simulasi jual beli yang menyenangkan."
+    ]
+  },
+  {
+    badge: "Pilar DL",
+    title: "Langkah 3/4: Memasukkan Prinsip Deep Learning",
+    lines: [
+      "\n[INTEGRASI PILAR DEEP LEARNING]",
+      "• Mindful Learning: Menyesuaikan skenario dengan keunikan tingkat pemahaman siswa.",
+      "• Meaningful Learning: Memahami esensi dan kegunaan konsep aljabar untuk belanja hemat.",
+      "• Joyful Learning: Menghadirkan kompetisi kuis berbelanja yang seru dan menantang."
+    ]
+  },
+  {
+    badge: "Hasil RPPM",
+    title: "Langkah 4/4: Draf Dokumen Siap Unduh",
+    lines: [
+      "\n[DRAF RPPM MINGGUAN]",
+      "• Rencana Aktivitas: Terstruktur lengkap dari hari ke-1 s.d ke-3.",
+      "• Lampiran Asesmen: Rubrik KKTP Interval Nilai.",
+      "• Lampiran Media: Lembar Kerja Murid (LKPD) Interaktif.",
+      "\n--------------------------------------------",
+      "PROSES GENERATE DRAF RPPM MINGGUAN SELESAI!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+  <main>
+    <Hero 
+      badge="AI Pembuat RPPM Terbaik #1"
+      titleHtml="Buat RPPM (Rencana Pelaksanaan Pembelajaran Mendalam) <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis Per Unit & Pekan</span>"
+      description="Susun rencana pembelajaran mingguan berbasis prinsip Pembelajaran Mendalam (Deep Learning) secara sistematis menggunakan asisten AI Guru Indonesia."
+      mapel="Matematika"
+      kelas="Kelas 8 SMP · Fase D"
+      topik="Persamaan Linear Satu Variabel untuk Masalah Ekonomi"
+      steps={rppmSteps}
+    />
+
+    <!-- Semantic Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Optimalkan Perencanaan Mingguan Anda Melalui <span class="text-brand-primary">RPPM AI</span>
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            <strong>RPPM (Rencana Pelaksanaan Pembelajaran Mendalam)</strong> membantu guru memetakan konsep pembelajaran esensial ke dalam beberapa pertemuan selama satu pekan. Pendekatan ini memastikan alur materi tidak terputus dan pilar <strong>Pembelajaran Mendalam (Deep Learning)</strong> dapat terlaksana secara utuh dan terarah.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Solusi Praktis Administrasi Pembelajaran Guru Indonesia
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              Menyusun pemetaan harian dan mingguan secara manual seringkali memakan waktu berjam-jam. Dengan bantuan asisten AI pendidikan Indonesia, Anda dapat merancang target mingguan, instrumen penilaian harian, alur aktivitas pembelajaran aktif, hingga lampiran <strong>Lembar Kerja Murid (LKPD)</strong> hanya dalam 90 detik.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              Seluruh rancangan RPPM GuruDokAI diselaraskan dengan standar ketercapaian <strong>KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)</strong> dan Dimensi Profil lulusan murid.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Menyusun pembagian jam pelajaran (JP) mingguan secara logis.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Menyertakan panduan bagi guru madrasah berupa modul Kurikulum Berbasis Cinta (KBC).</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Kemudahan navigasi ke program <a href="/ai-pembuat-rpm" class="text-brand-primary hover:underline">RPM harian</a>, <a href="/generator-atp" class="text-brand-primary hover:underline">ATP</a>, dan <a href="/generator-tp" class="text-brand-primary hover:underline">TP</a>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-teal-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Penyusunan Per Pekan</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Memetakan aktivitas mengajar secara sistematis dalam satuan unit atau alokasi pekanan.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-teal-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Berorientasi Karakter</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Mendorong perumusan pilar karakter (<i>Character</i>) murid di setiap sesi pembelajaran.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-teal-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Fleksibilitas Mengajar</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Mudah diadaptasikan dengan kebutuhan riil kelas dan berbagai latar belakang kemampuan murid.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-teal-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Bantuan Cerdas AI</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Membantu menyusun skenario Pembelajaran Berbasis Cinta secara komprehensif.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <Pricing />
+
+    <!-- Testimonials Section -->
+    <Testimonials />
+
+    <!-- FAQ Section -->
+    <FAQ faqs={rppmFaqs} />
+
+    <!-- CTA Section -->
+    <CTAFinal />
+  </main>
+  <Footer />
+</BaseLayout>

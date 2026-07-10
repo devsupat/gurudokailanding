@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Pusat Edukasi & Knowledge Center Administrasi Guru | GuruDokAI";
+const description = "Panduan lengkap, contoh, dan wawasan seputar RPP, RPM, RPPM, Kurikulum Merdeka, Kurikulum Berbasis Cinta (KBC), dan prinsip Pembelajaran Mendalam.";
+const keywords = "knowledge center gurudokai, blog guru indonesia, apa itu rpm, perbedaan rpp rpm rppm, kbc kemenag, modul ajar deep learning";
+
+const pageUrl = "https://gurudokailanding.pages.dev/knowledge";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Knowledge Center",
+      "item": pageUrl
+    }
+  ]
+};
+
+const articles = [
+  {
+    title: "Apa itu Rencana Pembelajaran Mendalam (RPM)?",
+    description: "Pelajari konsep dasar RPM, pilar Deep Learning (Mindful, Meaningful, Joyful Learning), dan bagaimana ia menggantikan RPP konvensional di Kurikulum Merdeka.",
+    link: "/knowledge/apa-itu-rpm",
+    date: "10 Juli 2026",
+    readTime: "4 menit baca",
+    category: "Konsep Kurikulum"
+  },
+  {
+    title: "Perbedaan Mendasar RPP, RPM, dan RPPM",
+    description: "Masih bingung membedakan administrasi harian, rencana pembelajaran mendalam (RPM), dan rencana mingguan (RPPM)? Simak panduan perbandingan lengkapnya di sini.",
+    link: "/knowledge/perbedaan-rpp-rpm-rppm",
+    date: "09 Juli 2026",
+    readTime: "5 menit baca",
+    category: "Administrasi"
+  },
+  {
+    title: "Mengenal Kurikulum Berbasis Cinta (KBC) Madrasah Kemenag",
+    description: "Panduan lengkap penerapan Pembelajaran Berbasis Cinta di madrasah MI, MTs, dan MA demi mewujudkan akhlakul karimah berbasis kasih sayang.",
+    link: "/knowledge/apa-itu-kbc-kurikulum-berbasis-cinta",
+    date: "08 Juli 2026",
+    readTime: "4 menit baca",
+    category: "Madrasah"
+  },
+  {
+    title: "Cara Menyusun Modul Ajar Sesuai Prinsip Deep Learning",
+    description: "Langkah demi langkah menyusun kegiatan inti modul ajar berbasis 3 pilar Pembelajaran Mendalam lengkap dengan penyusunan lembar kerja siswa (LKPD).",
+    link: "/knowledge/cara-menyusun-modul-ajar-deep-learning",
+    date: "07 Juli 2026",
+    readTime: "6 menit baca",
+    category: "Panduan Praktis"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
+    <!-- Top Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Knowledge Center & Hub Edukasi</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-none mb-6">
+        Wawasan Administrasi & <span class="text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent">Pedagogi Modern Indonesia</span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg text-gray-600 font-medium">
+        Panduan mendalam mengenai RPM, RPPM, Kurikulum Merdeka, serta Kurikulum Berbasis Cinta (KBC) untuk mempermudah tugas guru dan meningkatkan mutu belajar murid.
+      </p>
+    </div>
+
+    <!-- Article Grid List -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {articles.map((post) => (
+          <article class="bg-white border border-slate-200 rounded-3xl p-8 shadow-premium hover-scale flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">
+                  {post.category}
+                </span>
+                <span class="text-xs text-gray-400 font-semibold">{post.date}</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 hover:text-brand-primary transition-colors">
+                <a href={post.link}>{post.title}</a>
+              </h2>
+              <p class="text-gray-500 text-sm sm:text-base leading-relaxed font-semibold mb-6">
+                {post.description}
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+              <span class="text-xs text-gray-400 font-bold">{post.readTime}</span>
+              <a 
+                href={post.link} 
+                class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-primary hover:underline"
+              >
+                <span>Baca Selengkapnya</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

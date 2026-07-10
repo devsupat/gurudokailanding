@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "Rencana Pembelajaran Mendalam (RPM) Kurikulum Merdeka | GuruDokAI";
+const description = "Informasi lengkap mengenai Rencana Pembelajaran Mendalam (RPM) Kurikulum Merdeka. Panduan praktis menyusun modul ajar berbasis Deep Learning dengan AI Guru.";
+const keywords = "rencana pembelajaran mendalam, rpm kurikulum merdeka, pembelajaran mendalam, modul ajar rpm, deep learning pendidikan, administrasi guru, kbc kemenag";
+
+const pageUrl = "https://gurudokailanding.pages.dev/rencana-pembelajaran-mendalam";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Rencana Pembelajaran Mendalam (RPM)",
+      "item": pageUrl
+    }
+  ]
+};
+
+// Custom FAQ for RPM
+const rpmFaqs = [
+  {
+    question: "Apa tujuan utama dari Rencana Pembelajaran Mendalam (RPM)?",
+    answer: "Tujuan utama <strong>Rencana Pembelajaran Mendalam (RPM)</strong> adalah merancang skenario pembelajaran yang membantu murid melangkah dari sekadar pemahaman pasif ke tingkat analisis kritis dan penerapan konsep secara kontekstual di dunia nyata."
+  },
+  {
+    question: "Bagaimana struktur penyusunan dokumen RPM Kurikulum Merdeka?",
+    answer: "Penyusunan RPM terdiri dari perumusan Ide Utama (Big Ideas), penyusunan Pertanyaan Pemantik, perancangan aktivitas berbasis 3 pilar Pembelajaran Mendalam (Mindful, Meaningful, dan Joyful Learning), serta integrasi instrumen <strong>Asesmen Diagnostik, Formatif, dan Sumatif</strong>."
+  },
+  {
+    question: "Apakah RPM wajib digunakan oleh guru?",
+    answer: "Dalam regulasi terbaru Kemendikdasmen mengenai Kurikulum Merdeka, guru didorong untuk mengadopsi prinsip <strong>Pembelajaran Mendalam (Deep Learning)</strong>. RPM merupakan wujud pembaruan praktis dari dokumen RPP yang diselaraskan dengan instruksi pembelajaran mendalam ini."
+  },
+  {
+    question: "Apakah GuruDokAI mempermudah pembuatan RPM?",
+    answer: "Ya, GuruDokAI merupakan asisten <strong>AI Guru Indonesia</strong> yang secara instan merumuskan rancangan RPM utuh sesuai mata pelajaran, jenjang kelas, dan topik spesifik yang Anda butuhkan."
+  },
+  {
+    question: "Bagaimana cara mengakses generator RPM GuruDokAI?",
+    answer: "Anda dapat mendaftar langsung di platform GuruDokAI melalui HP Android (menggunakan aplikasi SiAjar), komputer Windows, maupun web browser di perangkat apa saja."
+  }
+];
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": rpmFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<\/?[^>]+(>|$)/g, "")
+    }
+  }))
+};
+
+const rpmSteps = [
+  {
+    badge: "Big Idea",
+    title: "Langkah 1/4: Menentukan Ide Utama & Pertanyaan Pemantik",
+    lines: [
+      "PEMETAKAN RPM (RENCANA PEMBELAJARAN MENDALAM)",
+      "============================================",
+      "Fase / Kelas   : D / VII",
+      "Mata Pelajaran : Bahasa Indonesia",
+      "Topik          : Teks Eksposisi & Isu Lingkungan",
+      "\n[IDE UTAMA (BIG IDEA)]",
+      "Bahasa adalah media advokasi dan penyadaran sosial terhadap kelestarian bumi.",
+      "\n[PERTANYAAN PEMANTIK]",
+      "Bagaimana kata-kata kita bisa menggerakkan orang lain untuk menjaga kebersihan lingkungan?"
+    ]
+  },
+  {
+    badge: "Mindful",
+    title: "Langkah 2/4: Pilar 1 - Mindful Learning",
+    lines: [
+      "\n[KEGIATAN INTI: MINDFUL LEARNING]",
+      "• Menyadari keunikan cara belajar murid. Murid mengamati foto tumpukan sampah sesuai minat/pengalaman lokal.",
+      "• Murid merefleksikan kebiasaan penggunaan plastik sekali pakai di rumah masing-masing.",
+      "• Guru memandu diskusi dengan menghargai setiap pendapat murid yang beragam."
+    ]
+  },
+  {
+    badge: "Meaningful & Joyful",
+    title: "Langkah 3/4: Kegiatan Meaningful & Joyful Learning",
+    lines: [
+      "\n[KEGIATAN INTI: MEANINGFUL LEARNING]",
+      "• Murid menulis draf esai teks eksposisi persuasi tentang bahaya sampah plastik untuk melatih pemikiran kritis dan solusi dunia nyata.",
+      "\n[KEGIATAN INTI: JOYFUL LEARNING]",
+      "• Murid berkolaborasi secara berkelompok untuk menelaah draf tulisan teman sebaya secara interaktif, santun, dan menyenangkan."
+    ]
+  },
+  {
+    badge: "Hasil RPM",
+    title: "Langkah 4/4: Penyusunan Instrumen Evaluasi",
+    lines: [
+      "\n[ASESMEN PEMBELAJARAN MENDALAM]",
+      "• Asesmen Diagnostik: Pemetaan awal gaya penulisan murid.",
+      "• Asesmen Formatif: Lembar Koreksi Teman Sebaya (Peer-Assessment).",
+      "• Asesmen Sumatif: Penilaian portofolio tulisan akhir menggunakan rubrik KKTP.",
+      "\n--------------------------------------------",
+      "PROSES GENERATE RANCANGAN RPM SELESAI!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+  <main>
+    <Hero 
+      badge="Panduan RPM Kurikulum Merdeka #1"
+      titleHtml="Rencana Pembelajaran Mendalam (RPM) <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Prinsip Deep Learning Kurikulum Merdeka</span>"
+      description="Temukan cara mudah menyusun Rencana Pembelajaran Mendalam (RPM) yang mengedepankan pemahaman bermakna bagi murid menggunakan asisten AI Guru Indonesia."
+      mapel="Bahasa Indonesia"
+      kelas="Kelas 7 SMP · Fase D"
+      topik="Menulis Teks Eksposisi Tematik Isu Lingkungan"
+      steps={rpmSteps}
+    />
+
+    <!-- Semantic Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Implementasi <span class="text-brand-primary">Pembelajaran Mendalam (Deep Learning)</span> di Kelas Anda
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Penyusunan <strong>Rencana Pembelajaran Mendalam (RPM)</strong>—yang sebelumnya dikenal sebagai <strong>RPP Kurikulum Merdeka</strong>—bukan sekadar tentang dokumen administratif. Ini merupakan komitmen transformasi pembelajaran yang berpusat pada pencapaian kompetensi esensial murid.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Mengapa Berpindah dari RPP ke RPM?
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              RPM membedah bagaimana murid dapat mengaitkan materi (<i>Connection</i>), membuktikan keterampilannya (<i>Competence</i>), dan membangun integritas kepribadian (<i>Character</i>). Hal ini membuat murid memiliki bekal kokoh untuk masa depan mereka.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              Dengan asisten AI Guru Indonesia dari GuruDokAI, Anda dibantu memetakan langkah-langkah Deep Learning tersebut ke dalam modul ajar yang utuh. Mulai dari perancangan <strong>RPPM (Rencana Pelaksanaan Pembelajaran Mendalam Mingguan)</strong>, pembuatan <strong>Lembar Kerja Murid (LKPD)</strong>, pemetaan <strong>ATP</strong>, rumusan <strong>TP</strong>, hingga integrasi asesmen diagnostik, formatif, dan sumatif.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Menghasilkan dokumen Rencana Pembelajaran Mendalam yang presisi.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Mendukung penyelarasan instrumen evaluasi dengan rubrik <strong>KKTP</strong>.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Terintegrasi dengan opsi <a href="/kbc" class="text-brand-primary hover:underline">Kurikulum Berbasis Cinta (KBC)</a> untuk madrasah.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-indigo-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-merge"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 15V9a4 4 0 0 0-4-4H9"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Pilar Koneksi (Connection)</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Membantu murid mengaitkan materi dengan pengalaman nyata sehari-hari secara relevan.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-indigo-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Pilar Kompetensi (Competence)</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Menyediakan kerangka demonstrasi keahlian dan penguasaan materi yang dapat diukur secara presisi.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-indigo-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Pilar Karakter (Character)</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Mendorong integrasi sikap kerja sama, mandiri, berpikir kritis, dan kebinekaan global murid.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-indigo-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Saling Terhubung</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Saling terintegrasi dengan <a href="/ai-pembuat-rpm" class="text-brand-primary hover:underline">Rencana Pembelajaran Mendalam (RPM)</a> dan program sekolah.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <Pricing />
+
+    <!-- Testimonials Section -->
+    <Testimonials />
+
+    <!-- FAQ Section -->
+    <FAQ faqs={rpmFaqs} />
+
+    <!-- CTA Section -->
+    <CTAFinal />
+  </main>
+  <Footer />
+</BaseLayout>

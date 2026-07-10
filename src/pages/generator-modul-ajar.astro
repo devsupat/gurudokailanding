@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "Generator Modul Ajar Kurikulum Merdeka Otomatis | GuruDokAI";
+const description = "Buat modul ajar Kurikulum Merdeka secara lengkap dan otomatis dalam 2 menit. Generator Modul Ajar AI dengan materi pembelajaran, LKPD, rubrik asesmen, dan media ajar.";
+const keywords = "generator modul ajar, buat modul ajar otomatis, aplikasi pembuat modul ajar, modul ajar kurikulum merdeka otomatis, modul ajar ai, cara menyusun modul ajar, perangkat pembelajaran";
+
+// Custom FAQ for Modul Ajar Page
+const modulFaqs = [
+  {
+    question: "Apa perbedaan RPP dengan Modul Ajar di GuruDokAI?",
+    answer: "Secara substansi keduanya mirip, namun <strong>Modul Ajar memiliki komponen yang lebih lengkap</strong>. Selain berisi langkah pembelajaran dan asesmen seperti RPP, Modul Ajar di GuruDokAI juga otomatis menyertakan <strong>media pembelajaran, bahan bacaan guru & murid, glosarium, serta LKPD interaktif</strong>."
+  },
+  {
+    question: "Apakah materi dalam Modul Ajar sesuai buku teks Kurikulum Merdeka terbaru?",
+    answer: "Ya, AI GuruDokAI telah diintegrasikan dengan materi standar dari buku teks utama Kurikulum Merdeka Kemendikdasmen untuk semua jenjang."
+  },
+  {
+    question: "Apakah saya bisa mengubah kriteria penilaian dalam Modul Ajar?",
+    answer: "Sangat bisa. Anda bisa menyesuaikan Kriteria Ketercapaian Tujuan Pembelajaran (KKTP) baik menggunakan metode rubrik deskriptif, interval nilai, maupun lembar ceklis."
+  },
+  {
+    question: "Berapa banyak Modul Ajar yang bisa saya buat?",
+    answer: "Tergantung paket yang Anda pilih. Paket <strong>Tahunan (99rb) dan Lifetime (199rb) memberikan akses tak terbatas (Unlimited)</strong> untuk membuat dokumen tanpa batas kuota."
+  },
+  {
+    question: "Apakah ada video panduan atau demo cara menggunakan GuruDokAI?",
+    answer: "Tentu saja. Anda bisa menyaksikan <a href=\"https://www.tiktok.com/@scenecrafter/video/7655997727506976008\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Demo Utama</a> dan <a href=\"https://www.tiktok.com/@scenecrafter/video/7659118261556055316\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Eksplorasi Fitur Lengkap</a> kami di TikTok. Untuk panduan lengkap dari awal, Anda bisa menonton <a href=\"https://www.youtube.com/watch?v=cOYjV9c7IZc\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Panduan Setup & Cara Pakai</a> di YouTube, serta <a href=\"https://www.tiktok.com/@scenecrafter/video/7651961072823438608\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Tutorial Aplikasi Android</a>."
+  }
+];
+
+// Custom simulation steps for Modul Ajar
+const modulSteps = [
+  {
+    badge: "CP-TP",
+    title: "Langkah 1/5: Mengidentifikasi CP & TP",
+    lines: [
+      "MODUL AJAR KURIKULUM MERDEKA",
+      "============================",
+      "Sekolah        : SMP Harapan Bangsa",
+      "Mata Pelajaran : IPA (Biologi)",
+      "Kelas / Fase   : VIII (Delapan) / D",
+      "Topik          : Sistem Pencernaan Manusia & Nutrisi",
+      "\n[CAPAIAN PEMBELAJARAN (CP)]",
+      "Murid memahami sistem organ tubuh manusia (pencernaan, pernapasan, peredaran darah) dan fungsinya.",
+      "\n[TUJUAN PEMBELAJARAN (TP)]",
+      "1. Mengidentifikasi jenis-jenis nutrisi dalam bahan makanan.",
+      "2. Menjelaskan proses pencernaan mekanis & kimiawi."
+    ]
+  },
+  {
+    badge: "Media Ajar",
+    title: "Langkah 2/5: Merancang Materi & Media Pembelajaran",
+    lines: [
+      "\n[MEDIA & SUMBER BELAJAR]",
+      "• 1. Media Visual: Gambar organ pencernaan (mulut, lambung, usus).",
+      "• 2. Media Praktik: Tabung reaksi, larutan Benedict, dan sampel makanan untuk uji glukosa.",
+      "• 3. Bahan Bacaan Guru & Murid: Lembar rangkuman zat gizi (Karbohidrat, Protein, Lemak, Vitamin, Mineral)."
+    ]
+  },
+  {
+    badge: "Aktivitas",
+    title: "Langkah 3/5: Mengembangkan Langkah Pembelajaran",
+    lines: [
+      "\n[KEGIATAN PEMBELAJARAN (Inquiry Learning)]",
+      "• Pertemuan 1 (2 JP): Uji Kandungan Nutrisi Makanan",
+      "  - Stimulation: Guru menunjukkan label nutrisi pada kemasan snack.",
+      "  - Problem Statement: Mengapa tubuh memerlukan nutrisi yang seimbang?",
+      "  - Data Collection: Siswa secara kelompok menguji kandungan amilum pada nasi dan roti.",
+      "  - Verification & Generalization: Siswa mempresentasikan hasil uji laboratorium."
+    ]
+  },
+  {
+    badge: "Asesmen",
+    title: "Langkah 4/5: Menyusun Asesmen & Rubrik KKTP",
+    lines: [
+      "\n[ASESMEN & KRITERIA KETUNTASAN (KKTP)]",
+      "• Asesmen Kinerja (Formatif):",
+      "  - Rubrik ketrampilan melakukan uji makanan (skala 1-4).",
+      "\n• Asesmen Tertulis (Sumatif):",
+      "  - Soal esai HOTS: Menganalisis dampak malnutrisi pada pertumbuhan remaja.",
+      "\n• Kriteria Ketuntasan (KKTP):",
+      "  - Menggunakan interval deskriptif kelayakan laporan laboratorium."
+    ]
+  },
+  {
+    badge: "Modul Ajar",
+    title: "Langkah 5/5: Finalisasi Modul Ajar Lengkap",
+    lines: [
+      "\n[GLOSARIUM & DAFTAR PUSTAKA]",
+      "• Glosarium: Enzim, Peristaltik, Karbohidrat, Amilase, Absorpsi.",
+      "• Lembar Kerja Murid (LKPD): Tabel praktikum uji zat makanan.",
+      "\n--------------------------------------------",
+      "MODUL AJAR PREMIUM LENGKAP SIAP DICETAK DAN DIUNDUH!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <Header />
+  <main>
+    <!-- Custom Hero for Modul Ajar -->
+    <Hero 
+      badge="Generator Modul Ajar Terbaik #1"
+      titleHtml="Generator Modul Ajar <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Kurikulum Merdeka</span> berbasis AI"
+      description="Dapatkan modul ajar lengkap, interaktif, dan terstruktur sesuai panduan pembelajaran terbaru Kemendikdasmen. Cukup ketik topik ajar, unduh hasilnya."
+      mapel="Ilmu Pengetahuan Alam (IPA)"
+      kelas="Kelas 8 SMP · Fase D"
+      topik="Sistem Pencernaan Manusia & Nutrisi Makanan"
+      steps={modulSteps}
+    />
+
+    <!-- Intent Rich Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Bagaimana <span class="text-brand-primary">Generator Modul Ajar AI</span> Membantu Guru?
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Modul ajar adalah pengganti RPP dalam Kurikulum Merdeka yang menuntut kelengkapan materi lebih mendalam. Generator kami menyusun seluruh komponen esensial secara otomatis agar Anda tidak perlu lagi begadang menulis puluhan lembar perangkat ajar.
+          </p>
+        </div>
+
+        <!-- 2 Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Column 1: Informational Text -->
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Komponen Lengkap Modul Ajar Hasil Generasi AI
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              Banyak generator di luar sana hanya menghasilkan RPP ringkas yang diganti judulnya menjadi Modul Ajar. GuruDokAI menjamin seluruh kelengkapan komponen kurikulum nasional terpenuhi secara detail.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              Setiap modul ajar yang dibuat dengan GuruDokAI menyertakan informasi umum, kompetensi inti, langkah pembelajaran kontekstual, asesmen diagnostik & sumatif, bahan bacaan murid, glosarium, serta lampiran lembar kerja yang relevan.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Bahan Bacaan & Glosarium: Mempermudah murid memahami istilah asing.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Media & Langkah Inquiry: Mendorong pembelajaran aktif sains dan sosial.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Terintegrasi Penuh: Hasilkan <a href="/ai-pembuat-rpp" class="text-brand-primary hover:underline">RPP</a>, <a href="/ai-pembuat-lkpd" class="text-brand-primary hover:underline">LKPD</a>, dan <a href="/generator-atp" class="text-brand-primary hover:underline">ATP</a> yang saling selaras secara instan.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Specific Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Bahan Bacaan Lengkap</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Otomatis menyusun rangkuman materi esensial untuk dibaca siswa sebelum kelas dimulai.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-spreadsheet"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">LKPD Siap Pakai</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Setiap modul menyertakan lembar kerja murid berupa eksperimen, analisis kasus, maupun latihan mandiri.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-tool"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-1.5L4 24v-3l12.5-12.5L18 10l-1.5-1.5"/><path d="m2 2 20 20"/><path d="M14 2 8 8"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Strategi Pembelajaran</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Menyusun metode belajar berbasis inkuiri, pemecahan masalah nyata, dan kerja kolaborasi.
+              </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Sesuai Buku Paket</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Materi ajar selaras dengan buku teks resmi Kurikulum Merdeka yang diterbitkan pemerintah.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual 3-Steps Guide -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Proses 3 Langkah Bikin Modul Ajar Otomatis
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Hemat waktu berjam-jam setiap semester dengan sistem pembuatan modul kami.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+          <!-- Step 1 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              1
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Tentukan Topik & Jenjang</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Pilih kelas (Fase A-F) dan ketik topik spesifik materi pembelajaran yang akan diajarkan.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              2
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Proses Otomatis AI</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              AI akan memetakan CP, merancang TP, menulis bahan ajar, serta merumuskan tes sumatif & formatif.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              3
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Unduh & Bagikan</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Simpan draf dalam format MS Word (.docx) atau cetak langsung menjadi berkas PDF siap pakai.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing Component -->
+    <Pricing />
+
+    <!-- Testimonials Component -->
+    <Testimonials />
+
+    <!-- FAQ Component with Custom FAQs -->
+    <FAQ faqs={modulFaqs} />
+
+    <!-- CTA Final -->
+    <CTAFinal 
+      title="Selesaikan Modul Ajar 1 Semester dalam 10 Menit"
+      description="Gunakan kecerdasan buatan GuruDokAI untuk merancang perangkat modul ajar terlengkap tanpa pusing."
+    />
+  </main>
+  <Footer />
+</BaseLayout>

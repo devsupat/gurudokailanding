@@ -1,5 +1,9 @@
 ---
-const faqs = [
+interface Props {
+  faqs?: Array<{ question: string; answer: string }>;
+}
+
+const defaultFaqs = [
   {
     question: "Apakah GuruDokAI merupakan aplikasi administrasi guru otomatis?",
     answer: "Ya, GuruDokAI adalah <strong>aplikasi administrasi guru</strong> otomatis sekaligus pelopor <strong>AI pendidikan Indonesia</strong> dan <strong>perangkat ajar AI</strong> terdepan. Platform ini berfungsi sebagai <strong>pembuat RPP otomatis</strong>, <strong>pembuat modul ajar</strong>, dan <strong>generator LKPD</strong> interaktif untuk memproses seluruh berkas <strong>administrasi pembelajaran</strong> Anda secara instan dan praktis."
@@ -33,10 +37,40 @@ const faqs = [
     answer: "Kami menerima pembayaran instan via QRIS (mendukung GoPay, Dana, ShopeePay, OVO, LinkAja) serta Transfer Bank Virtual Account (seperti Mandiri, BCA, BNI, BRI) dan kartu debit/kredit melalui platform pembayaran Lynk.id."
   },
   {
+    question: "Apakah ada video panduan atau demo cara menggunakan GuruDokAI?",
+    answer: "Tentu saja. Anda bisa menyaksikan <a href=\"https://www.tiktok.com/@scenecrafter/video/7655997727506976008\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Demo Utama</a> dan <a href=\"https://www.tiktok.com/@scenecrafter/video/7659118261556055316\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Eksplorasi Fitur Lengkap</a> kami di TikTok. Untuk panduan lengkap dari awal, Anda bisa menonton <a href=\"https://www.youtube.com/watch?v=cOYjV9c7IZc\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Panduan Setup & Cara Pakai</a> di YouTube, serta <a href=\"https://www.tiktok.com/@scenecrafter/video/7651961072823438608\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Tutorial Aplikasi Android</a>."
+  },
+  {
+    question: "Apa itu RPM?",
+    answer: "<strong>RPM (Rencana Pembelajaran Mendalam)</strong> adalah format perencanaan pembelajaran terbaru yang dirancang untuk mengimplementasikan prinsip Pembelajaran Mendalam (Deep Learning) di sekolah."
+  },
+  {
+    question: "Apa perbedaan RPM dan RPP?",
+    answer: "<strong>RPP (Rencana Pelaksanaan Pembelajaran)</strong> berfokus pada langkah-langkah administratif mengajar secara umum, sedangkan <strong>RPM (Rencana Pembelajaran Mendalam)</strong> dirancang khusus untuk memastikan terjadinya <strong>Pembelajaran Mendalam (Deep Learning)</strong> melalui pemetaan konsep esensial, asesmen autentik, dan aktivitas bermakna bagi murid."
+  },
+  {
+    question: "Apa itu RPPM?",
+    answer: "<strong>RPPM (Rencana Pelaksanaan Pembelajaran Mendalam)</strong> adalah dokumen perencanaan mingguan atau unit pembelajaran yang menguraikan strategi mengajar berbasis pendekatan Deep Learning secara bertahap."
+  },
+  {
+    question: "Apakah GuruDokAI mendukung Pembelajaran Mendalam (Deep Learning)?",
+    answer: "Tentu saja. GuruDokAI didesain sebagai <strong>AI Pendidikan Indonesia</strong> terdepan yang mendukung penyusunan modul, RPP, RPM, dan RPPM berbasis prinsip <strong>Pembelajaran Mendalam (Deep Learning)</strong> agar pembelajaran lebih bermakna dan efektif."
+  },
+  {
+    question: "Apakah GuruDokAI mendukung Kurikulum Berbasis Cinta (KBC)?",
+    answer: "Ya, GuruDokAI mendukung penuh <strong>Kurikulum Berbasis Cinta (KBC)</strong>, termasuk pembuatan <strong>Modul Ajar KBC</strong> dan skenario <strong>Pembelajaran Berbasis Cinta</strong> untuk lingkungan madrasah di bawah naungan Kementerian Agama."
+  },
+  {
+    question: "Apakah GuruDokAI dapat digunakan oleh guru MI, MTs, dan MA?",
+    answer: "Tentu saja. GuruDokAI sangat cocok untuk <strong>guru madrasah</strong> di lingkungan Kemenag, termasuk <strong>MI (Madrasah Ibtidaiyah), MTs (Madrasah Tsanawiyah), dan MA (Madrasah Aliyah)</strong>, lengkap dengan pilihan mata pelajaran umum maupun pendidikan agama Islam."
+  },
+  {
     question: "Kalau ada pertanyaan, bisa hubungi siapa?",
     answer: "Tim bantuan GuruDokAI siap mendampingi Anda. Anda bisa langsung menghubungi CS kami melalui <a href=\"https://wa.me/6285189536359?text=Halo%20GuruDokAI,%20saya%20butuh%20bantuan\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">WhatsApp di sini</a>."
   }
 ];
+
+const { faqs = defaultFaqs } = Astro.props;
 ---
 <section id="faq" class="py-20 bg-white scroll-mt-16">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Apa itu Rencana Pembelajaran Mendalam (RPM)? Panduan Lengkap | GuruDokAI";
+const description = "Temukan definisi Rencana Pembelajaran Mendalam (RPM) Kurikulum Merdeka, penjelasan 3 pilar utama Pembelajaran Mendalam, serta contoh penerapannya di kelas.";
+const keywords = "apa itu rpm, rencana pembelajaran mendalam, rpp kurikulum merdeka, pembelajaran mendalam, deep learning pendidikan, gurudokai";
+
+const pageUrl = "https://gurudokailanding.pages.dev/knowledge/apa-itu-rpm";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Knowledge Center",
+      "item": "https://gurudokailanding.pages.dev/knowledge"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Apa itu RPM?",
+      "item": pageUrl
+    }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Article Header -->
+      <div class="mb-8">
+        <a href="/knowledge" class="inline-flex items-center gap-1 text-sm font-bold text-brand-primary hover:underline mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          <span>Kembali ke Knowledge Center</span>
+        </a>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Konsep Kurikulum</span>
+          <span class="text-xs text-gray-400 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+          Apa itu Rencana Pembelajaran Mendalam (RPM)? Panduan Lengkap untuk Guru Indonesia
+        </h1>
+        <p class="text-lg text-gray-500 font-medium italic">
+          Ketahui konsep dasar RPM, implementasi 3 pilar Deep Learning di sekolah, dan bagaimana asisten AI membantu guru melakukan transisi ini secara praktis.
+        </p>
+      </div>
+
+      <!-- Article Body Content -->
+      <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
+        <p>
+          Dalam perkembangan kurikulum pendidikan di Indonesia, administrasi guru terus mengalami penyempurnaan demi meningkatkan kualitas pembelajaran murid di kelas. Salah satu istilah yang kini ramai dibahas oleh para pendidik adalah <strong>RPM (Rencana Pembelajaran Mendalam)</strong>.
+        </p>
+        <p>
+          RPM hadir sebagai evolusi lanjutan dari <strong>RPP Kurikulum Merdeka</strong>. Jika RPP konvensional cenderung berfokus pada penyelesaian administratif dan urutan instruksional guru secara kaku, RPM dirancang secara khusus untuk mewadahi pendekatan <strong>Pembelajaran Mendalam (Deep Learning)</strong>.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Mengenal 3 Pilar Utama Pembelajaran Mendalam</h2>
+        <p>
+          Sesuai dengan arahan terbaru dari Kementerian Pendidikan Dasar dan Menengah (Kemendikdasmen), pendekatan Pembelajaran Mendalam (Deep Learning) berlandaskan pada tiga pilar utama yang saling terintegrasi:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Mindful Learning</strong>: Menyadari keunikan setiap murid. Guru diajak menghargai perbedaan latar belakang, cara belajar, kebutuhan, serta potensi masing-masing murid agar pembelajaran lebih personal dan tepat sasaran.
+          </li>
+          <li>
+            <strong>Meaningful Learning</strong>: Belajar bermakna. Siswa didorong untuk berpikir kritis, aktif berdiskusi, dan memahami alasan serta manfaat praktis dari materi ajar yang sedang dipelajari untuk diterapkan di kehidupan nyata.
+          </li>
+          <li>
+            <strong>Joyful Learning</strong>: Belajar menyenangkan. Menciptakan suasana kelas yang interaktif, menantang namun nyaman, sehingga memori belajar melekat lebih lama dan memotivasi murid mencapai prestasi terbaiknya.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Mengapa Transisi ke RPM Ini Sangat Penting?</h2>
+        <p>
+          Dalam era kecerdasan buatan, informasi sangat mudah diakses oleh siapa saja. Murid tidak lagi membutuhkan guru sekadar sebagai penyampai fakta searah. Nilai lebih proses belajar mengajar terletak pada kemampuan murid menganalisis informasi secara mendalam, bernalar kritis, dan memiliki karakter yang santun. RPM membantu guru menyusun skenario kelas yang interaktif agar tujuan tersebut tercapai secara konsisten di setiap bab.
+        </p>
+
+        <!-- CTA Box inside Article -->
+        <div class="my-10 bg-brand-primary/5 border border-brand-primary/20 rounded-3xl p-8 text-center space-y-4 shadow-sm">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Solusi Cepat Guru Indonesia</span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-gray-900 leading-tight">
+            Kesulitan Menyusun Draf RPM Secara Manual?
+          </h3>
+          <p class="text-sm text-gray-500 font-semibold max-w-md mx-auto leading-relaxed">
+            Gunakan asisten AI Guru Indonesia GuruDokAI untuk menghasilkan draf Rencana Pembelajaran Mendalam (RPM) lengkap dalam hitungan detik.
+          </p>
+          <div class="pt-2">
+            <a 
+              href="/ai-pembuat-rpm" 
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-md transition-colors gap-2"
+            >
+              <span>Buat RPM Otomatis Sekarang</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Langkah Sederhana Menerapkan RPM di Kelas</h2>
+        <ol class="list-decimal pl-6 space-y-3">
+          <li>
+            <strong>Tentukan Ide Utama (Big Idea)</strong>: Fokus pada konsep paling esensial dalam topik Anda. Kurangi beban menghafal banyak bab yang tidak bermakna.
+          </li>
+          <li>
+            <strong>Gunakan Pertanyaan Pemantik yang Menantang</strong>: Lontarkan pertanyaan pemantik terbuka yang merangsang diskusi murid.
+          </li>
+          <li>
+            <strong>Rancang Asesmen yang Autentik</strong>: Jangan hanya mengandalkan ujian tertulis pilihan ganda. Berikan rubrik KKTP berbasis unjuk kerja atau portofolio murid.
+          </li>
+          <li>
+            <strong>Selaraskan Rencana Mingguan (RPPM)</strong>: Pecah alur pembelajaran besar ke dalam rencana pelaksanaan pekanan agar struktur jam pelajaran (JP) tertata dengan rapi.
+          </li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Referensi Resmi Kebijakan</h2>
+        <p class="text-xs sm:text-sm text-gray-500 font-semibold leading-relaxed border-t border-slate-200 pt-4">
+          Penyusunan Rencana Pembelajaran Mendalam (RPM) Kurikulum Merdeka didasarkan pada panduan resmi penyusunan perangkat ajar oleh Badan Standar, Kurikulum, dan Asesmen Pendidikan (BSKAP) Kementerian Pendidikan Dasar dan Menengah Republik Indonesia, serta integrasi 3 pilar Pembelajaran Mendalam (Deep Learning) sesuai anjuran kebijakan pendidikan nasional 2025/2026.
+        </p>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

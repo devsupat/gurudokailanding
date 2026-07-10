@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Cara Menyusun Modul Ajar Sesuai Prinsip Deep Learning | GuruDokAI";
+const description = "Panduan praktis menulis modul ajar berbasis Pembelajaran Mendalam (Deep Learning) Kurikulum Merdeka. Contoh integrasi KKTP dan LKPD secara lengkap.";
+const keywords = "modul ajar deep learning, cara menyusun modul ajar, rencana pembelajaran mendalam, lkpd, kktp, kurikulum merdeka, gurudokai";
+
+const pageUrl = "https://gurudokailanding.pages.dev/knowledge/cara-menyusun-modul-ajar-deep-learning";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Knowledge Center",
+      "item": "https://gurudokailanding.pages.dev/knowledge"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Menyusun Modul Ajar Deep Learning",
+      "item": pageUrl
+    }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Article Header -->
+      <div class="mb-8">
+        <a href="/knowledge" class="inline-flex items-center gap-1 text-sm font-bold text-brand-primary hover:underline mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          <span>Kembali ke Knowledge Center</span>
+        </a>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Panduan Praktis</span>
+          <span class="text-xs text-gray-400 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+          Cara Menyusun Modul Ajar Sesuai Prinsip Pembelajaran Mendalam (Deep Learning)
+        </h1>
+        <p class="text-lg text-gray-500 font-medium italic">
+          Menyusun Modul Ajar yang bermutu di era kurikulum terbaru menuntut kita mendesain pengalaman belajar aktif. Berikut adalah panduan taktis menyusun komponennya.
+        </p>
+      </div>
+
+      <!-- Article Body Content -->
+      <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
+        <p>
+          Banyak guru menganggap pembuatan <strong>Modul Ajar</strong> sebagai beban administrasi yang melelahkan karena harus menyalin puluhan lembar format kaku. Padahal, inti dari modul ajar adalah memandu jalannya kelas agar murid belajar dengan menyenangkan dan mencapai target kompetensi secara mendalam.
+        </p>
+        <p>
+          Dengan prinsip <strong>Pembelajaran Mendalam (Deep Learning)</strong> yang digalakkan pemerintah, penyusunan modul ajar kini difokuskan pada tiga tahap utama: Apersepsi Bermakna, Aktivitas Aktif (Kolaboratif), serta Refleksi Karakter.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Komponen Wajib Modul Ajar Berbasis Deep Learning</h2>
+        <p>
+          Untuk memastikan modul ajar Anda memenuhi kriteria penilaian pengawas sekolah sekaligus berdaya guna di kelas, pastikan komponen berikut tercantum dengan jelas:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Ide Utama (Big Idea)</strong>: Satu kalimat ringkas yang merangkum nilai penting dari materi tersebut bagi masa depan murid.
+          </li>
+          <li>
+            <strong>Pertanyaan Pemantik</strong>: Pertanyaan menantang yang tidak memiliki satu jawaban mutlak untuk melatih logika berpikir murid.
+          </li>
+          <li>
+            <strong>Alur Aktivitas Pembelajaran Mendalam (Mindful, Meaningful, dan Joyful Learning)</strong>: Langkah pembelajaran yang dimulai dari pemetaan potensi & cara belajar murid (Mindful), proses eksplorasi berpikir kritis & pemecahan masalah nyata (Meaningful), serta penyajian aktivitas interaktif yang menyenangkan (Joyful).
+          </li>
+          <li>
+            <strong>Asesmen Formatif & Rubrik KKTP</strong>: Instrumen penilaian berkelanjutan yang jelas agar murid tahu apa saja standar keberhasilan belajarnya.
+          </li>
+          <li>
+            <strong>Lampiran LKPD (Lembar Kerja Murid)</strong>: Lembar panduan aktivitas mandiri/kelompok murid.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Langkah Demi Langkah Menyusun Modul Ajar</h2>
+        <p>
+          Berikut langkah cepat menyusun draf modul ajar Anda:
+        </p>
+        <ol class="list-decimal pl-6 space-y-3">
+          <li>
+            <strong>Analisis Capaian Pembelajaran (CP)</strong>: Breakdown CP ke dalam Alur Tujuan Pembelajaran (ATP) dan Tujuan Pembelajaran (TP) yang spesifik untuk pertemuan tersebut.
+          </li>
+          <li>
+            <strong>Desain Lembar Kerja Murid (LKPD) Terlebih Dahulu</strong>: Dengan merancang LKPD terlebih dahulu (Backwards Design), Anda bisa memperkirakan aktivitas apa saja yang harus dilewati murid selama kegiatan inti pelajaran.
+          </li>
+          <li>
+            <strong>Tentukan Rubrik Kriteria Ketercapaian (KKTP)</strong>: Buat interval nilai atau rubrik deskriptif sederhana agar proses penilaian bersikap objektif dan mendidik.
+          </li>
+          <li>
+            <strong>Tulis Langkah Kegiatan Ajar</strong>: Pastikan skenario ajar ramah terhadap diskusi interaktif dan pemecahan masalah aktif murid.
+          </li>
+        </ol>
+
+        <!-- CTA Box inside Article -->
+        <div class="my-10 bg-brand-primary/5 border border-brand-primary/20 rounded-3xl p-8 text-center space-y-4 shadow-sm">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Solusi Cepat Guru Indonesia</span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-gray-900 leading-tight">
+            Hemat Waktu Administrasi Anda Hingga 90%!
+          </h3>
+          <p class="text-sm text-gray-500 font-semibold max-w-md mx-auto leading-relaxed">
+            Biarkan generator AI terpopuler dari GuruDokAI menyusun draf utuh Modul Ajar berbasis Deep Learning lengkap dengan LKPD dan KKTP pilihan Anda.
+          </p>
+          <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="/modul-ajar" 
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-md transition-colors gap-2 w-full sm:w-auto"
+            >
+              <span>Buat Modul Ajar</span>
+            </a>
+            <a 
+              href="/lkpd" 
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-full shadow-sm transition-colors gap-2 w-full sm:w-auto"
+            >
+              <span>Generator LKPD</span>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Referensi Resmi Kebijakan</h2>
+        <p class="text-xs sm:text-sm text-gray-500 font-semibold leading-relaxed border-t border-slate-200 pt-4">
+          Panduan teknis dan tahapan praktis penulisan Modul Ajar/RPP Kurikulum Merdeka ini diselaraskan dengan Panduan Pembelajaran dan Asesmen Pendidikan Anak Usia Dini, Pendidikan Dasar, dan Pendidikan Menengah yang diterbitkan secara resmi oleh Badan Standar, Kurikulum, dan Asesmen Pendidikan (BSKAP) Kementerian Pendidikan Dasar dan Menengah RI.
+        </p>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

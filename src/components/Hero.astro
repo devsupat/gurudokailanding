@@ -1,6 +1,126 @@
 ---
+interface Props {
+  badge?: string;
+  titleHtml?: string;
+  description?: string;
+  mapel?: string;
+  kelas?: string;
+  topik?: string;
+  steps?: Array<{
+    badge: string;
+    title: string;
+    lines: string[];
+  }>;
+}
+
+const defaultSteps = [
+  {
+    badge: "CP",
+    title: "Langkah 1/7: Menganalisis Capaian Pembelajaran (CP)",
+    lines: [
+      "MODUL AJAR KURIKULUM MERDEKA",
+      "============================",
+      "\n[ANALISIS CAPAIAN PEMBELAJARAN (CP)]",
+      "Fase           : D (SMP Kelas VII)",
+      "Elemen         : Bilangan",
+      "Kompetensi CP  : Murid dapat membaca, menulis, dan membandingkan bilangan bulat serta menggunakannya untuk menyelesaikan masalah kehidupan sehari-hari."
+    ]
+  },
+  {
+    badge: "TP",
+    title: "Langkah 2/7: Merumuskan Tujuan Pembelajaran (TP)",
+    lines: [
+      "\n[RUMUSAN TUJUAN PEMBELAJARAN (TP)]",
+      "Berdasarkan kompetensi CP Elemen Bilangan:",
+      "• TP 7.1 : Mengidentifikasi konsep bilangan bulat positif dan negatif.",
+      "• TP 7.2 : Membandingkan & mengurutkan bilangan bulat pada garis bilangan.",
+      "• TP 7.3 : Menghitung hasil operasi penjumlahan & pengurangan bilangan bulat.",
+      "• TP 7.4 : Memecahkan masalah kontekstual bertema suhu & kedalaman laut."
+    ]
+  },
+  {
+    badge: "ATP",
+    title: "Langkah 3/7: Menyusun Alur Tujuan Pembelajaran (ATP)",
+    lines: [
+      "\n[ALUR TUJUAN PEMBELAJARAN (ATP)]",
+      "Alur & Alokasi JP Matematika Kelas VII Semester Ganjil:",
+      "• Unit 7.1.1: Bilangan Bulat Positif/Negatif (4 JP) -> Pekan 3 Juli",
+      "• Unit 7.1.2: Membandingkan & Mengurutkan (4 JP) -> Pekan 4 Juli",
+      "• Unit 7.1.3: Operasi Hitung Penjumlahan/Pengurangan (6 JP) -> Pekan 1-2 Agustus",
+      "• Unit 7.1.4: Asesmen Formatif & Kuis Bab (2 JP) -> Pekan 3 Agustus"
+    ]
+  },
+  {
+    badge: "PROTA",
+    title: "Langkah 4/7: Membuat Program Tahun (PROTA)",
+    lines: [
+      "\n[PROGRAM TAHUNAN (PROTA)]",
+      "Tahun Pelajaran: 2026/2027",
+      "Alokasi JP Efektif Semester Ganjil (80 JP total):",
+      "  - Bab 1 Bilangan Bulat   : 16 JP (Juli - Agustus)",
+      "  - Bab 2 Aljabar          : 20 JP (Agustus - September)",
+      "  - Bab 3 Persamaan Linear : 18 JP (Oktober)",
+      "  - Cadangan & Sumatif     : 8 JP"
+    ]
+  },
+  {
+    badge: "PROSEM",
+    title: "Langkah 5/7: Membuat Program Semester (PROSEM)",
+    lines: [
+      "\n[PROGRAM SEMESTER (PROSEM)]",
+      "Distribusi Mingguan Pembelajaran Matematika (JP):",
+      "• JULI     - Pekan 3: TP 7.1 (4 JP) | Pekan 4: TP 7.2 (4 JP)",
+      "• AGUSTUS  - Pekan 1: TP 7.3 (4 JP) | Pekan 2: TP 7.3 (2 JP) + STS (2 JP)",
+      "• AGUSTUS  - Pekan 3: TP 7.4 (4 JP)",
+      "• SEPTEMBER- Pekan 1-4: Bab 2 Aljabar (16 JP)"
+    ]
+  },
+  {
+    badge: "KKTP",
+    title: "Langkah 6/7: Menetapkan Kriteria Ketercapaian (KKTP)",
+    lines: [
+      "\n[KRITERIA KETERCAPAIAN TUJUAN PEMBELAJARAN (KKTP)]",
+      "Metode Penilaian: Rubrik Deskripsi Kriteria Ketuntasan:",
+      "• Interval 0 - 60%  : Belum Tuntas (Wajib Remedial Intervensi Khusus)",
+      "• Interval 61 - 80% : Cukup Tuntas (Tidak Perlu Remedial, Pendampingan Kelas)",
+      "• Interval 81 - 100%: Sangat Tuntas (Diberikan Pengayaan Soal HOTS)"
+    ]
+  },
+  {
+    badge: "MODUL",
+    title: "Langkah 7/7: Menyusun Modul Ajar & LKPD",
+    lines: [
+      "\n[PERANGKAT AJAR UTAMA: MODUL AJAR & LKPD]",
+      "Topik Ajar    : Operasi Penjumlahan & Pengurangan Bilangan Bulat",
+      "Metode/Model  : Problem-Based Learning (PBL)",
+      "Langkah Pembelajaran:",
+      "  1. PENDAHULUAN (10 Menit): Guru memandu apersepsi dengan termometer ruangan.",
+      "  2. INTI (50 Menit): Siswa membentuk kelompok kecil, berdiskusi memecahkan LKPD menggunakan kartu positif-negatif.",
+      "  3. PENUTUP (20 Menit): Presentasi kelompok, kuis formatif mandiri, dan refleksi.",
+      "\n--------------------------------------------",
+      "SELURUH DOKUMEN PERENCANAAN SELESAI DIGENERATE!"
+    ]
+  }
+];
+
+const {
+  badge = "AI Asisten Guru Indonesia #1",
+  titleHtml = 'AI untuk Membuat RPM, RPPM, <br class="hidden sm:inline" /> <span class="text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent">Modul Ajar & LKPD Otomatis</span>',
+  description = "GuruDokAI membantu guru menyusun Rencana Pembelajaran Mendalam (RPM), Rencana Pelaksanaan Pembelajaran Mendalam (RPPM), Modul Ajar, ATP, TP, KKTP, LKPD, serta administrasi pembelajaran lainnya hanya dalam hitungan menit menggunakan AI.",
+  mapel = "Matematika",
+  kelas = "Kelas 7 · Fase D",
+  topik = "Bilangan Bulat & Operasinya",
+  steps = defaultSteps
+} = Astro.props;
 ---
-<section class="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-brand-light/80 via-brand-light/20 to-white overflow-hidden">
+<section 
+  id="hero-section"
+  data-mapel={mapel}
+  data-kelas={kelas}
+  data-topik={topik}
+  data-steps={JSON.stringify(steps)}
+  class="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-brand-light/80 via-brand-light/20 to-white overflow-hidden"
+>
   <!-- Decorative background shapes -->
   <div class="absolute top-0 right-0 -z-10 w-96 h-96 bg-brand-medium/10 rounded-full blur-3xl opacity-60 transform translate-x-20 -translate-y-20"></div>
   <div class="absolute bottom-0 left-0 -z-10 w-80 h-80 bg-brand-light rounded-full blur-2xl opacity-80 transform -translate-x-20 translate-y-20"></div>
@@ -9,11 +129,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
       <!-- Left Content -->
       <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-        <!-- Premium Badges -->
+         <!-- Premium Badges -->
         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
           <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs sm:text-sm font-bold tracking-wide uppercase">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/><path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5Z"/><path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1Z"/></svg>
-            AI Asisten Guru Indonesia #1
+            {badge}
           </div>
           
           <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs sm:text-sm font-bold tracking-wide uppercase shadow-sm">
@@ -24,13 +144,12 @@
 
         <!-- Heading -->
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
-          Bikin RPP, Modul Ajar & <br class="hidden sm:inline" />
-          <span class="text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent">LKPD dalam Menit</span> dengan AI
+          <Fragment set:html={titleHtml} />
         </h1>
 
         <!-- Subheading / description -->
         <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-          Buat dokumen administrasi pembelajaran seperti RPP, Modul Ajar, LKPD, Asesmen, dan Jurnal sesuai Kurikulum Merdeka dengan bantuan AI.
+          {description}
         </p>
 
         <!-- CTA Buttons -->
@@ -135,13 +254,14 @@
                 <!-- Step Pills Container -->
                 <div class="flex items-center justify-between gap-1 border-b border-slate-200 pb-2 mb-2 shrink-0 overflow-x-auto scrollbar-none">
                   <div class="flex items-center gap-1 overflow-x-auto scrollbar-none py-0.5">
-                    <span id="step-pill-1" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">1. CP</span>
-                    <span id="step-pill-2" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">2. TP</span>
-                    <span id="step-pill-3" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">3. ATP</span>
-                    <span id="step-pill-4" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">4. PROTA</span>
-                    <span id="step-pill-5" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">5. PROSEM</span>
-                    <span id="step-pill-6" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">6. KKTP</span>
-                    <span id="step-pill-7" class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200">7. RPP/MODUL</span>
+                    {steps.map((step, idx) => (
+                      <span 
+                        id={`step-pill-${idx + 1}`} 
+                        class="px-1.5 py-0.5 rounded text-[8px] font-bold border transition-all duration-300 bg-slate-100 text-slate-400 border-slate-200 whitespace-nowrap"
+                      >
+                        {idx + 1}. {step.badge}
+                      </span>
+                    ))}
                   </div>
                   <div class="flex items-center gap-1 shrink-0 text-brand-primary text-[8px] font-bold uppercase tracking-wider bg-brand-primary/10 px-1.5 py-0.5 rounded border border-brand-primary/20">
                     <span class="w-1 h-1 rounded-full bg-brand-primary animate-ping"></span>
@@ -268,99 +388,19 @@
   const stepTitle = document.getElementById('sim-step-title');
   const stepBadge = document.getElementById('sim-step-badge');
 
-  const mapelString = "Matematika";
-  const kelasString = "Kelas 7 · Fase D";
-  const topikString = "Bilangan Bulat & Operasinya";
+  // Retrieve interactive details dynamically from data attributes
+  const heroSection = document.getElementById('hero-section');
+  const mapelString = heroSection?.getAttribute('data-mapel') || "Matematika";
+  const kelasString = heroSection?.getAttribute('data-kelas') || "Kelas 7 · Fase D";
+  const topikString = heroSection?.getAttribute('data-topik') || "Bilangan Bulat & Operasinya";
 
-  const stepsData = [
-    {
-      badge: "CP",
-      title: "Langkah 1/7: Menganalisis Capaian Pembelajaran (CP)",
-      lines: [
-        "MODUL AJAR KURIKULUM MERDEKA",
-        "============================",
-        "\n[ANALISIS CAPAIAN PEMBELAJARAN (CP)]",
-        "Fase           : D (SMP Kelas VII)",
-        "Elemen         : Bilangan",
-        "Kompetensi CP  : Peserta didik dapat membaca, menulis, dan membandingkan bilangan bulat serta menggunakannya untuk menyelesaikan masalah kehidupan sehari-hari."
-      ]
-    },
-    {
-      badge: "TP",
-      title: "Langkah 2/7: Merumuskan Tujuan Pembelajaran (TP)",
-      lines: [
-        "\n[RUMUSAN TUJUAN PEMBELAJARAN (TP)]",
-        "Berdasarkan kompetensi CP Elemen Bilangan:",
-        "• TP 7.1 : Mengidentifikasi konsep bilangan bulat positif dan negatif.",
-        "• TP 7.2 : Membandingkan & mengurutkan bilangan bulat pada garis bilangan.",
-        "• TP 7.3 : Menghitung hasil operasi penjumlahan & pengurangan bilangan bulat.",
-        "• TP 7.4 : Memecahkan masalah kontekstual bertema suhu & kedalaman laut."
-      ]
-    },
-    {
-      badge: "ATP",
-      title: "Langkah 3/7: Menyusun Alur Tujuan Pembelajaran (ATP)",
-      lines: [
-        "\n[ALUR TUJUAN PEMBELAJARAN (ATP)]",
-        "Alur & Alokasi JP Matematika Kelas VII Semester Ganjil:",
-        "• Unit 7.1.1: Bilangan Bulat Positif/Negatif (4 JP) -> Pekan 3 Juli",
-        "• Unit 7.1.2: Membandingkan & Mengurutkan (4 JP) -> Pekan 4 Juli",
-        "• Unit 7.1.3: Operasi Hitung Penjumlahan/Pengurangan (6 JP) -> Pekan 1-2 Agustus",
-        "• Unit 7.1.4: Asesmen Formatif & Kuis Bab (2 JP) -> Pekan 3 Agustus"
-      ]
-    },
-    {
-      badge: "PROTA",
-      title: "Langkah 4/7: Membuat Program Tahunan (PROTA)",
-      lines: [
-        "\n[PROGRAM TAHUNAN (PROTA)]",
-        "Tahun Pelajaran: 2026/2027",
-        "Alokasi JP Efektif Semester Ganjil (80 JP total):",
-        "  - Bab 1 Bilangan Bulat   : 16 JP (Juli - Agustus)",
-        "  - Bab 2 Aljabar          : 20 JP (Agustus - September)",
-        "  - Bab 3 Persamaan Linear : 18 JP (Oktober)",
-        "  - Cadangan & Sumatif     : 8 JP"
-      ]
-    },
-    {
-      badge: "PROSEM",
-      title: "Langkah 5/7: Membuat Program Semester (PROSEM)",
-      lines: [
-        "\n[PROGRAM SEMESTER (PROSEM)]",
-        "Distribusi Mingguan Pembelajaran Matematika (JP):",
-        "• JULI     - Pekan 3: TP 7.1 (4 JP) | Pekan 4: TP 7.2 (4 JP)",
-        "• AGUSTUS  - Pekan 1: TP 7.3 (4 JP) | Pekan 2: TP 7.3 (2 JP) + STS (2 JP)",
-        "• AGUSTUS  - Pekan 3: TP 7.4 (4 JP)",
-        "• SEPTEMBER- Pekan 1-4: Bab 2 Aljabar (16 JP)"
-      ]
-    },
-    {
-      badge: "KKTP",
-      title: "Langkah 6/7: Menetapkan Kriteria Ketercapaian (KKTP)",
-      lines: [
-        "\n[KRITERIA KETERCAPAIAN TUJUAN PEMBELAJARAN (KKTP)]",
-        "Metode Penilaian: Rubrik Deskripsi Kriteria Ketuntasan:",
-        "• Interval 0 - 60%  : Belum Tuntas (Wajib Remedial Intervensi Khusus)",
-        "• Interval 61 - 80% : Cukup Tuntas (Tidak Perlu Remedial, Pendampingan Kelas)",
-        "• Interval 81 - 100%: Sangat Tuntas (Diberikan Pengayaan Soal HOTS)"
-      ]
-    },
-    {
-      badge: "MODUL",
-      title: "Langkah 7/7: Menyusun Modul Ajar & LKPD",
-      lines: [
-        "\n[PERANGKAT AJAR UTAMA: MODUL AJAR & LKPD]",
-        "Topik Ajar    : Operasi Penjumlahan & Pengurangan Bilangan Bulat",
-        "Metode/Model  : Problem-Based Learning (PBL)",
-        "Langkah Pembelajaran:",
-        "  1. PENDAHULUAN (10 Menit): Guru memandu apersepsi dengan termometer ruangan.",
-        "  2. INTI (50 Menit): Siswa membentuk kelompok kecil, berdiskusi memecahkan LKPD menggunakan kartu positif-negatif.",
-        "  3. PENUTUP (20 Menit): Presentasi kelompok, kuis formatif mandiri, dan refleksi.",
-        "\n--------------------------------------------",
-        "SELURUH DOKUMEN PERENCANAAN SELESAI DIGENERATE!"
-      ]
-    }
-  ];
+  let stepsData: Array<{ badge: string; title: string; lines: string[] }> = [];
+  try {
+    const rawSteps = heroSection?.getAttribute('data-steps');
+    stepsData = rawSteps ? JSON.parse(rawSteps) : [];
+  } catch (e) {
+    console.error("Failed to parse steps data in script", e);
+  }
 
   async function typeWriter(text: string, element: HTMLElement, cursor: HTMLElement) {
     element.textContent = "";

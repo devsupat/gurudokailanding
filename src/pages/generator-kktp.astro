@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "Generator KKTP (Kriteria Ketercapaian Tujuan Pembelajaran) AI | GuruDokAI";
+const description = "Tentukan Kriteria Ketercapaian Tujuan Pembelajaran (KKTP) dan IKTP secara otomatis dengan AI. Analisis instan berbasis interval nilai, rubrik deskriptif, dan skala penilaian.";
+const keywords = "generator kktp, kktp kurikulum merdeka, kriteria ketercapaian tujuan pembelajaran, iktp otomatis, asesmen sumatif, rpp kurikulum merdeka, rpm ai";
+
+const pageUrl = "https://gurudokailanding.pages.dev/generator-kktp";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Generator KKTP",
+      "item": pageUrl
+    }
+  ]
+};
+
+// Custom FAQ for KKTP
+const kktpFaqs = [
+  {
+    question: "Apa itu KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)?",
+    answer: "<strong>KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)</strong> adalah kriteria atau indikator yang menunjukkan sejauh mana murid telah mencapai kompetensi pada Tujuan Pembelajaran (TP) tertentu. KKTP menggantikan KKM (Kriteria Ketuntasan Minimal) pada kurikulum sebelumnya."
+  },
+  {
+    question: "Metode apa saja yang didukung oleh Generator KKTP GuruDokAI?",
+    answer: "Sistem kami mendukung 3 metode utama penilaian Kurikulum Merdeka: <strong>1. Deskripsi Kriteria</strong> (menggunakan penjelasan kualitas performa murid), <strong>2. Rubrik Deskriptif</strong> (menggunakan level kemampuan: mulai berkembang, layak, cakap, mahir), dan <strong>3. Interval Nilai</strong> (menggunakan angka persentase kelulusan)."
+  },
+  {
+    question: "Bagaimana cara menyelaraskan KKTP dengan RPP, RPM, dan RPPM?",
+    answer: "GuruDokAI secara otomatis menyinkronkan kriteria evaluasi KKTP dengan tujuan pembelajaran yang ada pada draf <strong>RPP/RPM (Rencana Pembelajaran Mendalam)</strong> dan <strong>RPPM</strong> Anda agar sinkron dan valid."
+  },
+  {
+    question: "Apakah asisten AI GuruDokAI menyediakan saran remedial?",
+    answer: "Ya. Setiap rubrik KKTP yang dihasilkan juga dilengkapi dengan rekomendasi tindak lanjut intervensi, baik untuk program pengayaan (murid mahir) maupun program remedial (murid berkembang)."
+  }
+];
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": kktpFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<\/?[^>]+(>|$)/g, "")
+    }
+  }))
+};
+
+const kktpSteps = [
+  {
+    badge: "Input TP",
+    title: "Langkah 1/4: Pilih Tujuan Pembelajaran (TP)",
+    lines: [
+      "KRITERIA KETERCAPAIAN TUJUAN PEMBELAJARAN (KKTP)",
+      "================================================",
+      "Mata Pelajaran : IPA (Sains)",
+      "Fase / Kelas   : D / VII",
+      "\n[TUJUAN PEMBELAJARAN (TP)]",
+      "TP 7.5: Murid dapat mengidentifikasi klasifikasi makhluk hidup berdasarkan karakteristiknya."
+    ]
+  },
+  {
+    badge: "Metode",
+    title: "Langkah 2/4: Pilih Pendekatan Rubrik",
+    lines: [
+      "\n[PILIHAN METODE EVALUASI]",
+      "• Pendekatan: Rubrik Deskriptif 4 Kriteria",
+      "• Indikator Ketercapaian (IKTP):",
+      "  - Menyebutkan ciri-ciri makhluk hidup.",
+      "  - Mengelompokkan hewan berdasarkan filum.",
+      "  - Menjelaskan kunci dikotom sederhana."
+    ]
+  },
+  {
+    badge: "Generate",
+    title: "Langkah 3/4: Penyusunan Rubrik Kompetensi",
+    lines: [
+      "\n[HASIL GENERATE RUBRIK KKTP]",
+      "• Baru Berkembang (0-60%): Belum mampu membedakan karakteristik dasar.",
+      "• Layak (61-75%): Mampu mengelompokkan hewan dengan bantuan guru.",
+      "• Cakap (76-90%): Mampu membuat kunci dikotom sederhana secara mandiri.",
+      "• Mahir (91-100%): Mampu menganalisis klasifikasi filum secara kompleks."
+    ]
+  },
+  {
+    badge: "Hasil",
+    title: "Langkah 4/4: Tindak Lanjut & Ekspor",
+    lines: [
+      "\n[REKOMENDASI INTERVENSI]",
+      "• Remedial: Pendampingan tutor sebaya untuk nilai < 75%.",
+      "• Pengayaan: Meneliti taksonomi tanaman lokal sekolah.",
+      "\n--------------------------------------------",
+      "RUBRIK PENILAIAN KKTP SELESAI DIGENERATE!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+  <main>
+    <Hero 
+      badge="AI Generator KKTP #1"
+      titleHtml="Generator KKTP Kurikulum Merdeka AI <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis Rubrik & Interval Nilai</span>"
+      description="Susun kriteria penilaian KKTP dan indikator IKTP secara detail, terukur, dan selaras dengan instrumen asesmen pembelajaran Anda hanya dalam hitungan detik."
+      mapel="Ilmu Pengetahuan Alam (IPA)"
+      kelas="Kelas 7 SMP · Fase D"
+      topik="Elemen Klasifikasi Makhluk Hidup (Taksonomi)"
+      steps={kktpSteps}
+    />
+
+    <!-- Semantic Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Ukur Kompetensi Murid Secara Adil Menggunakan <span class="text-brand-primary">KKTP Otomatis</span>
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Sebagai bagian dari administrasi guru Kurikulum Merdeka, <strong>KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)</strong> berperan vital untuk menilai ketuntasan belajar murid. KKTP membebaskan guru dari standar angka kaku KKM, beralih ke analisis kualitas performa murid yang autentik.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Sinergi Penilaian Antara RPP/RPM Tradisional dengan KKTP AI
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              Menyusun KKTP membutuhkan ketelitian tinggi agar indikator kelulusan selaras dengan <strong>RPP Kurikulum Merdeka</strong> atau <strong>RPM (Rencana Pembelajaran Mendalam)</strong> terbaru.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              Melalui asisten AI Guru Indonesia GuruDokAI, Anda dapat memformulasikan rubrik deskriptif lengkap dengan kriteria remedial dan pengayaan dalam hitungan detik. Cukup impor rumusan <strong>TP</strong> atau <strong>ATP</strong> Anda, lalu AI akan menyelesaikan lembar penilaiannya.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Menghasilkan 3 jenis pendekatan KKTP secara otomatis sesuai pilihan Anda.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Cocok untuk sekolah umum Kemendikbudristek maupun madrasah Kemenag (KBC).</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Hasil draf terintegrasi langsung dengan <a href="/lkpd" class="text-brand-primary hover:underline">LKPD</a> dan rencana pembelajaran mingguan <a href="/rppm" class="text-brand-primary hover:underline">RPPM</a>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-percent"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Interval Nilai</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Memetakan tingkat ketercapaian siswa menggunakan pembagian interval angka persentase.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-todo"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 10 2 2 4-4"/><path d="M8 16h8"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Rubrik Deskriptif</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Menyediakan tingkat kemampuan kualitatif murid dari Baru Berkembang hingga Mahir.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Deskripsi Kriteria</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Format sederhana berupa kriteria checklist untuk mengetahui ketercapaian esensial murid.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79-.07l1.94 1.86"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Sesuai Kemenag KBC</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Rubrik evaluasi berbasis rasa cinta kasih yang menyokong program <a href="/kurikulum-berbasis-cinta" class="text-brand-primary hover:underline">KBC madrasah</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <Pricing />
+
+    <!-- Testimonials Section -->
+    <Testimonials />
+
+    <!-- FAQ Section -->
+    <FAQ faqs={kktpFaqs} />
+
+    <!-- CTA Section -->
+    <CTAFinal />
+  </main>
+  <Footer />
+</BaseLayout>

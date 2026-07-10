@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "Kurikulum Berbasis Cinta (KBC) Madrasah Kemenag | GuruDokAI";
+const description = "Panduan lengkap penerapan Kurikulum Berbasis Cinta (KBC) di madrasah Kementerian Agama. Susun modul ajar dan RPP KBC dengan asisten AI Guru Madrasah.";
+const keywords = "kurikulum berbasis cinta, kbc kemenag, pembelajaran berbasis cinta, guru madrasah, mi, mts, ma, modul ajar kbc, rpp kbc, rpm ai";
+
+const pageUrl = "https://gurudokailanding.pages.dev/kurikulum-berbasis-cinta";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kurikulum Berbasis Cinta (KBC)",
+      "item": pageUrl
+    }
+  ]
+};
+
+// Custom FAQ for KBC
+const kbcFaqs = [
+  {
+    question: "Apa perbedaan antara kurikulum umum dengan Kurikulum Berbasis Cinta (KBC)?",
+    answer: "Kurikulum umum seringkali didominasi oleh pencapaian target nilai ujian dan kognitif semata. Sementara <strong>Kurikulum Berbasis Cinta (KBC)</strong> berorientasi menyeimbangkan kecerdasan akal (IQ), emosi (EQ), dan spiritual (SQ) melalui jalinan rasa kasih sayang tulus antara guru dan murid."
+  },
+  {
+    question: "Bagaimana cara menyusun RPP atau Modul Ajar KBC dengan AI?",
+    answer: "Dengan GuruDokAI, Anda tinggal memilih opsi kurikulum madrasah Kemenag dan mencentang pendekatan KBC. AI Guru kami akan menyusun draf modul ajar lengkap dengan apersepsi sentuhan qalbu, aktivitas belajar kooperatif, dan refleksi hikmah keagamaan."
+  },
+  {
+    question: "Apakah KBC ini resmi di bawah naungan Kementerian Agama?",
+    answer: "Ya, pendekatan <strong>Kurikulum Berbasis Cinta</strong> dan Pembelajaran Berbasis Cinta diujicobakan serta didorong pelaksanaannya di lingkungan madrasah (MI, MTs, MA) sebagai penguatan pembentukan akhlakul karimah."
+  },
+  {
+    question: "Apakah asisten AI GuruDokAI berbayar untuk guru madrasah?",
+    answer: "Kami menawarkan biaya berlangganan yang sangat terjangkau bagi guru Indonesia (mulai Rp 19.000) untuk membantu memajukan mutu pendidikan di madrasah umum dan keagamaan."
+  }
+];
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": kbcFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<\/?[^>]+(>|$)/g, "")
+    }
+  }))
+};
+
+const kbcSteps = [
+  {
+    badge: "Konsep KBC",
+    title: "Langkah 1/4: Tentukan Elemen Cinta Kasih",
+    lines: [
+      "PANDUAN KURIKULUM BERBASIS CINTA (KBC)",
+      "=====================================",
+      "Jenjang        : Madrasah Aliyah (MA)",
+      "Mata Pelajaran : Sejarah Kebudayaan Islam (SKI)",
+      "Fase / Kelas   : E / X",
+      "\n[NILAI INTI KBC]",
+      "Keteladanan kepemimpinan Rasulullah SAW berbasis kasih sayang (Sifat Rahmah)."
+    ]
+  },
+  {
+    badge: "Kegiatan",
+    title: "Langkah 2/4: Skenario Apersepsi & Diskusi",
+    lines: [
+      "\n[KEGIATAN INTI: KONEKSI HATI]",
+      "• Guru memutarkan klip video kisah kelembutan hati Rasulullah dalam mendamaikan perselisihan kabilah.",
+      "• Murid merefleksikan bagaimana menyelesaikan konflik kecil antarteman di kelas dengan kepala dingin dan saling memaafkan."
+    ]
+  },
+  {
+    badge: "Kompetensi",
+    title: "Langkah 3/4: Evaluasi Karakter Akhlakul Karimah",
+    lines: [
+      "\n[AKTIVITAS BELAJAR AKTIF]",
+      "• Murid bermain peran (roleplay) tentang musyawarah mufakat di kelas.",
+      "\n[REFLEKSI SPIRITUAL]",
+      "• Guru menutup dengan pesan hikmah bahwa kecerdasan tanpa rasa cinta hanya akan melahirkan kesombongan."
+    ]
+  },
+  {
+    badge: "Hasil",
+    title: "Langkah 4/4: Draf Dokumen Siap Ekspor",
+    lines: [
+      "\n[ASESMEN FORMAL KBC]",
+      "• Penilaian Sikap: Observasi gotong royong dan kesantunan berbahasa.",
+      "• Lampiran Pembelajaran: Lembar Kerja Murid (LKPD) KBC.",
+      "\n--------------------------------------------",
+      "RANCANGAN PEMBELAJARAN KBC SELESAI!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+  <main>
+    <Hero 
+      badge="Panduan Kurikulum KBC #1"
+      titleHtml="Kurikulum Berbasis Cinta (KBC) Kemenag <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Pembelajaran Berbasis Cinta di Madrasah</span>"
+      description="Panduan praktis dan dukungan asisten AI Guru untuk menyusun perencanaan pembelajaran KBC di tingkat Madrasah Ibtidaiyah, Tsanawiyah, dan Aliyah."
+      mapel="Sejarah Kebudayaan Islam (SKI)"
+      kelas="Kelas 10 MA · Fase E"
+      topik="Keteladanan Sifat Rahmah Rasulullah SAW"
+      steps={kbcSteps}
+    />
+
+    <!-- Semantic Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Menghadirkan Kehangatan Qalbu dalam <span class="text-brand-primary">Kurikulum Berbasis Cinta</span>
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            <strong>Kurikulum Berbasis Cinta (KBC)</strong> mengajak para pendidik menyadari bahwa mengajar bukan sekadar mentransfer materi kurikulum nasional. Lebih dari itu, guru adalah pengayom spiritual yang menanamkan benih kasih sayang di dalam qalbu murid-mudidnya.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              AI Pendidikan Indonesia untuk Guru Madrasah Sejati
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              GuruDokAI berkomitmen penuh menyediakan solusi kemudahan pembuatan berkas perangkat ajar KBC. Anda tidak perlu lagi kesulitan menyisipkan indikator spiritual secara manual ke dalam <strong>RPP/RPM (Rencana Pembelajaran Mendalam)</strong> Anda.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              Cukup gunakan asisten cerdas GuruDokAI, pilih jenjang MI, MTs, atau MA, lalu generate perangkat ajar KBC yang lengkap dengan tujuan <strong>TP</strong>, alur <strong>ATP</strong>, rancangan evaluasi <strong>KKTP</strong>, dan lampiran <strong>LKPD</strong> interaktif.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Menyusun rencana ajar bermakna sesuai nilai Rahmatan Lil 'Alamin.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Mendukung penyelarasan instrumen evaluasi perilaku spiritual & sosial murid.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Hasil draf instan berformat file Word yang sangat mudah diedit dan disesuaikan.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-red-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79-.07l1.94 1.86"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Pilar Kasih Sayang</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Skenario mengajar penuh senyum, menjauhi kekerasan verbal, dan memupuk rasa percaya diri.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-red-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-alert"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Internalisasi Adab</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Penyisipan pesan-pesan adab sebelum ilmu (akhlakul karimah) di setiap pembukaan kelas.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-red-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smile-plus"><path d="M22 11v1a10 10 0 1 1-9-9.975"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/><path d="M16 5h6"/><path d="M19 2v6"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Suasana Kondusif</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Merancang iklim belajar yang aman secara psikologis bagi seluruh keragaman kondisi murid.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-red-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-check"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Asesmen Karakter KBC</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Instrumen penilaian afektif bermakna yang selaras dengan <a href="/kbc" class="text-brand-primary hover:underline">Modul Ajar KBC</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <Pricing />
+
+    <!-- Testimonials Section -->
+    <Testimonials />
+
+    <!-- FAQ Section -->
+    <FAQ faqs={kbcFaqs} />
+
+    <!-- CTA Section -->
+    <CTAFinal />
+  </main>
+  <Footer />
+</BaseLayout>

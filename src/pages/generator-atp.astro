@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAFinal from '../components/CTAFinal.astro';
+import Footer from '../components/Footer.astro';
+
+// Custom SEO Meta Data
+const title = "Generator ATP Kurikulum Merdeka Otomatis | GuruDokAI";
+const description = "Susun Alur Tujuan Pembelajaran (ATP) Kurikulum Merdeka secara otomatis dengan AI. Generator ATP memetakan Capaian Pembelajaran (CP) ke Tujuan Pembelajaran (TP) lengkap beserta alokasi waktu JP.";
+const keywords = "generator atp, buat atp otomatis, alur tujuan pembelajaran otomatis, download atp kurikulum merdeka, pembuat atp ai, perangkat ajar ai";
+
+// Custom FAQ for ATP Page
+const atpFaqs = [
+  {
+    question: "Apa fungsi utama Alur Tujuan Pembelajaran (ATP)?",
+    answer: "ATP berfungsi sebagai <strong>silabus dalam Kurikulum Merdeka</strong>. ATP memetakan Tujuan Pembelajaran secara kronologis dan berurutan dari awal hingga akhir fase untuk memberikan panduan mengajar yang terarah sepanjang tahun ajaran."
+  },
+  {
+    question: "Bagaimana GuruDokAI membagi alokasi Jam Pelajaran (JP)?",
+    answer: "Sistem AI GuruDokAI menganalisis bobot materi dan tingkat kesulitan dari setiap Tujuan Pembelajaran (TP), lalu memberikan <strong>rekomendasi alokasi waktu JP secara proporsional</strong> yang dapat disesuaikan dengan kalender akademik sekolah Anda."
+  },
+  {
+    question: "Apakah saya bisa mengubah urutan alur pembelajaran?",
+    answer: "Tentu saja. Setelah draf ATP digenerate, Anda bisa dengan mudah menyalin dan mengeditnya di MS Word untuk menyesuaikan materi mana yang ingin diajarkan terlebih dahulu (misalnya dari konkret ke abstrak)."
+  },
+  {
+    question: "Apakah mendukung pemetaan ATP lintas fase?",
+    answer: "Ya, GuruDokAI mendukung pemetaan ATP lengkap untuk seluruh fase (Fase A hingga Fase F), sehingga sangat cocok untuk guru SD, SMP, SMA, maupun SMK."
+  },
+  {
+    question: "Apakah ada video panduan atau demo cara menggunakan GuruDokAI?",
+    answer: "Tentu saja. Anda bisa menyaksikan <a href=\"https://www.tiktok.com/@scenecrafter/video/7655997727506976008\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Demo Utama</a> dan <a href=\"https://www.tiktok.com/@scenecrafter/video/7659118261556055316\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Eksplorasi Fitur Lengkap</a> kami di TikTok. Untuk panduan lengkap dari awal, Anda bisa menonton <a href=\"https://www.youtube.com/watch?v=cOYjV9c7IZc\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Panduan Setup & Cara Pakai</a> di YouTube, serta <a href=\"https://www.tiktok.com/@scenecrafter/video/7651961072823438608\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Video Tutorial Aplikasi Android</a>."
+  }
+];
+
+// Custom simulation steps for ATP
+const atpSteps = [
+  {
+    badge: "CP",
+    title: "Langkah 1/4: Analisis Elemen CP",
+    lines: [
+      "ALUR TUJUAN PEMBELAJARAN (ATP) MATEMATIKA",
+      "=========================================",
+      "Jenjang / Kelas : SMP / VII",
+      "Fase            : D",
+      "Elemen          : Bilangan",
+      "\n[CAPAIAN PEMBELAJARAN ELEMEN]",
+      "Murid dapat membaca, menulis, dan membandingkan bilangan bulat, bilangan rasional dan irasional, bilangan desimal, bilangan berpangkat bulat."
+    ]
+  },
+  {
+    badge: "TP",
+    title: "Langkah 2/4: Merumuskan Tujuan Pembelajaran",
+    lines: [
+      "\n[PERUMUSAN TUJUAN PEMBELAJARAN (TP)]",
+      "• TP 7.1: Membaca, menulis, dan membandingkan bilangan bulat positif dan negatif.",
+      "• TP 7.2: Menerapkan operasi aritmetika pada bilangan bulat untuk menyelesaikan masalah.",
+      "• TP 7.3: Menjelaskan konsep bilangan rasional dan desimal serta hubungan di antaranya."
+    ]
+  },
+  {
+    badge: "Alur & JP",
+    title: "Langkah 3/4: Mengurutkan Alur & Alokasi JP",
+    lines: [
+      "\n[ALUR DAN ALOKASI JP (Satu Tahun / Semester 1)]",
+      "• Alur 1: TP 7.1 (Membaca & Membandingkan Bilangan Bulat) -> Alokasi: 4 JP",
+      "• Alur 2: TP 7.2 (Operasi Aritmetika Bilangan Bulat) -> Alokasi: 8 JP",
+      "• Alur 3: TP 7.3 (Konsep Bilangan Rasional & Desimal) -> Alokasi: 6 JP",
+      "\n*Catatan: Alur diurutkan dari konsep paling mendasar (prasyarat) hingga kompleks."
+    ]
+  },
+  {
+    badge: "ATP",
+    title: "Langkah 4/4: Menyusun Tabel ATP Final",
+    lines: [
+      "\n[MATRIKS ALUR TUJUAN PEMBELAJARAN]",
+      "----------------------------------------------------------------",
+      "Elemen   | Tujuan Pembelajaran  | Alur Pembelajaran | Alokasi JP",
+      "----------------------------------------------------------------",
+      "Bilangan | Membaca & Membanding | Tahap 1 (Dasar)   | 4 JP",
+      "Bilangan | Operasi Aritmetika   | Tahap 2 (Sedang)  | 8 JP",
+      "Bilangan | Rasional & Desimal   | Tahap 3 (Lanjutan)| 6 JP",
+      "\n----------------------------------------------------------------",
+      "MATRIKS DRAF ATP SELESAI DIGENERATE OLEH GURUDOKAI!"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <Header />
+  <main>
+    <!-- Custom Hero for ATP -->
+    <Hero 
+      badge="Generator ATP Terlengkap #1"
+      titleHtml="Generator ATP Kurikulum Merdeka <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis & Presisi</span>"
+      description="Petakan Capaian Pembelajaran (CP) menjadi Alur Tujuan Pembelajaran (ATP) yang runtut beserta pembagian jam pelajaran (JP) untuk satu tahun ajaran penuh."
+      mapel="Matematika"
+      kelas="Kelas 7 SMP · Fase D"
+      topik="Elemen: Bilangan (Bilangan Bulat dan Pecahan)"
+      steps={atpSteps}
+    />
+
+    <!-- Intent Rich Content Section -->
+    <section class="py-20 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Kemudahan Memetakan Silabus dengan <span class="text-brand-primary">Generator ATP AI</span>
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Alur Tujuan Pembelajaran (ATP) adalah cetak biru utama untuk merancang alur mengajar dalam satu tahun ajaran. Generator ATP GuruDokAI membantu Anda mengurai deskripsi Capaian Pembelajaran (CP) yang padat ke dalam langkah-langkah pencapaian belajar yang terstruktur, lengkap dengan estimasi alokasi Jam Pelajaran (JP).
+          </p>
+        </div>
+
+        <!-- 2 Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Column 1: Informational Text -->
+          <div class="space-y-6 text-gray-600 font-medium leading-relaxed font-semibold">
+            <h3 class="text-2xl font-bold text-gray-900 leading-tight">
+              Mengapa Menyusun ATP Melalui AI Jauh Lebih Efektif?
+            </h3>
+            <p class="text-gray-500 font-semibold">
+              Menyusun silabus atau ATP sering kali membingungkan karena guru harus mengurutkan materi pembelajaran berdasarkan tingkat kompleksitas kognitif dan kompetensi prasyarat secara logis.
+            </p>
+            <p class="text-gray-500 font-semibold">
+              Kecerdasan buatan GuruDokAI memahami peta kompetensi kurikulum nasional secara mendalam. AI kami secara otomatis menyarankan urutan materi yang paling efektif bagi siswa agar proses belajar mengajar berjalan bertahap dan sistematis.
+            </p>
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Pembagian Sesuai Elemen: Terbagi rapi berdasarkan elemen bidang studi.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Alokasi Waktu Akurat: Distribusi Jam Pelajaran (JP) yang proporsional.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-gray-900">Terintegrasi Penuh: Hasilkan <a href="/ai-pembuat-rpp" class="text-brand-primary hover:underline">RPP</a>, <a href="/generator-modul-ajar" class="text-brand-primary hover:underline">Modul Ajar</a>, dan <a href="/generator-tp" class="text-brand-primary hover:underline">TP</a> yang saling selaras secara instan.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Specific Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-merge"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 9v8a2 2 0 0 0 2 2h4"/><path d="M18 15V9a4 4 0 0 0-4-4h-5"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Pemetaan Elemen CP</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                AI mengurai setiap elemen kompetensi dalam Capaian Pembelajaran (CP) menjadi sub-topik mendetail.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Alokasi Waktu JP</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Memberikan estimasi pembagian Jam Pelajaran (JP) mingguan agar target kurikulum tercapai tepat waktu.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-ordered"><line x1="10" x2="21" y1="6" y2="6"/><line x1="10" x2="21" y1="12" y2="12"/><line x1="10" x2="21" y1="18" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Alur Runtut Logis</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Mengurutkan materi secara bertahap dari pemahaman paling mudah menuju penguasaan konsep yang kompleks.
+              </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-premium hover-scale">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-cloud"><polyline points="8 17 12 21 16 17"/><line x1="12" x2="12" y1="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+              </div>
+              <h4 class="text-base font-extrabold text-gray-900 mb-2">Siap Download MS Word</h4>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+                Unduh file dalam bentuk tabel silabus terstruktur (.docx) untuk pengeditan dan penyesuaian akhir.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual 3-Steps Guide -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Langkah Singkat Menyusun ATP Otomatis
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            Susun draf silabus tahunan Anda hanya dalam hitungan klik.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+          <!-- Step 1 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              1
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Salin Teks Capaian (CP)</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Pilih Fase dan masukkan teks Capaian Pembelajaran (CP) resmi dari kementerian untuk dianalisis AI.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              2
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">AI Mengurutkan Alur</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Sistem kami merumuskan TP secara sistematis, membagi alokasi waktu JP, serta mengurutkan alur mengajarnya.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-lg shadow-brand-primary/20">
+              3
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Unduh Format Tabel</h3>
+            <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-semibold px-4">
+              Lihat pratinjau tabel ATP yang rapi, lalu unduh dalam format Word (.docx) yang siap ditandatangani kepala sekolah.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing Component -->
+    <Pricing />
+
+    <!-- Testimonials Component -->
+    <Testimonials />
+
+    <!-- FAQ Component with Custom FAQs -->
+    <FAQ faqs={atpFaqs} />
+
+    <!-- CTA Final -->
+    <CTAFinal 
+      title="Susun Alur Tujuan Pembelajaran Secara Runtut Sekarang"
+      description="Hentikan pusing membagi alokasi jam pelajaran (JP). Gunakan Generator ATP GuruDokAI."
+    />
+  </main>
+  <Footer />
+</BaseLayout>

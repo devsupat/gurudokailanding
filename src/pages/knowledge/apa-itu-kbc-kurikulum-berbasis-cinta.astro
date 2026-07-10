@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Mengenal Kurikulum Berbasis Cinta (KBC) Madrasah Kemenag | GuruDokAI";
+const description = "Pelajari konsep Kurikulum Berbasis Cinta (KBC) untuk MI, MTs, MA di Kementerian Agama. Dilengkapi contoh skenario KBC dan cara menyusun modul ajar dengan AI.";
+const keywords = "kurikulum berbasis cinta, apa itu kbc, modul ajar kbc, pembelajaran berbasis cinta, guru madrasah, kemenag, gurudokai";
+
+const pageUrl = "https://gurudokailanding.pages.dev/knowledge/apa-itu-kbc-kurikulum-berbasis-cinta";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokailanding.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Knowledge Center",
+      "item": "https://gurudokailanding.pages.dev/knowledge"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mengenal Kurikulum Berbasis Cinta",
+      "item": pageUrl
+    }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Article Header -->
+      <div class="mb-8">
+        <a href="/knowledge" class="inline-flex items-center gap-1 text-sm font-bold text-brand-primary hover:underline mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          <span>Kembali ke Knowledge Center</span>
+        </a>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Madrasah</span>
+          <span class="text-xs text-gray-400 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+          Mengenal Kurikulum Berbasis Cinta (KBC) untuk Lingkungan Madrasah Kemenag
+        </h1>
+        <p class="text-lg text-gray-500 font-medium italic">
+          Bagi para guru madrasah (MI, MTs, MA), implementasi Kurikulum Berbasis Cinta (KBC) membawa pendekatan belajar yang bernapaskan kasih sayang dan akhlak karimah. Mari simak ulasannya.
+        </p>
+      </div>
+
+      <!-- Article Body Content -->
+      <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
+        <p>
+          Kementerian Agama (Kemenag) Republik Indonesia terus berinovasi dalam menguatkan karakteristik murid madrasah. Salah satu pendekatan pedagogi khas yang digulirkan adalah <strong>Kurikulum Berbasis Cinta (KBC)</strong> atau Pembelajaran Berbasis Cinta.
+        </p>
+        <p>
+          Pendekatan ini tidak meniadakan Kurikulum Merdeka nasional, melainkan menyempurnakan dan memperkayanya dengan nuansa spiritual, hubungan penuh kehangatan antara guru dan murid, serta pemikiran islami yang toleran (Rahmatan lil 'Alamin).
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Pilar Utama Pembelajaran Berbasis Cinta (KBC)</h2>
+        <p>
+          Secara operasional, KBC di madrasah menekankan beberapa aspek mendasar berikut dalam setiap rancangan modul ajarnya:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Kehangatan Interaksi (Baiti Jannati di Kelas)</strong>: Guru dipandang sebagai orang tua rohani yang mendidik dengan kelembutan, keteladanan (uswah hasanah), serta menghindari kekerasan verbal maupun psikis kepada murid.
+          </li>
+          <li>
+            <strong>Integrasi Nilai Akhlak Mulia</strong>: Di setiap pembahasan materi pelajaran umum (seperti Matematika, IPAS, atau Bahasa), guru menyelipkan koneksi dengan ketuhanan (tauhid) dan kasih sayang sesama makhluk ciptaan Allah SWT.
+          </li>
+          <li>
+            <strong>Pembelajaran Tanpa Ketakutan (Fearless Learning)</strong>: Murid diberikan ruang yang luas untuk berbuat salah dalam proses mencoba dan belajar. Guru memberikan koreksi konstruktif secara privat demi menjaga harga diri murid.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Bagaimana Contoh Skenario KBC dalam Modul Ajar?</h2>
+        <p>
+          Sebagai contoh, saat mengajarkan materi daur air di kelas 5 MI:
+        </p>
+        <p class="italic text-gray-600 pl-4 border-l-4 border-slate-300">
+          "Guru tidak hanya menjelaskan evaporasi secara teoretis. Guru mengajak murid mengamati rintik hujan, bersyukur atas nikmat air bersih yang diberikan Allah SWT secara gratis, lalu mengajak murid bergotong-royong membersihkan tempat wudu madrasah sebagai wujud kepedulian sosial dan cinta terhadap kebersihan."
+        </p>
+
+        <!-- CTA Box inside Article -->
+        <div class="my-10 bg-brand-primary/5 border border-brand-primary/20 rounded-3xl p-8 text-center space-y-4 shadow-sm">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Dukungan Guru Madrasah</span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-gray-900 leading-tight">
+            Butuh Contoh Modul Ajar KBC Siap Cetak?
+          </h3>
+          <p class="text-sm text-gray-500 font-semibold max-w-md mx-auto leading-relaxed">
+            GuruDokAI merupakan satu-satunya platform asisten AI guru Indonesia yang memiliki opsi khusus pembuatan perangkat ajar bernuansa Kurikulum Berbasis Cinta (KBC).
+          </p>
+          <div class="pt-2">
+            <a 
+              href="/kbc" 
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-md transition-colors gap-2"
+            >
+              <span>Generator Modul Ajar KBC</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Langkah Menulis Rencana Pembelajaran Berbasis Cinta</h2>
+        <ol class="list-decimal pl-6 space-y-3">
+          <li>
+            <strong>Pilih Materi Pokok</strong>: Hubungkan indikator pencapaian kompetensi dengan elemen spiritualitas atau etika sosial islami yang relevan.
+          </li>
+          <li>
+            <strong>Rancang Pembukaan Penuh Kehangatan</strong>: Mulai dengan menanyakan kabar emosional murid, membacakan doa bersama, atau memberikan afirmasi positif pagi hari.
+          </li>
+          <li>
+            <strong>Evaluasi Berbasis Proses (Formatif)</strong>: Apresiasi setiap usaha murid. Gunakan umpan balik yang membangun rasa percaya diri mereka untuk terus belajar.
+          </li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Referensi Resmi Kebijakan</h2>
+        <p class="text-xs sm:text-sm text-gray-500 font-semibold leading-relaxed border-t border-slate-200 pt-4">
+          Konsep Pembelajaran Berbasis Cinta (KBC) dan nilai-nilai moderasi beragama merujuk pada pedoman resmi Direktorat Kurikulum, Sarana, Kelembagaan, dan Kesiswaan (KSKK) Madrasah Kementerian Agama Republik Indonesia, yang diintegrasikan secara selaras dengan regulasi Kurikulum Merdeka nasional.
+        </p>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
