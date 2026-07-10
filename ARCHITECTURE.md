@@ -163,11 +163,14 @@ SITE_URL=https://gurudokai.com   # ganti dengan domain final
 ## 6. CTA Links — Semua Mengarah Ke:
 
 ```
-Primary CTA:  https://lynk.id/oghiezr/zxjox857nz71
-Secondary:    https://lynk.id/oghiezr
+Primary CTA (Bulanan): https://lynk.id/oghiezr/zxjox857nz71
+Primary CTA (3 Bulan): https://lynk.id/oghiezr/3nvl34y0q7l5
+Primary CTA (Tahunan): https://lynk.id/oghiezr/xwq6nyynj3zy
+Primary CTA (Lifetime): https://lynk.id/oghiezr/mp8dw5lyp3ey
+Secondary (Profile):   https://lynk.id/oghiezr
 ```
 
-Semua tombol beli, semua anchor "Mulai Sekarang", semua pricing card → primary CTA URL.
+Semua tombol beli, semua anchor "Mulai Sekarang", semua pricing card → masing-masing package/profile CTA URL.
 
 ---
 

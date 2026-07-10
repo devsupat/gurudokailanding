@@ -39,9 +39,9 @@
 | Paket | Harga | Durasi | CTA URL |
 |-------|-------|--------|---------|
 | Bulanan | Rp 19.000 | 1 bulan | https://lynk.id/oghiezr/zxjox857nz71 |
-| 3 Bulan | Rp 39.900 | 3 bulan | https://lynk.id/oghiezr/zxjox857nz71 |
-| Tahunan ⭐ | Rp 99.000 | 12 bulan | https://lynk.id/oghiezr/zxjox857nz71 |
-| Lifetime 🏆 | Rp 199.000 | Selamanya | https://lynk.id/oghiezr/zxjox857nz71 |
+| 3 Bulan | Rp 39.900 | 3 bulan | https://lynk.id/oghiezr/3nvl34y0q7l5 |
+| Tahunan ⭐ | Rp 99.000 | 12 bulan | https://lynk.id/oghiezr/xwq6nyynj3zy |
+| Lifetime 🏆 | Rp 199.000 | Selamanya | https://lynk.id/oghiezr/mp8dw5lyp3ey |
 
 **Paket hero untuk ditonjolkan:** Tahunan 99rb (highlight sebagai "Terpopuler") dan Lifetime 199rb (highlight sebagai "Terbaik").
 

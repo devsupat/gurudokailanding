@@ -7,8 +7,7 @@
 
 Bangun landing page statis untuk produk **GuruDokAI** — aplikasi AI untuk guru Indonesia membuat RPP, Modul Ajar, Bank Soal HOTS otomatis.
 
-- **Deploy target:** Cloudflare Pages (sudah terkoneksi)
-- **CTA URL utama:** `https://lynk.id/oghiezr/zxjox857nz71`
+- **Aktivasi instan otomatis 24 jam via QRIS, Virtual Account, atau E-Wallet**
 - **Referensi produk:** `https://lynk.id/oghiezr`
 - **Baca dulu:** `BRD.md` dan `ARCHITECTURE.md` sebelum mulai
 
@@ -192,7 +191,7 @@ KONTEN:
   Subtext: "Bayar sekali, pakai selamanya. Termasuk semua update."
   CTA: "Pilih Paket Ini"
 
-- SEMUA CTA → https://lynk.id/oghiezr/zxjox857nz71
+- CTA masing-masing paket → link Lynk.id spesifik paket
 - Note bawah: "Pembayaran aman via QRIS, Transfer Bank, e-Wallet"
 
 STYLE:
@@ -336,7 +335,7 @@ STYLE:
 
 [ ] 12.3 Verify live URL
         Cek semua section tampil benar
-        Cek semua CTA link → lynk.id/oghiezr/zxjox857nz71
+        Cek semua CTA link sesuai dengan paket masing-masing
         Cek mobile view
 
 [x] 12.4 Lighthouse audit
@@ -354,7 +353,7 @@ STYLE:
 ## Catatan Penting untuk AI Agent
 
 1. **Jangan hardcode domain .pages.dev** — pakai variabel atau env untuk domain
-2. **Semua CTA link wajib:** `https://lynk.id/oghiezr/zxjox857nz71`
+2. **Gunakan link Lynk.id yang spesifik untuk setiap paket (Bulanan, 3 Bulan, Tahunan, Lifetime)**
 3. **H1 hanya satu** di seluruh halaman
 4. **Alt text wajib** untuk semua `<img>`
 5. **Schema FAQ** di BaseLayout harus sync dengan isi komponen FAQ
