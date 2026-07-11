@@ -170,8 +170,9 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
     </script>
     
     <!-- Cloudflare Web Analytics Snippet -->
-    <!-- Note: Token can be injected via Cloudflare Dashboard or manual deployment scripts -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f5d082be05e94b29b63ef28258bbf9d0"}'></script>
+    {import.meta.env.PROD && (
+      <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f5d082be05e94b29b63ef28258bbf9d0"}'></script>
+    )}
   </head>
   <body class="antialiased text-gray-800 bg-white">
     <slot />

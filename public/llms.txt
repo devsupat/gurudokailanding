@@ -1,0 +1,30 @@
+# GuruDokAI
+
+[GuruDokAI](https://gurudokailanding.pages.dev/) is a production landing page for a SaaS platform designed for Indonesian educators. It serves as an AI-powered assistant to generate school administrative documents automatically, saving time and aligning with national curriculum requirements.
+
+## Core Stack & Architecture
+- **Framework**: Astro (Static site generation with components)
+- **Styling**: Tailwind CSS
+- **Deployment**: Cloudflare Pages
+- **Target Audience**: Teachers, school administrators, and educators in Indonesia (K-12 & Madrasah Kemenag)
+
+## Key Features & Generators
+GuruDokAI supports various document generators matching Kemendikbudristek & Kemenag guidelines:
+- **RPM (Rencana Pembelajaran Mendalam)**: RPP evolution built around 3 pilar Deep Learning (Mindful, Meaningful, Joyful Learning).
+- **RPPM (Rencana Pelaksanaan Pembelajaran Mendalam Mingguan)**: Weekly course mapping.
+- **Modul Ajar**: Comprehensive teaching modules including activities, rubrics, and references.
+- **LKPD (Lembar Kerja Peserta Didik)**: Ready-to-use worksheets for students.
+- **KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)**: Assessment criteria based on intervals or descriptive rubrics.
+- **KBC (Kurikulum Berbasis Cinta)**: Madrasah-specific pedagogy integration reflecting compassion and moderasi beragama.
+- **TP/ATP Generator**: Smart competency and learning flow breakdown.
+
+## Subscription Plans
+1. **Paket Bulanan** - Rp 19.000 / month (Standard features, PDF exports)
+2. **Paket 3 Bulan** - Rp 39.900 / 3 months (30% savings)
+3. **Paket Tahunan** - Rp 99.000 / year (Most popular, priority updates)
+4. **Paket Lifetime** - Rp 199.000 / forever (One-time payment, all future updates free)
+
+## Key Assets & Configurations
+- **QRIS Payment Code**: Structured in `src/components/Pricing.astro` with double-layered background flyer (`/qris-gurudokai.webp`) and absolute SVG overlay (`/qris-gurudokai-clean.svg`) for perfect scannability.
+- **Security**: Strict CSP headers defined in `public/_headers`.
+- **Knowledge Base**: Curated deep-dives on educational policies located under `/knowledge/`.
