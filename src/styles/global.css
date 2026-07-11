@@ -1,5 +1,50 @@
 @import "tailwindcss";
 
+/* plus-jakarta-sans-400 - latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-v12-latin-400.woff2') format('woff2');
+}
+
+/* plus-jakarta-sans-500 - latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-v12-latin-500.woff2') format('woff2');
+}
+
+/* plus-jakarta-sans-600 - latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-v12-latin-600.woff2') format('woff2');
+}
+
+/* plus-jakarta-sans-700 - latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-v12-latin-700.woff2') format('woff2');
+}
+
+/* plus-jakarta-sans-800 - latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-v12-latin-800.woff2') format('woff2');
+}
+
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-brand-light: #f0fdf4;
