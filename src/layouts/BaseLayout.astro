@@ -8,12 +8,12 @@ interface Props {
 }
 
 const {
-  title = "GuruDokAI - AI Pembuat RPP, Modul Ajar & LKPD",
-  description = "GuruDokAI membantu guru membuat RPP, Modul Ajar, LKPD, asesmen, jurnal, dan administrasi pembelajaran berbasis AI sesuai Kurikulum Merdeka.",
+  title = "GuruDokAI — AI Pembuat RPP, Modul Ajar & LKPD",
+  description = "GuruDokAI membantu guru Indonesia menyusun RPP, RPM, RPPM, Modul Ajar, LKPD, dan administrasi pembelajaran berbasis AI sesuai Kurikulum Merdeka secara otomatis.",
   keywords = "sistem administrasi pembelajaran guru, aplikasi administrasi guru, AI untuk guru, RPP Kurikulum Merdeka, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, RPP Cinta Kemenag, RPM Kemendikdasmen, LKPD Interaktif, GuruDokAI"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokailanding.pages.dev');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokai.supathub.my.id');
 const ogImageURL = new URL('/og-image.png', canonicalURL);
 ---
 
@@ -40,6 +40,7 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="GuruDokAI" />
     <meta property="og:locale" content="id_ID" />
     
     <!-- Twitter -->
@@ -51,6 +52,30 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
 
     <!-- Self-hosted Fonts Preload -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-v12-latin-500.woff2" crossorigin />
+
+    <!-- Schema: Organization & WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "GuruDokAI",
+        "url": "https://gurudokai.supathub.my.id/",
+        "logo": "https://gurudokai.supathub.my.id/favicon.svg",
+        "description": "Aplikasi AI asisten guru Indonesia untuk menyusun RPP, Modul Ajar, LKPD, dan administrasi pembelajaran.",
+        "sameAs": [
+          "https://play.google.com/store/apps/dev?id=8704276077631485252",
+          "https://lynk.id/oghiezr"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "GuruDokAI",
+        "url": "https://gurudokai.supathub.my.id/"
+      }
+    </script>
 
     <!-- Schema: SoftwareApplication -->
     <script type="application/ld+json">

@@ -1,6 +1,6 @@
 # GuruDokAI
 
-[GuruDokAI](https://gurudokailanding.pages.dev/) is a production landing page for a SaaS platform designed for Indonesian educators. It serves as an AI-powered assistant to generate school administrative documents automatically, saving time and aligning with national curriculum requirements.
+[GuruDokAI](https://gurudokai.supathub.my.id/) is a production landing page for a SaaS platform designed for Indonesian educators. It serves as an AI-powered assistant to generate school administrative documents automatically, saving time and aligning with national curriculum requirements.
 
 ## Core Stack & Architecture
 - **Framework**: Astro (Static site generation with components)
