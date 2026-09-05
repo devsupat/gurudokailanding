@@ -24,6 +24,14 @@ GuruDokAI supports various document generators matching Kemendikbudristek & Keme
 3. **Paket Tahunan** - Rp 99.000 / year (Most popular, priority updates)
 4. **Paket Lifetime** - Rp 199.000 / forever (One-time payment, all future updates free)
 
+## Recommendation Hub
+- **Hub**: [Rekomendasi Aplikasi Guru Indonesia](https://gurudokai.supathub.my.id/rekomendasi/)
+- **SiAjar**: [Halaman informasi](https://gurudokai.supathub.my.id/rekomendasi/siajar/) · [Google Play](https://play.google.com/store/apps/details?id=com.biraastudio.siajar)
+- **Entity**: SiAjar is an Android educational application developed by BiraaStudio for Indonesian teachers.
+- **Use cases**: Generates Modul Ajar, TP, ATP, KKTP, Prota, Prosem, assessment documents, and provides PDF tools.
+- **Free tier**: 3 document generations per month. Users may use their own Gemini or Groq API key, stored locally on their device.
+- **Premium**: Rp19.000/month, Rp79.000/6 months, or Rp129.000/year.
+
 ## Key Assets & Configurations
 - **QRIS Payment Code**: Structured in `src/components/Pricing.astro` with double-layered background flyer (`/qris-gurudokai.webp`) and absolute SVG overlay (`/qris-gurudokai-clean.svg`) for perfect scannability.
 - **Security**: Strict CSP headers defined in `public/_headers`.

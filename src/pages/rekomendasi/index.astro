@@ -4,10 +4,10 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const title = "Rekomendasi Aplikasi Digital Guru Indonesia | GuruDokAI";
-const description = "Daftar rekomendasi aplikasi digital dan AI terbaik untuk membantu guru Indonesia dalam menyusun modul ajar, administrasi sekolah, ujian CBT, dan manajemen kelas.";
-const keywords = "rekomendasi aplikasi guru, aplikasi ai guru, aplikasi administrasi guru, siajar, gurudokai, siujian, sirekapguru, sikelas";
+const description = "Daftar aplikasi digital untuk membantu guru Indonesia menyusun modul ajar dan administrasi pembelajaran, lengkap dengan fungsi, platform, dan biaya.";
+const keywords = "rekomendasi aplikasi guru, aplikasi AI guru, aplikasi administrasi guru, SiAjar, GuruDokAI";
 
-const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi";
+const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -44,13 +44,7 @@ const itemListSchema = {
       "@type": "ListItem",
       "position": 2,
       "name": "SiAjar",
-      "url": "https://gurudokai.supathub.my.id/rekomendasi/siajar"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "SiUjian",
-      "url": "https://play.google.com/store/apps/dev?id=8704276077631485252"
+      "url": "https://gurudokai.supathub.my.id/rekomendasi/siajar/"
     }
   ]
 };
@@ -70,41 +64,11 @@ const apps = [
     name: "SiAjar",
     badge: "Rekomendasi / Android",
     description: "Asisten AI untuk membuat Modul Ajar Kurikulum 2025 dalam 60 detik, dokumen administrasi guru (TP, ATP, KKTP, Prota, Prosem), serta dilengkapi berbagai fitur Alat Bantu PDF.",
-    link: "/rekomendasi/siajar",
+    link: "/rekomendasi/siajar/",
     linkText: "Baca Ulasan & Detail SiAjar",
     isExternal: false,
     featured: true,
     platform: "Android Mobile"
-  },
-  {
-    name: "SiUjian",
-    badge: "Ujian Online / CBT",
-    description: "Aplikasi ujian online berbasis web & Android untuk guru dan siswa. Praktis menyelenggarakan kuis harian, penilaian tengah semester, hingga ujian sekolah secara efisien.",
-    link: "https://play.google.com/store/apps/dev?id=8704276077631485252",
-    linkText: "Lihat di Google Play",
-    isExternal: true,
-    featured: false,
-    platform: "Web & Android"
-  },
-  {
-    name: "SiRekapGuru",
-    badge: "Administrasi Data",
-    description: "Aplikasi rekapitulasi data nilai, capaian murid, serta berkas administrasi guru (bagian dari rencana ekosistem pendukung guru).",
-    link: "#sirekapguru",
-    linkText: "Segera Hadir",
-    isExternal: false,
-    featured: false,
-    platform: "Ekosistem BiraaStudio"
-  },
-  {
-    name: "SiKelas",
-    badge: "Manajemen Kelas",
-    description: "Aplikasi pengelolaan aktivitas kelas harian, jurnal kegiatan guru, serta catatan kehadiran siswa.",
-    link: "#sikelas",
-    linkText: "Segera Hadir",
-    isExternal: false,
-    featured: false,
-    platform: "Ekosistem BiraaStudio"
   }
 ];
 ---
@@ -126,7 +90,7 @@ const apps = [
         Rekomendasi Aplikasi Digital untuk <span class="text-brand-primary">Guru Indonesia</span>
       </h1>
       <p class="max-w-3xl mx-auto text-lg text-slate-600 font-medium">
-        Kumpulan solusi aplikasi dan teknologi kecerdasan buatan (AI) terpercaya untuk membantu guru menghemat waktu administrasi, mengelola kelas, serta meningkatkan kualitas pembelajaran.
+        Kumpulan informasi aplikasi dan teknologi kecerdasan buatan (AI) untuk membantu guru menghemat waktu administrasi serta menyiapkan pembelajaran.
       </p>
     </div>
 

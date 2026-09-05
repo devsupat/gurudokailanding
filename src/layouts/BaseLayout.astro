@@ -5,16 +5,19 @@ interface Props {
   title?: string;
   description?: string;
   keywords?: string;
+  robots?: string;
 }
 
 const {
   title = "GuruDokAI — AI Pembuat RPP, Modul Ajar & LKPD",
   description = "GuruDokAI membantu guru Indonesia menyusun RPP, RPM, RPPM, Modul Ajar, LKPD, dan administrasi pembelajaran berbasis AI sesuai Kurikulum Merdeka secara otomatis.",
-  keywords = "sistem administrasi pembelajaran guru, aplikasi administrasi guru, AI untuk guru, RPP Kurikulum Merdeka, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, RPP Cinta Kemenag, RPM Kemendikdasmen, LKPD Interaktif, GuruDokAI"
+  keywords = "sistem administrasi pembelajaran guru, aplikasi administrasi guru, AI untuk guru, RPP Kurikulum Merdeka, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, RPP Cinta Kemenag, RPM Kemendikdasmen, LKPD Interaktif, GuruDokAI",
+  robots = "index, follow"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokai.supathub.my.id');
 const ogImageURL = new URL('/og-image.png', canonicalURL);
+const isHomePage = Astro.url.pathname === '/';
 ---
 
 <!DOCTYPE html>
@@ -30,6 +33,7 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
+    <meta name="robots" content={robots} />
     <meta name="google-site-verification" content="VEz9elfN0FKuf0PQrs0Fk4KB42m7dEK_hMOaX_BYn_k" />
     <meta name="msvalidate.01" content="8B756066EF5115180B395DB4B2F92565" />
     <link rel="canonical" href={canonicalURL} />
@@ -44,52 +48,33 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
     <meta property="og:locale" content="id_ID" />
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Self-hosted Fonts Preload -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-v12-latin-500.woff2" crossorigin />
 
-    <!-- Schema: Organization & WebSite -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "GuruDokAI",
-        "url": "https://gurudokai.supathub.my.id/",
-        "logo": "https://gurudokai.supathub.my.id/favicon.svg",
-        "description": "Aplikasi AI asisten guru Indonesia untuk menyusun RPP, Modul Ajar, LKPD, dan administrasi pembelajaran.",
-        "sameAs": [
-          "https://play.google.com/store/apps/dev?id=8704276077631485252",
-          "https://lynk.id/oghiezr"
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
+    <!-- Homepage-only site and product schemas. Detail pages provide their own entity data. -->
+    {isHomePage && <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "GuruDokAI",
         "url": "https://gurudokai.supathub.my.id/"
       }
-    </script>
+    </script>}
 
-    <!-- Schema: SoftwareApplication -->
-    <script type="application/ld+json">
+    {isHomePage && <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "GuruDokAI",
         "description": "Aplikasi AI asisten guru Indonesia untuk membuat RPP, Modul Ajar, Bank Soal HOTS, ATP otomatis sesuai Kurikulum Merdeka",
         "applicationCategory": "EducationalApplication",
-        "operatingSystem": "Android, iOS, Windows, macOS, Web",
-        "author": {
-          "@type": "Organization",
-          "name": "GuruDokAI"
-        },
+        "operatingSystem": "Windows 10, Windows 11",
         "offers": [
           {
             "@type": "Offer",
@@ -126,10 +111,10 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
           }
         ]
       }
-    </script>
+    </script>}
 
     <!-- Schema: FAQPage -->
-    <script type="application/ld+json">
+    {isHomePage && <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -192,7 +177,7 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
           }
         ]
       }
-    </script>
+    </script>}
     
     <!-- Cloudflare Web Analytics Snippet -->
     {import.meta.env.PROD && (

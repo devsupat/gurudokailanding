@@ -7,7 +7,7 @@ const title = "SiAjar — Aplikasi AI untuk Guru Membuat Modul Ajar & Administra
 const description = "SiAjar adalah asisten AI untuk guru Indonesia menyusun Modul Ajar Kurikulum Nasional 2025, RPP, ATP, KKTP, dan administrasi sekolah lengkap dalam 60 detik.";
 const keywords = "SiAjar, aplikasi AI untuk guru, generator modul ajar, administrasi guru, RPP Kurikulum 2025, tools PDF guru, BiraaStudio";
 
-const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/siajar";
+const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/siajar/";
 const playStoreUrl = "https://play.google.com/store/apps/details?id=com.biraastudio.siajar";
 
 // Breadcrumb Schema
@@ -25,7 +25,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 2,
       "name": "Rekomendasi Aplikasi Guru",
-      "item": "https://gurudokai.supathub.my.id/rekomendasi"
+      "item": "https://gurudokai.supathub.my.id/rekomendasi/"
     },
     {
       "@type": "ListItem",
@@ -43,6 +43,7 @@ const softwareAppSchema = {
   "name": "SiAjar",
   "operatingSystem": "Android",
   "applicationCategory": "EducationalApplication",
+  "url": canonicalUrl,
   "description": "Asisten AI untuk guru Indonesia membuat Modul Ajar Kurikulum Nasional 2025, RPP, ATP, KKTP, dan dokumen administrasi guru otomatis.",
   "author": {
     "@type": "Organization",
@@ -152,7 +153,7 @@ const faqSchema = {
       <nav class="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6" aria-label="Breadcrumb">
         <a href="/" class="hover:text-brand-primary transition-colors">Beranda</a>
         <span>/</span>
-        <a href="/rekomendasi" class="hover:text-brand-primary transition-colors">Rekomendasi Aplikasi Guru</a>
+        <a href="/rekomendasi/" class="hover:text-brand-primary transition-colors">Rekomendasi Aplikasi Guru</a>
         <span>/</span>
         <span class="text-slate-800 font-bold">SiAjar</span>
       </nav>
@@ -540,12 +541,12 @@ const faqSchema = {
           </div>
         </section>
 
-        <!-- Section Rekomendasi Ekosistem -->
+        <!-- Related internal links -->
         <section id="ekosistem-rekomendasi" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-6">
           <div class="border-b border-slate-800 pb-4">
-            <span class="text-xs font-bold text-brand-primary uppercase tracking-wider block mb-1">Ekosistem Aplikasi</span>
-            <h2 class="text-2xl font-extrabold text-white">Rekomendasi Aplikasi Digital untuk Guru Indonesia</h2>
-            <p class="text-xs text-slate-300 mt-1">Daftar perkakas digital pendukung tugas mengajar dan administrasi guru di Indonesia.</p>
+            <span class="text-xs font-bold text-brand-primary uppercase tracking-wider block mb-1">Informasi Terkait</span>
+            <h2 class="text-2xl font-extrabold text-white">Jelajahi Aplikasi untuk Guru Indonesia</h2>
+            <p class="text-xs text-slate-300 mt-1">Kembali ke pusat rekomendasi atau pelajari GuruDok AI untuk kebutuhan desktop dan web.</p>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-200 text-sm">
@@ -555,23 +556,8 @@ const faqSchema = {
             </div>
 
             <div class="p-4 bg-slate-800/90 border border-brand-primary/80 rounded-xl">
-              <a href="/rekomendasi/siajar" class="font-bold text-emerald-400 hover:underline text-base block mb-1">SiAjar</a>
-              <p class="text-xs text-slate-300">Aplikasi Android untuk membuat dokumen pembelajaran, administrasi guru, dan pengolahan PDF secara instan.</p>
-            </div>
-
-            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl">
-              <a href="/rekomendasi#sirekapguru" class="font-bold text-slate-300 hover:text-emerald-400 text-base block mb-1">SiRekapGuru</a>
-              <p class="text-xs text-slate-400">Aplikasi rekapitulasi data dan administrasi nilai guru (dalam pengembangan ekosistem).</p>
-            </div>
-
-            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl">
-              <a href="https://play.google.com/store/apps/dev?id=8704276077631485252" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-300 hover:text-emerald-400 text-base block mb-1">SiUjian</a>
-              <p class="text-xs text-slate-400">Aplikasi ujian online dan CBT berbasis web & Android untuk pelaksanaan evaluasi belajar.</p>
-            </div>
-
-            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl sm:col-span-2">
-              <a href="/rekomendasi#sikelas" class="font-bold text-slate-300 hover:text-emerald-400 text-base block mb-1">SiKelas</a>
-              <p class="text-xs text-slate-400">Aplikasi pendukung manajemen presensi dan tata kelola aktivitas kelas harian.</p>
+              <a href="/rekomendasi/" class="font-bold text-emerald-400 hover:underline text-base block mb-1">Pusat Rekomendasi Aplikasi Guru</a>
+              <p class="text-xs text-slate-300">Lihat daftar aplikasi yang sudah memiliki informasi fungsi, platform, dan biaya.</p>
             </div>
           </div>
         </section>
