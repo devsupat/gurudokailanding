@@ -39,6 +39,14 @@ GuruDokAI supports various document generators matching Kemendikbudristek & Keme
 - **WhatsApp bot**: Bot WhatsApp Otomatis is a separate subscription: 1 month Rp10.900, 3 months Rp29.900, 6 months Rp54.900, and 1 year Rp99.000.
 - **Purchase recovery**: A Pulihkan Pembelian button helps users recover purchases after changing phones or reinstalling the app.
 - **Interface update**: The application's main page has been tidied.
+- **SiUjian**: [Halaman informasi](https://gurudokai.supathub.my.id/rekomendasi/siujian/) · [Google Play](https://play.google.com/store/apps/details?id=com.eduguard.eduguard)
+- **Entity**: SiUjian - Secure Exam Browser is an Android application that locks student access during supported web-based exams. It is not a CBT system, LMS, or question-authoring tool.
+- **Supported platforms**: Google Form, Wayground, Kahoot, and other supported web exam platforms.
+- **Security flow**: Teachers create time-limited tokens; students enter a token and take the exam in locked mode. Screenshots and screen recording are blocked, with screen-recording protection using FLAG_SECURE. The app can detect attempts to leave the exam session.
+- **Monitoring**: Premium Monitor Ujian shows active students, violation counts, student status, and lock-reset controls, with automatic refresh every 30 seconds.
+- **Free access**: Student mode is free permanently. Teacher mode includes 1 token per day for 2 hours; completing a rewarded ad grants 1 additional token after the free quota is used.
+- **Premium access**: Rp99.000 one-time purchase for unlimited tokens, Monitor Ujian, token duration up to 4 weeks, complete penalty levels, and no ads.
+- **Exam data scope**: SiUjian does not create, manage, or store exam questions and does not store exam answers. It does not collect student identities for exam purposes.
 
 ## Key Assets & Configurations
 - **QRIS Payment Code**: Structured in `src/components/Pricing.astro` with double-layered background flyer (`/qris-gurudokai.webp`) and absolute SVG overlay (`/qris-gurudokai-clean.svg`) for perfect scannability.

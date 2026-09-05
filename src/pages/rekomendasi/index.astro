@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 
 const title = "Rekomendasi Aplikasi Digital Guru Indonesia | GuruDokAI";
 const description = "Daftar aplikasi digital untuk membantu guru Indonesia menyusun modul ajar dan administrasi pembelajaran, lengkap dengan fungsi, platform, dan biaya.";
-const keywords = "rekomendasi aplikasi guru, aplikasi AI guru, aplikasi administrasi guru, SiAjar, Rekap Guru, GuruDokAI";
+const keywords = "rekomendasi aplikasi guru, aplikasi AI guru, aplikasi administrasi guru, secure exam browser, SiAjar, Rekap Guru, SiUjian, GuruDokAI";
 
 const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/";
 
@@ -51,6 +51,12 @@ const itemListSchema = {
       "position": 3,
       "name": "Rekap Guru",
       "url": "https://gurudokai.supathub.my.id/rekomendasi/rekap-guru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "SiUjian",
+      "url": "https://gurudokai.supathub.my.id/rekomendasi/siujian/"
     }
   ]
 };
@@ -85,6 +91,16 @@ const apps = [
     isExternal: false,
     featured: true,
     platform: "Android Mobile"
+  },
+  {
+    name: "SiUjian",
+    badge: "Rekomendasi / Android",
+    description: "Secure Exam Browser untuk menjalankan ujian online dalam mode terkunci menggunakan token, sistem penalti, dan monitor ujian tanpa menjadi sistem CBT atau LMS.",
+    link: "/rekomendasi/siujian/",
+    linkText: "Baca Informasi SiUjian",
+    isExternal: false,
+    featured: true,
+    platform: "Android Mobile"
   }
 ];
 ---
@@ -97,34 +113,34 @@ const apps = [
 
   <main class="pt-24 pb-20 bg-slate-50 min-h-screen">
     <!-- Hero Header -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary mb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center relative">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80 mb-6 shadow-sm">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="lucide lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
         <span>Pusat Rekomendasi Aplikasi Guru</span>
       </div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-        Rekomendasi Aplikasi Digital untuk <span class="text-brand-primary">Guru Indonesia</span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+        Rekomendasi Aplikasi Digital untuk <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 bg-clip-text text-transparent">Guru Indonesia</span>
       </h1>
-      <p class="max-w-3xl mx-auto text-lg text-slate-600 font-medium">
+      <p class="max-w-3xl mx-auto text-lg text-slate-600 font-medium leading-relaxed">
         Kumpulan informasi aplikasi dan teknologi kecerdasan buatan (AI) untuk membantu guru menghemat waktu administrasi serta menyiapkan pembelajaran.
       </p>
     </div>
 
     <!-- App Cards Grid -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {apps.map((app) => (
-          <div class={`bg-white border rounded-3xl p-8 flex flex-col justify-between shadow-premium hover-scale ${app.featured ? 'border-brand-primary/40 ring-1 ring-brand-primary/20' : 'border-slate-200'}`}>
+          <div class={`bg-white/90 backdrop-blur-md border rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 ${app.featured ? 'border-emerald-200 shadow-xl shadow-emerald-900/5 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-900/10 ring-1 ring-emerald-500/10' : 'border-slate-200/90 shadow-lg hover:border-slate-300'}`}>
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class={`px-3 py-1 rounded-full text-xs font-bold ${app.featured ? 'bg-brand-primary/10 text-brand-primary border border-brand-primary/20' : 'bg-slate-100 text-slate-600 border border-slate-200'}`}>
+              <div class="flex items-center justify-between mb-5">
+                <span class={`px-3.5 py-1 rounded-full text-xs font-bold ${app.featured ? 'bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-xs' : 'bg-slate-100 text-slate-600 border border-slate-200'}`}>
                   {app.badge}
                 </span>
-                <span class="text-[11px] font-semibold text-slate-400">{app.platform}</span>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-slate-100/80 px-2.5 py-0.5 rounded-md">{app.platform}</span>
               </div>
 
-              <h2 class="text-2xl font-extrabold text-slate-900 mb-3">{app.name}</h2>
-              <p class="text-slate-600 text-sm leading-relaxed font-medium mb-6">
+              <h2 class="text-2xl font-extrabold text-slate-900 mb-3 tracking-tight">{app.name}</h2>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium mb-8">
                 {app.description}
               </p>
             </div>
@@ -135,7 +151,7 @@ const apps = [
                   href={app.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold text-slate-800 bg-slate-100 hover:bg-brand-primary hover:text-white rounded-xl transition-all gap-2"
+                  class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold text-slate-800 bg-slate-100 hover:bg-emerald-600 hover:text-white rounded-2xl transition-all duration-200 gap-2 shadow-sm"
                 >
                   <span>{app.linkText}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
@@ -143,7 +159,7 @@ const apps = [
               ) : (
                 <a 
                   href={app.link} 
-                  class={`inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold rounded-xl transition-all gap-2 ${app.link.startsWith('#') ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'text-white bg-brand-primary hover:bg-brand-dark shadow-md'}`}
+                  class={`inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold rounded-2xl transition-all duration-200 gap-2 ${app.link.startsWith('#') ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-md shadow-emerald-600/20 hover:shadow-lg hover:shadow-emerald-600/30'}`}
                 >
                   <span>{app.linkText}</span>
                   {!app.link.startsWith('#') && (

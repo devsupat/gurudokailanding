@@ -1,0 +1,345 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "SiUjian — Secure Exam Browser untuk Ujian Online";
+const description = "SiUjian adalah browser ujian terkunci dengan token dan monitor ujian untuk Google Form serta platform ujian web dari perangkat guru.";
+const keywords = "SiUjian, secure exam browser Indonesia, browser ujian terkunci, aplikasi ujian online dengan token, monitor ujian siswa, browser ujian Google Form";
+const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/siujian/";
+const playStoreUrl = "https://play.google.com/store/apps/details?id=com.eduguard.eduguard";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokai.supathub.my.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Rekomendasi Aplikasi Guru",
+      "item": "https://gurudokai.supathub.my.id/rekomendasi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SiUjian",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SiUjian - Secure Exam Browser",
+  "operatingSystem": "Android",
+  "applicationCategory": "EducationalApplication",
+  "url": canonicalUrl,
+  "downloadUrl": playStoreUrl,
+  "description": "Browser ujian terkunci yang membantu guru menjalankan dan memantau ujian online pada platform ujian web yang didukung.",
+  "offers": {
+    "@type": "Offer",
+    "name": "Premium SiUjian",
+    "price": "99000",
+    "priceCurrency": "IDR",
+    "url": playStoreUrl,
+    "description": "Pembelian satu kali untuk token tak terbatas, Monitor Ujian, durasi token hingga 4 minggu, sistem penalti lengkap, dan bebas iklan."
+  }
+};
+
+const faqs = [
+  {
+    q: "Apa itu SiUjian?",
+    a: "SiUjian adalah Secure Exam Browser Android yang menjalankan ujian online dalam mode terkunci menggunakan platform ujian web yang sudah digunakan sekolah. SiUjian bukan CBT atau LMS."
+  },
+  {
+    q: "Apa fungsi SiUjian?",
+    a: "SiUjian membantu mengunci akses siswa selama ujian, memblokir screenshot dan rekam layar, mendeteksi percobaan keluar aplikasi, mengatur akses dengan token, serta menyediakan Monitor Ujian untuk Premium."
+  },
+  {
+    q: "Apakah SiUjian merupakan aplikasi CBT?",
+    a: "Tidak. SiUjian bukan sistem CBT serta tidak membuat, mengelola, atau menyimpan soal ujian."
+  },
+  {
+    q: "Apakah SiUjian merupakan LMS?",
+    a: "Tidak. SiUjian bukan sistem manajemen pembelajaran dan tidak mengelola kelas atau nilai seperti LMS."
+  },
+  {
+    q: "Apakah SiUjian bisa digunakan untuk Google Form?",
+    a: "Ya. SiUjian dapat membuka ujian yang menggunakan Google Form."
+  },
+  {
+    q: "Apakah SiUjian bisa digunakan untuk Wayground?",
+    a: "Ya. Wayground termasuk platform ujian web yang dapat dibuka melalui SiUjian."
+  },
+  {
+    q: "Apakah SiUjian bisa digunakan untuk Kahoot?",
+    a: "Ya. SiUjian dapat membuka ujian dari Kahoot."
+  },
+  {
+    q: "Bagaimana cara kerja token SiUjian?",
+    a: "Guru memasukkan URL ujian dan memilih durasi untuk membuat token. Siswa memasukkan token tersebut untuk memulai ujian dalam mode terkunci."
+  },
+  {
+    q: "Berapa lama token SiUjian berlaku?",
+    a: "Mode Guru gratis menyediakan token dengan durasi 2 jam. Premium menyediakan pilihan durasi token hingga 4 minggu."
+  },
+  {
+    q: "Apakah SiUjian bisa mendeteksi siswa keluar dari aplikasi?",
+    a: "Ya. SiUjian dapat mendeteksi percobaan keluar dari aplikasi dan menerapkan level pengawasan sesuai akses yang digunakan."
+  },
+  {
+    q: "Apa saja level pengawasan SiUjian?",
+    a: "Level 1 menampilkan peringatan dan tersedia gratis. Premium menambahkan Level 2 dengan countdown 60 detik serta Level 3 yang mengunci sesi atau perangkat siswa sampai guru membukanya kembali."
+  },
+  {
+    q: "Apa itu Monitor Ujian?",
+    a: "Monitor Ujian adalah fitur Premium untuk melihat siswa aktif secara real-time, jumlah pelanggaran, status siswa, dan mereset kunci dari perangkat guru. Data diperbarui otomatis setiap 30 detik."
+  },
+  {
+    q: "Apakah mode siswa SiUjian gratis?",
+    a: "Ya. Mode Siswa tersedia gratis selamanya."
+  },
+  {
+    q: "Berapa harga Premium SiUjian?",
+    a: "Premium SiUjian berharga Rp99.000 sekali bayar, bukan langganan."
+  },
+  {
+    q: "Apakah SiUjian membuat soal ujian?",
+    a: "Tidak. Soal tetap dibuat dan dikelola pada platform ujian yang digunakan sekolah."
+  },
+  {
+    q: "Apakah SiUjian menyimpan soal atau jawaban ujian?",
+    a: "Tidak. SiUjian tidak menyimpan soal maupun jawaban ujian."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareAppSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+
+  <main class="pt-24 pb-16 bg-slate-50 min-h-screen">
+    <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="py-5 text-sm text-slate-500">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="/" class="hover:text-brand-primary">Beranda</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/rekomendasi/" class="hover:text-brand-primary">Rekomendasi</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="font-semibold text-slate-700">SiUjian</li>
+        </ol>
+      </nav>
+
+      <header class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-premium">
+        <span class="inline-flex px-3 py-1 rounded-full text-xs font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30 mb-5">Android Secure Exam Browser</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-5">SiUjian — Secure Exam Browser untuk Ujian Online</h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">SiUjian membantu guru menjalankan ujian online dalam mode terkunci dan memantau sesi ujian dari perangkat guru. Ujian tetap memakai Google Form, Wayground, Kahoot, atau platform ujian web lain yang didukung.</p>
+        <div class="flex flex-wrap gap-3 mt-6 text-xs font-semibold">
+          <span class="px-3 py-2 rounded-xl bg-slate-800 border border-slate-700">Platform: Android</span>
+          <span class="px-3 py-2 rounded-xl bg-slate-800 border border-slate-700">Mode Siswa: Gratis selamanya</span>
+          <span class="px-3 py-2 rounded-xl bg-slate-800 border border-slate-700">Premium: Rp99.000 sekali bayar</span>
+        </div>
+        <a href={playStoreUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center justify-center mt-7 px-6 py-3 rounded-full bg-brand-primary text-white font-bold hover:bg-brand-dark shadow-md">Lihat SiUjian di Google Play</a>
+      </header>
+
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-12">
+        <section id="apa-itu" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Apa Itu SiUjian?</h2>
+          <p class="text-slate-600 leading-relaxed">SiUjian adalah Secure Exam Browser, bukan sistem CBT atau LMS. Aplikasi ini membantu membatasi akses siswa selama ujian online, sementara soal tetap berada pada platform ujian yang telah digunakan sekolah.</p>
+          <p class="text-slate-600 leading-relaxed">Guru mengatur akses melalui token. Fitur Premium menyediakan Monitor Ujian untuk melihat siswa aktif, pelanggaran, dan status ujian dari perangkat guru.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-center">
+            <div class="p-4 rounded-2xl bg-red-50 border border-red-100"><strong class="block text-slate-900">Bukan CBT</strong><span class="text-xs text-slate-600">Tidak membuat atau menyimpan soal</span></div>
+            <div class="p-4 rounded-2xl bg-red-50 border border-red-100"><strong class="block text-slate-900">Bukan LMS</strong><span class="text-xs text-slate-600">Tidak mengelola kelas dan nilai</span></div>
+            <div class="p-4 rounded-2xl bg-red-50 border border-red-100"><strong class="block text-slate-900">Bukan Pembuat Soal</strong><span class="text-xs text-slate-600">Menggunakan platform ujian sekolah</span></div>
+          </div>
+        </section>
+
+        <section id="keamanan" class="space-y-6">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Bagaimana SiUjian Mengamankan Ujian?</h2>
+            <p class="text-slate-600 mt-2">SiUjian memakai beberapa pembatas selama sesi ujian. Mekanisme ini membantu pengawasan, tetapi tidak menjanjikan keamanan absolut.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <section class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Mode Terkunci</h3><p class="text-sm text-slate-600">Siswa tidak dapat membuka aplikasi lain selama ujian berlangsung.</p></section>
+            <section class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Blokir Screenshot</h3><p class="text-sm text-slate-600">Pengambilan screenshot diblokir selama sesi ujian.</p></section>
+            <section class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Blokir Rekam Layar</h3><p class="text-sm text-slate-600">Rekam layar diblokir menggunakan mekanisme <code>FLAG_SECURE</code>.</p></section>
+            <section class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Deteksi Percobaan Keluar</h3><p class="text-sm text-slate-600">Aplikasi dapat mendeteksi jika siswa mencoba keluar dari aplikasi.</p></section>
+          </div>
+        </section>
+
+        <section id="token" class="space-y-6">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Sistem Token Ujian</h2>
+            <p class="text-slate-600 mt-2">Token menghubungkan pengaturan ujian dari guru dengan sesi ujian siswa.</p>
+          </div>
+          <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-sm">
+            <li class="p-4 rounded-2xl bg-sky-50 border border-sky-100"><strong class="block text-sky-700 mb-1">1. Guru</strong><span class="text-slate-600">Masukkan URL ujian</span></li>
+            <li class="p-4 rounded-2xl bg-sky-50 border border-sky-100"><strong class="block text-sky-700 mb-1">2. Buat token</strong><span class="text-slate-600">Token dibuat untuk ujian</span></li>
+            <li class="p-4 rounded-2xl bg-sky-50 border border-sky-100"><strong class="block text-sky-700 mb-1">3. Pilih durasi</strong><span class="text-slate-600">2 jam hingga 4 minggu</span></li>
+            <li class="p-4 rounded-2xl bg-sky-50 border border-sky-100"><strong class="block text-sky-700 mb-1">4. Siswa</strong><span class="text-slate-600">Masukkan token</span></li>
+            <li class="p-4 rounded-2xl bg-sky-50 border border-sky-100"><strong class="block text-sky-700 mb-1">5. Mulai</strong><span class="text-slate-600">Ujian mode terkunci</span></li>
+          </ol>
+          <p class="text-sm text-slate-600">Mode Guru gratis menyediakan 1 token per hari dengan durasi 2 jam. Premium menyediakan token tak terbatas dengan durasi hingga 4 minggu.</p>
+        </section>
+
+        <section id="penalti" class="space-y-6">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Sistem Pengawasan dan Penalti</h2>
+            <p class="text-slate-600 mt-2">Tiga level diterapkan saat percobaan keluar aplikasi terdeteksi.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <section class="p-5 rounded-2xl bg-amber-50 border border-amber-200"><span class="text-xs font-bold text-amber-700">LEVEL 1 · GRATIS</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Peringatan</h3><p class="text-sm text-slate-600 mt-2">Menampilkan banner peringatan berwarna kuning.</p></section>
+            <section class="p-5 rounded-2xl bg-orange-50 border border-orange-200"><span class="text-xs font-bold text-orange-700">LEVEL 2 · PREMIUM</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Countdown</h3><p class="text-sm text-slate-600 mt-2">Menjalankan hitung mundur selama 60 detik.</p></section>
+            <section class="p-5 rounded-2xl bg-red-50 border border-red-200"><span class="text-xs font-bold text-red-700">LEVEL 3 · PREMIUM</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Terkunci</h3><p class="text-sm text-slate-600 mt-2">Sesi atau perangkat siswa dikunci sampai guru membukanya kembali.</p></section>
+          </div>
+        </section>
+
+        <section id="monitor" class="space-y-5">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Monitor Ujian</h2>
+            <p class="text-slate-600 mt-2">Fitur Premium untuk memantau sesi ujian dari perangkat guru dengan auto-refresh setiap 30 detik.</p>
+          </div>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700">
+            {['Daftar siswa aktif secara real-time', 'Jumlah pelanggaran per siswa', 'Status setiap siswa', 'Reset kunci siswa dari perangkat guru', 'Auto-refresh setiap 30 detik'].map(item => (
+              <li class="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-xl"><span aria-hidden="true" class="text-brand-primary font-bold">✓</span>{item}</li>
+            ))}
+          </ul>
+          <div class="flex flex-wrap gap-2" aria-label="Status siswa pada Monitor Ujian">
+            {['Mengerjakan', 'Peringatan', 'Terkunci', 'Selesai', 'Diblokir'].map(status => (
+              <span class="px-3 py-1.5 rounded-full bg-slate-900 text-white text-xs font-bold">{status}</span>
+            ))}
+          </div>
+        </section>
+
+        <section id="platform" class="space-y-5">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Platform Ujian yang Didukung</h2>
+            <p class="text-slate-600 mt-2">SiUjian membuka ujian dari platform web yang didukung. Soal tetap dikelola pada platform ujian yang digunakan sekolah.</p>
+          </div>
+          <ul class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-sm font-bold text-slate-800">
+            <li class="p-4 bg-sky-50 border border-sky-100 rounded-xl">Google Form</li>
+            <li class="p-4 bg-sky-50 border border-sky-100 rounded-xl">Wayground</li>
+            <li class="p-4 bg-sky-50 border border-sky-100 rounded-xl">Kahoot</li>
+            <li class="p-4 bg-sky-50 border border-sky-100 rounded-xl">Platform web lainnya</li>
+          </ul>
+        </section>
+
+        <section id="bukan-cbt-lms" class="space-y-5">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">SiUjian Bukan CBT atau LMS</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <section class="p-5 rounded-2xl border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Bukan CBT</h3><p class="text-sm text-slate-600">SiUjian tidak membuat, mengelola, atau menyimpan soal ujian.</p></section>
+            <section class="p-5 rounded-2xl border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Bukan LMS</h3><p class="text-sm text-slate-600">SiUjian tidak berfungsi sebagai sistem manajemen pembelajaran dan tidak mengelola kelas atau nilai seperti LMS.</p></section>
+            <section class="p-5 rounded-2xl border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Tidak Mengelola Soal</h3><p class="text-sm text-slate-600">Pembuatan dan pengelolaan soal tetap dilakukan pada platform ujian sekolah.</p></section>
+            <section class="p-5 rounded-2xl border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">Batas Pengumpulan Data</h3><p class="text-sm text-slate-600">SiUjian tidak mengumpulkan identitas siswa untuk keperluan ujian. Pernyataan ini tidak berarti aplikasi tidak mengumpulkan data apa pun.</p></section>
+          </div>
+        </section>
+
+        <section id="free-premium" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">SiUjian Free vs Premium</h2>
+          <p class="text-slate-600">Mode Siswa gratis selamanya. Mode Guru menyediakan akses gratis dan Premium Rp99.000 sekali bayar.</p>
+          <div class="overflow-x-auto rounded-2xl border border-slate-200">
+            <table class="w-full min-w-[680px] text-sm text-left">
+              <caption class="sr-only">Perbandingan fitur SiUjian Free dan Premium</caption>
+              <thead class="bg-slate-900 text-white">
+                <tr><th scope="col" class="px-4 py-3">Fitur</th><th scope="col" class="px-4 py-3">Free</th><th scope="col" class="px-4 py-3">Premium</th></tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 text-slate-700">
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Mode Siswa</th><td class="px-4 py-3">Gratis</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Token Guru</th><td class="px-4 py-3">1 token/hari</td><td class="px-4 py-3">Tak terbatas</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Durasi token</th><td class="px-4 py-3">2 jam</td><td class="px-4 py-3">Hingga 4 minggu</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Level 1 Peringatan</th><td class="px-4 py-3">✓</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Level 2 Countdown 60 detik</th><td class="px-4 py-3">—</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Level 3 Kunci sampai guru membuka</th><td class="px-4 py-3">—</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Monitor ujian</th><td class="px-4 py-3">—</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Reset kunci siswa</th><td class="px-4 py-3">—</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Rewarded Ads token tambahan</th><td class="px-4 py-3">✓</td><td class="px-4 py-3">—</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Banner Ads</th><td class="px-4 py-3">Beberapa layar</td><td class="px-4 py-3">Tidak ada</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sm text-slate-600">Premium merupakan pembelian satu kali, bukan langganan.</p>
+        </section>
+
+        <section id="iklan" class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 sm:p-6 space-y-3">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Iklan Tidak Mengganggu Ujian</h2>
+          <p class="text-slate-700 leading-relaxed">Pengguna gratis dapat melihat banner ads pada beberapa layar aplikasi. Setelah kuota token gratis habis, guru dapat menonton Rewarded Ads untuk mendapatkan 1 token tambahan.</p>
+          <p class="text-sm text-slate-600">Tidak ada iklan saat siswa mengerjakan ujian, pada peringatan keamanan sebelum ujian, atau yang menghalangi pengerjaan dan penyelesaian ujian. Premium bebas iklan.</p>
+        </section>
+
+        <section id="cara-menggunakan" class="space-y-5">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Cara Menggunakan SiUjian</h2>
+          <ol class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <li class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">1. Guru</h3><p class="text-sm text-slate-600">Masukkan URL ujian dan pilih durasi untuk mendapatkan token.</p></li>
+            <li class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">2. Siswa</h3><p class="text-sm text-slate-600">Masukkan token dan mulai ujian dalam mode terkunci.</p></li>
+            <li class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">3. Guru Memantau</h3><p class="text-sm text-slate-600">Pantau siswa aktif dan jumlah pelanggaran melalui Monitor Ujian.</p></li>
+            <li class="p-5 rounded-2xl bg-slate-50 border border-slate-200"><h3 class="font-extrabold text-slate-900 mb-2">4. Selesai</h3><p class="text-sm text-slate-600">Siswa menekan “Selesai” dan perangkat kembali normal.</p></li>
+          </ol>
+        </section>
+
+        <section id="cocok-untuk" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Siapa yang Cocok Menggunakan SiUjian?</h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700">
+            {['Ujian sekolah SD', 'Ujian sekolah SMP', 'Ujian sekolah SMA', 'Try out online', 'Assessment berbasis web', 'Ulangan harian', 'Penilaian sumatif'].map(item => (
+              <li class="p-3 bg-sky-50 border border-sky-100 rounded-xl">{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="faq-siujian" class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Pertanyaan tentang SiUjian</h2>
+          <div class="space-y-4">
+            {faqs.map((item, index) => (
+              <section class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                <h3 class="text-base font-bold text-slate-900 mb-2 flex items-start gap-2"><span class="text-brand-primary font-extrabold">Q{index + 1}.</span>{item.q}</h3>
+                <p class="text-sm text-slate-600 sm:pl-7 leading-relaxed">{item.a}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+
+        <section id="aplikasi-terkait" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-5">
+          <div>
+            <span class="text-xs font-bold text-brand-primary uppercase tracking-wider">Aplikasi Terkait</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Pilih Aplikasi Sesuai Kebutuhan Guru</h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 bg-slate-800 border border-slate-700 rounded-xl"><a href="/rekomendasi/siajar/" class="font-bold text-emerald-400 hover:underline">SiAjar</a><p class="text-xs text-slate-300 mt-2">Pembuatan Modul Ajar dan administrasi pembelajaran berbasis AI.</p></div>
+            <div class="p-4 bg-slate-800 border border-slate-700 rounded-xl"><a href="/rekomendasi/rekap-guru/" class="font-bold text-emerald-400 hover:underline">Rekap Guru</a><p class="text-xs text-slate-300 mt-2">Pencatatan kelas, siswa, absensi, nilai, jurnal, dan rekap.</p></div>
+            <div class="p-4 bg-slate-800 border border-brand-primary/80 rounded-xl"><a href="/rekomendasi/" class="font-bold text-emerald-400 hover:underline">Hub Rekomendasi</a><p class="text-xs text-slate-300 mt-2">Lihat semua aplikasi dan fungsi yang berbeda.</p></div>
+          </div>
+        </section>
+
+        <div class="text-center pt-4 border-t border-slate-100">
+          <h2 class="text-xl font-extrabold text-slate-900 mb-2">Lihat SiUjian di Google Play</h2>
+          <p class="text-sm text-slate-600 mb-5">Buka halaman resmi SiUjian untuk perangkat Android.</p>
+          <a href={playStoreUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center justify-center px-7 py-3 rounded-full bg-brand-primary text-white font-bold hover:bg-brand-dark shadow-md">Buka Google Play</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
