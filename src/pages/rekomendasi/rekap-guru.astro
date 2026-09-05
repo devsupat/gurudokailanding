@@ -1,0 +1,346 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Rekap Guru — Aplikasi Administrasi Kelas, Absensi & Nilai";
+const description = "Rekap Guru membantu guru mengelola kelas, absensi, nilai, jurnal, laporan PDF/Excel, dan Bot WhatsApp Otomatis langsung dari HP.";
+const keywords = "Rekap Guru, aplikasi administrasi guru, administrasi kelas, absensi siswa, buku nilai, jurnal mengajar, Bot WhatsApp Otomatis, laporan PDF Excel";
+const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/rekap-guru/";
+const playStoreUrl = "https://play.google.com/store/apps/details?id=com.BiraaStudio.rekapguru";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokai.supathub.my.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Rekomendasi Aplikasi Guru",
+      "item": "https://gurudokai.supathub.my.id/rekomendasi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Rekap Guru",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Rekap Guru",
+  "operatingSystem": "Android",
+  "applicationCategory": "EducationalApplication",
+  "url": canonicalUrl,
+  "description": "Aplikasi pendukung administrasi kelas untuk guru yang ingin mencatat dan mengelola data kelas langsung dari HP, dengan Bot WhatsApp Otomatis sebagai langganan tersendiri.",
+  "downloadUrl": playStoreUrl
+};
+
+const features = [
+  {
+    title: "Kelola Kelas & Siswa",
+    text: "Guru dapat membuat dan mengatur kelas, menambahkan serta mengelola data siswa, dan mengimpor data siswa dari file spreadsheet."
+  },
+  {
+    title: "Barcode Siswa",
+    text: "Setiap siswa memiliki satu barcode yang dapat membantu mempercepat pencatatan pada fitur yang mendukung pemindaian barcode."
+  },
+  {
+    title: "Absensi Siswa",
+    text: "Kehadiran siswa dapat dicatat dengan status Hadir, Sakit, Izin, atau Alpa. Pemindaian Barcode Siswa dapat membantu mempercepat proses absensi."
+  },
+  {
+    title: "Buku Nilai & Katrol Nilai",
+    text: "Guru dapat membuat komponen penilaian, mencatat nilai siswa berdasarkan mata pelajaran, dan mengelola data penilaian. Katrol Nilai membantu pengolahan dan penyesuaian nilai sesuai kebutuhan sekolah."
+  },
+  {
+    title: "Jurnal Mengajar",
+    text: "Catat mata pelajaran, materi, kegiatan belajar mengajar, dan catatan pembelajaran agar dokumentasi kegiatan mengajar lebih rapi."
+  },
+  {
+    title: "Catatan Hafalan Siswa",
+    text: "Guru dapat mencatat perkembangan hafalan berupa surah, ayat, atau materi hafalan lainnya. Aplikasi tidak melakukan penilaian hafalan otomatis."
+  },
+  {
+    title: "Kegiatan Ibadah Siswa",
+    text: "Catat pembiasaan sholat harian, doa, dan kegiatan ibadah lainnya sesuai kebutuhan. Pencatatan ini bukan monitoring keagamaan otomatis."
+  },
+  {
+    title: "Laporan PDF & Excel",
+    text: "Data dapat direkap dan diekspor dalam format PDF atau Excel sesuai fitur yang tersedia. File disimpan di Download/RekapGuru/ dan dapat dibuka atau dibagikan melalui File Manager di HP."
+  },
+  {
+    title: "Backup & Restore",
+    text: "Pengguna dapat membuat dan menyimpan file backup, memulihkan data, serta memakai backup untuk membantu memindahkan data ke HP baru."
+  },
+  {
+    title: "Pusat Bantuan",
+    text: "Menu Cara Menggunakan dan petunjuk singkat pada fitur tertentu membantu pengguna mengetahui langkah berikutnya."
+  },
+  {
+    title: "Bot WhatsApp Otomatis",
+    text: "Bot WhatsApp Otomatis tersedia sebagai langganan tersendiri: 1 bulan Rp10.900, 3 bulan Rp29.900, 6 bulan Rp54.900, atau 1 tahun Rp99.000."
+  },
+  {
+    title: "Pulihkan Pembelian",
+    text: "Tombol Pulihkan Pembelian tersedia untuk membantu pengguna saat mengganti HP atau menginstal ulang aplikasi."
+  }
+];
+
+const faqs = [
+  {
+    q: "Apa itu Rekap Guru?",
+    a: "Rekap Guru adalah aplikasi pendukung administrasi kelas untuk guru yang ingin mencatat dan mengelola data kelas langsung dari HP."
+  },
+  {
+    q: "Rekap Guru digunakan untuk apa?",
+    a: "Rekap Guru digunakan untuk mengelola kelas, data siswa, absensi, nilai, jurnal mengajar, catatan hafalan, kegiatan ibadah, laporan, serta backup dan restore data."
+  },
+  {
+    q: "Apakah Rekap Guru bisa digunakan untuk absensi siswa?",
+    a: "Ya. Guru dapat mencatat status Hadir, Sakit, Izin, atau Alpa. Pemindaian Barcode Siswa juga dapat membantu mempercepat pencatatan absensi."
+  },
+  {
+    q: "Apakah Rekap Guru memiliki barcode siswa?",
+    a: "Ya. Setiap siswa memiliki satu barcode untuk membantu pencatatan pada fitur yang mendukung pemindaian barcode."
+  },
+  {
+    q: "Apakah Rekap Guru bisa mengelola nilai siswa?",
+    a: "Ya. Guru dapat membuat komponen penilaian, mencatat nilai siswa, mengelompokkan nilai berdasarkan mata pelajaran, dan mengelola data penilaian."
+  },
+  {
+    q: "Apa itu fitur Katrol Nilai di Rekap Guru?",
+    a: "Katrol Nilai adalah fitur yang membantu pengolahan dan penyesuaian nilai sesuai kebutuhan pengolahan nilai di sekolah."
+  },
+  {
+    q: "Apakah Rekap Guru bisa membuat laporan PDF?",
+    a: "Ya. Data dapat direkap dan diekspor ke PDF sesuai laporan yang tersedia. File hasil ekspor disimpan di folder Download/RekapGuru/."
+  },
+  {
+    q: "Apakah Rekap Guru bisa ekspor Excel?",
+    a: "Ya. Rekap Guru mendukung ekspor Excel sesuai fitur laporan yang tersedia. File dapat ditemukan melalui File Manager di HP."
+  },
+  {
+    q: "Bagaimana backup data Rekap Guru?",
+    a: "Pengguna dapat membuat dan menyimpan file backup, lalu memulihkan data dari file tersebut. Backup juga dapat membantu pemindahan data ke HP baru."
+  },
+  {
+    q: "Apakah data administrasi Rekap Guru disimpan di HP?",
+    a: "Ya. Data administrasi utama disimpan di perangkat HP pengguna. Backup tidak disebut sebagai proses otomatis atau layanan cloud."
+  },
+  {
+    q: "Apa perbedaan Free dan Premium Rekap Guru?",
+    a: "Fitur administrasi utama tersedia untuk Free dan Premium. Pada Free, ekspor laporan tertentu dibuka dengan menyelesaikan rewarded ads. Premium sekali bayar membuka kelas tanpa batas, laporan PDF dan Excel, kartu QR, cadangan data, ekspor tanpa rewarded ads, dan Ekspor Rekap Absensi."
+  },
+  {
+    q: "Apakah Ekspor Rekap Absensi tersedia untuk Free?",
+    a: "Tidak. Ekspor Rekap Absensi merupakan fitur khusus Premium. Nominal harga Premium tidak dicantumkan karena informasinya belum tersedia."
+  },
+  {
+    q: "Apa pilihan langganan Bot WhatsApp Otomatis?",
+    a: "Pilihan langganan Bot WhatsApp Otomatis adalah 1 bulan Rp10.900, 3 bulan Rp29.900, 6 bulan Rp54.900, dan 1 tahun Rp99.000."
+  },
+  {
+    q: "Apakah Bot WhatsApp Otomatis termasuk Premium sekali bayar?",
+    a: "Bot WhatsApp Otomatis tersedia sebagai langganan tersendiri, terpisah dari akses Premium sekali bayar."
+  },
+  {
+    q: "Bagaimana memulihkan pembelian setelah ganti HP atau instal ulang?",
+    a: "Rekap Guru menyediakan tombol Pulihkan Pembelian untuk membantu pengguna setelah mengganti HP atau menginstal ulang aplikasi."
+  },
+  {
+    q: "Di mana Rekap Guru dapat diunduh?",
+    a: "Rekap Guru dapat diunduh melalui halaman resminya di Google Play."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareAppSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+
+  <main class="pt-24 pb-16 bg-slate-50 min-h-screen">
+    <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="py-5 text-sm text-slate-500">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="/" class="hover:text-brand-primary">Beranda</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/rekomendasi/" class="hover:text-brand-primary">Rekomendasi</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="font-semibold text-slate-700">Rekap Guru</li>
+        </ol>
+      </nav>
+
+      <header class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-premium">
+        <span class="inline-flex px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mb-5">Administrasi kelas dari HP</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-5">Rekap Guru — Aplikasi Administrasi Kelas untuk Guru</h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">Rekap Guru membantu guru mencatat, mengelola, dan merapikan data siswa, absensi, nilai, jurnal mengajar, hafalan, kegiatan ibadah, serta laporan kelas langsung dari HP.</p>
+        <div class="flex flex-wrap gap-3 mt-6 text-xs font-semibold">
+          <span class="px-3 py-2 rounded-xl bg-slate-800 border border-slate-700">Platform: Android</span>
+          <span class="px-3 py-2 rounded-xl bg-slate-800 border border-slate-700">Laporan: PDF & Excel</span>
+          <span class="px-3 py-2 rounded-xl bg-slate-800 border border-slate-700">Penyimpanan data utama: Perangkat</span>
+        </div>
+      </header>
+
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-12">
+        <section id="apa-itu" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Apa Itu Rekap Guru?</h2>
+          <p class="text-slate-600 leading-relaxed">Rekap Guru adalah aplikasi pendukung administrasi kelas bagi guru yang perlu mengelola kelas, siswa, kehadiran, penilaian, jurnal, dan rekap lain dari HP. Data administrasi utama disimpan pada perangkat pengguna.</p>
+          <p class="text-slate-600 leading-relaxed">Guru dapat mulai memakai fitur administrasi utama tanpa melalui pendaftaran email dan kata sandi yang rumit.</p>
+        </section>
+
+        <section id="fitur" class="space-y-6">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Fitur Rekap Guru</h2>
+          <p class="text-slate-600 mt-2">Fitur berikut mendukung pencatatan, pengelolaan administrasi kelas, dan akses layanan tambahan.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {features.map((feature) => (
+              <section class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+                <h3 class="text-lg font-extrabold text-slate-900 mb-2">{feature.title}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">{feature.text}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+
+        <section id="administrasi" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Administrasi yang Dapat Dikelola</h2>
+          <p class="text-slate-600">Rekap Guru mendukung pengelolaan data berikut:</p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700">
+            {['Administrasi kelas', 'Data siswa', 'Absensi', 'Nilai', 'Jurnal mengajar', 'Hafalan siswa', 'Kegiatan ibadah siswa', 'Ekspor PDF dan Excel', 'Backup dan restore'].map(item => (
+              <li class="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-100 rounded-xl"><span aria-hidden="true" class="text-brand-primary font-bold">✓</span>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="free-pro" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rekap Guru Free vs Premium</h2>
+          <p class="text-slate-600">Fitur utama tersedia pada kedua akses. Perbedaannya berada pada mekanisme ekspor tertentu dan Ekspor Rekap Absensi.</p>
+          <div class="overflow-x-auto rounded-2xl border border-slate-200">
+            <table class="w-full min-w-[640px] text-sm text-left">
+              <caption class="sr-only">Perbandingan fitur Rekap Guru Free dan Premium</caption>
+              <thead class="bg-slate-900 text-white">
+                <tr>
+                  <th scope="col" class="px-4 py-3">Fitur</th>
+                  <th scope="col" class="px-4 py-3">Free</th>
+                  <th scope="col" class="px-4 py-3">Premium</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 text-slate-700">
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Administrasi kelas utama</th><td class="px-4 py-3">✓</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Pencatatan siswa</th><td class="px-4 py-3">✓</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Absensi</th><td class="px-4 py-3">✓</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Buku nilai</th><td class="px-4 py-3">✓</td><td class="px-4 py-3">✓</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Ekspor tertentu</th><td class="px-4 py-3">Rewarded Ads</td><td class="px-4 py-3">Tanpa rewarded ad</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Ekspor Jurnal Mengajar</th><td class="px-4 py-3">Rewarded Ads</td><td class="px-4 py-3">Tanpa rewarded ad</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Ekspor Hafalan</th><td class="px-4 py-3">Rewarded Ads</td><td class="px-4 py-3">Tanpa rewarded ad</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Ekspor Kegiatan Ibadah</th><td class="px-4 py-3">Rewarded Ads</td><td class="px-4 py-3">Tanpa rewarded ad</td></tr>
+                <tr><th scope="row" class="px-4 py-3 font-semibold">Ekspor Rekap Absensi</th><td class="px-4 py-3">—</td><td class="px-4 py-3">✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 bg-emerald-50 border border-emerald-100 rounded-2xl">
+              <h3 class="font-extrabold text-slate-900 mb-2">Premium Sekali Bayar</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">Membuka kelas tanpa batas, laporan PDF dan Excel, kartu QR, serta cadangan data. Akses ekspor tanpa rewarded ads dan Ekspor Rekap Absensi tetap mengikuti manfaat Premium.</p>
+            </div>
+            <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+              <h3 class="font-extrabold text-slate-900 mb-2">Langganan Bot WhatsApp</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">Bot WhatsApp Otomatis merupakan langganan tersendiri:</p>
+              <ul class="space-y-2 text-sm text-slate-700">
+                <li class="flex justify-between gap-4"><span>1 bulan</span><strong>Rp10.900</strong></li>
+                <li class="flex justify-between gap-4"><span>3 bulan</span><strong>Rp29.900</strong></li>
+                <li class="flex justify-between gap-4"><span>6 bulan</span><strong>Rp54.900</strong></li>
+                <li class="flex justify-between gap-4"><span>1 tahun</span><strong>Rp99.000</strong></li>
+              </ul>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500">Nominal harga Premium sekali bayar belum dicantumkan karena informasi harga aktualnya belum tersedia.</p>
+        </section>
+
+        <section id="pembaruan-aplikasi" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Pembaruan Akses dan Tampilan</h2>
+          <ul class="list-disc pl-5 space-y-2 text-slate-600">
+            <li>Tombol Pulihkan Pembelian ditambahkan untuk membantu saat ganti HP atau instal ulang.</li>
+            <li>Tampilan halaman utama aplikasi dirapikan.</li>
+          </ul>
+        </section>
+
+        <section id="backup-privacy" class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 sm:p-6 space-y-3">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Backup & Privacy</h2>
+          <p class="text-slate-700 leading-relaxed"><strong>Data administrasi utama disimpan di perangkat HP pengguna.</strong> Pengguna dapat membuat dan menyimpan file backup, memulihkan data, serta menggunakan backup untuk membantu pemindahan data ke perangkat baru.</p>
+          <p class="text-sm text-slate-600">Backup tidak disebut sebagai proses otomatis atau layanan cloud. Pengguna perlu mengelola file backup yang dibuat.</p>
+        </section>
+
+        <section id="cocok-untuk" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Siapa yang Cocok Menggunakan Rekap Guru?</h2>
+          <ul class="list-disc pl-5 space-y-2 text-slate-600">
+            <li>Guru yang mengelola kelas dan data siswa.</li>
+            <li>Guru yang mencatat absensi dan nilai.</li>
+            <li>Guru yang membutuhkan jurnal mengajar.</li>
+            <li>Guru yang membutuhkan rekap administrasi kelas dari HP.</li>
+          </ul>
+        </section>
+
+        <section id="siajar-rekap-guru" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-5">
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Rekap Guru dan SiAjar: Fungsi Berbeda</h2>
+          <p class="text-slate-300 leading-relaxed"><a href="/rekomendasi/siajar/" class="font-bold text-emerald-400 hover:underline">SiAjar</a> membantu pembuatan dokumen pembelajaran dan administrasi guru berbasis AI. Rekap Guru berfokus pada pencatatan dan pengelolaan administrasi kelas seperti siswa, absensi, nilai, jurnal, hafalan, dan kegiatan ibadah. Keduanya merupakan aplikasi berbeda.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/rekomendasi/siajar/" class="inline-flex min-h-11 items-center justify-center px-5 py-3 rounded-xl bg-brand-primary text-white font-bold hover:bg-emerald-600">Pelajari SiAjar</a>
+            <a href="/rekomendasi/" class="inline-flex min-h-11 items-center justify-center px-5 py-3 rounded-xl border border-slate-600 text-slate-200 font-bold hover:border-emerald-400">Lihat Hub Rekomendasi</a>
+            <a href="/" class="inline-flex min-h-11 items-center justify-center px-5 py-3 rounded-xl border border-slate-600 text-slate-200 font-bold hover:border-emerald-400">Kembali ke GuruDok AI</a>
+          </div>
+        </section>
+
+        <section id="faq-rekap-guru" class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Pertanyaan tentang Rekap Guru</h2>
+          <div class="space-y-4">
+            {faqs.map((item, index) => (
+              <section class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                <h3 class="text-base font-bold text-slate-900 mb-2 flex items-start gap-2"><span class="text-brand-primary font-extrabold">Q{index + 1}.</span>{item.q}</h3>
+                <p class="text-sm text-slate-600 sm:pl-7 leading-relaxed">{item.a}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+
+        <div class="text-center pt-4 border-t border-slate-100">
+          <h2 class="text-xl font-extrabold text-slate-900 mb-2">Unduh Rekap Guru di Google Play</h2>
+          <p class="text-sm text-slate-600 mb-5">Gunakan halaman Google Play resmi Rekap Guru atau kembali ke pusat rekomendasi.</p>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+            <a href={playStoreUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center justify-center px-7 py-3 rounded-full bg-brand-primary text-white font-bold hover:bg-brand-dark shadow-md">Buka Rekap Guru di Google Play</a>
+            <a href="/rekomendasi/" class="inline-flex min-h-11 items-center justify-center px-7 py-3 rounded-full border border-slate-300 text-slate-700 font-bold hover:border-brand-primary hover:text-brand-primary">Buka Pusat Rekomendasi</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

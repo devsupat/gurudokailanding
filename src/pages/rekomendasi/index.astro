@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 
 const title = "Rekomendasi Aplikasi Digital Guru Indonesia | GuruDokAI";
 const description = "Daftar aplikasi digital untuk membantu guru Indonesia menyusun modul ajar dan administrasi pembelajaran, lengkap dengan fungsi, platform, dan biaya.";
-const keywords = "rekomendasi aplikasi guru, aplikasi AI guru, aplikasi administrasi guru, SiAjar, GuruDokAI";
+const keywords = "rekomendasi aplikasi guru, aplikasi AI guru, aplikasi administrasi guru, SiAjar, Rekap Guru, GuruDokAI";
 
 const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/";
 
@@ -45,6 +45,12 @@ const itemListSchema = {
       "position": 2,
       "name": "SiAjar",
       "url": "https://gurudokai.supathub.my.id/rekomendasi/siajar/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Rekap Guru",
+      "url": "https://gurudokai.supathub.my.id/rekomendasi/rekap-guru/"
     }
   ]
 };
@@ -66,6 +72,16 @@ const apps = [
     description: "Asisten AI untuk membuat Modul Ajar Kurikulum 2025 dalam 60 detik, dokumen administrasi guru (TP, ATP, KKTP, Prota, Prosem), serta dilengkapi berbagai fitur Alat Bantu PDF.",
     link: "/rekomendasi/siajar/",
     linkText: "Baca Ulasan & Detail SiAjar",
+    isExternal: false,
+    featured: true,
+    platform: "Android Mobile"
+  },
+  {
+    name: "Rekap Guru",
+    badge: "Rekomendasi / Android",
+    description: "Aplikasi pendukung administrasi kelas untuk mengelola siswa, absensi, nilai, jurnal, laporan PDF dan Excel, backup data, serta Bot WhatsApp Otomatis sebagai langganan tersendiri.",
+    link: "/rekomendasi/rekap-guru/",
+    linkText: "Baca Informasi Rekap Guru",
     isExternal: false,
     featured: true,
     platform: "Android Mobile"

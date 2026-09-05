@@ -31,6 +31,14 @@ GuruDokAI supports various document generators matching Kemendikbudristek & Keme
 - **Use cases**: Generates Modul Ajar, TP, ATP, KKTP, Prota, Prosem, assessment documents, and provides PDF tools.
 - **Free tier**: 3 document generations per month. Users may use their own Gemini or Groq API key, stored locally on their device.
 - **Premium**: Rp19.000/month, Rp79.000/6 months, or Rp129.000/year.
+- **Rekap Guru**: [Halaman informasi](https://gurudokai.supathub.my.id/rekomendasi/rekap-guru/) · [Google Play](https://play.google.com/store/apps/details?id=com.BiraaStudio.rekapguru)
+- **Entity**: Rekap Guru is a mobile application supporting teachers with class administration. Main administrative data is stored on the user's phone.
+- **Use cases**: Manages classes, students, attendance, grade books, teaching journals, memorization records, worship activity records, PDF/Excel reports, and backup/restore files.
+- **Free access**: Main class-administration features are available. Exports for teaching journals, memorization records, and worship activities can be unlocked by completing rewarded ads.
+- **Premium access**: A one-time purchase unlocks unlimited classes, PDF and Excel reports, QR cards, data backup, exports without rewarded ads, and attendance recap export. No verified price is listed here.
+- **WhatsApp bot**: Bot WhatsApp Otomatis is a separate subscription: 1 month Rp10.900, 3 months Rp29.900, 6 months Rp54.900, and 1 year Rp99.000.
+- **Purchase recovery**: A Pulihkan Pembelian button helps users recover purchases after changing phones or reinstalling the app.
+- **Interface update**: The application's main page has been tidied.
 
 ## Key Assets & Configurations
 - **QRIS Payment Code**: Structured in `src/components/Pricing.astro` with double-layered background flyer (`/qris-gurudokai.webp`) and absolute SVG overlay (`/qris-gurudokai-clean.svg`) for perfect scannability.
