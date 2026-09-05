@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Rekomendasi Aplikasi Digital Guru Indonesia | GuruDokAI";
+const description = "Daftar rekomendasi aplikasi digital dan AI terbaik untuk membantu guru Indonesia dalam menyusun modul ajar, administrasi sekolah, ujian CBT, dan manajemen kelas.";
+const keywords = "rekomendasi aplikasi guru, aplikasi ai guru, aplikasi administrasi guru, siajar, gurudokai, siujian, sirekapguru, sikelas";
+
+const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokai.supathub.my.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Rekomendasi Aplikasi Guru",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Rekomendasi Aplikasi Digital untuk Guru Indonesia",
+  "description": "Kumpulan aplikasi pilihan pendukung tugas mengajar dan administrasi guru Indonesia.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "GuruDok AI",
+      "url": "https://gurudokai.supathub.my.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "SiAjar",
+      "url": "https://gurudokai.supathub.my.id/rekomendasi/siajar"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SiUjian",
+      "url": "https://play.google.com/store/apps/dev?id=8704276077631485252"
+    }
+  ]
+};
+
+const apps = [
+  {
+    name: "GuruDok AI",
+    badge: "Utama / Desktop & Web",
+    description: "Pelopor asisten AI guru Indonesia untuk menyusun RPP Kurikulum Merdeka, RPM (Rencana Pembelajaran Mendalam), Modul Ajar, LKPD Interaktif, dan Bank Soal otomatis.",
+    link: "/",
+    linkText: "Buka Halaman GuruDok AI",
+    isExternal: false,
+    featured: true,
+    platform: "Windows Desktop & Web"
+  },
+  {
+    name: "SiAjar",
+    badge: "Rekomendasi / Android",
+    description: "Asisten AI untuk membuat Modul Ajar Kurikulum 2025 dalam 60 detik, dokumen administrasi guru (TP, ATP, KKTP, Prota, Prosem), serta dilengkapi berbagai fitur Alat Bantu PDF.",
+    link: "/rekomendasi/siajar",
+    linkText: "Baca Ulasan & Detail SiAjar",
+    isExternal: false,
+    featured: true,
+    platform: "Android Mobile"
+  },
+  {
+    name: "SiUjian",
+    badge: "Ujian Online / CBT",
+    description: "Aplikasi ujian online berbasis web & Android untuk guru dan siswa. Praktis menyelenggarakan kuis harian, penilaian tengah semester, hingga ujian sekolah secara efisien.",
+    link: "https://play.google.com/store/apps/dev?id=8704276077631485252",
+    linkText: "Lihat di Google Play",
+    isExternal: true,
+    featured: false,
+    platform: "Web & Android"
+  },
+  {
+    name: "SiRekapGuru",
+    badge: "Administrasi Data",
+    description: "Aplikasi rekapitulasi data nilai, capaian murid, serta berkas administrasi guru (bagian dari rencana ekosistem pendukung guru).",
+    link: "#sirekapguru",
+    linkText: "Segera Hadir",
+    isExternal: false,
+    featured: false,
+    platform: "Ekosistem BiraaStudio"
+  },
+  {
+    name: "SiKelas",
+    badge: "Manajemen Kelas",
+    description: "Aplikasi pengelolaan aktivitas kelas harian, jurnal kegiatan guru, serta catatan kehadiran siswa.",
+    link: "#sikelas",
+    linkText: "Segera Hadir",
+    isExternal: false,
+    featured: false,
+    platform: "Ekosistem BiraaStudio"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+
+  <Header />
+
+  <main class="pt-24 pb-20 bg-slate-50 min-h-screen">
+    <!-- Hero Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="lucide lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+        <span>Pusat Rekomendasi Aplikasi Guru</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        Rekomendasi Aplikasi Digital untuk <span class="text-brand-primary">Guru Indonesia</span>
+      </h1>
+      <p class="max-w-3xl mx-auto text-lg text-slate-600 font-medium">
+        Kumpulan solusi aplikasi dan teknologi kecerdasan buatan (AI) terpercaya untuk membantu guru menghemat waktu administrasi, mengelola kelas, serta meningkatkan kualitas pembelajaran.
+      </p>
+    </div>
+
+    <!-- App Cards Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {apps.map((app) => (
+          <div class={`bg-white border rounded-3xl p-8 flex flex-col justify-between shadow-premium hover-scale ${app.featured ? 'border-brand-primary/40 ring-1 ring-brand-primary/20' : 'border-slate-200'}`}>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class={`px-3 py-1 rounded-full text-xs font-bold ${app.featured ? 'bg-brand-primary/10 text-brand-primary border border-brand-primary/20' : 'bg-slate-100 text-slate-600 border border-slate-200'}`}>
+                  {app.badge}
+                </span>
+                <span class="text-[11px] font-semibold text-slate-400">{app.platform}</span>
+              </div>
+
+              <h2 class="text-2xl font-extrabold text-slate-900 mb-3">{app.name}</h2>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium mb-6">
+                {app.description}
+              </p>
+            </div>
+
+            <div>
+              {app.isExternal ? (
+                <a 
+                  href={app.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold text-slate-800 bg-slate-100 hover:bg-brand-primary hover:text-white rounded-xl transition-all gap-2"
+                >
+                  <span>{app.linkText}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                </a>
+              ) : (
+                <a 
+                  href={app.link} 
+                  class={`inline-flex items-center justify-center w-full px-5 py-3 text-sm font-bold rounded-xl transition-all gap-2 ${app.link.startsWith('#') ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'text-white bg-brand-primary hover:bg-brand-dark shadow-md'}`}
+                >
+                  <span>{app.linkText}</span>
+                  {!app.link.startsWith('#') && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  )}
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

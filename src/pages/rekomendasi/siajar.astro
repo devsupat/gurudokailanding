@@ -1,0 +1,599 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "SiAjar — Aplikasi AI untuk Guru Membuat Modul Ajar & Administrasi";
+const description = "SiAjar adalah asisten AI untuk guru Indonesia menyusun Modul Ajar Kurikulum Nasional 2025, RPP, ATP, KKTP, dan administrasi sekolah lengkap dalam 60 detik.";
+const keywords = "SiAjar, aplikasi AI untuk guru, generator modul ajar, administrasi guru, RPP Kurikulum 2025, tools PDF guru, BiraaStudio";
+
+const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/siajar";
+const playStoreUrl = "https://play.google.com/store/apps/details?id=com.biraastudio.siajar";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokai.supathub.my.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Rekomendasi Aplikasi Guru",
+      "item": "https://gurudokai.supathub.my.id/rekomendasi"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SiAjar",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+// SoftwareApplication Schema
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SiAjar",
+  "operatingSystem": "Android",
+  "applicationCategory": "EducationalApplication",
+  "description": "Asisten AI untuk guru Indonesia membuat Modul Ajar Kurikulum Nasional 2025, RPP, ATP, KKTP, dan dokumen administrasi guru otomatis.",
+  "author": {
+    "@type": "Organization",
+    "name": "BiraaStudio"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free Tier",
+      "price": "0",
+      "priceCurrency": "IDR",
+      "description": "3 generate gratis per bulan"
+    },
+    {
+      "@type": "Offer",
+      "name": "SiAjar Premium Bulanan",
+      "price": "19000",
+      "priceCurrency": "IDR",
+      "url": playStoreUrl
+    },
+    {
+      "@type": "Offer",
+      "name": "SiAjar Premium Semester",
+      "price": "79000",
+      "priceCurrency": "IDR",
+      "url": playStoreUrl
+    },
+    {
+      "@type": "Offer",
+      "name": "SiAjar Premium Tahunan",
+      "price": "129000",
+      "priceCurrency": "IDR",
+      "url": playStoreUrl
+    }
+  ],
+  "downloadUrl": playStoreUrl
+};
+
+// FAQ Schema
+const faqs = [
+  {
+    q: "Apa itu SiAjar?",
+    a: "SiAjar adalah aplikasi asisten berbasis AI yang dirancang khusus untuk guru Indonesia guna membantu pembuatan Modul Ajar (RPP), dokumen administrasi guru, dan pengolahan file PDF secara cepat dan efisien."
+  },
+  {
+    q: "Apakah SiAjar gratis?",
+    a: "Ya, SiAjar menyediakan versi gratis dengan kuota 3 kali generate setiap bulan tanpa perlu memasukkan kartu kredit. Pengguna juga dapat menggunakan API key Gemini atau Groq milik sendiri."
+  },
+  {
+    q: "Apakah SiAjar bisa membuat Modul Ajar?",
+    a: "Bisa. SiAjar memiliki Generator Modul Ajar AI yang mendukung Capaian Pembelajaran (CP) resmi untuk Fase A hingga F sesuai standar Kurikulum Nasional 2025."
+  },
+  {
+    q: "Apakah SiAjar cocok untuk guru SD?",
+    a: "Sangat cocok. SiAjar dirancang untuk guru SD/MI, SMP/MTs, SMA/SMK/MA, Kepala Sekolah, hingga Mahasiswa PPL dan PGSD."
+  },
+  {
+    q: "Apakah SiAjar bisa membuat ATP dan KKTP?",
+    a: "Ya, SiAjar dapat membuat dokumen administrasi guru lengkap seperti Tujuan Pembelajaran (TP), Alur Tujuan Pembelajaran (ATP), Kriteria Ketercapaian Tujuan Pembelajaran (KKTP), RPE, Prota, Prosem, Bank Soal, dan Rubrik Penilaian."
+  },
+  {
+    q: "Apakah SiAjar membutuhkan API key?",
+    a: "Secara default SiAjar dapat digunakan langsung. Namun, bagi pengguna yang ingin batas penggunaan lebih tinggi atau bebas iklan, pengguna dapat memasukkan API key Gemini atau Groq pribadi."
+  },
+  {
+    q: "Apakah API key saya disimpan di server?",
+    a: "Tidak. API key pengguna tersimpan secara lokal di perangkat pengguna sendiri dan tidak pernah disimpan di server SiAjar untuk menjaga privasi."
+  },
+  {
+    q: "Berapa harga SiAjar Premium?",
+    a: "Paket SiAjar Premium tersedia dalam beberapa pilihan: Bulanan Rp19.000/bulan, Semester Rp79.000/6 bulan, dan Tahunan Rp129.000/tahun."
+  },
+  {
+    q: "Apakah SiAjar bisa digunakan untuk membuat dokumen administrasi?",
+    a: "Ya, SiAjar mendukung pembuatan berbagai dokumen administrasi kelas seperti RPE, Prota, Prosem, Jurnal Pembelajaran, Bank Soal, dan Rubrik Penilaian."
+  },
+  {
+    q: "Apakah SiAjar memiliki tools PDF?",
+    a: "Ya, SiAjar menyediakan fitur Alat Bantu PDF seperti kompres, gabung, pisah, konversi gambar ke PDF, PDF ke gambar, atur urutan halaman, PDF reader, grayscale, hingga scan dokumen."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareAppSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+
+  <main class="pt-24 pb-16 bg-slate-50 min-h-screen">
+    <!-- Breadcrumbs -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-primary transition-colors">Beranda</a>
+        <span>/</span>
+        <a href="/rekomendasi" class="hover:text-brand-primary transition-colors">Rekomendasi Aplikasi Guru</a>
+        <span>/</span>
+        <span class="text-slate-800 font-bold">SiAjar</span>
+      </nav>
+    </div>
+
+    <!-- Article Header / Hero -->
+    <article class="max-w-4xl mx-auto px-4 sm:px-6">
+      <header class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-premium mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary border border-brand-primary/20 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+          <span>Ulasan & Rekomendasi Aplikasi Guru</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          SiAjar — Asisten AI untuk Guru Indonesia
+        </h1>
+
+        <p class="text-lg text-slate-600 font-medium leading-relaxed mb-6">
+          Aplikasi pengembang dokumen pembelajaran otomatis yang membantu guru SD, SMP, hingga SMA/SMK membuat Modul Ajar (RPP) berkualitas sesuai Kurikulum Nasional 2025 hanya dalam 60 detik.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
+          <div class="flex items-center gap-3 text-xs font-semibold text-slate-500">
+            <span>Pengembang: <strong class="text-slate-800">BiraaStudio</strong></span>
+            <span>•</span>
+            <span>Platform: <strong class="text-slate-800">Android</strong></span>
+            <span>•</span>
+            <span>Kategori: <strong class="text-slate-800">Aplikasi Edukasi</strong></span>
+          </div>
+
+          <a 
+            href={playStoreUrl}
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-lg shadow-brand-primary/20 transition-all hover-scale"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            <span>Pelajari SiAjar di Google Play</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-premium space-y-10 text-slate-700 leading-relaxed font-medium">
+
+        <!-- Apa Itu SiAjar? -->
+        <section id="apa-itu-siajar" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Apa Itu SiAjar?
+          </h2>
+          <p>
+            <strong>SiAjar</strong> adalah aplikasi berbasis kecerdasan buatan (AI) yang dirancang khusus untuk guru Indonesia yang membutuhkan dokumen perencanaan pembelajaran berkualitas tinggi, cepat, dan tanpa ribet. Dikembangkan oleh <strong>BiraaStudio</strong>, SiAjar membantu memotong waktu administrasi guru dari berjam-jam menjadi kurang lebih 60 detik.
+          </p>
+          <p>
+            Dengan perkembangan Kurikulum Nasional 2025, guru dituntut untuk menyusun perangkat ajar yang sistematis, mencakup Capaian Pembelajaran (CP), Tujuan Pembelajaran (TP), hingga asesmen komprehensif. SiAjar hadir untuk mempermudah tugas guru SD, SMP, SMA, maupun SMK dalam menyiapkan RPP dan Modul Ajar secara presisi.
+          </p>
+        </section>
+
+        <!-- Fitur Utama SiAjar -->
+        <section id="fitur-utama" class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Fitur Utama SiAjar
+          </h2>
+          <p>
+            SiAjar dilengkapi dengan berbagai modul utama yang menangani seluruh spektrum kebutuhan administrasi guru dan pengelolaan dokumen digital sekolah.
+          </p>
+
+          <div class="space-y-6 pt-2">
+            <!-- Sub 1: Generator Modul Ajar AI -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-3">
+              <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center text-sm font-extrabold">1</span>
+                Generator Modul Ajar AI
+              </h3>
+              <p class="text-sm text-slate-600">
+                Fitur ini memungkinkan guru cukup mengisi beberapa parameter dasar seperti mata pelajaran, tingkat kelas, dan topik materi. AI SiAjar secara otomatis menghasilkan Modul Ajar lengkap sesuai dengan Capaian Pembelajaran (CP) resmi dari Fase A hingga Fase F.
+              </p>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700 font-semibold pt-2">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  Format standar Kurikulum Nasional 2025
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  Tujuan Pembelajaran otomatis
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  Rincian Kegiatan Pembelajaran
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  Skema Asesmen terstruktur
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  Integrasi Dimensi Profil Lulusan
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  Ekspor langsung ke format PDF
+                </li>
+              </ul>
+            </div>
+
+            <!-- Sub 2: Administrasi Guru -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-3">
+              <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center text-sm font-extrabold">2</span>
+                Administrasi Guru
+              </h3>
+              <p class="text-sm text-slate-600">
+                Selain Modul Ajar utama, SiAjar menyediakan generator dokumen administrasi kelas yang komprehensif untuk melengkapi kelengkapan berkas mengajar:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700 font-semibold pt-1">
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>TP</strong> — Tujuan Pembelajaran</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>ATP</strong> — Alur Tujuan Pembelajaran</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>KKTP</strong> — Kriteria Ketercapaian</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>RPE</strong> — Rencana Penilaian & Evaluasi</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>Prota</strong> — Program Tahunan</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>Prosem</strong> — Program Semester</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>Bank Soal</strong> — PG, Isian, Uraian</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>Rubrik Penilaian</strong> — Diagnostik, Formatif, Sumatif</div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>Jurnal Pembelajaran</strong></div>
+                <div class="p-2 bg-white rounded-lg border border-slate-200"><strong>RPP dari Dokumen Referensi</strong></div>
+              </div>
+            </div>
+
+            <!-- Sub 3: Tools PDF -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-3">
+              <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center text-sm font-extrabold">3</span>
+                Alat Bantu PDF (PDF Tools)
+              </h3>
+              <p class="text-sm text-slate-600">
+                SiAjar dilengkapi dengan perkakas utilitas PDF serbaguna untuk pengolahan dokumen kerja guru sehari-hari:
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-bold text-slate-700">
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">Kompres PDF</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">Gabung PDF</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">Pisah PDF</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">Gambar ke PDF</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">PDF ke Gambar</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">Atur Urutan Halaman</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">PDF Reader</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">Grayscale PDF</span>
+                <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg">Scan Dokumen</span>
+              </div>
+            </div>
+
+            <!-- Sub 4: Riwayat dan Cloud Sync -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-3">
+              <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center text-sm font-extrabold">4</span>
+                Riwayat dan Cloud Sync
+              </h3>
+              <p class="text-sm text-slate-600">
+                Setiap dokumen yang dihasilkan tersimpan dalam riwayat aplikasi. Bagi pengguna paket Premium, tersedia fitur sinkronisasi dan cadangan berbasis cloud, sehingga dokumen tetap aman dan dapat dipulihkan ketika berganti ke smartphone baru.
+              </p>
+            </div>
+
+            <!-- Sub 5: Penggunaan API Key Gemini dan Groq -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-3">
+              <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center text-sm font-extrabold">5</span>
+                Penggunaan API Key Gemini dan Groq
+              </h3>
+              <p class="text-sm text-slate-600">
+                SiAjar memberikan fleksibilitas kepada pengguna untuk memanfaatkan model kecerdasan buatan seperti Google Gemini atau Groq. Pengguna dapat menginput API key pribadi agar proses generasi dokumen berjalan lancar. Demi menjaga privasi, API key disimpan secara lokal di perangkat pengguna dan tidak dikirim atau disimpan di server SiAjar.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SiAjar Cocok untuk Siapa? -->
+        <section id="target-pengguna" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            SiAjar Cocok untuk Siapa?
+          </h2>
+          <p>
+            Aplikasi SiAjar dirancang fleksibel agar dapat digunakan oleh berbagai praktisi pendidikan di Indonesia:
+          </p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <li class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong class="text-slate-900 font-bold block">Guru SD / MI</strong>
+                <span class="text-xs text-slate-600">Penyusunan RPP tematik dan modul ajar fase A, B, dan C.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong class="text-slate-900 font-bold block">Guru SMP / MTs</strong>
+                <span class="text-xs text-slate-600">Perencanaan pembelajaran mata pelajaran spesifik fase D.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong class="text-slate-900 font-bold block">Guru SMA / SMK / MA</strong>
+                <span class="text-xs text-slate-600">Modul ajar tingkat lanjut dan kejuruan fase E dan F.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong class="text-slate-900 font-bold block">Kepala Sekolah & Supervisor</strong>
+                <span class="text-xs text-slate-600">Pemeriksaan dan kaji standar kelengkapan administrasi guru.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200 sm:col-span-2">
+              <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong class="text-slate-900 font-bold block">Mahasiswa PPL & PGSD</strong>
+                <span class="text-xs text-slate-600">Penyusunan perangkat pembelajaran uji coba dan praktik pengajaran di sekolah.</span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Apakah SiAjar Gratis? -->
+        <section id="apakah-gratis" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Apakah SiAjar Gratis?
+          </h2>
+          <p>
+            SiAjar menerapkan model <strong>Free Tier</strong> transparan sehingga setiap guru dapat mencoba langsung tanpa komitmen awal:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+              <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase">Skema Gratis</span>
+              <h3 class="text-lg font-bold text-slate-900">Free Tier</h3>
+              <ul class="text-sm text-slate-600 space-y-1.5 pt-2">
+                <li>• 3 kali generate dokumen gratis setiap bulan</li>
+                <li>• Tidak memerlukan kartu kredit</li>
+                <li>• Dapat menggunakan API key Gemini / Groq milik sendiri</li>
+                <li>• API key tersimpan aman di perangkat pribadi</li>
+              </ul>
+            </div>
+            <div class="p-6 bg-brand-primary/5 border border-brand-primary/20 rounded-2xl space-y-2">
+              <span class="px-3 py-1 bg-brand-primary text-white text-xs font-bold rounded-full uppercase">Skema Premium</span>
+              <h3 class="text-lg font-bold text-slate-900">Paket Premium</h3>
+              <ul class="text-sm text-slate-600 space-y-1.5 pt-2">
+                <li>• Generate tanpa batas dengan API key sendiri</li>
+                <li>• Bebas dari tampilan iklan</li>
+                <li>• Backup dan sinkronisasi otomatis ke cloud</li>
+                <li>• Pemulihan data saat ganti smartphone baru</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Berapa Harga SiAjar? -->
+        <section id="harga-siajar" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Berapa Harga SiAjar Premium?
+          </h2>
+          <p>
+            Berikut rincian paket langganan SiAjar Premium yang ditawarkan secara hemat untuk guru Indonesia:
+          </p>
+
+          <div class="overflow-x-auto border border-slate-200 rounded-2xl shadow-sm">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="bg-slate-100 border-b border-slate-200 text-slate-900 font-extrabold">
+                  <th class="p-4">Paket Langganan</th>
+                  <th class="p-4">Harga</th>
+                  <th class="p-4">Fitur Utama</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-medium">
+                <tr class="hover:bg-slate-50">
+                  <td class="p-4 font-bold text-slate-900">Bulanan</td>
+                  <td class="p-4 text-brand-primary font-bold">Rp19.000 / bulan</td>
+                  <td class="p-4 text-slate-600">Unlimited generate API key sendiri, Cloud Sync, Tanpa Iklan</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-4 font-bold text-slate-900">Semester</td>
+                  <td class="p-4 text-brand-primary font-bold">Rp79.000 / 6 bulan</td>
+                  <td class="p-4 text-slate-600">Akses 6 bulan hemat untuk perancangan 1 semester ajaran</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-4 font-bold text-slate-900">Tahunan</td>
+                  <td class="p-4 text-brand-primary font-bold">Rp129.000 / tahun</td>
+                  <td class="p-4 text-slate-600">Akses 1 tahun penuh, opsi paling ekonomis bagi guru</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-slate-500 italic pt-1">
+            * Pembelian dan pembatalan langganan dapat dikelola langsung secara aman melalui akun Google Play. Dibuat oleh BiraaStudio untuk guru Indonesia.
+          </p>
+        </section>
+
+        <!-- Bagaimana Cara Kerja SiAjar? -->
+        <section id="cara-kerja" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Bagaimana Cara Kerja SiAjar?
+          </h2>
+          <p>
+            Alur kerja SiAjar dirancang sesederhana mungkin agar dapat dioperasikan langsung dari smartphone Android:
+          </p>
+          <ol class="space-y-3 pt-2">
+            <li class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200/80 rounded-xl">
+              <span class="w-7 h-7 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shrink-0">1</span>
+              <div>
+                <strong class="text-slate-900 font-bold">Guru Memilih Jenis Dokumen</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Pilih dokumen yang ingin dibuat, seperti Modul Ajar, ATP, KKTP, Prota, atau Prosem.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200/80 rounded-xl">
+              <span class="w-7 h-7 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shrink-0">2</span>
+              <div>
+                <strong class="text-slate-900 font-bold">Guru Mengisi Informasi Pembelajaran</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Masukkan info dasar seperti nama mata pelajaran, tingkat kelas/fase, serta pokok bahasan materi.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200/80 rounded-xl">
+              <span class="w-7 h-7 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shrink-0">3</span>
+              <div>
+                <strong class="text-slate-900 font-bold">Pemrosesan oleh Kecerdasan Buatan (AI)</strong>
+                <p class="text-xs text-slate-600 mt-0.5">SiAjar mengolah input dengan mesin AI (Gemini/Groq) berpedoman pada Capaian Pembelajaran Kurikulum Nasional 2025.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200/80 rounded-xl">
+              <span class="w-7 h-7 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shrink-0">4</span>
+              <div>
+                <strong class="text-slate-900 font-bold">Dokumen Dihasilkan dalam 60 Detik</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Sistem menyusun draf dokumen pembelajaran lengkap dan terstruktur secara instan.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200/80 rounded-xl">
+              <span class="w-7 h-7 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shrink-0">5</span>
+              <div>
+                <strong class="text-slate-900 font-bold">Guru Menyimpan & Mengekspor Dokumen</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Dokumen siap disimpan di riwayat, disinkronkan ke cloud, atau diekspor langsung ke format PDF.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Kelebihan SiAjar -->
+        <section id="kelebihan" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Kelebihan SiAjar
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-base mb-1">⚡ Proses Cepat</h3>
+              <p class="text-xs text-slate-600">Dokumen administrasi selesai dibuat dalam kurun waktu sekitar 60 detik.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-base mb-1">🔒 Privasi Terjamin</h3>
+              <p class="text-xs text-slate-600">API key tersimpan di perangkat lokal pengguna dan tidak disimpan di server.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-base mb-1">🌐 Ramah Koneksi Internet</h3>
+              <p class="text-xs text-slate-600">Responsif dan efisien meskipun diakses dalam kondisi koneksi internet terbatas.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-base mb-1">📚 Standar Kurikulum 2025</h3>
+              <p class="text-xs text-slate-600">Memakai istilah resmi dan Capaian Pembelajaran (CP) Kurikulum Nasional 2025.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq-siajar" class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Pertanyaan yang Sering Ditanyakan (FAQ)
+          </h2>
+          <div class="space-y-4">
+            {faqs.map((item, index) => (
+              <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-5">
+                <h3 class="text-base font-bold text-slate-900 mb-2 flex items-start gap-2">
+                  <span class="text-brand-primary font-extrabold">Q{index + 1}.</span>
+                  {item.q}
+                </h3>
+                <p class="text-sm text-slate-600 pl-6 leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section Rekomendasi Ekosistem -->
+        <section id="ekosistem-rekomendasi" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-6">
+          <div class="border-b border-slate-800 pb-4">
+            <span class="text-xs font-bold text-brand-primary uppercase tracking-wider block mb-1">Ekosistem Aplikasi</span>
+            <h2 class="text-2xl font-extrabold text-white">Rekomendasi Aplikasi Digital untuk Guru Indonesia</h2>
+            <p class="text-xs text-slate-300 mt-1">Daftar perkakas digital pendukung tugas mengajar dan administrasi guru di Indonesia.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-200 text-sm">
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl hover:border-brand-primary/50 transition-colors">
+              <a href="/" class="font-bold text-emerald-400 hover:underline text-base block mb-1">GuruDok AI</a>
+              <p class="text-xs text-slate-300">Aplikasi AI asisten guru Indonesia untuk penyusunan RPP, Modul Ajar, RPM, dan LKPD interaktif berbasis desktop & web.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/90 border border-brand-primary/80 rounded-xl">
+              <a href="/rekomendasi/siajar" class="font-bold text-emerald-400 hover:underline text-base block mb-1">SiAjar</a>
+              <p class="text-xs text-slate-300">Aplikasi Android untuk membuat dokumen pembelajaran, administrasi guru, dan pengolahan PDF secara instan.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl">
+              <a href="/rekomendasi#sirekapguru" class="font-bold text-slate-300 hover:text-emerald-400 text-base block mb-1">SiRekapGuru</a>
+              <p class="text-xs text-slate-400">Aplikasi rekapitulasi data dan administrasi nilai guru (dalam pengembangan ekosistem).</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl">
+              <a href="https://play.google.com/store/apps/dev?id=8704276077631485252" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-300 hover:text-emerald-400 text-base block mb-1">SiUjian</a>
+              <p class="text-xs text-slate-400">Aplikasi ujian online dan CBT berbasis web & Android untuk pelaksanaan evaluasi belajar.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl sm:col-span-2">
+              <a href="/rekomendasi#sikelas" class="font-bold text-slate-300 hover:text-emerald-400 text-base block mb-1">SiKelas</a>
+              <p class="text-xs text-slate-400">Aplikasi pendukung manajemen presensi dan tata kelola aktivitas kelas harian.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <div class="text-center pt-4 border-t border-slate-100">
+          <h3 class="text-xl font-extrabold text-slate-900 mb-2">Coba SiAjar Sekarang di Smartphone Anda</h3>
+          <p class="text-sm text-slate-600 mb-6">Unduh langsung dari Google Play Store dan rasakan kemudahan membuat Modul Ajar dalam 60 detik.</p>
+          <a 
+            href={playStoreUrl}
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-brand-primary hover:bg-brand-dark rounded-full shadow-lg shadow-brand-primary/20 transition-all hover-scale"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            <span>Unduh SiAjar di Google Play Store</span>
+          </a>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
