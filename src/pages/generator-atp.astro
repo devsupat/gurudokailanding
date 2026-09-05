@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { breadcrumbSchema, faqPageSchema } from '../lib/schema';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Pricing from '../components/Pricing.astro';
@@ -10,7 +11,7 @@ import Footer from '../components/Footer.astro';
 
 // Custom SEO Meta Data
 const title = "Generator ATP Kurikulum Merdeka Otomatis | GuruDokAI";
-const description = "Susun Alur Tujuan Pembelajaran (ATP) Kurikulum Merdeka secara otomatis dengan AI. Generator ATP memetakan Capaian Pembelajaran (CP) ke Tujuan Pembelajaran (TP) lengkap beserta alokasi waktu JP.";
+const description = "Susun Alur Tujuan Pembelajaran (ATP) otomatis dengan AI: pemetaan Capaian Pembelajaran ke Tujuan Pembelajaran lengkap dengan alokasi jam pelajaran.";
 const keywords = "generator atp, buat atp otomatis, alur tujuan pembelajaran otomatis, download atp kurikulum merdeka, pembuat atp ai, perangkat ajar ai";
 
 // Custom FAQ for ATP Page
@@ -92,11 +93,15 @@ const atpSteps = [
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema([["Generator ATP", "/generator-atp/"]]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema(atpFaqs))} />
+
   <Header />
   <main>
     <!-- Custom Hero for ATP -->
     <Hero 
-      badge="Generator ATP Terlengkap #1"
+      badge="Generator ATP Otomatis"
       titleHtml="Generator ATP Kurikulum Merdeka <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis & Presisi</span>"
       description="Petakan Capaian Pembelajaran (CP) menjadi Alur Tujuan Pembelajaran (ATP) yang runtut beserta pembagian jam pelajaran (JP) untuk satu tahun ajaran penuh."
       mapel="Matematika"

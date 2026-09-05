@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { breadcrumbSchema, faqPageSchema, SITE } from '../../lib/schema';
+
+const title = "Perbandingan SiAjar, Rekap Guru, SiUjian & SiKelas";
+const description = "Perbandingan faktual empat aplikasi guru Indonesia: fungsi, pengguna, platform, akses gratis, dan biaya SiAjar, Rekap Guru, SiUjian, dan SiKelas.";
+const keywords = "perbandingan aplikasi guru, perbedaan siajar rekap guru siujian sikelas, aplikasi guru android, memilih aplikasi guru";
+
+const playDevUrl = "https://play.google.com/store/apps/dev?id=8704276077631485252";
+
+// Every value below is taken from each application's own page on this site.
+const apps = [
+  {
+    name: "SiAjar",
+    href: "/rekomendasi/siajar/",
+    focus: "Pembuatan dokumen pembelajaran berbasis AI",
+    users: "Guru",
+    features: "Modul Ajar, TP, ATP, KKTP, Prota, Prosem, dan alat bantu PDF",
+    free: "3 pembuatan dokumen per bulan; pengguna dapat memakai API key Gemini atau Groq miliknya sendiri yang disimpan di perangkat",
+    paid: "Rp19.000/bulan, Rp79.000/6 bulan, atau Rp129.000/tahun",
+    notFor: "Bukan aplikasi pencatatan absensi dan nilai, bukan aplikasi ujian",
+  },
+  {
+    name: "Rekap Guru",
+    href: "/rekomendasi/rekap-guru/",
+    focus: "Pencatatan dan rekap administrasi kelas",
+    users: "Guru",
+    features: "Kelas, siswa, absensi, nilai, jurnal mengajar, hafalan, kegiatan ibadah, laporan PDF dan Excel, backup dan restore",
+    free: "Fitur utama administrasi kelas tersedia; ekspor jurnal, hafalan, dan kegiatan ibadah dapat dibuka melalui rewarded ads",
+    paid: "Pembelian sekali bayar untuk kelas tanpa batas, laporan PDF dan Excel, kartu QR, backup, dan ekspor tanpa iklan. Bot WhatsApp Otomatis adalah langganan terpisah mulai Rp10.900 per bulan",
+    notFor: "Bukan aplikasi pembuat dokumen pembelajaran, bukan aplikasi ujian",
+  },
+  {
+    name: "SiUjian",
+    href: "/rekomendasi/siujian/",
+    focus: "Secure exam browser untuk ujian berbasis web",
+    users: "Guru dan siswa",
+    features: "Token ujian berbatas waktu, mode terkunci, blokir tangkapan layar dan perekaman layar, tingkat penalti, Monitor Ujian",
+    free: "Mode siswa gratis permanen; mode guru 1 token per hari selama 2 jam, dengan 1 token tambahan setelah menonton rewarded ad",
+    paid: "Rp99.000 sekali bayar untuk token tanpa batas, Monitor Ujian, durasi token hingga 4 minggu, dan tanpa iklan",
+    notFor: "Bukan sistem CBT, bukan LMS, bukan alat pembuat soal. SiUjian membuka platform ujian web seperti Google Form, Wayground, dan Kahoot",
+  },
+  {
+    name: "SiKelas",
+    href: "/rekomendasi/sikelas/",
+    focus: "Manajemen dan komunikasi kelas",
+    users: "Guru, siswa, dan orang tua",
+    features: "Pengumuman, agenda dan jadwal, konfirmasi kolektif, tugas, notifikasi, izin ketidakhadiran, Jurnal 7 Kebiasaan, gabung kelas dengan kode 6 digit",
+    free: "Siswa dan orang tua menggunakan SiKelas tanpa biaya",
+    paid: "Premium Guru Rp119.000 per tahun untuk laporan PDF kelas dan per siswa, analitik kebiasaan, riwayat data lebih panjang, dan lebih banyak kelas aktif",
+    notFor: "Bukan LMS penuh, bukan aplikasi penilaian, bukan sistem CBT, bukan aplikasi administrasi kelas seperti Rekap Guru",
+  },
+];
+
+const faqs = [
+  {
+    question: "Apa perbedaan utama SiAjar dan Rekap Guru?",
+    answer: "SiAjar membuat dokumen pembelajaran seperti Modul Ajar, TP, ATP, dan KKTP dengan bantuan AI. Rekap Guru mencatat dan merekap data kelas seperti siswa, absensi, nilai, jurnal mengajar, hafalan, dan kegiatan ibadah. Keduanya aplikasi terpisah dengan fungsi berbeda.",
+  },
+  {
+    question: "Apakah SiUjian dapat digunakan untuk membuat soal ujian?",
+    answer: "Tidak. SiUjian adalah secure exam browser, bukan sistem CBT, LMS, atau alat pembuat soal. Soal tetap dibuat di platform ujian web seperti Google Form, Wayground, atau Kahoot, lalu dibuka melalui SiUjian dalam mode terkunci.",
+  },
+  {
+    question: "Aplikasi mana yang melibatkan orang tua siswa?",
+    answer: "SiKelas. Aplikasi ini menyediakan tampilan sesuai peran untuk guru, siswa, dan orang tua, termasuk verifikasi Jurnal 7 Kebiasaan oleh orang tua. SiAjar, Rekap Guru, dan SiUjian tidak menyediakan peran orang tua.",
+  },
+  {
+    question: "Apakah keempat aplikasi ini dapat digunakan bersamaan?",
+    answer: "Ya. Keempat aplikasi menangani kebutuhan berbeda dan berjalan mandiri di perangkat Android, sehingga dapat dipasang bersamaan sesuai kebutuhan guru.",
+  },
+  {
+    question: "Apakah ada versi gratis untuk keempat aplikasi?",
+    answer: "Ya, dengan cakupan berbeda. SiAjar memberi 3 pembuatan dokumen per bulan, Rekap Guru menyediakan fitur utama administrasi kelas, SiUjian menggratiskan mode siswa secara permanen dengan kuota token harian untuk guru, dan SiKelas gratis untuk siswa serta orang tua.",
+  },
+];
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Perbandingan aplikasi guru Indonesia",
+  itemListElement: apps.map((app, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: app.name,
+    url: SITE + app.href,
+  })),
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema([["Rekomendasi Aplikasi Guru", "/rekomendasi/"], ["Perbandingan Aplikasi Guru", "/rekomendasi/perbandingan-aplikasi-guru/"]]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema(faqs))} />
+
+  <Header />
+
+  <main class="pt-24 pb-20 bg-slate-50/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <nav class="flex items-center gap-2 text-xs font-semibold text-slate-500 py-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-emerald-700">Beranda</a>
+        <span aria-hidden="true">/</span>
+        <a href="/rekomendasi/" class="hover:text-emerald-700">Rekomendasi Aplikasi Guru</a>
+        <span aria-hidden="true">/</span>
+        <span class="text-slate-800">Perbandingan Aplikasi Guru</span>
+      </nav>
+
+      <article class="space-y-10">
+        <header class="space-y-4">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Perbandingan SiAjar, Rekap Guru, SiUjian, dan SiKelas
+          </h1>
+          <p class="text-lg text-slate-600 font-medium leading-relaxed">
+            Keempat aplikasi ini sering tertukar karena sama-sama ditujukan untuk guru di Indonesia dan sama-sama berjalan di Android. Halaman ini merangkum perbedaan fungsi, pengguna, akses gratis, dan biayanya berdasarkan informasi pada masing-masing halaman aplikasi di situs ini.
+          </p>
+          <p class="text-sm text-slate-500 font-medium">
+            Keempatnya diterbitkan melalui akun pengembang Google Play yang sama, yaitu
+            <a href={playDevUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-emerald-700 hover:underline">BiraaStudio</a>.
+            Halaman ini tidak memuat peringkat, penilaian, maupun klaim aplikasi terbaik.
+          </p>
+        </header>
+
+        <section aria-labelledby="tabel-perbandingan" class="space-y-4">
+          <h2 id="tabel-perbandingan" class="text-2xl font-extrabold text-slate-900">Tabel Perbandingan Singkat</h2>
+          <div class="overflow-x-auto border border-slate-200 rounded-2xl bg-white">
+            <table class="min-w-[720px] w-full text-left text-sm">
+              <caption class="sr-only">Perbandingan fungsi, pengguna, platform, dan biaya empat aplikasi guru</caption>
+              <thead class="bg-slate-100 text-slate-700">
+                <tr>
+                  <th scope="col" class="px-4 py-3 font-extrabold">Aplikasi</th>
+                  <th scope="col" class="px-4 py-3 font-extrabold">Fokus</th>
+                  <th scope="col" class="px-4 py-3 font-extrabold">Pengguna</th>
+                  <th scope="col" class="px-4 py-3 font-extrabold">Platform</th>
+                  <th scope="col" class="px-4 py-3 font-extrabold">Biaya premium</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-600">
+                {apps.map((app) => (
+                  <tr>
+                    <th scope="row" class="px-4 py-4 font-bold text-slate-900 align-top">
+                      <a href={app.href} class="text-emerald-700 hover:underline">{app.name}</a>
+                    </th>
+                    <td class="px-4 py-4 align-top">{app.focus}</td>
+                    <td class="px-4 py-4 align-top">{app.users}</td>
+                    <td class="px-4 py-4 align-top">Android</td>
+                    <td class="px-4 py-4 align-top">{app.paid}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section aria-labelledby="rincian" class="space-y-6">
+          <h2 id="rincian" class="text-2xl font-extrabold text-slate-900">Rincian Setiap Aplikasi</h2>
+          {apps.map((app) => (
+            <article class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+              <h3 class="text-xl font-extrabold text-slate-900">
+                <a href={app.href} class="text-emerald-700 hover:underline">{app.name}</a>
+              </h3>
+              <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm">
+                <dt class="font-bold text-slate-900">Fungsi utama</dt>
+                <dd class="sm:col-span-2 text-slate-600">{app.focus}</dd>
+                <dt class="font-bold text-slate-900">Pengguna</dt>
+                <dd class="sm:col-span-2 text-slate-600">{app.users}</dd>
+                <dt class="font-bold text-slate-900">Fitur utama</dt>
+                <dd class="sm:col-span-2 text-slate-600">{app.features}</dd>
+                <dt class="font-bold text-slate-900">Akses gratis</dt>
+                <dd class="sm:col-span-2 text-slate-600">{app.free}</dd>
+                <dt class="font-bold text-slate-900">Akses berbayar</dt>
+                <dd class="sm:col-span-2 text-slate-600">{app.paid}</dd>
+                <dt class="font-bold text-slate-900">Yang bukan cakupannya</dt>
+                <dd class="sm:col-span-2 text-slate-600">{app.notFor}</dd>
+              </dl>
+            </article>
+          ))}
+        </section>
+
+        <section aria-labelledby="gurudokai" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-4">
+          <h2 id="gurudokai" class="text-2xl font-extrabold">Bagaimana dengan GuruDokAI?</h2>
+          <p class="text-slate-300 leading-relaxed">
+            <a href="/" class="font-bold text-emerald-400 hover:underline">GuruDokAI</a> adalah aplikasi desktop untuk Windows 10 dan Windows 11 yang menyusun RPP, RPM, Modul Ajar, LKPD, ATP, dan KKTP berbasis AI. Keempat aplikasi di atas berjalan di Android, sehingga cakupan perangkatnya berbeda. Untuk kebutuhan serupa di ponsel, aplikasi yang paling dekat fungsinya adalah <a href="/rekomendasi/siajar/" class="font-bold text-emerald-400 hover:underline">SiAjar</a>.
+          </p>
+          <a href="/rekomendasi/" class="inline-flex text-sm font-bold text-white hover:text-emerald-200 underline underline-offset-4">Kembali ke pusat rekomendasi aplikasi guru</a>
+        </section>
+
+        <section aria-labelledby="faq-perbandingan" class="space-y-4">
+          <h2 id="faq-perbandingan" class="text-2xl font-extrabold text-slate-900">Pertanyaan yang Sering Diajukan</h2>
+          {faqs.map((faq) => (
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+              <h3 class="font-bold text-slate-900 mb-2">{faq.question}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{faq.answer}</p>
+            </div>
+          ))}
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

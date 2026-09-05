@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const title = "Mengenal Kurikulum Berbasis Cinta (KBC) Madrasah Kemenag | GuruDokAI";
+const title = "Mengenal Kurikulum Berbasis Cinta (KBC) Madrasah | GuruDokAI";
 const description = "Pelajari konsep Kurikulum Berbasis Cinta (KBC) untuk MI, MTs, MA di Kementerian Agama. Dilengkapi contoh skenario KBC dan cara menyusun modul ajar dengan AI.";
 const keywords = "kurikulum berbasis cinta, apa itu kbc, modul ajar kbc, pembelajaran berbasis cinta, guru madrasah, kemenag, gurudokai";
 
@@ -133,6 +134,13 @@ const breadcrumbSchema = {
         </p>
       </article>
     </div>
+  <RelatedLinks
+    links={[
+        { href: "/kurikulum-berbasis-cinta/", label: "Panduan Kurikulum Berbasis Cinta untuk Madrasah", note: "Penerapan KBC pada perencanaan pembelajaran di MI, MTs, dan MA." },
+        { href: "/kbc/", label: "AI Pembuat Modul Ajar KBC", note: "Menyusun modul ajar dan RPP bernuansa KBC secara otomatis." },
+        { href: "/knowledge/cara-menyusun-modul-ajar-deep-learning/", label: "Cara Menyusun Modul Ajar Deep Learning", note: "Kerangka penyusunan modul ajar yang dapat dipadukan dengan nilai KBC." }
+    ]}
+  />
   </main>
   <Footer />
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -142,6 +143,13 @@ const breadcrumbSchema = {
         </p>
       </article>
     </div>
+  <RelatedLinks
+    links={[
+        { href: "/pembelajaran-mendalam/", label: "Pembelajaran Mendalam (Deep Learning) di Kelas", note: "Prinsip pedagogi yang menjadi acuan penyusunan modul ajar deep learning." },
+        { href: "/knowledge/apa-itu-rpm/", label: "Apa itu Rencana Pembelajaran Mendalam (RPM)", note: "Dokumen perencanaan yang menaungi modul ajar berbasis pembelajaran mendalam." },
+        { href: "/generator-modul-ajar/", label: "Generator Modul Ajar Otomatis", note: "Menyusun draf modul ajar lengkap beserta LKPD dan rubrik asesmen." }
+    ]}
+  />
   </main>
   <Footer />
 </BaseLayout>

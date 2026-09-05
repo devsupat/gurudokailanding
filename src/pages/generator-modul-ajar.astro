@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { breadcrumbSchema, faqPageSchema } from '../lib/schema';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Pricing from '../components/Pricing.astro';
@@ -10,7 +11,7 @@ import Footer from '../components/Footer.astro';
 
 // Custom SEO Meta Data
 const title = "Generator Modul Ajar Kurikulum Merdeka Otomatis | GuruDokAI";
-const description = "Buat modul ajar Kurikulum Merdeka secara lengkap dan otomatis dalam 2 menit. Generator Modul Ajar AI dengan materi pembelajaran, LKPD, rubrik asesmen, dan media ajar.";
+const description = "Buat modul ajar Kurikulum Merdeka otomatis dengan AI, lengkap dengan materi pembelajaran, LKPD, rubrik asesmen, dan media ajar.";
 const keywords = "generator modul ajar, buat modul ajar otomatis, aplikasi pembuat modul ajar, modul ajar kurikulum merdeka otomatis, modul ajar ai, cara menyusun modul ajar, perangkat pembelajaran";
 
 // Custom FAQ for Modul Ajar Page
@@ -106,11 +107,15 @@ const modulSteps = [
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema([["Generator Modul Ajar", "/generator-modul-ajar/"]]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema(modulFaqs))} />
+
   <Header />
   <main>
     <!-- Custom Hero for Modul Ajar -->
     <Hero 
-      badge="Generator Modul Ajar Terbaik #1"
+      badge="Generator Modul Ajar Otomatis"
       titleHtml="Generator Modul Ajar <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Kurikulum Merdeka</span> berbasis AI"
       description="Dapatkan modul ajar lengkap, interaktif, dan terstruktur sesuai panduan pembelajaran terbaru Kemendikdasmen. Cukup ketik topik ajar, unduh hasilnya."
       mapel="Ilmu Pengetahuan Alam (IPA)"

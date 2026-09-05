@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { faqSchemaEntries } from '../data/faq';
 
 interface Props {
   title?: string;
@@ -18,6 +19,102 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokai.supathub.my.id');
 const ogImageURL = new URL('/og-image.png', canonicalURL);
 const isHomePage = Astro.url.pathname === '/';
+
+const SITE = 'https://gurudokai.supathub.my.id';
+
+// One @graph so Google/AI see a single linked entity set instead of three
+// disconnected blobs. Facts mirror the visible pages (Pricing, FAQ, /tentang/).
+const homeGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE}/#organization`,
+      "name": "GuruDokAI",
+      "url": `${SITE}/`,
+      "logo": `${SITE}/og-image.png`,
+      "description": "Pengembang perangkat lunak pendidikan untuk guru Indonesia, meliputi aplikasi desktop GuruDokAI dan aplikasi Android BiraaStudio (SiAjar, Rekap Guru, SiUjian, SiKelas).",
+      "founder": {
+        "@type": "Person",
+        "name": "Ahmad Saoghi",
+        "jobTitle": "Founder & Lead Developer GuruDokAI",
+        "url": `${SITE}/tentang/`
+      },
+      "sameAs": ["https://play.google.com/store/apps/dev?id=8704276077631485252"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      "name": "GuruDokAI",
+      "url": `${SITE}/`,
+      "inLanguage": "id-ID",
+      "publisher": { "@id": `${SITE}/#organization` }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${SITE}/#gurudokai`,
+      "name": "GuruDokAI",
+      "url": `${SITE}/`,
+      "description": "Aplikasi desktop berbasis AI untuk guru Indonesia menyusun RPP, RPM, Modul Ajar, LKPD, ATP, KKTP, dan bank soal sesuai kurikulum nasional.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Windows 10, Windows 11",
+      "inLanguage": "id-ID",
+      "publisher": { "@id": `${SITE}/#organization` },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "teacher",
+        "audienceType": "Guru SD, MI, SMP, MTs, SMA, MA, dan SMK di Indonesia"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Paket Bulanan",
+          "price": "19000",
+          "priceCurrency": "IDR",
+          "url": "https://lynk.id/oghiezr/zxjox857nz71"
+        },
+        {
+          "@type": "Offer",
+          "name": "Paket 3 Bulan",
+          "price": "39900",
+          "priceCurrency": "IDR",
+          "url": "https://lynk.id/oghiezr/3nvl34y0q7l5"
+        },
+        {
+          "@type": "Offer",
+          "name": "Paket Tahunan",
+          "price": "99000",
+          "priceCurrency": "IDR",
+          "url": "https://lynk.id/oghiezr/xwq6nyynj3zy",
+          "eligibleQuantity": {
+            "@type": "QuantitativeValue",
+            "value": 1,
+            "unitText": "tahun"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Paket Lifetime",
+          "price": "199000",
+          "priceCurrency": "IDR",
+          "url": "https://lynk.id/oghiezr/mp8dw5lyp3ey"
+        }
+      ],
+      "isRelatedTo": [
+        { "@type": "SoftwareApplication", "name": "SiAjar", "url": `${SITE}/rekomendasi/siajar/` },
+        { "@type": "SoftwareApplication", "name": "Rekap Guru", "url": `${SITE}/rekomendasi/rekap-guru/` },
+        { "@type": "SoftwareApplication", "name": "SiUjian", "url": `${SITE}/rekomendasi/siujian/` },
+        { "@type": "SoftwareApplication", "name": "SiKelas", "url": `${SITE}/rekomendasi/sikelas/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE}/#faq`,
+      "isPartOf": { "@id": `${SITE}/#website` },
+      "mainEntity": faqSchemaEntries
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -57,128 +154,9 @@ const isHomePage = Astro.url.pathname === '/';
     <!-- Self-hosted Fonts Preload -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-v12-latin-500.woff2" crossorigin />
 
-    <!-- Homepage-only site and product schemas. Detail pages provide their own entity data. -->
-    {isHomePage && <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "GuruDokAI",
-        "url": "https://gurudokai.supathub.my.id/"
-      }
-    </script>}
+    <!-- Homepage-only entity graph. Detail pages provide their own entity data. -->
+    {isHomePage && <script type="application/ld+json" set:html={JSON.stringify(homeGraph)} />}
 
-    {isHomePage && <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "GuruDokAI",
-        "description": "Aplikasi AI asisten guru Indonesia untuk membuat RPP, Modul Ajar, Bank Soal HOTS, ATP otomatis sesuai Kurikulum Merdeka",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "Windows 10, Windows 11",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Paket Bulanan",
-            "price": "19000",
-            "priceCurrency": "IDR",
-            "url": "https://lynk.id/oghiezr/zxjox857nz71"
-          },
-          {
-            "@type": "Offer",
-            "name": "Paket 3 Bulan",
-            "price": "39900",
-            "priceCurrency": "IDR",
-            "url": "https://lynk.id/oghiezr/3nvl34y0q7l5"
-          },
-          {
-            "@type": "Offer",
-            "name": "Paket Tahunan",
-            "price": "99000",
-            "priceCurrency": "IDR",
-            "url": "https://lynk.id/oghiezr/xwq6nyynj3zy",
-            "eligibleQuantity": {
-              "@type": "QuantitativeValue",
-              "value": 1,
-              "unitText": "tahun"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Paket Lifetime",
-            "price": "199000",
-            "priceCurrency": "IDR",
-            "url": "https://lynk.id/oghiezr/mp8dw5lyp3ey"
-          }
-        ]
-      }
-    </script>}
-
-    <!-- Schema: FAQPage -->
-    {isHomePage && <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Apakah GuruDokAI merupakan aplikasi administrasi guru otomatis?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ya, GuruDokAI adalah aplikasi administrasi guru otomatis sekaligus pelopor AI pendidikan Indonesia dan perangkat ajar AI terdepan. Platform ini berfungsi sebagai pembuat RPP otomatis, pembuat modul ajar, dan generator LKPD interaktif untuk memproses seluruh berkas administrasi pembelajaran Anda secara instan dan praktis."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah GuruDokAI sesuai Kurikulum Merdeka?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ya, sebagai pelopor aplikasi Kurikulum Merdeka berbasis kecerdasan buatan, GuruDokAI mendukung penuh format RPP dan Modul Ajar terbaru yang disesuaikan dengan Permendikdasmen No.13/2025 tentang prinsip Deep Learning."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah GuruDokAI memiliki aplikasi Android dan Windows?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ya, betul sekali. GuruDokAI hadir sebagai aplikasi desktop khusus untuk komputer dengan sistem operasi Windows 10 & 11. Sementara itu, bagi pengguna mobile, Anda dapat mengunduh aplikasi Android resmi bernama SiAjar di Google Play Store. Website ini sendiri berperan sebagai pusat informasi produk, dokumentasi, dan tempat mengunduh file instalasi resmi."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Jenjang sekolah apa saja yang didukung oleh GuruDokAI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sebagai aplikasi guru SD, MI, SMP, MTs, SMA, MA, dan SMK, GuruDokAI dirancang fleksibel untuk mendukung pembuatan administrasi pembelajaran lengkap di berbagai jenjang sekolah di Indonesia, baik sekolah umum maupun madrasah di bawah naungan Kemenag."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Berapa biaya berlangganan GuruDokAI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Kami menawarkan paket berlangganan yang sangat hemat untuk guru Indonesia. Paket Bulanan mulai dari Rp 19.000, paket 3 Bulan seharga Rp 39.900, paket Tahunan seharga Rp 99.000 (hanya Rp 8.250/bulan), dan paket Lifetime seharga Rp 199.000 untuk akses selamanya tanpa tagihan bulanan."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah data sekolah dan dokumen saya aman?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sangat aman. Seluruh data sekolah, data murid, dan dokumen administrasi yang Anda generate terenkripsi secara aman, bersifat privat, dan tidak akan dibagikan kepada pihak ketiga manapun."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kalau ada pertanyaan, bisa hubungi siapa?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tim bantuan GuruDokAI siap mendampingi Anda kapan saja. Anda bisa langsung menghubungi CS kami melalui WhatsApp di nomor +6285189536359 untuk bantuan teknis maupun aktivasi."
-            }
-          }
-        ]
-      }
-    </script>}
-    
     <!-- Cloudflare Web Analytics Snippet -->
     {import.meta.env.PROD && (
       <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f5d082be05e94b29b63ef28258bbf9d0"}'></script>

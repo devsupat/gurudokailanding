@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Pricing from '../components/Pricing.astro';
@@ -124,7 +125,7 @@ const kbcSteps = [
   <Header />
   <main>
     <Hero 
-      badge="Panduan Kurikulum KBC #1"
+      badge="Panduan Kurikulum Berbasis Cinta"
       titleHtml="Kurikulum Berbasis Cinta (KBC) Kemenag <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Pembelajaran Berbasis Cinta di Madrasah</span>"
       description="Panduan praktis dan dukungan asisten AI Guru untuk menyusun perencanaan pembelajaran KBC di tingkat Madrasah Ibtidaiyah, Tsanawiyah, dan Aliyah."
       mapel="Sejarah Kebudayaan Islam (SKI)"
@@ -234,6 +235,13 @@ const kbcSteps = [
 
     <!-- CTA Section -->
     <CTAFinal />
+  <RelatedLinks
+    links={[
+        { href: "/knowledge/apa-itu-kbc-kurikulum-berbasis-cinta/", label: "Mengenal Kurikulum Berbasis Cinta (KBC)", note: "Latar kebijakan KBC di lingkungan Kementerian Agama dan prinsip dasarnya." },
+        { href: "/kbc/", label: "AI Pembuat Modul Ajar KBC", note: "Menyusun modul ajar dan RPP bernuansa KBC secara otomatis." },
+        { href: "/modul-ajar/", label: "AI Generator Modul Ajar", note: "Penyusunan modul ajar untuk mata pelajaran umum di luar konteks madrasah." }
+    ]}
+  />
   </main>
   <Footer />
 </BaseLayout>

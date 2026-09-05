@@ -1,0 +1,20 @@
+---
+interface Props {
+  /** Section heading. Keep it specific to the relationship being described. */
+  heading?: string;
+  links: Array<{ href: string; label: string; note: string }>;
+}
+
+const { heading = 'Bacaan Terkait', links } = Astro.props;
+---
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-label={heading}>
+  <h2 class="text-xl font-extrabold text-gray-900 mb-5">{heading}</h2>
+  <ul class="space-y-4">
+    {links.map((link) => (
+      <li class="border border-slate-200 rounded-2xl p-5 bg-white">
+        <a href={link.href} class="text-base font-bold text-brand-primary hover:underline">{link.label}</a>
+        <p class="text-sm text-gray-600 font-medium mt-1.5 leading-relaxed">{link.note}</p>
+      </li>
+    ))}
+  </ul>
+</section>

@@ -1,0 +1,313 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Pemanfaatan Aplikasi AI untuk Guru Indonesia | GuruDokAI";
+const description = "Panduan pemanfaatan teknologi kecerdasan buatan (AI) untuk membantu guru Indonesia menyusun modul ajar, RPP, dan administrasi pembelajaran secara efisien.";
+const keywords = "aplikasi AI untuk guru, pemanfaatan AI guru indonesia, AI pembuat modul ajar, asisten AI guru, SiAjar, GuruDokAI";
+
+const canonicalUrl = "https://gurudokai.supathub.my.id/artikel/aplikasi-ai-untuk-guru/";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokai.supathub.my.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Knowledge Center",
+      "item": "https://gurudokai.supathub.my.id/knowledge/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Pemanfaatan Aplikasi AI untuk Guru",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pemanfaatan Aplikasi AI untuk Guru Indonesia: Efisiensi Administrasi & Pembelajaran",
+  "description": description,
+  "url": canonicalUrl,
+  "author": {
+    "@type": "Organization",
+    "name": "GuruDokAI"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GuruDokAI",
+    "url": "https://gurudokai.supathub.my.id/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  }
+};
+
+const faqs = [
+  {
+    q: "Apakah aplikasi AI bisa menggantikan peran guru di kelas?",
+    a: "Tidak. Aplikasi AI berfungsi sebagai asisten administratif dan pembuat draf awal dokumen pembelajaran (RPP, Modul Ajar, LKPD). Keputusan pedagogis, interaksi emosional, bimbingan karakter, dan pengajaran di kelas tetap sepenuhnya dipegang oleh guru."
+  },
+  {
+    q: "Bagaimana cara kerja aplikasi AI dalam membuat Modul Ajar?",
+    a: "Aplikasi AI mengolah masukan dasar seperti mata pelajaran, fase/kelas, dan pokok materi, lalu mencocokkannya dengan Capaian Pembelajaran (CP) resmi untuk menghasilkan draf Tujuan Pembelajaran (TP), kegiatan inti, asesmen, dan LKPD secara instan."
+  },
+  {
+    q: "Apa aplikasi AI yang direkomendasikan untuk guru Indonesia?",
+    a: "Untuk komputer Windows, Anda dapat menggunakan aplikasi desktop GuruDok AI. Bagi guru yang ingin menyusun Modul Ajar langsung di HP Android, aplikasi SiAjar buatan BiraaStudio adalah solusi praktis yang dapat diunduh di Google Play."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+
+  <main class="pt-24 pb-16 bg-slate-50/80 min-h-screen">
+    <!-- Breadcrumbs -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-primary transition-colors">Beranda</a>
+        <span>/</span>
+        <a href="/knowledge/" class="hover:text-brand-primary transition-colors">Knowledge Center</a>
+        <span>/</span>
+        <span class="text-slate-800 font-bold">Aplikasi AI untuk Guru</span>
+      </nav>
+    </div>
+
+    <!-- Article Container -->
+    <article class="max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Header -->
+      <header class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm mb-8">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary border border-brand-primary/20 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+          <span>Panduan AI Pedagogi Guru</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          Pemanfaatan Aplikasi AI untuk Guru Indonesia: Efisiensi Administrasi & Pembelajaran
+        </h1>
+
+        <p class="text-lg text-slate-600 font-medium leading-relaxed mb-6">
+          Bagaimana teknologi kecerdasan buatan (Artificial Intelligence) membantu memotong beban lembur pembuatan RPP, Modul Ajar, dan LKPD tanpa mengorbankan kualitas mengajar.
+        </p>
+
+        <div class="flex items-center gap-4 pt-4 border-t border-slate-100 text-xs text-slate-500 font-semibold">
+          <span>Dipublikasikan oleh: <strong class="text-slate-800">GuruDokAI Editorial</strong></span>
+          <span>•</span>
+          <span>Kategori: <strong class="text-slate-800">Teknologi Pendidikan</strong></span>
+        </div>
+      </header>
+
+      <!-- Main Body -->
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-10 text-slate-700 leading-relaxed font-medium">
+
+        <!-- Direct Answer / Summary Section for GEO Extraction -->
+        <section id="ringkasan-jawaban" class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-6 space-y-3">
+          <h2 class="text-xl font-bold text-emerald-950 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-600"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            Jawaban Singkat: Peran AI dalam Tugas Guru
+          </h2>
+          <p class="text-sm text-emerald-900/90 leading-relaxed">
+            Aplikasi AI untuk guru Indonesia berfungsi sebagai **asisten draf administratif** yang membantu merumuskan Tujuan Pembelajaran (TP), Alur Tujuan Pembelajaran (ATP), Modul Ajar (RPP), Lembar Kerja Peserta Didik (LKPD), dan bank soal secara otomatis. Penggunaan AI bertujuan menghemat 80% waktu lembur administratif sehingga guru dapat lebih fokus pada interaksi tatap muka, pendampingan karakter, dan efektivitas mengajar di kelas.
+          </p>
+        </section>
+
+        <!-- Tantangan Administrasi Guru -->
+        <section id="tantangan-administrasi" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Tantangan Administrasi Guru di Indonesia
+          </h2>
+          <p>
+            Beban administratif sering menjadi keluhan utama pendidik di Indonesia. Penyusunan perangkat ajar seperti RPP Kurikulum Merdeka, Rencana Pembelajaran Mendalam (RPM), serta berkas evaluasi berkala membutuhkan waktu berjam-jam setiap minggunya.
+          </p>
+          <p>
+            Ketika waktu guru tersita untuk tugas pengetikan manual dan penyesuaian format berkas, energi untuk merancang strategi mengajar interaktif di kelas menjadi berkurang. Di sinilah kehadiran **aplikasi AI khusus guru** menjadi solusi transformasi digital yang nyata.
+          </p>
+        </section>
+
+        <!-- Bagaimana AI Membantu Guru -->
+        <section id="manfaat-ai-guru" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Bagaimana Aplikasi AI Membantu Tugas Guru?
+          </h2>
+          <p>
+            Teknologi AI berbasis Large Language Model (LLM) yang telah diprogram dengan regulasi Kurikulum Nasional 2025 mampu membantu dalam berbagai aspek:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2">
+              <h3 class="font-bold text-slate-900 text-base">⚡ 1. Modul Ajar Instan</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Menggenerasi Modul Ajar lengkap dengan Capaian Pembelajaran (CP), asesmen diagnostik/formatif/sumatif, dan langkah pembelajaran hanya dalam hitungan detik.
+              </p>
+            </div>
+
+            <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2">
+              <h3 class="font-bold text-slate-900 text-base">🎯 2. Formulasi TP & ATP</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Membedah Capaian Pembelajaran (CP) menjadi Tujuan Pembelajaran (TP) dan Alur Tujuan Pembelajaran (ATP) yang runtut secara akademis.
+              </p>
+            </div>
+
+            <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2">
+              <h3 class="font-bold text-slate-900 text-base">📝 3. Pembuat LKPD Interaktif</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Menyusun Lembar Kerja Peserta Didik (LKPD) yang menarik dan bervariasi sesuai tingkat pemahaman murid di kelas.
+              </p>
+            </div>
+
+            <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2">
+              <h3 class="font-bold text-slate-900 text-base">📊 4. Rubrik Asesmen & Soal HOTS</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Membuat kisi-kisi soal penalaran tingkat tinggi (HOTS) beserta kunci jawaban dan rubrik kriteria ketercapaian (KKTP).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Rekomendasi Solusi AI Terpercaya -->
+        <section id="rekomendasi-solusi" class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Pilihan Solusi AI untuk Guru Indonesia
+          </h2>
+          <p>
+            Berdasarkan perangkat yang digunakan, berikut adalah dua solusi spesifik yang dapat dimanfaatkan oleh pendidik:
+          </p>
+
+          <div class="space-y-6">
+            <!-- GuruDok AI -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-xl font-bold text-slate-900">1. GuruDok AI (Aplikasi Desktop Windows)</h3>
+                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 font-bold text-xs rounded-full">Komputer / Laptop</span>
+              </div>
+              <p class="text-sm text-slate-600">
+                <strong>GuruDok AI</strong> adalah aplikasi khusus perangkat komputer Windows 10 dan 11 yang dirancang untuk membantu guru membuat draf RPP, RPM (Rencana Pembelajaran Mendalam), Modul Ajar, dan LKPD secara lengkap di laptop.
+              </p>
+              <div class="pt-2">
+                <a href="/" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:underline">
+                  <span>Pelajari Selengkapnya di Halaman Utama GuruDok AI</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- SiAjar -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-xl font-bold text-slate-900">2. SiAjar (Aplikasi Mobile Android)</h3>
+                <span class="px-2.5 py-1 bg-sky-100 text-sky-800 font-bold text-xs rounded-full">Smartphone Android</span>
+              </div>
+              <p class="text-sm text-slate-600">
+                <strong>SiAjar</strong> adalah aplikasi mobile berbasis Android karya BiraaStudio yang memungkinkan guru membuat Modul Ajar Kurikulum 2025 dalam 60 detik langsung dari ponsel cerdas, dilengkapi alat bantu pengolah berkas PDF.
+              </p>
+              <div class="pt-2">
+                <a href="/rekomendasi/siajar/" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:underline">
+                  <span>Baca Ulasan & Fitur Lengkap SiAjar</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Prinsip Penggunaan AI yang Etis -->
+        <section id="prinsip-etis" class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Prinsip Penggunaan AI yang Bertanggung Jawab
+          </h2>
+          <p>
+            Meskipun AI sangat membantu dalam pengetikan dan penyusunan draf, guru tetap memegang peranan utama:
+          </p>
+          <ul class="space-y-2.5 text-sm text-slate-700 font-semibold list-disc pl-5">
+            <li><strong>Verifikasi Konteks Siswa:</strong> Selalu sesuaikan hasil generasi AI dengan kondisi nyata dan karakteristik murid di kelas Anda.</li>
+            <li><strong>Sensitivitas Budaya & Nilai:</strong> Pastikan materi yang dikembangkan selaras dengan norma lokal dan nilai Pancasila.</li>
+            <li><strong>Keputusan Pedagogis Tetap di Tangan Guru:</strong> AI adalah alat bantu (copilot), bukan pengambil keputusan utama dalam proses belajar mengajar.</li>
+          </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq-artikel" class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight border-b border-slate-100 pb-3">
+            Pertanyaan Umum (FAQ)
+          </h2>
+          <div class="space-y-4">
+            {faqs.map((item, index) => (
+              <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-5">
+                <h3 class="text-base font-bold text-slate-900 mb-2 flex items-start gap-2">
+                  <span class="text-emerald-600 font-extrabold">Q{index + 1}.</span>
+                  {item.q}
+                </h3>
+                <p class="text-sm text-slate-600 pl-6 leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Internal Links / Related Articles -->
+        <section id="artikel-terkait" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-5">
+          <div class="border-b border-slate-800 pb-4">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">Artikel & Panduan Terkait</span>
+            <h2 class="text-2xl font-extrabold text-white">Eksplorasi Panduan Pembelajaran</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-200 text-sm">
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl hover:border-emerald-500/50 transition-colors">
+              <a href="/modul-ajar/" class="font-bold text-emerald-400 hover:underline block mb-1">Panduan Modul Ajar Kurikulum Merdeka</a>
+              <p class="text-xs text-slate-300">Format resmi dan komponen Modul Ajar standar Kemendikdasmen.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl hover:border-emerald-500/50 transition-colors">
+              <a href="/generator-modul-ajar/" class="font-bold text-emerald-400 hover:underline block mb-1">Generator Modul Ajar AI</a>
+              <p class="text-xs text-slate-300">Buat draf Modul Ajar otomatis dengan bantuan AI di browser Anda.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl hover:border-emerald-500/50 transition-colors">
+              <a href="/knowledge/perbedaan-rpp-rpm-rppm/" class="font-bold text-emerald-400 hover:underline block mb-1">Perbedaan RPP, RPM, dan RPPM</a>
+              <p class="text-xs text-slate-300">Penjelasan mendasar perbedaan berkas administrasi mengajar.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/90 border border-slate-700 rounded-xl hover:border-emerald-500/50 transition-colors">
+              <a href="/rekomendasi/" class="font-bold text-emerald-400 hover:underline block mb-1">Pusat Rekomendasi Aplikasi Guru</a>
+              <p class="text-xs text-slate-300">Daftar rekomendasi aplikasi digital untuk tugas mengajar & kelas.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

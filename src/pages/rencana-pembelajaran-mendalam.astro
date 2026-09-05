@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Pricing from '../components/Pricing.astro';
@@ -9,7 +10,7 @@ import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
 
 // Custom SEO Meta Data
-const title = "Format & Struktur Rencana Pembelajaran Mendalam (RPM) | GuruDokAI";
+const title = "Format & Struktur Rencana Pembelajaran Mendalam | GuruDokAI";
 const description = "Pelajari format resmi Rencana Pembelajaran Mendalam (RPM) Kurikulum Merdeka. Struktur komprehensif 3 pilar Deep Learning Kemendikdasmen untuk perangkat ajar guru.";
 const keywords = "rencana pembelajaran mendalam, rpm kurikulum merdeka, pembelajaran mendalam, modul ajar rpm, deep learning pendidikan, administrasi guru, kbc kemenag";
 
@@ -132,7 +133,7 @@ const rpmSteps = [
   <Header />
   <main>
     <Hero 
-      badge="Panduan RPM Kurikulum Merdeka #1"
+      badge="Panduan RPM Kurikulum Merdeka"
       titleHtml="Rencana Pembelajaran Mendalam (RPM) <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Prinsip Deep Learning Kurikulum Merdeka</span>"
       description="Temukan cara mudah menyusun Rencana Pembelajaran Mendalam (RPM) yang mengedepankan pemahaman bermakna bagi murid menggunakan asisten AI Guru Indonesia."
       mapel="Bahasa Indonesia"
@@ -242,6 +243,13 @@ const rpmSteps = [
 
     <!-- CTA Section -->
     <CTAFinal />
+  <RelatedLinks
+    links={[
+        { href: "/knowledge/apa-itu-rpm/", label: "Apa itu Rencana Pembelajaran Mendalam (RPM)", note: "Latar kebijakan dan definisi RPM sebelum masuk ke formatnya." },
+        { href: "/rppm/", label: "AI Pembuat RPPM Mingguan", note: "Menurunkan RPM menjadi rencana pelaksanaan pembelajaran mingguan." },
+        { href: "/pembelajaran-mendalam/", label: "Pembelajaran Mendalam (Deep Learning) di Kelas", note: "Prinsip pedagogi yang menjadi dasar penyusunan RPM." }
+    ]}
+  />
   </main>
   <Footer />
 </BaseLayout>

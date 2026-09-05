@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -150,6 +151,13 @@ const breadcrumbSchema = {
         </p>
       </article>
     </div>
+  <RelatedLinks
+    links={[
+        { href: "/knowledge/apa-itu-rpm/", label: "Apa itu Rencana Pembelajaran Mendalam (RPM)", note: "Definisi dan latar kebijakan RPM sebagai kelanjutan format RPP." },
+        { href: "/rencana-pembelajaran-mendalam/", label: "Format dan Struktur RPM", note: "Komponen dokumen RPM yang perlu ada saat Anda menyusunnya sendiri." },
+        { href: "/rppm/", label: "AI Pembuat RPPM Mingguan", note: "Menurunkan RPM menjadi rencana pelaksanaan pembelajaran mingguan." }
+    ]}
+  />
   </main>
   <Footer />
 </BaseLayout>

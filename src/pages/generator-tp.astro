@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { breadcrumbSchema, faqPageSchema } from '../lib/schema';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Pricing from '../components/Pricing.astro';
@@ -10,7 +11,7 @@ import Footer from '../components/Footer.astro';
 
 // Custom SEO Meta Data
 const title = "Generator TP Kurikulum Merdeka AI | GuruDokAI";
-const description = "Rumuskan Tujuan Pembelajaran (TP) dari Capaian Pembelajaran (CP) secara otomatis menggunakan AI. Generator TP Kurikulum Merdeka presisi dengan analisis kata kerja kompetensi.";
+const description = "Rumuskan Tujuan Pembelajaran (TP) dari Capaian Pembelajaran (CP) secara otomatis dengan AI, lengkap dengan analisis kata kerja kompetensi.";
 const keywords = "generator tp, tujuan pembelajaran kurikulum merdeka, merumuskan tp dari cp, pembuat tp otomatis, download tp matematika sd, perangkat pembelajaran ai";
 
 // Custom FAQ for TP Page
@@ -81,11 +82,15 @@ const tpSteps = [
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema([["Generator TP", "/generator-tp/"]]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema(tpFaqs))} />
+
   <Header />
   <main>
     <!-- Custom Hero for TP -->
     <Hero 
-      badge="Generator TP Terakurat #1"
+      badge="Generator Tujuan Pembelajaran"
       titleHtml="Generator TP Kurikulum Merdeka <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis & Terarah</span>"
       description="Rumuskan Tujuan Pembelajaran (TP) secara tajam dan terukur langsung dari teks Capaian Pembelajaran (CP) menggunakan analisis kecerdasan buatan."
       mapel="Pendidikan Pancasila"

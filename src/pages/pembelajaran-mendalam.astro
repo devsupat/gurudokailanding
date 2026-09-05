@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Pricing from '../components/Pricing.astro';
@@ -9,7 +10,7 @@ import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
 
 // Custom SEO Meta Data
-const title = "Deep Learning & Pembelajaran Mendalam dalam Pendidikan | GuruDokAI";
+const title = "Pembelajaran Mendalam (Deep Learning) di Kelas | GuruDokAI";
 const description = "Panduan lengkap penerapan prinsip Pembelajaran Mendalam (Deep Learning) dalam pendidikan Indonesia. Ketahui 3 pilar: Mindful, Meaningful, dan Joyful Learning.";
 const keywords = "pembelajaran mendalam, deep learning pendidikan, rencana pembelajaran mendalam, rpm kurikulum merdeka, rppm, kbc kemenag, ai guru indonesia";
 
@@ -47,7 +48,7 @@ const dlFaqs = [
   },
   {
     question: "Bagaimana GuruDokAI membantu guru mengadopsi Deep Learning?",
-    answer: "Sebagai pelopor <strong>AI Pendidikan Indonesia</strong>, GuruDokAI menyediakan generator otomatis untuk menyusun <strong>RPM (Rencana Pembelajaran Mendalam)</strong> dan <strong>RPPM</strong> berbasis pilar Deep Learning secara instan."
+    answer: "GuruDokAI menyediakan generator otomatis untuk menyusun <strong>RPM (Rencana Pembelajaran Mendalam)</strong> dan <strong>RPPM</strong> berbasis pilar Deep Learning secara instan."
   },
   {
     question: "Apakah Pembelajaran Mendalam ini relevan untuk guru madrasah?",
@@ -125,7 +126,7 @@ const dlSteps = [
   <Header />
   <main>
     <Hero 
-      badge="Pedagogi Deep Learning #1"
+      badge="Pedagogi Pembelajaran Mendalam"
       titleHtml="Penerapan Pembelajaran Mendalam <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>(Deep Learning) dengan Asisten AI</span>"
       description="Pelajari cara mengimplementasikan prinsip Pembelajaran Mendalam (Deep Learning) di kelas menggunakan asisten kecerdasan buatan GuruDokAI."
       mapel="Ilmu Pengetahuan Alam (IPA)"
@@ -235,6 +236,13 @@ const dlSteps = [
 
     <!-- CTA Section -->
     <CTAFinal />
+  <RelatedLinks
+    links={[
+        { href: "/knowledge/apa-itu-rpm/", label: "Apa itu Rencana Pembelajaran Mendalam (RPM)", note: "Dokumen perencanaan resmi yang menerjemahkan prinsip pembelajaran mendalam." },
+        { href: "/rencana-pembelajaran-mendalam/", label: "Format dan Struktur RPM", note: "Komponen dokumen RPM beserta contoh susunannya." },
+        { href: "/knowledge/cara-menyusun-modul-ajar-deep-learning/", label: "Cara Menyusun Modul Ajar Deep Learning", note: "Langkah praktis menurunkan prinsip deep learning ke modul ajar." }
+    ]}
+  />
   </main>
   <Footer />
 </BaseLayout>

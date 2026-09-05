@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "SiKelas — Aplikasi Manajemen Kelas Digital untuk Guru";
+const description = "SiKelas menghubungkan guru, siswa, dan orang tua untuk manajemen serta komunikasi kelas melalui kode kelas 6 digit tanpa proses email dan password.";
+const keywords = "SiKelas, aplikasi manajemen kelas, aplikasi kelas digital guru, komunikasi guru dan orang tua, aplikasi kelas untuk guru, kode kelas 6 digit";
+const canonicalUrl = "https://gurudokai.supathub.my.id/rekomendasi/sikelas/";
+const playStoreUrl = "https://play.google.com/store/apps/details?id=com.biraastudio.sikelas";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gurudokai.supathub.my.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Rekomendasi Aplikasi Guru",
+      "item": "https://gurudokai.supathub.my.id/rekomendasi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SiKelas",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SiKelas - Kelas Digital Guru",
+  "description": description,
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Android",
+  "url": canonicalUrl,
+  "downloadUrl": playStoreUrl,
+  "author": {
+    "@type": "Organization",
+    "name": "BiraaStudio"
+  },
+  "offers": {
+    "@type": "Offer",
+    "name": "Premium Guru Tahunan",
+    "price": "119000",
+    "priceCurrency": "IDR",
+    "url": playStoreUrl,
+    "description": "Premium Guru SiKelas selama 1 tahun.",
+    "eligibleDuration": {
+      "@type": "QuantitativeValue",
+      "value": 1,
+      "unitText": "tahun"
+    }
+  }
+};
+
+const faqs = [
+  {
+    q: "Apa itu SiKelas?",
+    a: "SiKelas adalah aplikasi manajemen kelas digital yang menghubungkan guru, siswa, dan orang tua menggunakan kode kelas 6 digit."
+  },
+  {
+    q: "SiKelas digunakan untuk apa?",
+    a: "SiKelas digunakan untuk mengelola komunikasi kelas, pengumuman, agenda, konfirmasi kolektif, tugas dan PR, Jurnal 7 Kebiasaan, izin tidak masuk, serta notifikasi kelas."
+  },
+  {
+    q: "Siapa yang dapat menggunakan SiKelas?",
+    a: "SiKelas ditujukan untuk guru SD, SMP, SMA, dan SMK, wali kelas, siswa, serta orang tua."
+  },
+  {
+    q: "Apakah SiKelas membutuhkan email dan password?",
+    a: "Anggota dapat bergabung ke kelas tanpa proses email dan password dengan menggunakan kode kelas 6 digit. Ini tidak berarti SiKelas tidak memiliki mekanisme identitas akun."
+  },
+  {
+    q: "Apa itu kode kelas 6 digit?",
+    a: "Kode kelas 6 digit adalah kode yang digunakan anggota untuk bergabung ke kelas milik guru di SiKelas."
+  },
+  {
+    q: "Apakah SiKelas bisa digunakan guru, siswa, dan orang tua?",
+    a: "Ya. Satu aplikasi mendukung Guru, Siswa, dan Orang Tua dengan tampilan sesuai peran masing-masing."
+  },
+  {
+    q: "Apa saja fitur SiKelas?",
+    a: "Fitur SiKelas mencakup Pengumuman Kelas, Agenda dan Jadwal, Konfirmasi Kolektif, Tugas dan PR, Jurnal 7 Kebiasaan, Izin Tidak Masuk, Notifikasi Kelas, serta laporan PDF Premium."
+  },
+  {
+    q: "Apa itu Jurnal 7 Kebiasaan?",
+    a: "Jurnal 7 Kebiasaan adalah fitur pencatatan perkembangan kebiasaan siswa: bangun pagi, beribadah, olahraga, makan sehat, belajar, bermasyarakat, dan tidur cepat."
+  },
+  {
+    q: "Apakah orang tua dapat memverifikasi jurnal anak?",
+    a: "Ya. Orang tua dapat membantu memverifikasi Jurnal 7 Kebiasaan anak."
+  },
+  {
+    q: "Apakah orang tua bisa mengajukan izin tidak masuk?",
+    a: "Ya. Orang tua dapat mengajukan izin ketidakhadiran anak dan memberikan keterangan. Guru dapat melihat, menyetujui, atau menolak permohonan tersebut."
+  },
+  {
+    q: "Apakah SiKelas memiliki notifikasi?",
+    a: "Ya. Pengguna dapat menerima notifikasi untuk pengumuman, konfirmasi, dan pembaruan penting dari kelas."
+  },
+  {
+    q: "Apakah SiKelas memiliki laporan PDF?",
+    a: "Ya. Guru Premium dapat membuat laporan rekap kebiasaan kelas dan laporan per siswa dalam format PDF siap cetak."
+  },
+  {
+    q: "Berapa harga Premium SiKelas?",
+    a: "Premium Guru SiKelas berharga Rp119.000 per tahun. Tidak tersedia harga bulanan dalam informasi produk ini."
+  },
+  {
+    q: "Apakah siswa dan orang tua harus membayar?",
+    a: "Tidak. Penggunaan SiKelas untuk siswa dan orang tua gratis. Premium hanya ditujukan untuk guru."
+  },
+  {
+    q: "Bagaimana cara memulihkan akun setelah ganti HP?",
+    a: "Akun kelas dapat dipulihkan dengan kode pemulihan yang diberikan saat pertama kali bergabung."
+  },
+  {
+    q: "Apakah SiKelas merupakan LMS?",
+    a: "Tidak. SiKelas adalah aplikasi manajemen dan komunikasi kelas digital, bukan LMS lengkap, aplikasi nilai, CBT, pembuat soal, atau aplikasi administrasi guru seperti Rekap Guru."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const habits = ["Bangun pagi", "Beribadah", "Olahraga", "Makan sehat", "Belajar", "Bermasyarakat", "Tidur cepat"];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+
+  <main class="pt-24 bg-slate-50 min-h-screen">
+    <section class="bg-slate-950 text-white border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        <nav aria-label="Breadcrumb" class="mb-7 text-sm text-slate-400">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/" class="hover:text-white">Beranda</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/rekomendasi/" class="hover:text-white">Rekomendasi</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="font-semibold text-white">SiKelas</li>
+          </ol>
+        </nav>
+
+        <div class="max-w-4xl">
+          <p class="inline-flex px-3 py-1 rounded-full bg-violet-500/15 border border-violet-400/30 text-violet-200 text-xs font-bold uppercase tracking-wider mb-5">Manajemen Kelas Digital · Android</p>
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-5">SiKelas — Kelas Digital Guru</h1>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">Satu ruang kelas digital untuk menghubungkan Guru, Siswa, dan Orang Tua melalui pengumuman, agenda, konfirmasi, tugas, jurnal kebiasaan, serta izin tidak masuk.</p>
+          <div class="flex flex-wrap gap-3 mt-6 text-sm font-bold">
+            <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700">Guru + Siswa + Orang Tua</span>
+            <span class="px-4 py-2 rounded-xl bg-violet-500/15 border border-violet-400/30 text-violet-200">Kode kelas 6 digit</span>
+          </div>
+          <a href={playStoreUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center justify-center mt-7 px-6 py-3 rounded-full bg-violet-600 text-white font-bold hover:bg-violet-500 shadow-md">Lihat SiKelas di Google Play</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-14">
+      <section class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-6 items-stretch">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Apa Itu SiKelas?</h2>
+          <p class="text-slate-600 leading-relaxed mt-4">SiKelas adalah <strong>aplikasi manajemen kelas digital</strong> yang menghubungkan guru, siswa, dan orang tua. Anggota bergabung menggunakan kode kelas 6 digit tanpa proses email dan password yang rumit. Aplikasi ini dibuat untuk lingkungan sekolah Indonesia.</p>
+          <p class="text-slate-600 leading-relaxed mt-3">SiKelas berfokus pada manajemen dan komunikasi kelas. SiKelas bukan LMS lengkap, aplikasi nilai, CBT, pembuat soal, maupun aplikasi administrasi guru seperti Rekap Guru.</p>
+        </div>
+        <aside class="bg-violet-50 border border-violet-200 rounded-3xl p-6 sm:p-8">
+          <h2 class="text-xl font-extrabold text-violet-950">Ruang untuk Anggota Kelas</h2>
+          <p class="text-sm text-violet-900/80 leading-relaxed mt-3">Data digunakan untuk kebutuhan fitur kelas dan tidak ditampilkan ke luar anggota kelas. Pernyataan ini tidak berarti data tidak disimpan atau memakai perlindungan yang tidak disebutkan.</p>
+        </aside>
+      </section>
+
+      <section>
+        <div class="max-w-3xl mb-7">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Bagaimana SiKelas Menghubungkan Guru, Siswa, dan Orang Tua?</h2>
+          <p class="text-slate-600 mt-3">Satu aplikasi memberi tampilan sesuai peran. Setiap peran berinteraksi dalam kelas yang sama sesuai kebutuhannya.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <p class="text-xs font-extrabold uppercase tracking-wider text-violet-600">Peran 1</p>
+            <h3 class="text-xl font-extrabold text-slate-900 mt-2">Guru</h3>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">Mengelola pengumuman, agenda, konfirmasi, tugas, serta permohonan izin anggota kelas.</p>
+          </article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <p class="text-xs font-extrabold uppercase tracking-wider text-violet-600">Peran 2</p>
+            <h3 class="text-xl font-extrabold text-slate-900 mt-2">Siswa</h3>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">Melihat informasi dan agenda kelas, merespons konfirmasi, serta menandai tugas sebagai selesai.</p>
+          </article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <p class="text-xs font-extrabold uppercase tracking-wider text-violet-600">Peran 3</p>
+            <h3 class="text-xl font-extrabold text-slate-900 mt-2">Orang Tua</h3>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">Memantau tugas, membantu memverifikasi jurnal anak, serta mengajukan izin tidak masuk dengan keterangan.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-7">Fitur SiKelas</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Pengumuman Kelas</h3><p class="text-sm text-slate-600 mt-2">Guru mengirim pengumuman kepada anggota kelas, memasang pin pada informasi penting, dan merapikan informasi kelas.</p></article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Agenda & Jadwal</h3><p class="text-sm text-slate-600 mt-2">Guru mencatat jadwal ujian, pertemuan orang tua, dan kegiatan sekolah. Anggota melihat agenda yang akan datang.</p></article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Konfirmasi Kolektif</h3><p class="text-sm text-slate-600 mt-2">Guru membuat konfirmasi seperti “Sudah Ambil Raport?” atau “Hadir Rapat?” lalu memantau siapa yang sudah merespons.</p></article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Tugas & PR</h3><p class="text-sm text-slate-600 mt-2">Guru membuat dan membagikan tugas. Siswa menandai tugas sebagai selesai, sementara orang tua dapat ikut memantau.</p></article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Jurnal 7 Kebiasaan</h3><p class="text-sm text-slate-600 mt-2">Mencatat perkembangan tujuh kebiasaan siswa. Orang tua dapat membantu memverifikasi jurnal anak.</p></article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Izin Tidak Masuk</h3><p class="text-sm text-slate-600 mt-2">Orang tua mengajukan izin beserta keterangan. Guru melihat permohonan, keterangan, lalu menyetujui atau menolak.</p></article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Notifikasi Kelas</h3><p class="text-sm text-slate-600 mt-2">Pengguna menerima notifikasi saat ada pengumuman, konfirmasi, atau pembaruan penting dari kelas.</p></article>
+          <article class="bg-white border border-slate-200 rounded-2xl p-5"><h3 class="font-extrabold text-slate-900">Laporan PDF</h3><p class="text-sm text-slate-600 mt-2">Guru Premium membuat laporan rekap kebiasaan kelas dan laporan per siswa dalam PDF siap cetak.</p></article>
+        </div>
+      </section>
+
+      <section class="bg-slate-900 text-white rounded-3xl p-6 sm:p-9">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Bergabung dengan Kode Kelas 6 Digit</h2>
+        <p class="text-slate-300 mt-3 max-w-3xl">Kode kelas mempermudah anggota masuk ke ruang kelas tanpa proses email dan password yang rumit.</p>
+        <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-7">
+          <li class="bg-slate-800 border border-slate-700 rounded-2xl p-5"><span class="text-violet-300 font-extrabold">01</span><p class="text-sm text-slate-200 mt-2">Guru memiliki kelas di SiKelas.</p></li>
+          <li class="bg-slate-800 border border-slate-700 rounded-2xl p-5"><span class="text-violet-300 font-extrabold">02</span><p class="text-sm text-slate-200 mt-2">Anggota memakai kode kelas 6 digit untuk bergabung.</p></li>
+          <li class="bg-slate-800 border border-slate-700 rounded-2xl p-5"><span class="text-violet-300 font-extrabold">03</span><p class="text-sm text-slate-200 mt-2">Proses bergabung tidak memerlukan email dan password.</p></li>
+          <li class="bg-slate-800 border border-slate-700 rounded-2xl p-5"><span class="text-violet-300 font-extrabold">04</span><p class="text-sm text-slate-200 mt-2">Saat ganti HP, akun dipulihkan memakai kode pemulihan yang diberikan ketika pertama bergabung.</p></li>
+        </ol>
+      </section>
+
+      <section>
+        <div class="max-w-3xl">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Jurnal 7 Kebiasaan</h2>
+          <p class="text-slate-600 mt-3">Jurnal membantu pencatatan perkembangan kebiasaan siswa. Fitur ini bukan alat diagnosis kesehatan, pengukuran kesehatan, penilaian psikologis, atau diagnosis perilaku.</p>
+        </div>
+        <ol class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mt-6">
+          {habits.map((habit, index) => (
+            <li class="min-w-0 bg-white border border-violet-200 rounded-2xl p-4 text-center">
+              <span class="block text-xs font-extrabold text-violet-600 mb-2">{index + 1}</span>
+              <span class="text-sm font-bold text-slate-800 break-words">{habit}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="text-sm text-slate-600 mt-4">Orang tua dapat membantu memverifikasi jurnal anak.</p>
+      </section>
+
+      <section>
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Akses Gratis dan Premium Guru</h2>
+            <p class="text-slate-600 mt-2">Siswa dan orang tua gratis. Premium hanya untuk guru.</p>
+          </div>
+          <p class="text-lg font-extrabold text-violet-700">Premium Guru — Rp119.000/tahun</p>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+          <table class="w-full min-w-[620px] text-sm text-left">
+            <caption class="sr-only">Paket akses SiKelas untuk siswa, orang tua, dan guru</caption>
+            <thead class="bg-slate-900 text-white"><tr><th class="p-4">Paket</th><th class="p-4">Biaya</th><th class="p-4">Keterangan</th></tr></thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr><th scope="row" class="p-4 font-bold text-slate-900">Siswa</th><td class="p-4">Gratis</td><td class="p-4">Akses sesuai peran siswa</td></tr>
+              <tr><th scope="row" class="p-4 font-bold text-slate-900">Orang Tua</th><td class="p-4">Gratis</td><td class="p-4">Akses sesuai peran orang tua</td></tr>
+              <tr><th scope="row" class="p-4 font-bold text-slate-900">Guru Free</th><td class="p-4">—</td><td class="p-4">Fitur dasar manajemen kelas</td></tr>
+              <tr><th scope="row" class="p-4 font-bold text-slate-900">Guru Premium</th><td class="p-4 font-bold text-violet-700">Rp119.000/tahun</td><td class="p-4">Laporan PDF, analitik detail kebiasaan, riwayat lebih panjang, dan kelas aktif lebih banyak</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-5 text-sm text-slate-700">
+          <p class="bg-violet-50 border border-violet-200 rounded-xl p-4">Laporan PDF rekap kebiasaan kelas dan per siswa</p>
+          <p class="bg-violet-50 border border-violet-200 rounded-xl p-4">Analitik detail kebiasaan setiap siswa</p>
+          <p class="bg-violet-50 border border-violet-200 rounded-xl p-4">Riwayat data lebih panjang</p>
+          <p class="bg-violet-50 border border-violet-200 rounded-xl p-4">Kelas aktif lebih banyak</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Siapa yang Cocok Menggunakan SiKelas?</h2>
+        <p class="text-slate-600 mt-3">SiKelas dirancang untuk guru SD, SMP, SMA, dan SMK, wali kelas, siswa, serta orang tua yang memerlukan komunikasi dan manajemen kelas digital dalam satu aplikasi.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Pertanyaan tentang SiKelas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-7">
+          {faqs.map((faq) => (
+            <details class="group bg-white border border-slate-200 rounded-2xl p-5 open:border-violet-300">
+              <summary class="font-bold text-slate-900 cursor-pointer marker:text-violet-600">{faq.q}</summary>
+              <p class="text-sm text-slate-600 leading-relaxed mt-3">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="bg-slate-950 text-white rounded-3xl p-6 sm:p-9">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Aplikasi Lain dalam Ekosistem</h2>
+        <p class="text-slate-300 mt-2">Setiap aplikasi menangani kebutuhan pendidikan yang berbeda.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+          <article class="p-4 bg-slate-900 border border-slate-700 rounded-xl"><a href="/rekomendasi/siajar/" class="font-bold text-violet-300 hover:underline">SiAjar</a><p class="text-xs text-slate-300 mt-2">AI untuk membuat Modul Ajar dan berbagai administrasi pembelajaran.</p></article>
+          <article class="p-4 bg-slate-900 border border-slate-700 rounded-xl"><a href="/rekomendasi/rekap-guru/" class="font-bold text-violet-300 hover:underline">Rekap Guru</a><p class="text-xs text-slate-300 mt-2">Pencatatan data siswa, absensi, nilai, jurnal, dan rekap administrasi kelas.</p></article>
+          <article class="p-4 bg-slate-900 border border-slate-700 rounded-xl"><a href="/rekomendasi/siujian/" class="font-bold text-violet-300 hover:underline">SiUjian</a><p class="text-xs text-slate-300 mt-2">Secure Exam Browser untuk mengunci akses siswa dan memonitor ujian online.</p></article>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+          <article class="p-4 bg-slate-900 border border-slate-700 rounded-xl"><a href="/rekomendasi/perbandingan-aplikasi-guru/" class="font-bold text-violet-300 hover:underline">Perbandingan Aplikasi Guru</a><p class="text-xs text-slate-300 mt-2">Tabel perbedaan fungsi, pengguna, platform, dan biaya keempat aplikasi.</p></article>
+        </div>
+        <a href="/rekomendasi/" class="inline-flex mt-6 text-sm font-bold text-white hover:text-violet-200 underline underline-offset-4">Kembali ke pusat rekomendasi aplikasi guru</a>
+      </section>
+
+      <section class="text-center bg-white border border-violet-200 rounded-3xl p-7 sm:p-10 shadow-sm">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Lihat SiKelas di Google Play</h2>
+        <p class="text-sm text-slate-600 mt-2 mb-5">Buka halaman resmi SiKelas untuk perangkat Android.</p>
+        <a href={playStoreUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center justify-center px-7 py-3 rounded-full bg-violet-600 text-white font-bold hover:bg-violet-500 shadow-md">Lihat SiKelas di Google Play</a>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

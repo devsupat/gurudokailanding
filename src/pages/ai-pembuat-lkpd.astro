@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { breadcrumbSchema, faqPageSchema } from '../lib/schema';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Pricing from '../components/Pricing.astro';
@@ -10,7 +11,7 @@ import Footer from '../components/Footer.astro';
 
 // Custom SEO Meta Data
 const title = "AI Pembuat LKPD Otomatis Kurikulum Merdeka | GuruDokAI";
-const description = "Buat Lembar Kerja Murid (LKPD) interaktif secara otomatis dengan kecerdasan buatan. Generator LKPD AI siap cetak lengkap dengan panduan aktivitas, soal latihan, dan kunci jawaban.";
+const description = "Buat LKPD (Lembar Kerja Murid) interaktif otomatis dengan AI, siap cetak lengkap dengan panduan aktivitas, soal latihan, dan kunci jawaban.";
 const keywords = "ai pembuat lkpd, pembuat lkpd otomatis, generator lkpd, lembar kerja siswa pdf, buat lkpd kurikulum merdeka, lkpd interaktif ai";
 
 // Custom FAQ for LKPD Page
@@ -93,11 +94,15 @@ const lkpdSteps = [
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Schema Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema([["AI Pembuat LKPD", "/ai-pembuat-lkpd/"]]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema(lkpdFaqs))} />
+
   <Header />
   <main>
     <!-- Custom Hero for LKPD -->
     <Hero 
-      badge="AI Pembuat LKPD Terpopuler #1"
+      badge="AI Pembuat LKPD Interaktif"
       titleHtml="Buat Lembar Kerja Siswa (LKPD) <br class='hidden sm:inline' /> <span class='text-brand-primary bg-gradient-to-r from-brand-primary to-brand-dark bg-clip-text text-transparent'>Otomatis & Kreatif</span>"
       description="Hasilkan LKPD (Lembar Kerja Murid) interaktif, lembar eksperimen, dan kuis mandiri yang siap diunduh dan dicetak untuk murid Anda."
       mapel="Bahasa Inggris"

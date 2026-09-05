@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const title = "Apa itu Rencana Pembelajaran Mendalam (RPM)? Panduan Lengkap | GuruDokAI";
+const title = "Apa itu Rencana Pembelajaran Mendalam (RPM)? | GuruDokAI";
 const description = "Temukan definisi Rencana Pembelajaran Mendalam (RPM) Kurikulum Merdeka, penjelasan 3 pilar utama Pembelajaran Mendalam, serta contoh penerapannya di kelas.";
 const keywords = "apa itu rpm, rencana pembelajaran mendalam, rpp kurikulum merdeka, pembelajaran mendalam, deep learning pendidikan, gurudokai";
 
@@ -133,6 +134,13 @@ const breadcrumbSchema = {
         </p>
       </article>
     </div>
+  <RelatedLinks
+    links={[
+        { href: "/rencana-pembelajaran-mendalam/", label: "Format dan Struktur RPM", note: "Rincian komponen dan susunan dokumen Rencana Pembelajaran Mendalam sebelum Anda menyusunnya." },
+        { href: "/knowledge/perbedaan-rpp-rpm-rppm/", label: "Perbedaan RPP, RPM, dan RPPM", note: "Penjelasan batas antara ketiga dokumen perencanaan agar tidak tertukar saat menyusun administrasi." },
+        { href: "/pembelajaran-mendalam/", label: "Pembelajaran Mendalam (Deep Learning) di Kelas", note: "Prinsip pedagogi yang mendasari RPM: mindful, meaningful, dan joyful learning." }
+    ]}
+  />
   </main>
   <Footer />
 </BaseLayout>
