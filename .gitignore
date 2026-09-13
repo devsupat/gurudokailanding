@@ -28,3 +28,5 @@ graphify-out/
 
 # stray build output
 dist2/
+dist-stale/
+distcheck/
