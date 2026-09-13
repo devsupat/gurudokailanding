@@ -10,7 +10,7 @@ const htmlFiles = [];
   for (const e of readdirSync(dir)) {
     const p = join(dir, e);
     if (statSync(p).isDirectory()) walk(p);
-    else if (e.endsWith('.html')) htmlFiles.push(p);
+    else if (e.endsWith('.html') && e !== '404.html') htmlFiles.push(p);
   }
 })(dist);
 

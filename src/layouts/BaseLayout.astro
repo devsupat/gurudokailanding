@@ -7,13 +7,17 @@ interface Props {
   description?: string;
   keywords?: string;
   robots?: string;
+  /** Set on pages that have no real URL of their own (the 404 body is served
+   *  for arbitrary paths), so we don't point a canonical at a URL that 404s. */
+  noCanonical?: boolean;
 }
 
 const {
   title = "GuruDokAI — AI Pembuat RPP, Modul Ajar & LKPD",
   description = "GuruDokAI membantu guru Indonesia menyusun RPP, RPM, RPPM, Modul Ajar, LKPD, dan administrasi pembelajaran berbasis AI sesuai Kurikulum Merdeka secara otomatis.",
   keywords = "sistem administrasi pembelajaran guru, aplikasi administrasi guru, AI untuk guru, RPP Kurikulum Merdeka, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, RPP Cinta Kemenag, RPM Kemendikdasmen, LKPD Interaktif, GuruDokAI",
-  robots = "index, follow"
+  robots = "index, follow",
+  noCanonical = false
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gurudokai.supathub.my.id');
@@ -133,7 +137,7 @@ const homeGraph = {
     <meta name="robots" content={robots} />
     <meta name="google-site-verification" content="VEz9elfN0FKuf0PQrs0Fk4KB42m7dEK_hMOaX_BYn_k" />
     <meta name="msvalidate.01" content="8B756066EF5115180B395DB4B2F92565" />
-    <link rel="canonical" href={canonicalURL} />
+    {!noCanonical && <link rel="canonical" href={canonicalURL} />}
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

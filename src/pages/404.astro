@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Cloudflare Pages serves this file with a real HTTP 404 status. Without it,
+// every unknown URL returned 200 with a copy of the homepage — a soft 404 that
+// creates unlimited duplicate URLs all canonicalising to "/".
+const title = "Halaman Tidak Ditemukan (404) | GuruDokAI";
+const description = "Halaman yang Anda cari tidak tersedia di GuruDokAI. Gunakan tautan di bawah untuk kembali ke beranda, daftar fitur, atau Knowledge Center.";
+---
+
+<BaseLayout title={title} description={description} robots="noindex, follow" noCanonical>
+  <Header />
+  <main class="pt-32 pb-24">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <p class="text-sm font-bold uppercase tracking-widest text-brand-primary">Error 404</p>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Halaman Tidak Ditemukan</h1>
+      <p class="text-lg text-gray-600 font-medium">
+        Alamat yang Anda buka tidak tersedia atau sudah dipindahkan. Silakan lanjutkan melalui salah satu tautan berikut.
+      </p>
+      <nav class="flex flex-wrap justify-center gap-3 pt-2">
+        <a href="/" class="inline-flex items-center px-5 py-2.5 text-sm font-bold text-white bg-brand-dark hover:bg-emerald-800 rounded-full">Beranda</a>
+        <a href="/fitur/" class="inline-flex items-center px-5 py-2.5 text-sm font-bold text-gray-700 bg-slate-100 hover:bg-slate-200 rounded-full">Fitur</a>
+        <a href="/rekomendasi/" class="inline-flex items-center px-5 py-2.5 text-sm font-bold text-gray-700 bg-slate-100 hover:bg-slate-200 rounded-full">Rekomendasi Aplikasi</a>
+        <a href="/knowledge/" class="inline-flex items-center px-5 py-2.5 text-sm font-bold text-gray-700 bg-slate-100 hover:bg-slate-200 rounded-full">Knowledge Center</a>
+        <a href="/tentang/" class="inline-flex items-center px-5 py-2.5 text-sm font-bold text-gray-700 bg-slate-100 hover:bg-slate-200 rounded-full">Tentang Kami</a>
+      </nav>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -7,6 +7,7 @@ import { SITE } from '../lib/schema';
 // ponytail: no lastmod — an honest one needs full git history, which the CI
 // shallow clone does not have. Add it back if per-URL recrawl timing matters.
 const routes = Object.keys(import.meta.glob('./**/*.astro'))
+  .filter((f) => f !== './404.astro')
   .map((f) => f.replace(/^\.\//, '').replace(/\.astro$/, '').replace(/(^|\/)index$/, ''))
   .map((p) => (p ? `/${p}/` : '/'))
   .sort();
