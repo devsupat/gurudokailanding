@@ -74,6 +74,26 @@ export const homeFaqs: Faq[] = [
   {
     question: "Kalau ada pertanyaan, bisa hubungi siapa?",
     answer: "Tim bantuan GuruDokAI siap mendampingi Anda. Anda bisa langsung menghubungi CS kami melalui <a href=\"https://wa.me/6285189536359?text=Halo%20GuruDokAI,%20saya%20butuh%20bantuan\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">WhatsApp di sini</a>."
+  },
+  {
+    question: "Berapa harga CBT Sekolah?",
+    answer: "Harga <strong>CBT Sekolah</strong> adalah <strong>Rp 100.000 — Sekali Bayar (Lifetime)</strong>. Tidak ada biaya langganan bulanan maupun tahunan."
+  },
+  {
+    question: "Apakah ada biaya bulanan untuk CBT Sekolah?",
+    answer: "Tidak ada. Produk <strong>CBT Sekolah</strong> ditawarkan dengan sistem <strong>pembayaran satu kali</strong> tanpa biaya berlangganan."
+  },
+  {
+    question: "Fitur utama apa saja yang ada pada CBT Sekolah?",
+    answer: "CBT Sekolah memiliki fitur lengkap meliputi <strong>Panel Admin/Guru</strong>, <strong>Data Siswa</strong> (termasuk import Excel), <strong>Bank Soal</strong> (pilihan tunggal & kompleks dengan gambar), <strong>Kontrol Ujian</strong>, <strong>Live Student Monitoring</strong>, <strong>Monitoring Pelanggaran & Reset Login</strong>, <strong>Recovery Koneksi</strong>, serta <strong>Rekap Nilai</strong> instan dalam format Excel (XLSX) dan PDF."
+  },
+  {
+    question: "Apakah setiap sekolah mendapatkan ruang CBT sendiri?",
+    answer: "Ya. Setiap sekolah dikonfigurasi mendapatkan <strong>ruang/tenant CBT sendiri</strong> dengan Google Sheets dan Google Drive milik sekolah sendiri."
+  },
+  {
+    question: "Bagaimana proses setelah melakukan pembayaran CBT Sekolah?",
+    answer: "Setelah melakukan pembayaran Rp 100.000 via QRIS dan mengirim bukti transfer ke WhatsApp admin, proses setup dan konfigurasi tenant CBT sekolah Anda akan dibantu hingga siap digunakan."
   }
 ];
 
