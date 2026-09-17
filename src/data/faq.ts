@@ -17,7 +17,7 @@ export const homeFaqs: Faq[] = [
   },
   {
     question: "Apa yang tidak dilakukan GuruDokAI?",
-    answer: "GuruDokAI menyusun draf dokumen pembelajaran. GuruDokAI <strong>bukan LMS</strong>, <strong>bukan sistem CBT atau ujian online</strong>, dan <strong>bukan aplikasi absensi maupun penilaian siswa</strong>. Untuk kebutuhan tersebut, lihat <a href=\"/rekomendasi/\" class=\"text-brand-primary hover:underline font-bold\">rekomendasi aplikasi guru</a> seperti Rekap Guru untuk administrasi kelas dan SiUjian untuk ujian dalam mode terkunci."
+    answer: "Aplikasi desktop GuruDokAI menyusun draf dokumen pembelajaran. Aplikasi itu sendiri <strong>bukan LMS</strong>, <strong>bukan sistem CBT</strong>, dan <strong>bukan aplikasi absensi maupun penilaian siswa</strong>. Untuk ujian online, kami menyediakan produk terpisah <a href=\"/#cbt\" class=\"text-brand-primary hover:underline font-bold\">CBT Sekolah</a>. Untuk kebutuhan lain, lihat <a href=\"/rekomendasi/\" class=\"text-brand-primary hover:underline font-bold\">rekomendasi aplikasi guru</a> seperti Rekap Guru untuk administrasi kelas dan SiUjian untuk ujian dalam mode terkunci."
   },
   {
     question: "Apakah GuruDokAI memiliki aplikasi Android dan Windows?",
@@ -74,6 +74,22 @@ export const homeFaqs: Faq[] = [
   {
     question: "Kalau ada pertanyaan, bisa hubungi siapa?",
     answer: "Tim bantuan GuruDokAI siap mendampingi Anda. Anda bisa langsung menghubungi CS kami melalui <a href=\"https://wa.me/6285189536359?text=Halo%20GuruDokAI,%20saya%20butuh%20bantuan\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">WhatsApp di sini</a>."
+  },
+  {
+    question: "Apa itu CBT Sekolah?",
+    answer: "<strong>CBT Sekolah</strong> adalah aplikasi <strong>ujian online</strong> berbasis web (Computer Based Test) untuk sekolah. Guru dan operator mengelola data siswa, bank soal, sesi ujian, serta rekap nilai dari satu panel admin, sementara siswa mengerjakan ujian lewat browser di komputer atau HP. Lihat <a href=\"/#cbt\" class=\"text-brand-primary hover:underline font-bold\">CBT Sekolah</a>."
+  },
+  {
+    question: "Bagaimana cara mencoba demo CBT Sekolah?",
+    answer: "Demo dapat dicoba gratis tanpa membeli terlebih dahulu, baik dari sisi guru maupun sisi siswa, melalui tautan <a href=\"/#cbt-demo\" class=\"text-brand-primary hover:underline font-bold\">Coba Demo CBT</a> pada halaman ini. Tersedia juga <a href=\"https://drive.google.com/file/d/1f1QBnSFPapSkVWOiaPp3G7B8ZSEWrnz1/view\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-brand-primary hover:underline font-bold\">Panduan CBT Guru (PDF)</a> yang menjelaskan langkah pengelolaan ujian dari awal."
+  },
+  {
+    question: "Apakah CBT Sekolah bisa dipakai siswa lewat HP?",
+    answer: "Bisa. Siswa mengerjakan ujian melalui <strong>portal login siswa</strong> di browser, sehingga dapat dijalankan dari komputer sekolah maupun HP siswa selama terhubung internet. Jika koneksi terputus, jawaban dipulihkan melalui fitur <strong>recovery koneksi</strong> dan ujian dapat dilanjutkan."
+  },
+  {
+    question: "Apakah data siswa bisa diimpor dari Excel dan hasil ujian diekspor?",
+    answer: "Ya. Data siswa dapat <strong>diimpor dari Excel</strong>, dan hasil ujian dapat diunduh sebagai <strong>rekap nilai</strong> dalam format <strong>Excel (XLSX)</strong> maupun <strong>PDF</strong> segera setelah ujian selesai."
   },
   {
     question: "Berapa harga CBT Sekolah?",

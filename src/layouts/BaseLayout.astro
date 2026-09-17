@@ -14,8 +14,8 @@ interface Props {
 
 const {
   title = "GuruDokAI — AI Pembuat RPP, Modul Ajar & LKPD",
-  description = "GuruDokAI membantu guru Indonesia menyusun RPP, RPM, RPPM, Modul Ajar, LKPD, dan administrasi pembelajaran berbasis AI sesuai Kurikulum Merdeka secara otomatis.",
-  keywords = "sistem administrasi pembelajaran guru, aplikasi administrasi guru, AI untuk guru, RPP Kurikulum Merdeka, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, RPP Cinta Kemenag, RPM Kemendikdasmen, LKPD Interaktif, GuruDokAI",
+  description = "GuruDokAI membantu guru Indonesia menyusun RPP, RPM, Modul Ajar, dan LKPD berbasis AI sesuai Kurikulum Merdeka. Tersedia juga CBT Sekolah untuk ujian online, sekali bayar Rp100.000.",
+  keywords = "sistem administrasi pembelajaran guru, aplikasi administrasi guru, AI untuk guru, RPP Kurikulum Merdeka, aplikasi modul ajar, generator modul ajar, generator ATP, generator KKTP, RPP Cinta Kemenag, RPM Kemendikdasmen, LKPD Interaktif, CBT Sekolah, aplikasi ujian online sekolah, GuruDokAI",
   robots = "index, follow",
   noCanonical = false
 } = Astro.props;
@@ -105,11 +105,47 @@ const homeGraph = {
         }
       ],
       "isRelatedTo": [
+        { "@type": "SoftwareApplication", "name": "CBT Sekolah", "url": `${SITE}/#cbt` },
         { "@type": "SoftwareApplication", "name": "SiAjar", "url": `${SITE}/rekomendasi/siajar/` },
         { "@type": "SoftwareApplication", "name": "Rekap Guru", "url": `${SITE}/rekomendasi/rekap-guru/` },
         { "@type": "SoftwareApplication", "name": "SiUjian", "url": `${SITE}/rekomendasi/siujian/` },
         { "@type": "SoftwareApplication", "name": "SiKelas", "url": `${SITE}/rekomendasi/sikelas/` }
       ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${SITE}/#cbt-sekolah`,
+      "name": "CBT Sekolah",
+      "alternateName": "CBT Sekolah GuruDokAI",
+      "url": `${SITE}/#cbt`,
+      "description": "Aplikasi CBT (Computer Based Test) untuk ujian online sekolah: data siswa, bank soal, kontrol sesi ujian, monitoring siswa secara langsung, dan rekap nilai otomatis dalam format Excel dan PDF. Setiap sekolah memakai tenant sendiri.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web browser",
+      "inLanguage": "id-ID",
+      "publisher": { "@id": `${SITE}/#organization` },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "teacher",
+        "audienceType": "Guru, wali kelas, dan operator sekolah di Indonesia"
+      },
+      "featureList": [
+        "Panel admin dan guru",
+        "Data siswa dengan import Excel",
+        "Bank soal pilihan tunggal dan pilihan kompleks dengan gambar",
+        "Kontrol buka dan tutup sesi ujian",
+        "Live student monitoring",
+        "Monitoring pelanggaran dan reset login siswa",
+        "Recovery koneksi dan auto-submit",
+        "Rekap nilai instan format XLSX dan PDF"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "name": "CBT Sekolah — Sekali Bayar (Lifetime)",
+        "price": "100000",
+        "priceCurrency": "IDR",
+        "url": `${SITE}/#cbt-harga`,
+        "availability": "https://schema.org/InStock"
+      }
     },
     {
       "@type": "FAQPage",

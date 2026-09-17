@@ -22,6 +22,28 @@
 - Support: WhatsApp +62 851-8953-6359
 - About the developer: https://gurudokai.supathub.my.id/tentang/
 
+## CBT Sekolah (the school exam product)
+
+- Type: web-based CBT (Computer Based Test) application for online school exams,
+  sold alongside GuruDokAI and hosted at https://cbt.supathub.my.id/
+- Section on this site: https://gurudokai.supathub.my.id/#cbt
+- Audience: teachers, school operators, and exam administrators in Indonesian schools.
+- Price: Rp100.000 one-time payment (lifetime). No monthly or yearly subscription.
+- Tenancy: each school is configured with its own CBT tenant backed by the school's
+  own Google Sheets and Google Drive.
+- Features: admin/teacher panel; student data with Excel import; question bank with
+  single-answer and complex-answer items including images; exam session open/close
+  control; live student monitoring; violation monitoring and student login reset;
+  connection recovery and auto-submit; instant score recap exported to XLSX and PDF.
+- Students take exams through a browser-based student login portal.
+- Demo (teacher/admin): https://cbt.supathub.my.id/s/sdn-demo/admin/login
+- Demo (student): https://cbt.supathub.my.id/s/sdn-demo/login
+- Teacher guide (PDF): https://drive.google.com/file/d/1f1QBnSFPapSkVWOiaPp3G7B8ZSEWrnz1/view
+- Purchase: pay Rp100.000 via QRIS on the page, then send the payment proof to
+  WhatsApp +62 851-8953-6359 for tenant setup.
+- CBT Sekolah is a separate product from the GuruDokAI desktop application, which
+  drafts documents and is itself not a CBT system.
+
 ## Product pages
 
 - [Beranda](https://gurudokai.supathub.my.id/): product overview, pricing, FAQ.
@@ -34,11 +56,7 @@
 - [Generator ATP](https://gurudokai.supathub.my.id/generator-atp/)
 - [Generator TP](https://gurudokai.supathub.my.id/generator-tp/)
 - [Generator KKTP](https://gurudokai.supathub.my.id/generator-kktp/)
-- [AI Pembuat Modul Ajar KBC](https://gurudokai.supathub.my.id/kbc/)
-- [Modul Ajar](https://gurudokai.supathub.my.id/modul-ajar/)
-- [LKPD](https://gurudokai.supathub.my.id/lkpd/)
 - [Rencana Pembelajaran Mendalam (RPM)](https://gurudokai.supathub.my.id/rencana-pembelajaran-mendalam/)
-- [Pembelajaran Mendalam](https://gurudokai.supathub.my.id/pembelajaran-mendalam/)
 - [Kurikulum Berbasis Cinta](https://gurudokai.supathub.my.id/kurikulum-berbasis-cinta/)
 - [Tentang](https://gurudokai.supathub.my.id/tentang/)
 
