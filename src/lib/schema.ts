@@ -36,3 +36,43 @@ export function faqPageSchema(faqs: Faq[]) {
     })),
   };
 }
+
+export interface ArticleSchemaOptions {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  author?: string;
+}
+
+export function articleSchema(opts: ArticleSchemaOptions) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${opts.url}#article`,
+    headline: opts.title,
+    description: opts.description,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': opts.url,
+    },
+    url: opts.url,
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified || opts.datePublished,
+    inLanguage: 'id-ID',
+    author: {
+      '@type': 'Person',
+      '@id': `${SITE}/tentang/#person`,
+      name: opts.author || 'Ahmad Saoghi',
+      url: `${SITE}/tentang/`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${SITE}/#organization`,
+      name: 'GuruDokAI',
+      url: `${SITE}/`,
+      logo: `${SITE}/og-image.png`,
+    },
+  };
+}

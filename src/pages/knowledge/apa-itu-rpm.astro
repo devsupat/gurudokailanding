@@ -4,6 +4,8 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
+import { articleSchema } from '../../lib/schema';
+
 const title = "Apa itu Rencana Pembelajaran Mendalam (RPM)? | GuruDokAI";
 const description = "Temukan definisi Rencana Pembelajaran Mendalam (RPM) Kurikulum Merdeka, penjelasan 3 pilar utama Pembelajaran Mendalam, serta contoh penerapannya di kelas.";
 const keywords = "apa itu rpm, rencana pembelajaran mendalam, rpp kurikulum merdeka, pembelajaran mendalam, deep learning pendidikan, gurudokai";
@@ -35,11 +37,22 @@ const breadcrumbSchema = {
     }
   ]
 };
+
+// Article Schema
+const pageArticleSchema = articleSchema({
+  title,
+  description,
+  url: pageUrl,
+  datePublished: "2026-07-10T00:00:00.000Z",
+  dateModified: "2026-07-10T00:00:00.000Z",
+  author: "Ahmad Saoghi"
+});
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
   <!-- Schema Injection -->
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(pageArticleSchema)} />
 
   <Header />
   <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
@@ -52,23 +65,23 @@ const breadcrumbSchema = {
         </a>
         <div class="flex items-center gap-2 mb-3">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Konsep Kurikulum</span>
-          <span class="text-xs text-gray-500 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+          <span class="text-xs text-gray-500 font-semibold">Penulis: <a href="/tentang/" class="text-gray-700 hover:underline font-bold">Ahmad Saoghi</a> • 10 Juli 2026</span>
         </div>
         <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
           Apa itu Rencana Pembelajaran Mendalam (RPM)? Panduan Lengkap untuk Guru Indonesia
         </h1>
         <p class="text-lg text-gray-500 font-medium italic">
-          Ketahui konsep dasar RPM, implementasi 3 pilar Deep Learning di sekolah, dan bagaimana asisten AI membantu guru melakukan transisi ini secara praktis.
+          Rencana Pembelajaran Mendalam (RPM) adalah dokumen perencanaan pembelajaran berbasis pendekatan Deep Learning (Mindful, Meaningful, dan Joyful Learning) untuk menciptakan pembelajaran bermakna dan berorientasi pada pemahaman konsep murid.
         </p>
       </div>
 
       <!-- Article Body Content -->
       <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
         <p>
-          Dalam perkembangan kurikulum pendidikan di Indonesia, administrasi guru terus mengalami penyempurnaan demi meningkatkan kualitas pembelajaran murid di kelas. Salah satu istilah yang kini ramai dibahas oleh para pendidik adalah <strong>RPM (Rencana Pembelajaran Mendalam)</strong>.
+          <strong>Rencana Pembelajaran Mendalam (RPM)</strong> adalah dokumen perencanaan pembelajaran Kurikulum Merdeka yang disusun berbasis pendekatan <strong>Pembelajaran Mendalam (Deep Learning)</strong>. RPM memfokuskan alur mengajar pada pemahaman konsep yang mendalam, bernalar kritis, serta pembentukan karakter murid melalui tiga pilar utama: <em>Mindful Learning</em>, <em>Meaningful Learning</em>, dan <em>Joyful Learning</em>.
         </p>
         <p>
-          RPM hadir sebagai evolusi lanjutan dari <strong>RPP Kurikulum Merdeka</strong>. Jika RPP konvensional cenderung berfokus pada penyelesaian administratif dan urutan instruksional guru secara kaku, RPM dirancang secara khusus untuk mewadahi pendekatan <strong>Pembelajaran Mendalam (Deep Learning)</strong>.
+          RPM hadir sebagai penyempurnaan RPP konvensional. Jika RPP konvensional lebih berfokus pada pemenuhan aspek administratif dan urutan instruksional guru secara kaku, RPM dirancang untuk menciptakan skenario kelas yang interaktif dan berpusat pada pengalaman belajar murid. Simak juga <a href="/knowledge/perbedaan-rpp-rpm-rppm/" class="text-brand-primary hover:underline font-bold">perbedaan mendasar RPP, RPM, dan RPPM</a> agar tidak tertukar dalam penyusunannya.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Mengenal 3 Pilar Utama Pembelajaran Mendalam</h2>

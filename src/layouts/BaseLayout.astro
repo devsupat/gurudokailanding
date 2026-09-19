@@ -44,7 +44,17 @@ const homeGraph = {
         "jobTitle": "Founder & Lead Developer GuruDokAI",
         "url": `${SITE}/tentang/`
       },
-      "sameAs": ["https://play.google.com/store/apps/dev?id=8704276077631485252"]
+      "sameAs": [
+        "https://play.google.com/store/apps/dev?id=8704276077631485252",
+        "https://lynk.id/oghiezr"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+62-851-8953-6359",
+        "contactType": "customer support",
+        "areaServed": "ID",
+        "availableLanguage": "id"
+      }
     },
     {
       "@type": "WebSite",
@@ -181,8 +191,12 @@ const homeGraph = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="GuruDokAI — AI administrasi guru Indonesia" />
     <meta property="og:site_name" content="GuruDokAI" />
     <meta property="og:locale" content="id_ID" />
+    <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

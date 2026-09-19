@@ -4,6 +4,8 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
+import { articleSchema } from '../../lib/schema';
+
 const title = "Cara Menyusun Modul Ajar Sesuai Prinsip Deep Learning | GuruDokAI";
 const description = "Panduan praktis menulis modul ajar berbasis Pembelajaran Mendalam (Deep Learning) Kurikulum Merdeka. Contoh integrasi KKTP dan LKPD secara lengkap.";
 const keywords = "modul ajar deep learning, cara menyusun modul ajar, rencana pembelajaran mendalam, lkpd, kktp, kurikulum merdeka, gurudokai";
@@ -35,11 +37,22 @@ const breadcrumbSchema = {
     }
   ]
 };
+
+// Article Schema
+const pageArticleSchema = articleSchema({
+  title,
+  description,
+  url: pageUrl,
+  datePublished: "2026-07-10T00:00:00.000Z",
+  dateModified: "2026-07-10T00:00:00.000Z",
+  author: "Ahmad Saoghi"
+});
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
   <!-- Schema Injection -->
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(pageArticleSchema)} />
 
   <Header />
   <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
@@ -52,23 +65,23 @@ const breadcrumbSchema = {
         </a>
         <div class="flex items-center gap-2 mb-3">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Panduan Praktis</span>
-          <span class="text-xs text-gray-500 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+          <span class="text-xs text-gray-500 font-semibold">Penulis: <a href="/tentang/" class="text-gray-700 hover:underline font-bold">Ahmad Saoghi</a> • 10 Juli 2026</span>
         </div>
         <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
           Cara Menyusun Modul Ajar Sesuai Prinsip Pembelajaran Mendalam (Deep Learning)
         </h1>
         <p class="text-lg text-gray-500 font-medium italic">
-          Menyusun Modul Ajar yang bermutu di era kurikulum terbaru menuntut kita mendesain pengalaman belajar aktif. Berikut adalah panduan taktis menyusun komponennya.
+          Menyusun Modul Ajar Deep Learning dilakukan dengan memfokuskan alur pembelajaran Kurikulum Merdeka pada tiga tahap utama: Apersepsi Bermakna (Mindful), Aktivitas Aktif-Kolaboratif (Meaningful), serta Refleksi Karakter (Joyful).
         </p>
       </div>
 
       <!-- Article Body Content -->
       <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
         <p>
-          Banyak guru menganggap pembuatan <strong>Modul Ajar</strong> sebagai beban administrasi yang melelahkan karena harus menyalin puluhan lembar format kaku. Padahal, inti dari modul ajar adalah memandu jalannya kelas agar murid belajar dengan menyenangkan dan mencapai target kompetensi secara mendalam.
+          Penyusunan <strong>Modul Ajar Deep Learning</strong> dilakukan dengan memfokuskan alur pembelajaran Kurikulum Merdeka pada tiga tahap utama: Apersepsi Bermakna (<em>Mindful Learning</em>), Aktivitas Aktif & Kolaboratif (<em>Meaningful Learning</em>), serta Refleksi Karakter & Pengalaman Menyenangkan (<em>Joyful Learning</em>) yang terintegrasi langsung dengan <a href="/ai-pembuat-lkpd/" class="text-brand-primary hover:underline font-bold">Lembar Kerja Peserta Didik (LKPD)</a> dan rubrik KKTP.
         </p>
         <p>
-          Dengan prinsip <strong>Pembelajaran Mendalam (Deep Learning)</strong> yang digalakkan pemerintah, penyusunan modul ajar kini difokuskan pada tiga tahap utama: Apersepsi Bermakna, Aktivitas Aktif (Kolaboratif), serta Refleksi Karakter.
+          Inti dari modul ajar bukanlah sekadar memenuhi format administratif kaku, melainkan memandu jalannya interaksi di kelas agar murid belajar secara bermakna. Baca juga pemahaman mengenai <a href="/knowledge/apa-itu-rpm/" class="text-brand-primary hover:underline font-bold">Rencana Pembelajaran Mendalam (RPM)</a> sebagai landasan pedagogisnya.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Komponen Wajib Modul Ajar Berbasis Deep Learning</h2>

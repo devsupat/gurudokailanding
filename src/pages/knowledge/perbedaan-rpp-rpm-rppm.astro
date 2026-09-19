@@ -4,6 +4,8 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
+import { articleSchema } from '../../lib/schema';
+
 const title = "Perbedaan Mendasar RPP, RPM, dan RPPM | GuruDokAI";
 const description = "Bingung membedakan berkas RPP, RPM, dan RPPM? Ketahui perbandingan lengkap durasi, fokus pedagogi, dan contoh komponen administrasinya di sini.";
 const keywords = "perbedaan rpp rpm rppm, rpp kurikulum merdeka, rencana pembelajaran mendalam, rppm mingguan, administrasi guru, gurudokai";
@@ -35,11 +37,22 @@ const breadcrumbSchema = {
     }
   ]
 };
+
+// Article Schema
+const pageArticleSchema = articleSchema({
+  title,
+  description,
+  url: pageUrl,
+  datePublished: "2026-07-10T00:00:00.000Z",
+  dateModified: "2026-07-10T00:00:00.000Z",
+  author: "Ahmad Saoghi"
+});
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
   <!-- Schema Injection -->
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(pageArticleSchema)} />
 
   <Header />
   <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
@@ -52,23 +65,23 @@ const breadcrumbSchema = {
         </a>
         <div class="flex items-center gap-2 mb-3">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Administrasi</span>
-          <span class="text-xs text-gray-500 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+          <span class="text-xs text-gray-500 font-semibold">Penulis: <a href="/tentang/" class="text-gray-700 hover:underline font-bold">Ahmad Saoghi</a> • 10 Juli 2026</span>
         </div>
         <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
           Perbedaan Mendasar RPP, RPM, dan RPPM dalam Perangkat Ajar Kurikulum Merdeka
         </h1>
         <p class="text-lg text-gray-500 font-medium italic">
-          Banyak guru masih bingung dengan munculnya istilah baru. Mari kita bahas perbedaan durasi, tujuan utama, dan komponen wajib di antara RPP, RPM, dan RPPM.
+          Perbedaan mendasar RPP, RPM, dan RPPM terletak pada durasi dan fokusnya: RPP berfokus pada langkah mengajar konvensional, RPM berfokus pada 3 pilar Deep Learning, dan RPPM merupakan pemetaan alur mingguan.
         </p>
       </div>
 
       <!-- Article Body Content -->
       <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
         <p>
-          Perkembangan Kurikulum Merdeka dan kebijakan Kemendikdasmen di tahun 2025/2026 mendorong adopsi prinsip <strong>Pembelajaran Mendalam (Deep Learning)</strong>. Dalam implementasi praktisnya, guru-guru di Indonesia diperkenalkan pada dokumen administrasi baru seperti <strong>RPM</strong> dan <strong>RPPM</strong>.
+          Perbedaan mendasar antara RPP, RPM, dan RPPM terletak pada skala cakupan waktu dan fokus fokus pedagogisnya: <strong>RPP</strong> berfokus pada urutan instruksional harian konvensional; <strong>RPM (Rencana Pembelajaran Mendalam)</strong> berfokus pada kedalaman pemahaman siswa melalui 3 pilar Deep Learning (Mindful, Meaningful, Joyful); sedangkan <strong>RPPM</strong> merupakan pemetaan alur kegiatan pembelajaran mendalam dalam skala mingguan.
         </p>
         <p>
-          Namun, apakah berkas RPP lama benar-benar dibuang? Dan bagaimana cara mengaitkannya agar guru tidak mengerjakan administrasi ganda? Simak pemaparannya di bawah ini.
+          Pelajari secara lengkap <a href="/knowledge/apa-itu-rpm/" class="text-brand-primary hover:underline font-bold">konsep dasar Rencana Pembelajaran Mendalam (RPM)</a> serta <a href="/rencana-pembelajaran-mendalam/" class="text-brand-primary hover:underline font-bold">format dan struktur RPM</a> agar penyusunan berkas administrasi mengajar Anda efisien dan saling terhubung tanpa pengerjaan ganda.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Tabel Perbandingan RPP vs RPM vs RPPM</h2>

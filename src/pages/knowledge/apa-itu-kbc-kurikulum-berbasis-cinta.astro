@@ -4,6 +4,8 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
+import { articleSchema } from '../../lib/schema';
+
 const title = "Mengenal Kurikulum Berbasis Cinta (KBC) Madrasah | GuruDokAI";
 const description = "Pelajari konsep Kurikulum Berbasis Cinta (KBC) untuk MI, MTs, MA di Kementerian Agama. Dilengkapi contoh skenario KBC dan cara menyusun modul ajar dengan AI.";
 const keywords = "kurikulum berbasis cinta, apa itu kbc, modul ajar kbc, pembelajaran berbasis cinta, guru madrasah, kemenag, gurudokai";
@@ -35,11 +37,22 @@ const breadcrumbSchema = {
     }
   ]
 };
+
+// Article Schema
+const pageArticleSchema = articleSchema({
+  title,
+  description,
+  url: pageUrl,
+  datePublished: "2026-07-10T00:00:00.000Z",
+  dateModified: "2026-07-10T00:00:00.000Z",
+  author: "Ahmad Saoghi"
+});
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
   <!-- Schema Injection -->
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(pageArticleSchema)} />
 
   <Header />
   <main class="pt-24 pb-12 bg-slate-50 min-h-screen">
@@ -52,23 +65,23 @@ const breadcrumbSchema = {
         </a>
         <div class="flex items-center gap-2 mb-3">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-primary/10 text-brand-primary">Madrasah</span>
-          <span class="text-xs text-gray-500 font-semibold">Terakhir diperbarui: 10 Juli 2026</span>
+          <span class="text-xs text-gray-500 font-semibold">Penulis: <a href="/tentang/" class="text-gray-700 hover:underline font-bold">Ahmad Saoghi</a> • 10 Juli 2026</span>
         </div>
         <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
           Mengenal Kurikulum Berbasis Cinta (KBC) untuk Lingkungan Madrasah Kemenag
         </h1>
         <p class="text-lg text-gray-500 font-medium italic">
-          Bagi para guru madrasah (MI, MTs, MA), implementasi Kurikulum Berbasis Cinta (KBC) membawa pendekatan belajar yang bernapaskan kasih sayang dan akhlak karimah. Mari simak ulasannya.
+          Kurikulum Berbasis Cinta (KBC) adalah pendekatan pembelajaran madrasah yang mengintegrasikan nilai kasih sayang, kehangatan hubungan guru-murid, dan akhlak karimah ke dalam perangkat Kurikulum Merdeka.
         </p>
       </div>
 
       <!-- Article Body Content -->
       <article class="prose max-w-none text-gray-700 leading-relaxed font-semibold space-y-6">
         <p>
-          Kementerian Agama (Kemenag) Republik Indonesia terus berinovasi dalam menguatkan karakteristik murid madrasah. Salah satu pendekatan pedagogi khas yang digulirkan adalah <strong>Kurikulum Berbasis Cinta (KBC)</strong> atau Pembelajaran Berbasis Cinta.
+          <strong>Kurikulum Berbasis Cinta (KBC)</strong> (atau Pembelajaran Berbasis Cinta) adalah pendekatan pedagogi di lingkungan madrasah Kementerian Agama (Kemenag) RI yang mengintegrasikan nilai-nilai kasih sayang, kehangatan interaksi guru-murid, dan akhlak karimah (Rahmatan lil 'Alamin) ke dalam perancangan modul ajar Kurikulum Merdeka di jenjang MI, MTs, dan MA.
         </p>
         <p>
-          Pendekatan ini tidak meniadakan Kurikulum Merdeka nasional, melainkan menyempurnakan dan memperkayanya dengan nuansa spiritual, hubungan penuh kehangatan antara guru dan murid, serta pemikiran islami yang toleran (Rahmatan lil 'Alamin).
+          Pendekatan ini tidak meniadakan Kurikulum Merdeka nasional, melainkan menyempurnakan dan memperkayanya dengan nuansa spiritual serta pola hubungan pendidik-peserta didik yang humanis dan Islami. Pelajari juga <a href="/knowledge/cara-menyusun-modul-ajar-deep-learning/" class="text-brand-primary hover:underline font-bold">cara menyusun modul ajar berbasis Pembelajaran Mendalam</a> untuk melengkapi penerapan KBC di kelas.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Pilar Utama Pembelajaran Berbasis Cinta (KBC)</h2>
