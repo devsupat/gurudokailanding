@@ -7,6 +7,9 @@ import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import TopicGuide from '../components/TopicGuide.astro';
+import { rppGuide } from '../data/topics';
 
 // Custom SEO Meta Data
 const title = "AI Pembuat RPP Otomatis Kurikulum Merdeka | GuruDokAI";
@@ -259,6 +262,49 @@ const faqSchema = {
           </div>
         </div>
 
+        <!-- Deep Dive Topic Section for RPP -->
+        <div class="mt-16 bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8">
+          <div class="border-b border-gray-100 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Struktur & Komponen Utama RPP Kurikulum Merdeka Modern
+            </h3>
+            <p class="text-gray-500 font-semibold mt-2">
+              Bagaimana menyusun Rencana Pelaksanaan Pembelajaran yang efisien tanpa mengorbankan kualitas pedagogis.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">1. Skenario & Model Ajar</div>
+              <h4 class="text-lg font-bold text-gray-900">PBL, PjBL, & Pembelajaran Aktif</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                RPP AI merumuskan sintaks pembelajaran secara presisi: tahap orientasi masalah, kerja kelompok, diskusi reflektif, dan penutup yang menginspirasi.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">2. Prinsip Deep Learning</div>
+              <h4 class="text-lg font-bold text-gray-900">Mindful, Meaningful, & Joyful</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Sesuai penguatan pembelajaran terbaru, RPP dilengkapi dengan pendekatan belajar bermakna agar murid tidak sekadar menghafal materi. Untuk format yang lebih spesifik, gunakan generator <a href="/ai-pembuat-rpm/" class="text-brand-primary hover:underline font-bold">RPM</a> dan <a href="/rppm/" class="text-brand-primary hover:underline font-bold">RPPM</a>.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">3. Asesmen & Lampiran</div>
+              <h4 class="text-lg font-bold text-gray-900">Instrumen KKTP & LKPD</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Setiap RPP yang dihasilkan dilengkapi dengan rubrik penilaian <a href="/generator-kktp/" class="text-brand-primary hover:underline font-bold">KKTP</a> serta lembar kerja <a href="/ai-pembuat-lkpd/" class="text-brand-primary hover:underline font-bold">LKPD interaktif</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-brand-light/30 border border-brand-primary/20 rounded-2xl p-6 text-sm text-gray-700 font-medium">
+            <strong class="text-brand-primary font-bold block mb-1">💡 Tips Guru:</strong>
+            Anda tidak perlu membuat RPP tebal berpuluh-puluh halaman. RPP yang efektif adalah RPP yang ringkas, mudah dipahami saat mengajar di kelas, dan melampirkan instrumen evaluasi yang relevan.
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -314,6 +360,9 @@ const faqSchema = {
     </section>
 
     <!-- Pricing Component -->
+    <!-- Page-specific long-form content -->
+    <TopicGuide guide={rppGuide} />
+
     <Pricing />
 
     <!-- Testimonials Component -->
@@ -326,6 +375,15 @@ const faqSchema = {
     <CTAFinal 
       title="Kurangi Beban Administrasi, Fokus Kembali Mengajar"
       description="Mulai susun RPP Anda secara otomatis hari ini dan dapatkan kembali waktu berharga Anda bersama keluarga."
+    />
+
+    <RelatedLinks
+      heading="Lanjutan dari RPP"
+      links={[
+      { href: "/ai-pembuat-lkpd/", label: "Generator LKPD", note: "Menyiapkan lembar kerja murid untuk pertemuan yang sama." },
+      { href: "/generator-kktp/", label: "Generator KKTP", note: "Menentukan kriteria ketercapaian bagi tujuan pembelajaran di RPP Anda." },
+      { href: "/knowledge/perbedaan-rpp-rpm-rppm/", label: "Perbedaan RPP, RPM, dan RPPM", note: "Memastikan dokumen yang Anda susun sesuai kebutuhan sekolah." },
+      ]}
     />
   </main>
   <Footer />

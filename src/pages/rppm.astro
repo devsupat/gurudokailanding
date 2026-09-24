@@ -7,6 +7,9 @@ import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import TopicGuide from '../components/TopicGuide.astro';
+import { rppmGuide } from '../data/topics';
 
 // Custom SEO Meta Data
 const title = "AI Pembuat RPPM Mingguan Pembelajaran Mendalam | GuruDokAI";
@@ -38,20 +41,28 @@ const breadcrumbSchema = {
 // Custom FAQ for RPPM
 const rppmFaqs = [
   {
-    question: "Apa perbedaan antara RPM dan RPPM?",
-    answer: "<strong>RPM (Rencana Pembelajaran Mendalam)</strong> digunakan untuk perencanaan harian atau per sub-topik spesifik. Sementara <strong>RPPM (Rencana Pelaksanaan Pembelajaran Mendalam)</strong> merupakan pemetaan terstruktur skala mingguan atau per unit pembelajaran yang mengintegrasikan beberapa sub-topik ke dalam alur Pembelajaran Mendalam (Deep Learning) yang berkesinambungan."
+    question: "Apa perbedaan antara RPPM dan RPM harian?",
+    answer: "<strong>RPM (Rencana Pembelajaran Mendalam)</strong> digunakan untuk merancang skenario 1 kali pertemuan tatap muka. Sementara <strong>RPPM (Rencana Pelaksanaan Pembelajaran Mendalam Mingguan)</strong> memetakan alokasi waktu, target materi, dan perkembangan pilar <i>Mindful-Meaningful-Joyful</i> selama 1 pekan penuh agar alur pembelajaran tidak terputus."
+  },
+  {
+    question: "Komponen apa saja yang ada dalam dokumen RPPM?",
+    answer: "Dokumen RPPM yang dihasilkan GuruDokAI mencakup: Identitas Unit Pembelajaran, Capaian Pembelajaran (CP) Unit, Alokasi JP Per Pertemuan, Skenario Integrasi Deep Learning Harian, Indikator Ketercapaian (KKTP), serta Lampiran Lembar Kerja Murid (LKPD)."
   },
   {
     question: "Bagaimana cara membuat RPPM otomatis dengan GuruDokAI?",
-    answer: "Cukup masuk ke platform GuruDokAI, pilih menu generator RPPM, masukkan mata pelajaran, kelas, dan topik umum untuk satu minggu atau satu bab. AI akan menyusun target mingguan lengkap dengan aktivitas dan asesmennya."
+    answer: "Cukup pilih menu generator RPPM, tentukan jenjang sekolah, mata pelajaran, dan nama bab/topik utama mingguan. Sistem AI GuruDokAI akan menghitung alokasi jam pelajaran (JP) dan menyusun draf mingguan dalam waktu kurang dari 90 detik."
   },
   {
     question: "Apakah RPPM hasil generate GuruDokAI dapat disesuaikan untuk kurikulum madrasah?",
-    answer: "Sangat bisa. Kami mendukung penuh kebutuhan madrasah di bawah naungan Kemenag dengan opsi integrasi <strong>Kurikulum Berbasis Cinta (KBC)</strong> dan Pembelajaran Berbasis Cinta."
+    answer: "Sangat bisa. Kami mendukung penuh kebutuhan guru madrasah di bawah naungan Kemenag (MI, MTs, MA) dengan opsi penyelarasan <strong>Kurikulum Berbasis Cinta (KBC)</strong> dan muatan lokal keagamaan."
   },
   {
-    question: "Bisa dalam format apa saja dokumen RPPM diunduh?",
-    answer: "Anda dapat mengekspor dokumen RPPM yang dihasilkan dalam format file Microsoft Word (.docx) yang mudah diedit kembali, maupun format PDF yang siap cetak."
+    question: "Apakah RPPM dilengkapi dengan rubrik penilaian KKTP?",
+    answer: "Ya. Setiap draf RPPM yang selesai dibuat langsung mengintegrasikan kriteria penilaian ketuntasan berupa rubrik KKTP (interval nilai dan deskripsi kualitatif) untuk memantau perkembangan belajar murid."
+  },
+  {
+    question: "Dalam format apa saja dokumen RPPM bisa diunduh?",
+    answer: "Anda dapat mengunduh dokumen RPPM dalam format <strong>Microsoft Word (.docx)</strong> yang fleksibel untuk diedit kembali, serta format <strong>PDF siap cetak</strong>."
   }
 ];
 
@@ -226,10 +237,57 @@ const rppmSteps = [
             </div>
           </div>
         </div>
+
+        <!-- Deep Dive Topic Section for RPPM -->
+        <div class="mt-16 bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8">
+          <div class="border-b border-gray-100 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Panduan Praktis Perencanaan RPPM (Rencana Pelaksanaan Pembelajaran Mendalam Mingguan)
+            </h3>
+            <p class="text-gray-500 font-semibold mt-2">
+              Bagaimana memetakan target kompetensi pekanan secara efektif sesuai alur Pembelajaran Mendalam.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">1. Analisis Unit & Pekan</div>
+              <h4 class="text-lg font-bold text-gray-900">Menentukan Alokasi Waktu</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Tentukan jumlah Jam Pelajaran (JP) dalam 1 pekan. RPPM membagi JP tersebut ke dalam 2-3 pertemuan yang saling terhubung tanpa pengulangan materi monoton.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">2. Integrasi 3 Pilar Deep Learning</div>
+              <h4 class="text-lg font-bold text-gray-900">Mindful, Meaningful, & Joyful</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Setiap hari disesuaikan dengan fokusnya: <em>Mindful</em> untuk orientasi masalah, <em>Meaningful</em> untuk pemecahan kasus nyata, dan <em>Joyful</em> untuk refleksi & kuis interaktif.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">3. Penilaian & Lampiran</div>
+              <h4 class="text-lg font-bold text-gray-900">Asesmen & LKPD Otomatis</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                RPPM yang dihasilkan AI langsung menyertakan lembar penilaian <a href="/generator-kktp/" class="text-brand-primary hover:underline font-bold">KKTP</a> serta <a href="/ai-pembuat-lkpd/" class="text-brand-primary hover:underline font-bold">LKPD murid</a> sehingga siap digunakan saat supervisi.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-brand-light/30 border border-brand-primary/20 rounded-2xl p-6 text-sm text-gray-700 font-medium">
+            <strong class="text-brand-primary font-bold block mb-1">💡 Catatan Pedagogis untuk Guru:</strong>
+            RPPM sangat disarankan untuk guru yang mengampu kelas dengan alokasi jam tatap muka tinggi per pekan (seperti Matematika, Bahasa Indonesia, atau IPAS). Dengan RPPM, fokus pembelajaran tetap terjaga dari hari Senin hingga Jumat. Untuk membaca ulasan konsep lengkapnya, baca artikel <a href="/knowledge/perbedaan-rpp-rpm-rppm/" class="text-brand-primary hover:underline font-bold">Perbedaan Mendasar RPP, RPM, dan RPPM</a>.
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- Pricing Section -->
+    <!-- Page-specific long-form content -->
+    <TopicGuide guide={rppmGuide} />
+
     <Pricing />
 
     <!-- Testimonials Section -->
@@ -240,6 +298,15 @@ const rppmSteps = [
 
     <!-- CTA Section -->
     <CTAFinal />
+
+    <RelatedLinks
+      heading="Lanjutan dari RPPM"
+      links={[
+      { href: "/ai-pembuat-rpm/", label: "Generator RPM", note: "Menurunkan rencana pekanan menjadi rencana per pertemuan." },
+      { href: "/ai-pembuat-lkpd/", label: "Generator LKPD", note: "Menyiapkan lembar kerja untuk kegiatan harian di pekan tersebut." },
+      { href: "/knowledge/perbedaan-rpp-rpm-rppm/", label: "Perbedaan RPP, RPM, dan RPPM", note: "Memahami posisi RPPM di antara dokumen perencanaan lain." },
+      ]}
+    />
   </main>
   <Footer />
 </BaseLayout>

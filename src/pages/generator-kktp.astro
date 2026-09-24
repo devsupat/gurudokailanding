@@ -7,6 +7,9 @@ import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import TopicGuide from '../components/TopicGuide.astro';
+import { kktpGuide } from '../data/topics';
 
 // Custom SEO Meta Data
 const title = "Generator KKTP & IKTP Otomatis Berbasis AI | GuruDokAI";
@@ -39,19 +42,27 @@ const breadcrumbSchema = {
 const kktpFaqs = [
   {
     question: "Apa itu KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)?",
-    answer: "<strong>KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)</strong> adalah kriteria atau indikator yang menunjukkan sejauh mana murid telah mencapai kompetensi pada Tujuan Pembelajaran (TP) tertentu. KKTP menggantikan KKM (Kriteria Ketuntasan Minimal) pada kurikulum sebelumnya."
+    answer: "<strong>KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)</strong> adalah rangkaian kriteria atau indikator kualitatif yang menunjukkan tingkat penguasaan murid terhadap <strong>Tujuan Pembelajaran (TP)</strong>. KKTP menggantikan sistem KKM tunggal agar penilaian lebih bermakna dan berorientasi pada proses."
   },
   {
-    question: "Metode apa saja yang didukung oleh Generator KKTP GuruDokAI?",
-    answer: "Sistem kami mendukung 3 metode utama penilaian Kurikulum Merdeka: <strong>1. Deskripsi Kriteria</strong> (menggunakan penjelasan kualitas performa murid), <strong>2. Rubrik Deskriptif</strong> (menggunakan level kemampuan: mulai berkembang, layak, cakap, mahir), dan <strong>3. Interval Nilai</strong> (menggunakan angka persentase kelulusan)."
+    question: "Metode penilaian KKTP apa saja yang didukung oleh GuruDokAI?",
+    answer: "GuruDokAI mendukung 3 pendekatan resmi Kurikulum Merdeka: <strong>1. Rubrik Deskriptif</strong> (level Baru Berkembang s.d. Mahir), <strong>2. Deskripsi Kriteria</strong> (checklist ketercapaian esensial), dan <strong>3. Interval Nilai</strong> (persentase kelulusan beserta tindak lanjutnya)."
   },
   {
     question: "Bagaimana cara menyelaraskan KKTP dengan RPP, RPM, dan RPPM?",
-    answer: "GuruDokAI secara otomatis menyinkronkan kriteria evaluasi KKTP dengan tujuan pembelajaran yang ada pada draf <strong>RPP/RPM (Rencana Pembelajaran Mendalam)</strong> dan <strong>RPPM</strong> Anda agar sinkron dan valid."
+    answer: "GuruDokAI secara otomatis menyinkronkan indikator KKTP dengan rumusan TP yang tertera pada draf <a href='/ai-pembuat-rpp/'>RPP</a>, <a href='/ai-pembuat-rpm/'>RPM</a>, atau <a href='/rppm/'>RPPM</a> Anda sehingga tidak terjadi ketidaksesuaian saat supervisi."
   },
   {
-    question: "Apakah asisten AI GuruDokAI menyediakan saran remedial?",
-    answer: "Ya. Setiap rubrik KKTP yang dihasilkan juga dilengkapi dengan rekomendasi tindak lanjut intervensi, baik untuk program pengayaan (murid mahir) maupun program remedial (murid berkembang)."
+    question: "Apakah Generator KKTP memberikan rekomendasi remedial dan pengayaan?",
+    answer: "Ya. Setiap rubrik yang dihasilkan melampirkan rekomendasi intervensi diagnostik: aktivitas remedial khusus untuk murid yang berada di interval rendah (< 75%) dan aktivitas pengayaan Tantangan HOTS untuk murid kategori Mahir."
+  },
+  {
+    question: "Apakah rubrik KKTP ini cocok untuk guru SD, SMP, SMA, dan SMK?",
+    answer: "Sangat cocok. Anda cukup memilih jenjang dan mata pelajaran, lalu sistem AI akan merumuskan kata kerja operasional (KKO) yang pas dengan tingkat perkembangan murid di jenjang tersebut."
+  },
+  {
+    question: "Dapatkah hasil rubrik KKTP diekspor ke Microsoft Word?",
+    answer: "Tentu saja. Dokumen KKTP dapat diekspor langsung ke format <strong>Microsoft Word (.docx)</strong> dan <strong>PDF</strong> yang siap dilampirkan ke dalam jurnal mengajar atau buku nilai guru."
   }
 ];
 
@@ -223,10 +234,57 @@ const kktpSteps = [
             </div>
           </div>
         </div>
+
+        <!-- Deep Dive Topic Section for KKTP -->
+        <div class="mt-16 bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8">
+          <div class="border-b border-gray-100 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Panduan Praktis Menyusun KKTP (Kriteria Ketercapaian Tujuan Pembelajaran)
+            </h3>
+            <p class="text-gray-500 font-semibold mt-2">
+              Bagaimana memilih pendekatan rubrik dan menentukan batas ketuntasan belajar secara objektif.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">1. Pilih Pendekatan Rubrik</div>
+              <h4 class="text-lg font-bold text-gray-900">Deskriptif vs Interval</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Gunakan <strong>Rubrik Deskriptif</strong> untuk penilaian proyek/kinerja (Baru Berkembang s.d. Mahir). Gunakan <strong>Interval Nilai</strong> jika instrumen evaluasi berupa tes tertulis pilihan ganda/esai.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">2. Sinkronisasi TP & ATP</div>
+              <h4 class="text-lg font-bold text-gray-900">Integrasi Alur Pembelajaran</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Setiap indikator KKTP diturunkan dari rumusan <a href="/generator-tp/" class="text-brand-primary hover:underline font-bold">TP</a> dan disusun berdasarkan urutan <a href="/generator-atp/" class="text-brand-primary hover:underline font-bold">ATP</a> agar penilaian komprehensif.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">3. Rencana Tindak Lanjut</div>
+              <h4 class="text-lg font-bold text-gray-900">Remedial & Pengayaan</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                KKTP GuruDokAI otomatis menyajikan draf intervensi: bantuan tutor sebaya bagi siswa yang belum tuntas dan tugas tantangan HOTS untuk siswa kategori Mahir.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-brand-light/30 border border-brand-primary/20 rounded-2xl p-6 text-sm text-gray-700 font-medium">
+            <strong class="text-brand-primary font-bold block mb-1">💡 Tips Penilaian Kurikulum Merdeka:</strong>
+            Hindari menetapkan satu angka kelulusan kaku untuk seluruh murid. Manfaatkan rubrik deskriptif KKTP untuk memberikan umpan balik (feedback) konstruktif bagi perkembangan tiap anak.
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- Pricing Section -->
+    <!-- Page-specific long-form content -->
+    <TopicGuide guide={kktpGuide} />
+
     <Pricing />
 
     <!-- Testimonials Section -->
@@ -237,6 +295,15 @@ const kktpSteps = [
 
     <!-- CTA Section -->
     <CTAFinal />
+
+    <RelatedLinks
+      heading="Dokumen yang berkaitan dengan KKTP"
+      links={[
+      { href: "/generator-tp/", label: "Generator TP", note: "Menyiapkan rumusan tujuan yang menjadi acuan kriteria." },
+      { href: "/ai-pembuat-lkpd/", label: "Generator LKPD", note: "Menyediakan hasil kerja murid sebagai bukti penilaian." },
+      { href: "/generator-modul-ajar/", label: "Generator Modul Ajar", note: "Menyatukan kriteria penilaian dengan rencana pembelajaran." },
+      ]}
+    />
   </main>
   <Footer />
 </BaseLayout>

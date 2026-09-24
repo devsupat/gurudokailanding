@@ -1,0 +1,72 @@
+---
+import type { TopicGuide } from '../data/topics';
+
+interface Props {
+  guide: TopicGuide;
+}
+
+const { guide } = Astro.props;
+---
+<section id="panduan" class="py-20 bg-white border-t border-slate-100 scroll-mt-16" aria-labelledby="panduan-heading">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-14 space-y-4">
+      <h2 id="panduan-heading" class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+        {guide.heading}
+      </h2>
+      <p class="text-lg text-gray-600 font-medium leading-relaxed">{guide.lede}</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-x-16 gap-y-14 items-start">
+
+      <!-- Editorial column: substantive prose about the topic -->
+      <div class="space-y-10">
+        {guide.sections.map((section) => (
+          <article class="space-y-3">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">{section.title}</h3>
+            {section.paragraphs.map((p) => (
+              <p class="text-base text-gray-600 leading-relaxed font-medium" set:html={p} />
+            ))}
+          </article>
+        ))}
+
+        <article class="border-l-2 border-brand-primary/40 pl-5 sm:pl-6 space-y-3">
+          <h3 class="text-lg font-bold text-gray-900">{guide.example.title}</h3>
+          <ul class="space-y-2">
+            {guide.example.lines.map((line) => (
+              <li class="text-sm sm:text-base text-gray-600 leading-relaxed font-medium" set:html={line} />
+            ))}
+          </ul>
+        </article>
+      </div>
+
+      <!-- Reference column: structure + required inputs -->
+      <div class="space-y-10 lg:sticky lg:top-24">
+        <div class="space-y-4">
+          <h3 class="text-sm font-extrabold tracking-widest uppercase text-brand-primary">{guide.structureHeading}</h3>
+          <dl class="divide-y divide-slate-200 border-y border-slate-200">
+            {guide.structure.map((item) => (
+              <div class="py-4">
+                <dt class="text-sm font-extrabold text-gray-900">{item.term}</dt>
+                <dd class="text-sm text-gray-600 leading-relaxed font-medium mt-1" set:html={item.detail} />
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-sm font-extrabold tracking-widest uppercase text-brand-primary">{guide.inputsHeading}</h3>
+          <ul class="space-y-2.5">
+            {guide.inputs.map((input) => (
+              <li class="flex gap-3 text-sm text-gray-600 font-medium leading-relaxed">
+                <span aria-hidden="true" class="mt-2 h-1.5 w-1.5 rounded-full bg-brand-primary shrink-0"></span>
+                <span set:html={input} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

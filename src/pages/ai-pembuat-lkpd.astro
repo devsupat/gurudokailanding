@@ -8,6 +8,9 @@ import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import TopicGuide from '../components/TopicGuide.astro';
+import { lkpdGuide } from '../data/topics';
 
 // Custom SEO Meta Data
 const title = "AI Pembuat LKPD Otomatis Kurikulum Merdeka | GuruDokAI";
@@ -211,6 +214,49 @@ const lkpdSteps = [
           </div>
         </div>
 
+        <!-- Deep Dive Topic Section for LKPD -->
+        <div class="mt-16 bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8">
+          <div class="border-b border-gray-100 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Ragam Bentuk LKPD & Panduan Pembuatannya
+            </h3>
+            <p class="text-gray-500 font-semibold mt-2">
+              Bagaimana merancang Lembar Kerja Murid yang mengaktifkan interaksi di kelas fisik.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">1. LKPD Praktikum & Eksperimen</div>
+              <h4 class="text-lg font-bold text-gray-900">Panduan Langkah Praktikum</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Cocok untuk mata pelajaran IPA, Biologi, Fisika, dan IPAS. Menyajikan alat & bahan, prosedur kerja, tabel pengamatan data, dan analisis hasil percobaan.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">2. LKPD Diskusi Kelompok (PBL)</div>
+              <h4 class="text-lg font-bold text-gray-900">Studi Kasus & Pemecahan Masalah</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Memandu murid dalam membedah kasus nyata sosial/lingkungan. Murid diajak merumuskan hipotesis, mendiskusikan solusi, dan mempresentasikan hasil.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">3. LKPD Mandiri & Latihan Soal</div>
+              <h4 class="text-lg font-bold text-gray-900">Uji Pemahaman HOTS</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Menyediakan variasi latihan soal tingkat pemahaman mendalam dilengkapi dengan lembar kunci jawaban terpisah di bagian akhir untuk kemudahan mengoreksi.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-brand-light/30 border border-brand-primary/20 rounded-2xl p-6 text-sm text-gray-700 font-medium">
+            <strong class="text-brand-primary font-bold block mb-1">🔗 Integrasi Perangkat Pembelajaran:</strong>
+            LKPD yang dibuat langsung menyertakan tautan penilaian indikator <a href="/generator-kktp/" class="text-brand-primary hover:underline font-bold">KKTP</a> dan dapat dilampirkan langsung pada draf <a href="/ai-pembuat-rpp/" class="text-brand-primary hover:underline font-bold">RPP Kurikulum Merdeka</a>, <a href="/ai-pembuat-rpm/" class="text-brand-primary hover:underline font-bold">RPM</a>, atau <a href="/generator-modul-ajar/" class="text-brand-primary hover:underline font-bold">Modul Ajar</a> Anda.
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -266,6 +312,9 @@ const lkpdSteps = [
     </section>
 
     <!-- Pricing Component -->
+    <!-- Page-specific long-form content -->
+    <TopicGuide guide={lkpdGuide} />
+
     <Pricing />
 
     <!-- Testimonials Component -->
@@ -278,6 +327,15 @@ const lkpdSteps = [
     <CTAFinal 
       title="Buat Lembar Kerja Siswa Menarik dalam Hitungan Detik"
       description="Mulailah mendesain lembar kerja siswa yang kreatif dan terstruktur bersama GuruDokAI sekarang."
+    />
+
+    <RelatedLinks
+      heading="Perangkat pendamping LKPD"
+      links={[
+      { href: "/ai-pembuat-rpp/", label: "AI Pembuat RPP", note: "Menyusun rencana pertemuan yang menaungi kegiatan LKPD." },
+      { href: "/generator-modul-ajar/", label: "Generator Modul Ajar", note: "Menggabungkan LKPD dengan bahan ajar dan asesmen dalam satu dokumen." },
+      { href: "/generator-kktp/", label: "Generator KKTP", note: "Menilai hasil kerja murid dengan kriteria yang jelas." },
+      ]}
     />
   </main>
   <Footer />

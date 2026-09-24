@@ -8,6 +8,9 @@ import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import TopicGuide from '../components/TopicGuide.astro';
+import { modulGuide } from '../data/topics';
 
 // Custom SEO Meta Data
 const title = "Generator Modul Ajar Kurikulum Merdeka Otomatis | GuruDokAI";
@@ -224,6 +227,49 @@ const modulSteps = [
           </div>
         </div>
 
+        <!-- Deep Dive Topic Section for Modul Ajar -->
+        <div class="mt-16 bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8">
+          <div class="border-b border-gray-100 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Panduan Penyusunan Modul Ajar Kurikulum Merdeka
+            </h3>
+            <p class="text-gray-500 font-semibold mt-2">
+              Langkah-langkah menyusun Modul Ajar yang fleksibel, berdiferensiasi, dan siap pakai.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">1. Analisis Pembelajaran Berdiferensiasi</div>
+              <h4 class="text-lg font-bold text-gray-900">Penyesuaian Kebutuhan Murid</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Modul Ajar dirancang mengakomodasi kesiapan belajar murid (diferensiasi konten, proses, dan produk) agar pembelajaran merata bagi seluruh kelas.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">2. Asesmen Diagnostik & Formatif</div>
+              <h4 class="text-lg font-bold text-gray-900">Penilaian Berkelanjutan</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Melampirkan tes diagnostik awal untuk mengukur pemahaman awal serta rubrik <a href="/generator-kktp/" class="text-brand-primary hover:underline font-bold">KKTP</a> untuk memantau perkembangan harian murid.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="text-brand-primary font-bold text-sm uppercase tracking-wider">3. Kelengkapan Bahan & LKPD</div>
+              <h4 class="text-lg font-bold text-gray-900">Perangkat Ajar Komprehensif</h4>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Selain draf modul utama, Anda langsung mendapatkan lampiran <a href="/ai-pembuat-lkpd/" class="text-brand-primary hover:underline font-bold">LKPD siswa</a>, lembar bacaan guru, serta daftar glosarium istilah penting.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-brand-light/30 border border-brand-primary/20 rounded-2xl p-6 text-sm text-gray-700 font-medium">
+            <strong class="text-brand-primary font-bold block mb-1">🔗 Bacaan Terkait untuk Guru:</strong>
+            Untuk panduan langkah demi langkah sesuai prinsip penguatan pembelajaran terbaru, baca artikel <a href="/knowledge/cara-menyusun-modul-ajar-deep-learning/" class="text-brand-primary hover:underline font-bold">Cara Menyusun Modul Ajar Deep Learning</a>. Jika membutuhkan versi per tatap muka yang lebih cepat, gunakan generator <a href="/ai-pembuat-rpp/" class="text-brand-primary hover:underline font-bold">RPP</a> atau <a href="/ai-pembuat-rpm/" class="text-brand-primary hover:underline font-bold">RPM</a>.
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -279,6 +325,9 @@ const modulSteps = [
     </section>
 
     <!-- Pricing Component -->
+    <!-- Page-specific long-form content -->
+    <TopicGuide guide={modulGuide} />
+
     <Pricing />
 
     <!-- Testimonials Component -->
@@ -291,6 +340,15 @@ const modulSteps = [
     <CTAFinal 
       title="Selesaikan Modul Ajar 1 Semester dalam 10 Menit"
       description="Gunakan kecerdasan buatan GuruDokAI untuk merancang perangkat modul ajar terlengkap tanpa pusing."
+    />
+
+    <RelatedLinks
+      heading="Bagian lain dari perangkat ajar"
+      links={[
+      { href: "/generator-atp/", label: "Generator ATP", note: "Menentukan urutan tujuan pembelajaran sebelum modul disusun." },
+      { href: "/ai-pembuat-lkpd/", label: "Generator LKPD", note: "Melengkapi lampiran kegiatan murid pada modul Anda." },
+      { href: "/knowledge/cara-menyusun-modul-ajar-deep-learning/", label: "Menyusun modul ajar pembelajaran mendalam", note: "Panduan penyusunan modul dengan penekanan pemahaman murid." },
+      ]}
     />
   </main>
   <Footer />
