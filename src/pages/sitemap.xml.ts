@@ -1,11 +1,12 @@
 import type { APIRoute } from 'astro';
 import { SITE } from '../lib/schema';
 import { makeLastmod } from '../lib/lastmod.mjs';
+import lastmodSnapshot from '../data/lastmod.json';
 
 // Routes are derived from the page files themselves, so the sitemap can no
 // longer drift from what actually builds (the hand-kept public/sitemap.xml
 // carried lastmod dates two months older than the pages).
-const lastmod = makeLastmod();
+const lastmod = makeLastmod(undefined, lastmodSnapshot);
 
 const routes = Object.keys(import.meta.glob('./**/*.astro'))
   .filter((f) => f !== './404.astro')

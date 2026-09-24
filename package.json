@@ -7,8 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/gen-lastmod.mjs",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "node scripts/lastmod.test.mjs",
     "astro": "astro"
   },
   "dependencies": {

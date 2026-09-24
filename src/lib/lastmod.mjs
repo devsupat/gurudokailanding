@@ -10,10 +10,15 @@ const runGit = (args) =>
  * `git log -1` — with the single commit's date, for every file. That looks
  * valid and is a lie, so shallow is a hard stop: no lastmod beats a wrong one.
  *
+ * Which is exactly where every production build lands, so a snapshot committed
+ * by `scripts/gen-lastmod.mjs` stands in there. Git still wins when its history
+ * is real: the snapshot can only be as fresh as the last local build.
+ *
  * @param {(args: string[]) => string} [git] injectable runner, for tests
+ * @param {Record<string, string>} [snapshot] committed per-file dates, used when git cannot answer
  * @returns {(file: string) => string | null}
  */
-export function makeLastmod(git = runGit) {
+export function makeLastmod(git = runGit, snapshot = {}) {
   let usable; // lazy: one `git rev-parse` per build, not per file
   const isUsable = () => {
     if (usable === undefined) {
@@ -26,13 +31,15 @@ export function makeLastmod(git = runGit) {
     return usable;
   };
 
+  const valid = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(d ?? '') ? d : null);
+  const fromSnapshot = (file) => valid(snapshot[file]);
+
   return (file) => {
-    if (!isUsable()) return null;
+    if (!isUsable()) return fromSnapshot(file);
     try {
-      const d = git(['log', '-1', '--format=%cs', '--', file]);
-      return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : null;
+      return valid(git(['log', '-1', '--format=%cs', '--', file])) ?? fromSnapshot(file);
     } catch {
-      return null;
+      return fromSnapshot(file);
     }
   };
 }

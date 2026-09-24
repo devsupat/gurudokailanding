@@ -37,6 +37,55 @@ const counting = makeLastmod((args) => {
 counting('a.astro'); counting('b.astro'); counting('c.astro');
 assert.equal(revParseCalls, 1);
 
+// --- committed snapshot fallback (what production builds actually use) ---
+const snap = { 'src/pages/index.astro': '2026-09-19' };
+
+// F: shallow -> snapshot answers instead of null
+assert.equal(makeLastmod(stub('true', '2026-09-14'), snap)('src/pages/index.astro'), '2026-09-19');
+
+// G: git unavailable -> snapshot answers
+assert.equal(makeLastmod(stub(new Error('ENOENT'), ''), snap)('src/pages/index.astro'), '2026-09-19');
+
+// H: real history wins over a staler snapshot
+assert.equal(makeLastmod(stub('false', '2026-09-24'), snap)('src/pages/index.astro'), '2026-09-24');
+
+// I: file missing from the snapshot -> still null, never a guess
+assert.equal(makeLastmod(stub('true', '2026-09-14'), snap)('src/pages/fitur.astro'), null);
+
+// J: garbage in the snapshot is rejected like garbage from git
+assert.equal(
+  makeLastmod(stub('true', ''), { 'src/pages/index.astro': 'yesterday' })('src/pages/index.astro'),
+  null
+);
+
+// K: full repo, git errors on one file -> snapshot covers it
+assert.equal(makeLastmod(stub('false', new Error('fatal')), snap)('src/pages/index.astro'), '2026-09-19');
+
+// L: no snapshot passed -> old behaviour, no crash
+assert.equal(makeLastmod(stub('true', '2026-09-14'))('src/pages/index.astro'), null);
+
+// The shipped snapshot must cover every page that builds, or production
+// sitemaps silently lose lastmod for the pages it misses.
+{
+  const { readFileSync, readdirSync, statSync } = await import('node:fs');
+  const { join } = await import('node:path');
+  const shipped = JSON.parse(readFileSync('src/data/lastmod.json', 'utf8'));
+  const pages = [];
+  (function walk(dir) {
+    for (const e of readdirSync(dir)) {
+      const p = join(dir, e);
+      if (statSync(p).isDirectory()) walk(p);
+      else if (e.endsWith('.astro')) pages.push(p.split('\\').join('/'));
+    }
+  })('src/pages');
+  const missing = pages.filter((p) => !shipped[p]);
+  assert.deepEqual(missing, [], `snapshot missing pages: ${missing}`);
+  assert.ok(
+    Object.values(shipped).every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)),
+    'snapshot holds a non-date value'
+  );
+}
+
 // Real git, no stub: this repo is a full clone, so dates must differ per file
 if (execFileSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).trim() === 'false') {
   const real = makeLastmod();

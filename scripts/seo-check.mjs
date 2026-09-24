@@ -75,6 +75,12 @@ for (const p of pages) {
     if (/^(https?:|mailto:|tel:|#)/.test(href)) continue;
     const [path] = href.split('#');
     if (!path) continue;
+    // A link to a real asset (/llms.txt, /og-image.png) is a file, not a route:
+    // it neither takes a trailing slash nor appears in the page list.
+    if (/\.[a-z0-9]+$/i.test(path)) {
+      if (!existsSync(join(dist, path.slice(1)))) err(p.route, `broken asset link: ${href}`);
+      continue;
+    }
     if (!path.endsWith('/')) err(p.route, `internal link without trailing slash: ${href}`);
     if (!routes.has(path)) err(p.route, `broken internal link: ${href}`);
     else if (path !== p.route) inbound.get(path).add(p.route);
